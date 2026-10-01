@@ -61,7 +61,7 @@ Open the ten tool URLs and the new pages in a browser and try each tool once. If
 ## 4. Rollback
 
 - **Quickest: Cloudflare dashboard** → Workers & Pages → `letterpile` → Deployments → roll back to the previous version.
-- **Fallback: git tag**: `git checkout live-before-upgrade`, then deploy those files the old way (that commit's `wrangler.jsonc` uploads the whole folder, as before). Return with `git checkout -` afterwards.
+- **Fallback: git tag** (create it once with `git tag live-before-upgrade 25944fa` if `git tag` doesn't list it): `git checkout live-before-upgrade`, then deploy those files the old way (that commit's `wrangler.jsonc` uploads the whole folder, as before). Return with `git checkout -` afterwards.
 
 ## 5. Dashboard tasks (Claude Code cannot do these)
 

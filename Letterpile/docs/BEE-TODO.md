@@ -3,6 +3,7 @@
 Things only Bee can do, or must decide. Ordered roughly by when they matter.
 
 ## Before the first deploy
+0. **Create the rollback tag on your PC** (the cloud session could not push tags): `git fetch origin` then `git tag live-before-upgrade 25944fa`. It marks the live site as it was before the upgrade; `npm run regression` helpers, `npm run wordlist:diff` and the rollback steps use it.
 1. **Fill in `site.config.json`**: `operatorName` (how you want to be named on About/Privacy/Terms), `contactEmail` (an address you check), `governingLaw` (suggested: "New Zealand"). Then `npm run build` and `npm run check:deploy` must print OK. Every `TODO-BEE:` comment in the built HTML points here.
 2. **Read `docs/WORDLIST-DIFF.md`** and confirm you're happy that ~101,800 words disappear from the tools (including `qi` and `za`) and the Wordle pool shrinks from 12,578 to 8,636 five-letter words.
 3. **About page, "How this site is made"**: rewrite or approve the paragraph (`content/pages/about.mjs`).

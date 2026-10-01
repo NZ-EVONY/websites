@@ -2,7 +2,7 @@
 
 **Current phase: Phase 1 complete. Waiting for Bee to type "continue" before Phase 2.** Nothing has been deployed.
 
-Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`). Rollback tag: `live-before-upgrade` (commit `25944fa`).
+Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`). Rollback tag: `live-before-upgrade` (commit `25944fa`). The tag exists in the cloud session but **could not be pushed** (git proxy refused tag pushes); create it locally with `git tag live-before-upgrade 25944fa`.
 
 ## How to resume
 1. Read `CLAUDE.md`, this file, `docs/DECISIONS.md`, `docs/UNVERIFIED.md`.
