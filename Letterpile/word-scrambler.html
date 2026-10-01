@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Scrambler: Jumble Words and Sentences | Letterpile</title>
+  <meta name="description" content="Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='6' fill='%23f3dfb4'/><rect x='2' y='26' width='28' height='4' rx='2' fill='%23d7bd86'/><text x='16' y='23' font-family='monospace' font-weight='800' font-size='20' text-anchor='middle' fill='%233a2e18'>L</text></svg>">
+</head>
+<body data-page="scrambler">
+  <div class="layout wrap">
+    <main class="content" id="main">
+      <div class="panel">
+        <h1 class="page-title">Word Scrambler</h1>
+        <p class="lede">Mix up the letters in a word, a sentence or a whole passage. Handy for making puzzles, classroom worksheets and party games.</p>
+        <form class="tool-form" id="form">
+          <label class="field"><span>Your text</span><textarea id="text" placeholder="Type or paste words to scramble" required>Letters are more fun when they are out of order</textarea></label>
+          <div class="row" style="align-items:end">
+            <label class="field"><span>Style</span>
+              <select id="mode">
+                <option value="words">Scramble each word</option>
+                <option value="ends">Keep first &amp; last letter</option>
+                <option value="all">Mix all letters in the text</option>
+                <option value="order">Shuffle word order</option>
+                <option value="reverse">Reverse each word</option>
+              </select>
+            </label>
+            <label class="field" style="flex:0 1 120px"><span>Versions</span><select id="count"><option>1</option><option>3</option><option>5</option><option>10</option></select></label>
+            <button class="btn" type="submit">Scramble</button>
+            <button class="btn secondary" type="button" id="copy">Copy</button>
+          </div>
+        </form>
+        <div class="results" id="results" aria-live="polite"></div>
+
+        <hr style="border:0;border-top:1px solid var(--line);margin:28px 0 20px">
+        <h2 style="margin:0 0 4px;font-size:22px">Unscramble challenge</h2>
+        <p class="hint" style="margin-bottom:14px">We scramble a word, you work it out. Any real word that uses every tile counts.</p>
+        <div class="row" style="align-items:center;margin-bottom:14px">
+          <label class="toolbar" style="margin:0"><label>Difficulty
+            <select id="level"><option value="4-5">Easy (4–5)</option><option value="6-7" selected>Medium (6–7)</option><option value="8-10">Hard (8–10)</option></select></label></label>
+          <span class="hint" id="streak" style="margin-left:auto">Solved: 0 · Streak: 0</span>
+        </div>
+        <div class="tiles" id="puzzle" aria-live="polite"></div>
+        <form class="row" id="guessForm" style="margin-top:14px" autocomplete="off">
+          <input class="big-input" id="guess" type="text" placeholder="Your answer" aria-label="Your answer" style="flex:1 1 200px">
+          <button class="btn" type="submit">Check</button>
+          <button class="btn secondary" type="button" id="hint">Hint</button>
+          <button class="btn secondary" type="button" id="reshuffle">Shuffle</button>
+          <button class="btn secondary" type="button" id="skip">New word</button>
+        </form>
+        <p id="feedback" class="hint" style="margin-top:10px;min-height:1.6em"></p>
+      </div>
+      <article class="prose">
+        <h2>Scrambling styles</h2>
+        <table>
+          <tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
+          <tr><td>Scramble each word</td><td><code>zpuzle</code></td><td>Word jumbles and worksheets</td></tr>
+          <tr><td>Keep first &amp; last letter</td><td><code>pzzule</code></td><td>The “you can still read this” effect</td></tr>
+          <tr><td>Mix all letters</td><td>letters cross word boundaries</td><td>Hard mode, or making anagram puzzles</td></tr>
+          <tr><td>Shuffle word order</td><td>sentence order changes</td><td>Grammar and sentence-building exercises</td></tr>
+          <tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
+        </table>
+        <p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were.</p>
+        <h2>Why keeping the ends works</h2>
+        <p>Fluent readers take in the outline of a word as much as its letter order, so a word that starts and ends correctly is often readable even when the middle is chaos. It works best on short, familiar words and breaks down fast on long or unusual ones.</p>
+      </article>
+    </main>
+    <aside class="sidebar" id="sidebar">
+      <section class="panel tip"><h2>Tip</h2><p>Want printable puzzles? Choose <b>Versions: 10</b>, copy the lot, and paste into your document. Every version is shuffled differently.</p></section>
+    </aside>
+  </div>
+  <script src="assets/engine.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const { $, esc, toast } = UI;
+
+    $("#form").addEventListener("submit", e => {
+      e.preventDefault();
+      const text = $("#text").value, mode = $("#mode").value, n = +$("#count").value;
+      const outs = Array.from({ length: n }, () => Engine.scrambleText(text, mode));
+      $("#results").innerHTML = outs.map((o, i) =>
+        `<div class="panel" style="box-shadow:none;margin-bottom:10px;padding:14px 16px;font-size:18px;font-family:var(--mono);white-space:pre-wrap">${n > 1 ? `<span class="hint">#${i + 1}</span> ` : ""}${esc(o)}</div>`).join("");
+    });
+    $("#copy").addEventListener("click", async () => {
+      const text = [...document.querySelectorAll("#results .panel")].map(p => p.textContent.replace(/^#\d+ /, "")).join("\n");
+      if (!text) return toast("Scramble something first");
+      try { await navigator.clipboard.writeText(text); toast("Copied"); } catch { toast("Couldn't copy"); }
+    });
+    $("#form").requestSubmit();
+
+    // ---- challenge ----
+    let answer = "", shown = "", revealed = 0, solved = 0, streak = 0;
+    const drawTiles = () => {
+      $("#puzzle").innerHTML = [...shown].map((ch, i) => `<span${i < revealed ? ' style="outline:2px solid var(--good)"' : ""}>${ch}<sub>${Engine.SCHEMES.scrabble.values[ch]}</sub></span>`).join("");
+    };
+    function newPuzzle() {
+      const [min, max] = $("#level").value.split("-").map(Number);
+      answer = Engine.randomWord({ min, max });
+      shown = Engine.scrambleWord(answer);
+      revealed = 0;
+      $("#feedback").textContent = "";
+      $("#guess").value = "";
+      drawTiles();
+    }
+    const sameLetters = (a, b) => [...a].sort().join("") === [...b].sort().join("");
+    $("#guessForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const g = $("#guess").value.toLowerCase().replace(/[^a-z]/g, "");
+      if (!g) return;
+      if (sameLetters(g, answer) && Engine.isWord(g)) {
+        solved++; streak++;
+        $("#feedback").innerHTML = `<b style="color:var(--good)">Correct!</b> ${g === answer ? "" : `(We were thinking of <b>${answer.toUpperCase()}</b>, but yours counts.)`} Next one coming up…`;
+        $("#streak").textContent = `Solved: ${solved} · Streak: ${streak}`;
+        setTimeout(newPuzzle, 1400);
+      } else {
+        $("#feedback").innerHTML = sameLetters(g, answer) ? "Right letters, but that's not in our dictionary." : "Not quite. Use every tile exactly once.";
+      }
+    });
+    $("#hint").addEventListener("click", () => {
+      if (revealed >= answer.length - 1) return;
+      revealed++;
+      // Rebuild so the first `revealed` tiles spell the start of the answer.
+      const rest = [...answer.slice(revealed)];
+      shown = answer.slice(0, revealed) + Engine.shuffle(rest).join("");
+      streak = 0;
+      $("#streak").textContent = `Solved: ${solved} · Streak: ${streak}`;
+      drawTiles();
+    });
+    $("#reshuffle").addEventListener("click", () => {
+      shown = answer.slice(0, revealed) + Engine.shuffle([...shown.slice(revealed)]).join("");
+      drawTiles();
+    });
+    $("#skip").addEventListener("click", () => {
+      if (answer) $("#feedback").innerHTML = `The word was <b>${answer.toUpperCase()}</b>.`;
+      streak = 0;
+      $("#streak").textContent = `Solved: ${solved} · Streak: ${streak}`;
+      setTimeout(newPuzzle, answer ? 1200 : 0);
+    });
+    $("#level").addEventListener("change", newPuzzle);
+    $("#puzzle").innerHTML = `<p class="loading">Loading words…</p>`;
+    Engine.load().then(newPuzzle, e => { $("#puzzle").innerHTML = `<p class="error">${esc(e.message)}</p>`; });
+  </script>
+</body>
+</html>

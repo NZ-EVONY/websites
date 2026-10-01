@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wordle Solver: Possible Answers from Your Guesses | Letterpile</title>
+  <meta name="description" content="Enter your Wordle guesses and colours to see every remaining answer, ranked by which next guess narrows it down fastest.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='6' fill='%23f3dfb4'/><rect x='2' y='26' width='28' height='4' rx='2' fill='%23d7bd86'/><text x='16' y='23' font-family='monospace' font-weight='800' font-size='20' text-anchor='middle' fill='%233a2e18'>L</text></svg>">
+</head>
+<body data-page="wordle">
+  <div class="layout wrap">
+    <main class="content" id="main">
+      <div class="panel">
+        <h1 class="page-title">Wordle Solver</h1>
+        <p class="lede">Type each guess, then tap its tiles until the colours match your game. The list of possible answers updates as you go.</p>
+        <style>
+          .wgrid { display: grid; gap: 8px; margin: 6px 0 14px; }
+          .wrow { display: flex; gap: 6px; align-items: center; }
+          .wtile { width: 52px; height: 52px; border-radius: 6px; border: 0; cursor: pointer; font: 800 24px var(--mono); text-transform: uppercase; color: #fff; background: var(--grey); }
+          .wtile[data-m="y"] { background: var(--warn); }
+          .wtile[data-m="g"] { background: var(--good); }
+          .wrow .del { margin-left: 6px; border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 20px; }
+          @media (max-width: 420px) { .wtile { width: 44px; height: 44px; font-size: 20px; } }
+        </style>
+        <form class="row" id="addForm" autocomplete="off" style="align-items:end">
+          <label class="field" style="flex:1 1 200px"><span>Add a guess</span><input class="big-input" id="guess" type="text" maxlength="8" placeholder="e.g. CRANE"></label>
+          <label class="field" style="flex:0 1 130px"><span>Word length</span><select id="size"><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option></select></label>
+          <button class="btn" type="submit">Add</button>
+          <button class="btn secondary" type="button" id="reset">Reset</button>
+        </form>
+        <div class="wgrid" id="grid"></div>
+        <p class="hint" id="howto">Tap a tile to cycle <b style="color:var(--grey)">grey</b> → <b style="color:var(--warn)">yellow</b> → <b style="color:var(--good)">green</b>.</p>
+        <div class="results" id="results" aria-live="polite"></div>
+      </div>
+      <article class="prose">
+        <h2>How the solver thinks</h2>
+        <ul>
+          <li><b>Green</b> pins a letter to that spot.</li>
+          <li><b>Yellow</b> means the letter is in the word, just not there.</li>
+          <li><b>Grey</b> means there are no more copies of that letter than the green and yellow ones you've already found. That's how double letters work: guess <code>SPEED</code> for a word with one E, and the second E turns grey without ruling E out.</li>
+        </ul>
+        <h2>Choosing your next guess</h2>
+        <p>Suggestions are ranked by how common their letters are among the words still possible. A guess made of widely shared letters splits the field hardest, whatever colours come back. Words with repeated letters rank lower because they test fewer letters.</p>
+        <p>Our list is a full English dictionary, so it includes obscure words the game won't pick as answers. If the top suggestion looks odd, the next few usually include the everyday word.</p>
+      </article>
+    </main>
+    <aside class="sidebar" id="sidebar">
+      <section class="panel tip"><h2>Tip</h2><p>Good openers use five different common letters. <code>SLATE</code>, <code>CRANE</code> and <code>TRACE</code> are popular choices.</p></section>
+    </aside>
+  </div>
+  <script src="assets/engine.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const { $, esc, chip, withWords } = UI;
+    const CYCLE = { b: "y", y: "g", g: "b" };
+    let rows = [];
+
+    function save() { try { sessionStorage.setItem("wordle", JSON.stringify({ rows, size: $("#size").value })); } catch {} }
+
+    function drawGrid() {
+      $("#grid").innerHTML = rows.map((r, ri) => `<div class="wrow">${[...r.word].map((ch, i) =>
+        `<button type="button" class="wtile" data-r="${ri}" data-i="${i}" data-m="${r.marks[i]}" aria-label="${ch} ${({ b: "grey", y: "yellow", g: "green" })[r.marks[i]]}">${esc(ch)}</button>`).join("")}
+        <button type="button" class="del" data-del="${ri}" aria-label="Remove guess">×</button></div>`).join("");
+      save();
+      solve();
+    }
+
+    function solve() {
+      const out = $("#results");
+      const size = +$("#size").value;
+      withWords(out, () => {
+        const list = Engine.wordleCandidates(rows, size);
+        if (!list.length) { out.innerHTML = `<p class="empty">No words fit. Double-check the tile colours.</p>`; return; }
+        const top = list.slice(0, 12);
+        const rest = list.slice(0, 600).map(x => x.word).sort();
+        out.innerHTML = `<p class="summary">${list.length.toLocaleString()} possible ${list.length === 1 ? "word" : "words"}${rows.length ? "" : ` <small>(add a guess to narrow it down)</small>`}</p>
+          <section class="group"><h3>Best next guesses</h3><div class="words">${top.map(x => chip(x.word)).join("")}</div></section>
+          ${list.length > top.length ? `<section class="group"><h3>All possibilities <span class="count">${list.length}</span></h3><div class="words">${rest.map(w => chip(w)).join("")}</div>
+            ${list.length > 600 ? `<p class="hint more">Showing 600 alphabetically.</p>` : ""}</section>` : ""}`;
+      });
+    }
+
+    $("#grid").addEventListener("click", e => {
+      const t = e.target.closest(".wtile");
+      if (t) {
+        const r = rows[t.dataset.r];
+        const m = [...r.marks]; m[t.dataset.i] = CYCLE[m[t.dataset.i]]; r.marks = m.join("");
+        return drawGrid();
+      }
+      const d = e.target.closest("[data-del]");
+      if (d) { rows.splice(+d.dataset.del, 1); drawGrid(); }
+    });
+    $("#addForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const size = +$("#size").value;
+      const w = $("#guess").value.toLowerCase().replace(/[^a-z]/g, "");
+      if (w.length !== size) { $("#guess").setCustomValidity(`Enter a ${size}-letter word`); $("#guess").reportValidity(); return; }
+      if (rows.length >= 10) return;
+      rows.push({ word: w, marks: "b".repeat(size) });
+      $("#guess").value = "";
+      drawGrid();
+    });
+    $("#guess").addEventListener("input", () => $("#guess").setCustomValidity(""));
+    $("#size").addEventListener("change", () => { rows = []; $("#guess").maxLength = +$("#size").value; drawGrid(); });
+    $("#reset").addEventListener("click", () => { rows = []; drawGrid(); });
+
+    try {
+      const s = JSON.parse(sessionStorage.getItem("wordle") || "null");
+      if (s) { $("#size").value = s.size; rows = s.rows || []; }
+    } catch {}
+    drawGrid();
+  </script>
+</body>
+</html>

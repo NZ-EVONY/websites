@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyAddr — What's My IP Address?</title>
+  <meta name="description" content="See your public IPv4 and IPv6 address, approximate location, ISP and browser details. Look up any IP, query DNS records and generate strong passwords.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%232563eb'/><circle cx='16' cy='13' r='5' fill='none' stroke='white' stroke-width='3'/><path d='M16 18v8' stroke='white' stroke-width='3' stroke-linecap='round'/></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="MyAddr home">
+        <span class="brand-mark" aria-hidden="true"></span>MyAddr
+      </a>
+      <nav class="nav" aria-label="Tools">
+        <a href="#lookup">IP Lookup</a>
+        <a href="#dns">DNS</a>
+        <a href="#whois">WHOIS</a>
+        <a href="#ports">Ports</a>
+        <a href="#ping">Ping</a>
+        <a href="#password">Password</a>
+        <a href="#browser">Browser</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero: your IP -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Your public IP address</p>
+        <div class="ip-grid">
+          <article class="ip-card">
+            <h2>IPv4</h2>
+            <div class="ip-value" id="ipv4" data-state="loading">Detecting…</div>
+            <button class="copy" type="button" data-copy="ipv4">Copy</button>
+          </article>
+          <article class="ip-card">
+            <h2>IPv6</h2>
+            <div class="ip-value ip-value--small" id="ipv6" data-state="loading">Detecting…</div>
+            <button class="copy" type="button" data-copy="ipv6">Copy</button>
+          </article>
+        </div>
+
+        <div class="details card" aria-live="polite">
+          <dl class="kv" id="myDetails">
+            <div><dt>Location</dt><dd data-k="location">—</dd></div>
+            <div><dt>ISP</dt><dd data-k="isp">—</dd></div>
+            <div><dt>ASN</dt><dd data-k="asn">—</dd></div>
+            <div><dt>Time zone</dt><dd data-k="timezone">—</dd></div>
+            <div><dt>Coordinates</dt><dd data-k="coords">—</dd></div>
+            <div><dt>Postal code</dt><dd data-k="postal">—</dd></div>
+          </dl>
+          <p class="fineprint">Location is estimated from your IP's registration data and is usually accurate to the city, not the street. A VPN or proxy will show its own address here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- IP lookup -->
+    <section class="tool" id="lookup">
+      <div class="wrap">
+        <h2 class="tool-title">IP Address Lookup</h2>
+        <p class="tool-lede">Find the approximate location and network owner of any public IPv4 or IPv6 address.</p>
+        <form class="inline-form" id="lookupForm" autocomplete="off">
+          <input id="lookupInput" type="text" inputmode="text" placeholder="e.g. 8.8.8.8 or 2606:4700:4700::1111" aria-label="IP address" required>
+          <button type="submit">Look up</button>
+        </form>
+        <div class="card result" id="lookupResult" hidden></div>
+      </div>
+    </section>
+
+    <!-- DNS lookup -->
+    <section class="tool" id="dns">
+      <div class="wrap">
+        <h2 class="tool-title">DNS Lookup</h2>
+        <p class="tool-lede">Query a domain's DNS records over HTTPS.</p>
+        <form class="inline-form" id="dnsForm" autocomplete="off">
+          <input id="dnsInput" type="text" placeholder="example.com" aria-label="Domain name" required>
+          <select id="dnsType" aria-label="Record type">
+            <option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option>
+            <option>NS</option><option>TXT</option><option>SOA</option><option>CAA</option>
+          </select>
+          <button type="submit">Query</button>
+        </form>
+        <div class="card result" id="dnsResult" hidden></div>
+      </div>
+    </section>
+
+    <!-- Server-backed tools: shown enabled only when server.js is running -->
+    <div class="server-note wrap" id="serverNote" hidden>
+      <p><b>Port check, ping, traceroute and WHOIS need the MyAddr server.</b> Start it with <code>node server.js</code> in this folder, then open <code>http://127.0.0.1:8000</code>.</p>
+    </div>
+
+    <!-- WHOIS -->
+    <section class="tool needs-server" id="whois">
+      <div class="wrap">
+        <h2 class="tool-title">WHOIS Lookup</h2>
+        <p class="tool-lede">Registration records for a domain or IP block, following referrals from IANA to the registry and registrar.</p>
+        <form class="inline-form" id="whoisForm" autocomplete="off">
+          <input id="whoisInput" type="text" placeholder="example.com or 8.8.8.8" aria-label="Domain or IP" required>
+          <button type="submit">Look up</button>
+        </form>
+        <div class="card result" id="whoisResult" hidden></div>
+      </div>
+    </section>
+
+    <!-- Port checker -->
+    <section class="tool needs-server" id="ports">
+      <div class="wrap">
+        <h2 class="tool-title">Port Checker</h2>
+        <p class="tool-lede">Test whether TCP ports on a host accept connections from the server. Up to 25 ports; ranges like <code>8000-8010</code> work.</p>
+        <form class="inline-form" id="portForm" autocomplete="off">
+          <input id="portHost" type="text" placeholder="Host or IP" aria-label="Host" required>
+          <input id="portList" class="short" type="text" value="22, 80, 443" aria-label="Ports" required>
+          <button type="submit">Check</button>
+        </form>
+        <div class="chips" id="portPresets">
+          <button type="button" data-ports="80, 443">Web</button>
+          <button type="button" data-ports="21, 22, 23, 3389, 5900">Remote access</button>
+          <button type="button" data-ports="25, 110, 143, 465, 587, 993, 995">Mail</button>
+          <button type="button" data-ports="1433, 3306, 5432, 6379, 27017">Databases</button>
+          <button type="button" data-ports="25565, 27015, 3074, 7777">Games</button>
+          <button type="button" id="usePortMyIP">Use my IP</button>
+        </div>
+        <div class="card result" id="portResult" hidden></div>
+      </div>
+    </section>
+
+    <!-- Ping / traceroute -->
+    <section class="tool needs-server" id="ping">
+      <div class="wrap">
+        <h2 class="tool-title">Ping &amp; Traceroute</h2>
+        <p class="tool-lede">Run from the server, streamed live. Ping sends four ICMP echoes; traceroute maps up to 20 hops.</p>
+        <form class="inline-form" id="pingForm" autocomplete="off">
+          <input id="pingHost" type="text" placeholder="example.com or 1.1.1.1" aria-label="Host" required>
+          <select id="pingTool" aria-label="Tool">
+            <option value="ping">Ping</option>
+            <option value="traceroute">Traceroute</option>
+          </select>
+          <button type="submit" id="pingGo">Run</button>
+        </form>
+        <pre class="card terminal" id="pingOut" hidden></pre>
+      </div>
+    </section>
+
+    <!-- Password generator -->
+    <section class="tool" id="password">
+      <div class="wrap">
+        <h2 class="tool-title">Password Generator</h2>
+        <p class="tool-lede">Generated in your browser with <code>crypto.getRandomValues</code>. Nothing is sent anywhere.</p>
+        <div class="card pw">
+          <div class="pw-out">
+            <output id="pwOut" aria-live="polite"></output>
+            <button class="copy" type="button" data-copy="pwOut">Copy</button>
+          </div>
+          <div class="meter" aria-hidden="true"><span id="pwMeter"></span></div>
+          <p class="pw-strength" id="pwStrength"></p>
+          <div class="pw-controls">
+            <label class="range">Length <input id="pwLen" type="range" min="8" max="64" value="20"><b id="pwLenVal">20</b></label>
+            <label><input type="checkbox" id="pwUpper" checked> A–Z</label>
+            <label><input type="checkbox" id="pwLower" checked> a–z</label>
+            <label><input type="checkbox" id="pwDigits" checked> 0–9</label>
+            <label><input type="checkbox" id="pwSymbols" checked> !@#$</label>
+            <label><input type="checkbox" id="pwAmbig"> Avoid look-alikes</label>
+            <button type="button" id="pwRegen">Regenerate</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Browser info -->
+    <section class="tool" id="browser">
+      <div class="wrap">
+        <h2 class="tool-title">Your Browser</h2>
+        <p class="tool-lede">What every website you visit can see without asking.</p>
+        <div class="card">
+          <dl class="kv" id="browserInfo"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool faq">
+      <div class="wrap">
+        <h2 class="tool-title">Questions</h2>
+        <details><summary>What is an IP address?</summary>
+          <p>A numeric label assigned to your connection so that traffic can find its way back to you. Your router has one public address shared by every device in the house; each device also has a private address inside your network, which websites never see.</p></details>
+        <details><summary>Why do I have two addresses?</summary>
+          <p>IPv4 is the original 32-bit scheme and ran out of room years ago. IPv6 is its 128-bit successor. Many connections carry both. If the IPv6 box says "Not available", your network or ISP simply hasn't enabled it.</p></details>
+        <details><summary>Can someone find my home from my IP?</summary>
+          <p>Not from the IP alone. Public geolocation stops at the city or region, and often points to your ISP's nearest exchange. Only your ISP can link an address to a subscriber.</p></details>
+        <details><summary>How do I change my IP?</summary>
+          <p>Restarting your router sometimes gets a new one from your ISP. A VPN or proxy replaces it, as far as websites are concerned, with the address of the server you connect through.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>MyAddr — a static, client-side IP toolkit. Data: <a href="https://www.ipify.org/" rel="noopener">ipify</a>, <a href="https://ipwho.is/" rel="noopener">ipwho.is</a>, <a href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/" rel="noopener">Cloudflare DoH</a>.</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>

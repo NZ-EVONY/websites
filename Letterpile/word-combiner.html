@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Word Combiner: Blend Words into New Ones | Letterpile</title>
+  <meta name="description" content="Combine two or more words into blends and portmanteaus, like breakfast + lunch = brunch. Great for brand names, usernames and puns.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='6' fill='%23f3dfb4'/><rect x='2' y='26' width='28' height='4' rx='2' fill='%23d7bd86'/><text x='16' y='23' font-family='monospace' font-weight='800' font-size='20' text-anchor='middle' fill='%233a2e18'>L</text></svg>">
+</head>
+<body data-page="combiner">
+  <div class="layout wrap">
+    <main class="content" id="main">
+      <div class="panel">
+        <h1 class="page-title">Word Combiner</h1>
+        <p class="lede">Feed it two to four words and it splices them together every sensible way. Blends that turn out to be real words float to the top.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row" id="inputs">
+            <label class="field"><span>Word 1</span><input type="text" class="w" value="breakfast" required></label>
+            <label class="field"><span>Word 2</span><input type="text" class="w" value="lunch" required></label>
+          </div>
+          <div class="row">
+            <button class="btn" type="submit">Combine</button>
+            <button class="btn secondary" type="button" id="add">+ Add word</button>
+          </div>
+        </form>
+        <div class="results" id="results" aria-live="polite"></div>
+      </div>
+      <article class="prose">
+        <h2>How blends are built</h2>
+        <p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognisable, and it drops anything that has no vowel or stacks up four consonants.</p>
+        <p>Results come in three piles:</p>
+        <ul>
+          <li><b>Blends that are already words</b>: splices that land on a real dictionary word, sometimes the famous one.</li>
+          <li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
+          <li><b>Joined</b>: the words simply stuck together in every order.</li>
+        </ul>
+        <h2>Ideas</h2>
+        <p>Business and product names, pet names, usernames, couple names, fantasy creatures, and puns for group chats. Try your two names, or two things your product does.</p>
+      </article>
+    </main>
+    <aside class="sidebar" id="sidebar">
+      <section class="panel tip"><h2>Tip</h2><p>Short, punchy blends usually come from pairing a word's first syllable with the other word's last one. Check the top of <b>New blends</b>.</p></section>
+    </aside>
+  </div>
+  <script src="assets/engine.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const { $, esc, chip, withWords, getParams, setParams } = UI;
+    const inputs = () => [...document.querySelectorAll("#inputs .w")];
+    function addInput(value = "") {
+      const n = inputs().length + 1;
+      if (n > 4) return;
+      $("#inputs").insertAdjacentHTML("beforeend", `<label class="field"><span>Word ${n}</span><input type="text" class="w" value="${esc(value)}"></label>`);
+      if (n === 4) $("#add").disabled = true;
+    }
+    $("#add").addEventListener("click", () => { addInput(); inputs().at(-1).focus(); });
+
+    function run() {
+      const words = inputs().map(i => i.value.trim()).filter(Boolean);
+      setParams({ w: words.join(",") });
+      const out = $("#results");
+      if (words.length < 2) { out.innerHTML = `<p class="empty">Enter at least two words.</p>`; return; }
+      withWords(out, () => {
+        const { joined, blends } = Engine.combine(words);
+        const real = blends.filter(b => b.real), fresh = blends.filter(b => !b.real);
+        const block = (title, list, plain) => list.length ? `<section class="group"><h3>${title} <span class="count">${list.length}</span></h3>
+          <div class="words">${list.map(w => plain ? `<span class="word plain" style="cursor:default">${esc(w.word || w)}</span>` : chip(w)).join("")}</div></section>` : "";
+        out.innerHTML = block("Blends that are already words", real) + block("New blends", fresh.slice(0, 150), true) + block("Joined", joined, true)
+          || `<p class="empty">No blends found. Try longer words.</p>`;
+      });
+    }
+    $("#form").addEventListener("submit", e => { e.preventDefault(); run(); });
+    const p = getParams();
+    if (p.w) {
+      const ws = p.w.split(",");
+      inputs().forEach((inp, i) => { inp.value = ws[i] || ""; });
+      ws.slice(2, 4).forEach(addInput);
+    }
+    run();
+  </script>
+</body>
+</html>

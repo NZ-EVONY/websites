@@ -1,0 +1,12 @@
+{
+  "name": "myaddr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "What's-my-IP site with IP/DNS lookup, WHOIS, port check, ping and traceroute.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:lan": "ALLOW_PRIVATE=1 node server.js"
+  },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anagram Solver: Rearrange Letters into Words and Phrases | Letterpile</title>
+  <meta name="description" content="Find single-word and two-word anagrams of any word or name. Rearrange every letter into new words.">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect x='2' y='2' width='28' height='28' rx='6' fill='%23f3dfb4'/><rect x='2' y='26' width='28' height='4' rx='2' fill='%23d7bd86'/><text x='16' y='23' font-family='monospace' font-weight='800' font-size='20' text-anchor='middle' fill='%233a2e18'>L</text></svg>">
+</head>
+<body data-page="anagram">
+  <div class="layout wrap">
+    <main class="content" id="main">
+      <div class="panel">
+        <h1 class="page-title">Anagram Solver</h1>
+        <p class="lede">An anagram uses every letter exactly once. Enter a word, name or short phrase to find single words and two-word phrases made from all of it.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row">
+            <input class="big-input" id="q" type="text" maxlength="20" placeholder="e.g. LISTEN or DORMITORY" aria-label="Word or phrase" required style="flex:1 1 260px">
+            <button class="btn" type="submit">Find anagrams</button>
+          </div>
+          <label class="check"><input type="checkbox" id="phrases" checked> Include two-word anagrams</label>
+        </form>
+        <div class="results" id="results" aria-live="polite"></div>
+      </div>
+      <article class="prose">
+        <h2>Anagrams vs. words within</h2>
+        <p>This page only shows arrangements that use <em>all</em> your letters: <code>LISTEN</code> gives <code>SILENT</code>, <code>TINSEL</code> and <code>ENLIST</code>. For shorter words made from some of the letters, use the <a href="index.html">Word Unscrambler</a>.</p>
+        <h2>Two-word anagrams</h2>
+        <p>With two-word anagrams on, the solver splits your letters into two real words of at least three letters each. That's how <code>DORMITORY</code> becomes <code>DIRTY ROOM</code>. Long inputs produce hundreds of pairs, so the list stops at 400.</p>
+        <h2>Where anagrams show up</h2>
+        <p>Cryptic crossword clues, the Jumble, puzzle hunts, pen names (plenty of authors have hidden their real names in anagrams), and wedding-reception games.</p>
+      </article>
+    </main>
+    <aside class="sidebar" id="sidebar">
+      <section class="panel tip"><h2>Tip</h2><p>Spaces and punctuation are ignored, so you can paste a full name like “Clint Eastwood” and see what it rearranges into.</p></section>
+    </aside>
+  </div>
+  <script src="assets/engine.js"></script>
+  <script src="assets/site.js"></script>
+  <script>
+    const { $, esc, chip, withWords, getParams, setParams } = UI;
+    function run() {
+      const q = $("#q").value.trim(), phrases = $("#phrases").checked;
+      setParams({ q, two: phrases ? "" : "0" });
+      const out = $("#results");
+      const letters = q.toLowerCase().replace(/[^a-z]/g, "");
+      if (letters.length < 2) { out.innerHTML = `<p class="empty">Enter at least two letters.</p>`; return; }
+      withWords(out, () => {
+        const r = Engine.anagrams(letters, { phrases });
+        const single = r.exact.length
+          ? `<section class="group"><h3>Single-word anagrams <span class="count">${r.exact.length}</span></h3><div class="words">${r.exact.map(w => chip(w)).join("")}</div></section>`
+          : `<p class="empty" style="margin-bottom:14px">No single-word anagrams of <b>${esc(letters.toUpperCase())}</b>.</p>`;
+        const two = phrases ? (r.phrases.length
+          ? `<section class="group"><h3>Two-word anagrams <span class="count">${r.phrases.length}${r.phrases.length >= 400 ? "+" : ""}</span></h3><div class="words">${r.phrases.map(p => `<span class="word plain" style="cursor:default">${esc(p)}</span>`).join("")}</div></section>`
+          : `<p class="hint">No two-word anagrams found.</p>`) : "";
+        out.innerHTML = single + two;
+      });
+    }
+    $("#form").addEventListener("submit", e => { e.preventDefault(); run(); });
+    const p = getParams();
+    if (p.q) { $("#q").value = p.q; $("#phrases").checked = p.two !== "0"; run(); } else $("#q").focus();
+  </script>
+</body>
+</html>
