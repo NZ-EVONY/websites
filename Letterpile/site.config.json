@@ -1,0 +1,15 @@
+{
+  "brand": "Letterpile",
+  "siteUrl": "https://letterpile.app",
+  "operatorName": "{{OPERATOR_NAME}}",
+  "contactEmail": "{{CONTACT_EMAIL}}",
+  "authorName": "{{AUTHOR_NAME}}",
+  "publisherName": "Letterpile",
+  "governingLaw": "{{GOVERNING_LAW}}",
+  "governingLawDefault": "New Zealand",
+  "country": "New Zealand",
+  "lastReviewed": "{{LAST_REVIEWED}}",
+  "language": "en-US",
+  "themeColorLight": "#ffffff",
+  "themeColorDark": "#211e25"
+}

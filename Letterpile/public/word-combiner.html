@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Combiner: Blend Words into New Ones | Letterpile</title>
+<meta name="description" content="Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.">
+<link rel="canonical" href="https://letterpile.app/word-combiner">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Word Combiner: Blend Words into New Ones | Letterpile">
+<meta property="og:description" content="Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.">
+<meta property="og:url" content="https://letterpile.app/word-combiner">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Combiner","url":"https://letterpile.app/word-combiner","description":"Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Combiner","item":"https://letterpile.app/word-combiner"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+<script src="/assets/js/combiner.d3a6839443.js" defer></script>
+</head>
+<body data-page="combiner">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner" aria-current="page">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Word Combiner</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Word Combiner</h1>
+        <p class="lede">Feed it two to four words and it splices them together every sensible way. Blends that turn out to be words in the list float to the top.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row" id="inputs">
+            <label class="field"><span>Word 1</span><input type="text" class="w" maxlength="40" value="breakfast" required></label>
+            <label class="field"><span>Word 2</span><input type="text" class="w" maxlength="40" value="lunch" required></label>
+          </div>
+          <div class="row">
+            <button class="btn" type="submit">Combine</button>
+            <button class="btn secondary" type="button" id="add">+ Add word</button>
+          </div>
+          <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+        </form>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Press <b>Combine</b> to blend the words above. With the example words, one of the blends is <b>brunch</b>.</p></div>
+      </div>
+      
+      <article class="prose">
+        <h2>How blends are built</h2>
+        <p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognizable, and it drops anything that has no vowel or stacks up four consonants.</p>
+        <p>Results come in three piles:</p>
+        <ul>
+          <li><b>Blends that are already words</b>: splices that land on a word in the ENABLE list, sometimes the famous one.</li>
+          <li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
+          <li><b>Joined</b>: the words simply stuck together in every order.</li>
+        </ul>
+        <p>The combiner works on spelling only. It does not know what words mean, so results are for fun and idea-sparking.</p>
+        <h2>Ideas</h2>
+        <p>Business and product names, pet names, usernames, couple names, fantasy creatures, and puns for group chats. Try your two names, or two things your product does.</p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner" aria-current="page"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  <section class="panel tip"><h2>Tip</h2><p>Short, punchy blends usually come from pairing a word's first syllable with the other word's last one. Check the top of <b>New blends</b>.</p></section>
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Scrambler: Jumble Words and Sentences | Letterpile</title>
+<meta name="description" content="Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.">
+<link rel="canonical" href="https://letterpile.app/word-scrambler">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Word Scrambler: Jumble Words and Sentences | Letterpile">
+<meta property="og:description" content="Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.">
+<meta property="og:url" content="https://letterpile.app/word-scrambler">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Scrambler","url":"https://letterpile.app/word-scrambler","description":"Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Scrambler","item":"https://letterpile.app/word-scrambler"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+<script src="/assets/js/scrambler.9d0433a6c7.js" defer></script>
+</head>
+<body data-page="scrambler">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler" aria-current="page">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Word Scrambler</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Word Scrambler</h1>
+        <p class="lede">Mix up the letters in a word, a sentence or a whole passage. Handy for making puzzles, classroom worksheets and party games.</p>
+        <form class="tool-form" id="form">
+          <label class="field"><span>Your text</span><textarea id="text" maxlength="5000" placeholder="Type or paste words to scramble" required>Letters are more fun when they are out of order</textarea></label>
+          <div class="row end">
+            <label class="field"><span>Style</span>
+              <select id="mode">
+                <option value="words">Scramble each word</option>
+                <option value="ends">Keep first &amp; last letter</option>
+                <option value="all">Mix all letters in the text</option>
+                <option value="order">Shuffle word order</option>
+                <option value="reverse">Reverse each word</option>
+              </select>
+            </label>
+            <label class="field narrow"><span>Versions</span><select id="count"><option>1</option><option>3</option><option>5</option><option>10</option></select></label>
+            <button class="btn" type="submit">Scramble</button>
+            <button class="btn secondary" type="button" id="copy">Copy</button>
+          </div>
+        </form>
+        <div class="results results--short" id="results" aria-live="polite"><p class="empty">Your scrambled text will appear here.</p></div>
+
+        <section class="challenge" id="challenge" aria-labelledby="challengeTitle">
+          <h2 id="challengeTitle">Unscramble challenge</h2>
+          <p class="hint">We scramble a word, you work it out. Any word in the list that uses every tile counts.</p>
+          <div class="row center spaced">
+            <label class="toolbar flat">Difficulty
+              <select id="level"><option value="4-5">Easy (4–5)</option><option value="6-7" selected>Medium (6–7)</option><option value="8-10">Hard (8–10)</option></select></label>
+            <span class="hint push" id="streak">Solved: 0 · Streak: 0</span>
+          </div>
+          <div class="tiles tiles--puzzle" id="puzzle" aria-live="polite"><p class="hint">The puzzle loads when you reach this section.</p></div>
+          <form class="row mt" id="guessForm" autocomplete="off">
+            <input class="big-input grow" id="guess" type="text" maxlength="40" placeholder="Your answer" aria-label="Your answer">
+            <button class="btn" type="submit">Check</button>
+            <button class="btn secondary" type="button" id="hint">Hint</button>
+            <button class="btn secondary" type="button" id="reshuffle">Shuffle</button>
+            <button class="btn secondary" type="button" id="skip">New word</button>
+          </form>
+          <p id="feedback" class="hint feedback" aria-live="polite"></p>
+        </section>
+      </div>
+      
+      <article class="prose">
+        <h2>Scrambling styles</h2>
+        <table>
+          <tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
+          <tr><td>Scramble each word</td><td><code>zpuzle</code></td><td>Word jumbles and worksheets</td></tr>
+          <tr><td>Keep first &amp; last letter</td><td><code>pzzule</code></td><td>The “you can still read this” effect</td></tr>
+          <tr><td>Mix all letters</td><td>letters cross word boundaries</td><td>Hard mode, or making anagram puzzles</td></tr>
+          <tr><td>Shuffle word order</td><td>sentence order changes</td><td>Grammar and sentence-building exercises</td></tr>
+          <tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
+        </table>
+        <p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were. Scrambling happens in your browser; the text is not sent anywhere.</p>
+        <h2>Why keeping the ends works</h2>
+        <p>Fluent readers take in the outline of a word as much as its letter order, so a word that starts and ends correctly is often readable even when the middle is chaos. It works best on short, familiar words and breaks down fast on long or unusual ones.</p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler" aria-current="page"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  <section class="panel tip"><h2>Tip</h2><p>Want printable puzzles? Choose <b>Versions: 10</b>, copy the lot, and paste into your document. Every version is shuffled differently.</p></section>
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

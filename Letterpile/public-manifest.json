@@ -1,0 +1,124 @@
+{
+  "assets": {
+    "words.js": "/data/words.4ade5cec2f.js",
+    "style.css": "/assets/style.4b0479445d.css",
+    "engine.js": "/assets/engine.7ba5bea6cb.js",
+    "site.js": "/assets/site.bf57889a6b.js",
+    "js/anagram.js": "/assets/js/anagram.16f154ab42.js",
+    "js/combiner.js": "/assets/js/combiner.d3a6839443.js",
+    "js/crossword.js": "/assets/js/crossword.bd1d61b556.js",
+    "js/finder.js": "/assets/js/finder.9000188912.js",
+    "js/jumble.js": "/assets/js/jumble.d9e94d3dc1.js",
+    "js/scrambler.js": "/assets/js/scrambler.9d0433a6c7.js",
+    "js/twist.js": "/assets/js/twist.53621e3547.js",
+    "js/unscramble.js": "/assets/js/unscramble.daa96af843.js",
+    "js/wordle.js": "/assets/js/wordle.740c1a4681.js"
+  },
+  "pages": [
+    {
+      "path": "/404",
+      "file": "404.html",
+      "type": "error",
+      "updated": "2026-10-01",
+      "noindex": true
+    },
+    {
+      "path": "/about",
+      "file": "about.html",
+      "type": "trust",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/anagram-solver",
+      "file": "anagram-solver.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/contact",
+      "file": "contact.html",
+      "type": "trust",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/crossword-solver",
+      "file": "crossword-solver.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/",
+      "file": "index.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/jumble-solver",
+      "file": "jumble-solver.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/privacy-policy",
+      "file": "privacy-policy.html",
+      "type": "trust",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/scrabble-word-finder",
+      "file": "scrabble-word-finder.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/terms",
+      "file": "terms.html",
+      "type": "trust",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/text-twist-solver",
+      "file": "text-twist-solver.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/word-combiner",
+      "file": "word-combiner.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/word-scrambler",
+      "file": "word-scrambler.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/wordle-solver",
+      "file": "wordle-solver.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/words-with-friends",
+      "file": "words-with-friends.html",
+      "type": "tool",
+      "updated": "2026-10-01",
+      "noindex": false
+    }
+  ]
+}

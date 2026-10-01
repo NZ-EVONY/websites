@@ -1,0 +1,272 @@
+{
+  "capturedFrom": "git tag live-before-upgrade (commit 25944fa68fb1a02283eb753b6df3a741bdb03305)",
+  "note": "Live HTTP checks against https://letterpile.app could not be run from the build environment (network policy denied the host). The 'liveBehaviour' block is the planner's curl table from 2026-10-02, recorded as NOT VERIFIED here.",
+  "liveBehaviour": {
+    "/": "200",
+    "/word-scrambler": "200",
+    "/word-scrambler.html": "307 -> /word-scrambler",
+    "/index.html": "307 -> /",
+    "/robots.txt": "200 (Cloudflare managed content-signals block only)",
+    "/sitemap.xml": "404",
+    "/ads.txt": "404",
+    "/privacy-policy": "404",
+    "/about": "404",
+    "https://www.letterpile.app/": "200 duplicate",
+    "http://letterpile.app/": "200 over HTTP"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "file": "index.html",
+      "expectedStatus": 200,
+      "title": "Word Unscrambler: Find Every Word in Your Letters | Letterpile",
+      "h1": "Word Unscrambler",
+      "description": "Unscramble letters into every English word they can make. Supports blank tiles, starts-with, ends-with and length filters.",
+      "bodyPage": "unscrambler",
+      "visibleWords": 231,
+      "visibleTextSha256": "e31b45f31f33755bd294ca7470ccecbf2cf8e51f797a7da86eaad0e41bad12d6",
+      "ids": [
+        "form",
+        "letters",
+        "adv",
+        "starts",
+        "ends",
+        "contains",
+        "len",
+        "exact",
+        "results"
+      ],
+      "queryParams": [
+        "letters",
+        "starts",
+        "ends",
+        "contains",
+        "len",
+        "exact"
+      ]
+    },
+    {
+      "path": "/word-scrambler",
+      "file": "word-scrambler.html",
+      "expectedStatus": 200,
+      "title": "Word Scrambler: Jumble Words and Sentences | Letterpile",
+      "h1": "Word Scrambler",
+      "description": "Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.",
+      "bodyPage": "scrambler",
+      "visibleWords": 251,
+      "visibleTextSha256": "71a204e237fc28a48b2d92e37af74bf2aab9cfbcd1aa8538ee0c020e501ab6cd",
+      "ids": [
+        "form",
+        "text",
+        "mode",
+        "count",
+        "copy",
+        "results",
+        "level",
+        "streak",
+        "puzzle",
+        "guessForm",
+        "guess",
+        "hint",
+        "reshuffle",
+        "skip",
+        "feedback"
+      ],
+      "queryParams": []
+    },
+    {
+      "path": "/word-combiner",
+      "file": "word-combiner.html",
+      "expectedStatus": 200,
+      "title": "Word Combiner: Blend Words into New Ones | Letterpile",
+      "h1": "Word Combiner",
+      "description": "Combine two or more words into blends and portmanteaus, like breakfast + lunch = brunch. Great for brand names, usernames and puns.",
+      "bodyPage": "combiner",
+      "visibleWords": 201,
+      "visibleTextSha256": "9cbbe6c7dcff5c07a7bb0cb7deaea4d7254d8fa5764e257f5d223df26d533bc3",
+      "ids": [
+        "form",
+        "inputs",
+        "add",
+        "results"
+      ],
+      "queryParams": [
+        "w"
+      ]
+    },
+    {
+      "path": "/scrabble-word-finder",
+      "file": "scrabble-word-finder.html",
+      "expectedStatus": 200,
+      "title": "Scrabble Word Finder: Best Scoring Words for Your Rack | Letterpile",
+      "h1": "Scrabble Word Finder",
+      "description": "Enter your Scrabble rack and board letters to find every playable word, ranked by points, with blank tiles and bingo bonuses.",
+      "bodyPage": "scrabble",
+      "visibleWords": 269,
+      "visibleTextSha256": "6b69c8e96e148339d68909f30ae2c73fac1f563a710e91815ad9ca112b8f15b3",
+      "ids": [
+        "form",
+        "rack",
+        "board",
+        "adv",
+        "starts",
+        "ends",
+        "contains",
+        "len",
+        "results"
+      ],
+      "queryParams": [
+        "rack",
+        "board",
+        "starts",
+        "ends",
+        "contains",
+        "len"
+      ]
+    },
+    {
+      "path": "/words-with-friends",
+      "file": "words-with-friends.html",
+      "expectedStatus": 200,
+      "title": "Words With Friends Word Finder: Highest-Scoring Plays | Letterpile",
+      "h1": "Words With Friends Finder",
+      "description": "Find the best Words With Friends plays for your tiles, scored with Words With Friends letter values and the 35-point all-tiles bonus.",
+      "bodyPage": "wwf",
+      "visibleWords": 212,
+      "visibleTextSha256": "c8d61ae5c4b2e77608d1035089f8c4bfaef3f1d3c38e24c500cad933fc3da4e7",
+      "ids": [
+        "form",
+        "rack",
+        "board",
+        "adv",
+        "starts",
+        "ends",
+        "contains",
+        "len",
+        "results"
+      ],
+      "queryParams": [
+        "rack",
+        "board",
+        "starts",
+        "ends",
+        "contains",
+        "len"
+      ]
+    },
+    {
+      "path": "/wordle-solver",
+      "file": "wordle-solver.html",
+      "expectedStatus": 200,
+      "title": "Wordle Solver: Possible Answers from Your Guesses | Letterpile",
+      "h1": "Wordle Solver",
+      "description": "Enter your Wordle guesses and colours to see every remaining answer, ranked by which next guess narrows it down fastest.",
+      "bodyPage": "wordle",
+      "visibleWords": 203,
+      "visibleTextSha256": "4b6d70d2b5ef839c39b927193d459545fe900d7413fc047170354d9d923a415f",
+      "ids": [
+        "addForm",
+        "guess",
+        "size",
+        "reset",
+        "grid",
+        "howto",
+        "results"
+      ],
+      "queryParams": []
+    },
+    {
+      "path": "/anagram-solver",
+      "file": "anagram-solver.html",
+      "expectedStatus": 200,
+      "title": "Anagram Solver: Rearrange Letters into Words and Phrases | Letterpile",
+      "h1": "Anagram Solver",
+      "description": "Find single-word and two-word anagrams of any word or name. Rearrange every letter into new words.",
+      "bodyPage": "anagram",
+      "visibleWords": 157,
+      "visibleTextSha256": "ecff966402892304fef6a27e5e9e724d2a57afab3ccf9ab054afb5aa1dcb6f24",
+      "ids": [
+        "form",
+        "q",
+        "phrases",
+        "results"
+      ],
+      "queryParams": [
+        "q",
+        "two"
+      ]
+    },
+    {
+      "path": "/jumble-solver",
+      "file": "jumble-solver.html",
+      "expectedStatus": 200,
+      "title": "Jumble Solver: Solve Every Scrambled Word at Once | Letterpile",
+      "h1": "Jumble Solver",
+      "description": "Solve a whole jumble puzzle at once: enter each scrambled word and get the answers, plus help with the final bonus phrase.",
+      "bodyPage": "jumble",
+      "visibleWords": 165,
+      "visibleTextSha256": "978a6e06d99f9d0d63cc80a4587cea1aaf9df8646bce255433ac5ed76161866b",
+      "ids": [
+        "form",
+        "inputs",
+        "add",
+        "clear",
+        "final",
+        "results"
+      ],
+      "queryParams": [
+        "w",
+        "final"
+      ]
+    },
+    {
+      "path": "/crossword-solver",
+      "file": "crossword-solver.html",
+      "expectedStatus": 200,
+      "title": "Crossword Solver: Find Words by Pattern | Letterpile",
+      "h1": "Crossword Solver",
+      "description": "Fill in the letters you know and use ? for the gaps to find every word that fits your crossword answer.",
+      "bodyPage": "crossword",
+      "visibleWords": 168,
+      "visibleTextSha256": "c50ad44355ce90e0d01302bea97dfa70f96a91fbfba8688635af54546c47d139",
+      "ids": [
+        "form",
+        "pattern",
+        "include",
+        "exclude",
+        "len",
+        "results"
+      ],
+      "queryParams": [
+        "p",
+        "inc",
+        "exc"
+      ]
+    },
+    {
+      "path": "/text-twist-solver",
+      "file": "text-twist-solver.html",
+      "expectedStatus": 200,
+      "title": "Text Twist & Wordscapes Solver | Letterpile",
+      "h1": "Text Twist & Wordscapes Solver",
+      "description": "Find every 3+ letter word in your Text Twist, Wordscapes or Word Cookies letters, with slot patterns for partly solved answers.",
+      "bodyPage": "twist",
+      "visibleWords": 204,
+      "visibleTextSha256": "98b09155c3eaf993cddde32a844e7cf5d6cdc5b43d6f80add90440c064256544",
+      "ids": [
+        "form",
+        "letters",
+        "twist",
+        "slots",
+        "min",
+        "wheel",
+        "results"
+      ],
+      "queryParams": [
+        "letters",
+        "slots",
+        "min"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+# Not verified (what, why, how Bee can check)
+
+| # | What | Why not verified | How to verify |
+|---|---|---|---|
+| 1 | Every "Live behaviour" item in the brief (status codes, `.html` → clean 307s, robots.txt content, www and HTTP duplicates, cache headers) | `letterpile.app` blocked by this environment's network policy | `curl -sI https://letterpile.app/word-scrambler.html` etc. (commands in `docs/DEPLOY.md`) |
+| 2 | Behavior of the real Cloudflare deployment (html_handling, 404-page, `_headers`) | Only `wrangler dev --local` was run (it matched the design) | After deploy: the checks in `docs/DEPLOY.md` step 3 |
+| 3 | ENABLE provenance: `enable1.txt` is from a third-party mirror (`dolph/dictionary`); the licence paragraph is from the ENABLE2K README in Bart Massey's `wordlists` repo, not an original distribution | No original ENABLE distribution site was available to compare | Compare with another independent copy of ENABLE (SHA-256 `3f16130220645692ed49c7134e24a18504c2ca55b3c012f7290e3e77c63b1a89`) |
+| 4 | Trademark owner wording ("Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere"; Wordle™ / The New York Times Company; Words With Friends / Zynga Inc.) | Stated "to the best of our knowledge"; not checked against trademark registries | Have the disclaimer wording checked |
+| 5 | Words With Friends 35-point and tile-game 50-point all-tiles bonuses; WWF letter values | Kept from the live site as "commonly reported / commonly used"; not checked against the games | Check current game rules |
+| 6 | Privacy Policy, Terms and About wording | Good-faith template, not legal advice | Legal review; re-check after AdSense/CMP wiring |
+| 7 | Noindex on query-string URLs is added by JavaScript | Google generally renders JS, but a JS-added `noindex` is not guaranteed to be seen | Search Console URL Inspection on a `?letters=` URL after launch |
+| 8 | Google indexing, Rich Results, AdSense review behavior | Needs the live site and Bee's accounts | Search Console, Rich Results Test, AdSense |
+| 9 | Real-device mobile, real screen readers, field Core Web Vitals (INP) | Not available here; Lighthouse is lab-only | Test on a phone; CrUX / Search Console after launch |
+| 10 | Free Dictionary API terms of use and rate limits | Not reviewed | Read https://dictionaryapi.dev/ |
+| 11 | The Lighthouse numbers come from an uncompressed local server, simulated mobile throttling | Cloudflare compresses; real networks vary | Run PageSpeed Insights on the live URLs after deploy |
+| 12 | Google's FAQ rich-result restriction (Aug 2023) still current | Not re-checked | Google Search Central docs |
+| 13 | CSP additions listed in `public/_headers` for AdSense/CMP | Written as a starting list, not tested with real ad code | Google's AdSense CSP docs + test before deploying ads |
+| 14 | Blocklist coverage: the hidden set (324 words) is a judgment call; some vulgar words may remain visible and some ordinary words hidden | No perfect list exists | Spot-check; add to `data/blocklist-extra.txt` or `data/blocklist-allow.txt` |
+| 15 | Cloudflare free-plan limits (20,000 files, 25 MiB per file, `_headers` 100 rules, 2,000 chars per line) | Taken from the brief; Cloudflare docs not re-fetched from here | developers.cloudflare.com/workers/static-assets/billing-and-limitations/ |

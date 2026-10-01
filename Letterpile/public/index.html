@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Unscrambler: Find Words in Your Letters | Letterpile</title>
+<meta name="description" content="Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.">
+<link rel="canonical" href="https://letterpile.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Word Unscrambler: Find Words in Your Letters | Letterpile">
+<meta property="og:description" content="Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.">
+<meta property="og:url" content="https://letterpile.app/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://letterpile.app/#website","name":"Letterpile","url":"https://letterpile.app/","inLanguage":"en-US","publisher":{"@id":"https://letterpile.app/#organization"}},{"@type":"Organization","@id":"https://letterpile.app/#organization","name":"Letterpile","url":"https://letterpile.app/"},{"@type":"WebApplication","name":"Word Unscrambler","url":"https://letterpile.app/","description":"Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+<script src="/assets/js/unscramble.daa96af843.js" defer></script>
+</head>
+<body data-page="unscrambler">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/" aria-current="page">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    
+    <div class="panel tool-card">
+        <h1 class="page-title">Word Unscrambler</h1>
+        <p class="lede">Type your letters and see every word hiding in them, longest first. Use <kbd>?</kbd> for a blank or unknown letter.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row">
+            <input class="big-input grow" id="letters" type="text" maxlength="18" placeholder="Enter letters, e.g. TACRE?" aria-label="Letters (up to 15, plus up to 3 ? blanks)" required>
+            <button class="btn" type="submit">Unscramble</button>
+          </div>
+          <details class="advanced" id="adv">
+            <summary>Advanced filters</summary>
+            <div class="row">
+              <label class="field"><span>Starts with</span><input type="text" id="starts" maxlength="10"></label>
+              <label class="field"><span>Ends with</span><input type="text" id="ends" maxlength="10"></label>
+              <label class="field"><span>Contains</span><input type="text" id="contains" maxlength="10"></label>
+              <label class="field"><span>Length</span><select id="len"><option value="">Any</option></select></label>
+            </div>
+            <label class="check mt"><input type="checkbox" id="exact"> Use every letter (anagrams only)</label>
+          </details>
+          <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+        </form>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make 90 words, including <code>ELINTS</code>, <code>ENLIST</code> and <code>INLETS</code>.</p></div>
+      </div>
+      
+      <article class="prose">
+        <h2>How it works</h2>
+        <p>Letterpile checks your letters against the 172,823 words in the open ENABLE word list and keeps every word you could spell without reusing a tile. Results are grouped by length, so the long, high-value words are at the top.</p>
+        <h3>Blanks and unknown letters</h3>
+        <p>Put a <kbd>?</kbd>, <kbd>*</kbd> or <kbd>_</kbd> in your letters for each blank tile, up to three. Letters filled in by a blank are underlined with dots in the results. You can enter up to 15 letters plus the blanks.</p>
+        <h3>Narrowing things down</h3>
+        <ul>
+          <li><b>Starts with / ends with</b> helps when a word has to hook onto letters already on the board.</li>
+          <li><b>Contains</b> finds words that pass through a letter or run of letters, like <code>qu</code> or <code>ing</code>.</li>
+          <li><b>Use every letter</b> turns the unscrambler into a strict anagram finder.</li>
+        </ul>
+        <p>Tap any word for its point value and an optional definition lookup.</p>
+        <h2>What people use it for</h2>
+        <p>Racks in tile games, the daily jumble, Text Twist rounds, crossword clues where you know the letters but not the order, and settling arguments about whether a word exists. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/" aria-current="page"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  <section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

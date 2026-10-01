@@ -1,0 +1,10 @@
+{
+  "_comment": "Content quality thresholds used by the build and tests. Not Google rules; our own bar.",
+  "minWords": { "tool": 600, "guide": 800, "hub": 300, "trust": 300, "affix": 250, "programmatic": 150 },
+  "phase1MinWords": { "trust": 300 },
+  "similarity": { "method": "5-gram word shingles, Jaccard index, prose only (word lists excluded)", "maxJaccard": 0.2 },
+  "programmatic": { "minFacts": 5, "minWordsListPage": 100, "minWordsCuratedAffix": 25, "maxWordsOnOnePage": 5000 },
+  "maxPublicFiles": 5000,
+  "titleMax": 60,
+  "descriptionMax": 155
+}

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wordle Solver: Words That Fit Your Guesses | Letterpile</title>
+<meta name="description" content="Enter your guesses and colors to see which five-letter words still fit, plus a suggested next guess. No spoilers.">
+<link rel="canonical" href="https://letterpile.app/wordle-solver">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Wordle Solver: Words That Fit Your Guesses | Letterpile">
+<meta property="og:description" content="Enter your guesses and colors to see which five-letter words still fit, plus a suggested next guess. No spoilers.">
+<meta property="og:url" content="https://letterpile.app/wordle-solver">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Wordle Solver","url":"https://letterpile.app/wordle-solver","description":"Enter your guesses and colors to see which five-letter words still fit, plus a suggested next guess. No spoilers.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Wordle Solver","item":"https://letterpile.app/wordle-solver"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+<script src="/assets/js/wordle.740c1a4681.js" defer></script>
+</head>
+<body data-page="wordle">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu" class="active">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver" aria-current="page">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Wordle Solver</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Wordle Solver</h1>
+        <p class="lede">Type each guess, then tap its tiles until the colors match your game. The list of possible words updates as you go.</p>
+        <form class="row end" id="addForm" autocomplete="off" data-warm>
+          <label class="field grow"><span>Add a guess</span><input class="big-input" id="guess" type="text" maxlength="8" placeholder="e.g. CRANE"></label>
+          <label class="field narrow"><span>Word length</span><select id="size"><option>4</option><option selected>5</option><option>6</option><option>7</option><option>8</option></select></label>
+          <button class="btn" type="submit">Add</button>
+          <button class="btn secondary" type="button" id="reset">Reset</button>
+        </form>
+        <div class="wgrid" id="grid"></div>
+        <p class="hint" id="howto">Tap or press a tile to cycle <b class="c-grey">gray</b> → <b class="c-warn">yellow</b> → <b class="c-good">green</b>. Each tile also shows a mark: none for gray, a dot for yellow, a check for green.</p>
+        <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Add your first guess to see the words that still fit. Before any guess, all 8,636 five-letter words in the list are possible.</p></div>
+      </div>
+      
+      <article class="prose">
+        <h2>How the solver thinks</h2>
+        <ul>
+          <li><b>Green</b> pins a letter to that spot.</li>
+          <li><b>Yellow</b> means the letter is in the word, just not there.</li>
+          <li><b>Gray</b> means there are no more copies of that letter than the green and yellow ones you've already found. That's how double letters work: guess <code>SPEED</code> for a word with one E, and the second E turns gray without ruling E out.</li>
+        </ul>
+        <h2>Choosing your next guess</h2>
+        <p>Suggestions are ranked by how common their letters are among the words still possible. A guess made of widely shared letters splits the field hardest, whatever colors come back. Words with repeated letters rank lower because they test fewer letters.</p>
+        <p>The list is a general English word list (ENABLE), not the game's own answer list, so it includes obscure words the game won't pick as answers. If the top suggestion looks odd, the next few usually include the everyday word. The solver does not know today's answer.</p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver" aria-current="page"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  <section class="panel tip"><h2>Tip</h2><p>Openers with five different common letters test the most at once. <code>SLATE</code>, <code>CRANE</code> and <code>TRACE</code> are examples.</p></section>
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

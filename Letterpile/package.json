@@ -1,0 +1,28 @@
+{
+  "name": "letterpile",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Letterpile static word-game helper site (built into public/ and deployed as Cloudflare Workers static assets)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test \"tests/unit/*.test.mjs\" \"tests/build/*.test.mjs\"",
+    "test:e2e": "node --test \"tests/e2e/*.test.mjs\"",
+    "regression": "node scripts/build.mjs && node --test \"tests/baseline/*.test.mjs\"",
+    "serve": "node scripts/serve.mjs public 8788",
+    "lighthouse": "node scripts/build.mjs && node scripts/lighthouse.mjs",
+    "report:content": "node scripts/report-content.mjs",
+    "wordlist:diff": "node scripts/wordlist-diff.mjs",
+    "dev": "wrangler dev --local",
+    "dry-run": "wrangler deploy --dry-run --outdir .wrangler-dry",
+    "check:deploy": "node scripts/check-deploy.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "4.13.0",
+    "lighthouse": "13.5.0",
+    "playwright-core": "1.63.0",
+    "wrangler": "4.145.0"
+  }
+}

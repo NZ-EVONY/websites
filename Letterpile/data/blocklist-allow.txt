@@ -1,0 +1,19 @@
+# Words on the blocklist that are ordinary, non-vulgar English in most contexts and
+# stay visible on static pages and in tool results. Decision logged in docs/DECISIONS.md.
+bastinado
+domination
+escort
+eunuch
+fecal
+fingering
+hardcore
+intercourse
+kinky
+playboy
+scat
+snowballing
+strappado
+suck
+sucks
+swinger
+undressing

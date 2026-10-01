@@ -1,0 +1,2 @@
+# ads.txt for letterpile.app. Placeholder until an AdSense account exists.
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0  (replace pub id after AdSense account is created, uncomment)

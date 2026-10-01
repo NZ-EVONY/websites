@@ -1,0 +1,22 @@
+{
+  "main": [
+    { "href": "/", "label": "Word Unscrambler", "key": "unscrambler", "icon": "U" },
+    { "href": "/word-scrambler", "label": "Word Scrambler", "key": "scrambler", "icon": "S" },
+    { "href": "/word-combiner", "label": "Word Combiner", "key": "combiner", "icon": "+" },
+    { "href": "/scrabble-word-finder", "label": "Tile Game Word Finder", "key": "scrabble", "icon": "Q" }
+  ],
+  "more": [
+    { "href": "/words-with-friends", "label": "Words With Friends Finder", "key": "wwf", "icon": "W" },
+    { "href": "/wordle-solver", "label": "Wordle Solver", "key": "wordle", "icon": "5" },
+    { "href": "/anagram-solver", "label": "Anagram Solver", "key": "anagram", "icon": "A" },
+    { "href": "/jumble-solver", "label": "Jumble Solver", "key": "jumble", "icon": "J" },
+    { "href": "/crossword-solver", "label": "Crossword Solver", "key": "crossword", "icon": "?" },
+    { "href": "/text-twist-solver", "label": "Text Twist & Wordscapes", "key": "twist", "icon": "T" }
+  ],
+  "legal": [
+    { "href": "/about", "label": "About" },
+    { "href": "/contact", "label": "Contact" },
+    { "href": "/privacy-policy", "label": "Privacy Policy" },
+    { "href": "/terms", "label": "Terms of Use" }
+  ]
+}

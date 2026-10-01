@@ -1,0 +1,21 @@
+# Letterpile's own short supplement to data/blocklist.txt (not from LDNOOBW).
+# Clearly vulgar words or slurs found in ENABLE that the LDNOOBW list does not cover
+# directly. The build also blocks simple inflections (-s, -es, -ed, -ing, -er, -ers, -y)
+# of every blocked word. Keep this list short and conservative.
+arse
+bugger
+buggery
+chickenshit
+cocksucker
+dyke
+fucker
+fuckup
+horseshit
+jism
+pecker
+prick
+shithead
+smartass
+spaz
+turd
+wiseass

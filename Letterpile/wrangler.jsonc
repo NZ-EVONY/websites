@@ -1,7 +1,15 @@
 {
   "name": "letterpile",
   "compatibility_date": "2026-09-01",
-  "assets": { "directory": "." },
+  "assets": {
+    // Only the built site is uploaded. Was "." (the whole folder); now docs, tests,
+    // scripts, .git and backups can never be published by accident.
+    "directory": "./public",
+    // /foo serves foo.html; /foo.html and /foo/ redirect to /foo.
+    "html_handling": "drop-trailing-slash",
+    // Unknown paths get public/404.html with a real 404 status.
+    "not_found_handling": "404-page"
+  },
   "routes": [
     { "pattern": "letterpile.app", "custom_domain": true },
     { "pattern": "www.letterpile.app", "custom_domain": true }

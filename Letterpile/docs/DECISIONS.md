@@ -1,0 +1,29 @@
+# Decisions (one line each; newest at the bottom)
+
+- Repo: the folder already lives in `NZ-EVONY/websites`; used Bee's commit `25944fa` as the baseline and tagged it `live-before-upgrade` instead of `git init`.
+- Git identity for this work: repo-local `Claude Code for Bee <noreply@localhost>` as the brief asks.
+- Content files are JS modules (`content/pages/*.mjs`), not Markdown, so copy can embed numbers computed from the word list in the same build (the brief allows "JSON/JS modules").
+- Assets get content-hashed names (`style.<hash>.css`, `words.<hash>.js`) with `Cache-Control: immutable`; HTML keeps Cloudflare's default `max-age=0, must-revalidate`.
+- `html_handling: "drop-trailing-slash"` kept: `wrangler dev --local` showed `/`, `/word-scrambler` = 200; `/word-scrambler.html`, `/word-scrambler/`, `/index.html`, `/about.html` = 307 to the clean URL; unknown path = 404 with `404.html`. No surprises for the ten live URLs.
+- Root `.assetsignore` removed; the build writes `public/.assetsignore` (Wrangler reads it from the assets directory).
+- Blocklist: LDNOOBW English single words + simple inflections (-s, -es, -ed, -d, -ing, -er, -ers, -y) + 17-word supplement, minus a 17-word allowlist of ordinary words (e.g. escort, scat, intercourse, suck) = 324 ENABLE words hidden by default.
+- Tools hide blocklisted words by default with a visible "Show all words, including vulgar ones" switch (remembered in localStorage `showAll`); static pages always exclude them.
+- Definitions: kept the Free Dictionary API, made it a deliberate "Look up definition" button with a disclosure line, in-memory cache, polite 404/429/offline messages, `referrerPolicy: no-referrer`, `credentials: omit`.
+- `innerHTML` audit: kept `esc()` for strings that are sanitized to a–z or produced by the engine; switched third-party definition text to DOM text nodes.
+- More Word Games dropdown is a native `<details>`; hover-to-open on desktop dropped (closed `<details>` content can't be shown by CSS hover). Click/tap/keyboard work, with or without JS.
+- Wordle Solver no longer loads the word list until a guess exists; empty state states the computed five-letter count instead of listing every word. (Behavior change; was the cause of TBT 840 ms.)
+- Word Combiner no longer combines the example words on page load (needed the whole list); deep links (`?w=`) still run immediately.
+- Scrambler challenge loads the list when it scrolls into view or on first interaction.
+- Input caps: unscrambler and anagram 15 letters (+3 blanks for the unscrambler), scrambler answer box 40 chars, scrambler text 5,000 chars, combiner words 40 chars; characters outside a–z (and ?, *, _ where blanks are allowed) are stripped as typed.
+- Wordle tiles recolored for AA contrast with white text (#6b6572 / #8a6a00 / #2e6b3a) and given non-color marks (dot = yellow, check = green).
+- Title for `/wordle-solver` is "Wordle Solver: Words That Fit Your Guesses | Letterpile" (55); the brief's proposal is 62 characters.
+- Title for `/words-with-friends` is "Words With Friends Finder: High-Scoring Plays | Letterpile" (58); the brief's proposal is 63 characters.
+- `/scrabble-word-finder`: "Scrabble" removed from title, H1 and description (brief default); menu label is "Tile Game Word Finder". Open question for Bee in BEE-TODO.
+- JSON-LD `WebApplication.applicationCategory` = `GameApplication`.
+- The single inline script (theme + query-string noindex) is on every page, so any query-string URL is noindex, not only tool pages.
+- `Strict-Transport-Security: max-age=31536000` without `includeSubDomains`/`preload` (conservative; `.app` is preloaded anyway).
+- `ads.txt` contains only comment lines until Bee has a publisher ID; tests forbid any `pub-` number.
+- AdSense integration point is a comment that tells Bee to paste the snippet from her account; it contains no script URL or ad markup (keeps the "no ad code" test strict).
+- `public-manifest.json` (asset names, page list) is written at the repo root for tests; it is not deployed.
+- Lighthouse runs via `scripts/lighthouse.mjs` with an async in-process server (a sync child process blocked the server and hung).
+- Placeholders stay visible as `{{NAME}}` in built pages; `npm run check:deploy` refuses to pass until they are filled.

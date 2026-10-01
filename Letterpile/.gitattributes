@@ -1,0 +1,4 @@
+# Keep the word list byte-exact (its SHA-256 is checked by the build).
+data/enable1.txt -text
+licenses/*.txt -text
+public/data/*.js -text
