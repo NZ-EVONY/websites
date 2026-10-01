@@ -1,0 +1,14 @@
+{
+  "_comment": "The only ports the port checker will test (TCP). Port 25 is excluded: Cloudflare Workers prohibit outbound connections to port 25. UDP-only services (e.g. WireGuard 51820) can't be tested with a TCP connection and are left out.",
+  "ports": [
+    { "port": 21, "label": "FTP", "why": "File transfer servers. Old and unencrypted; rarely worth exposing." },
+    { "port": 22, "label": "SSH", "why": "Remote command-line access to servers and NAS boxes." },
+    { "port": 80, "label": "HTTP", "why": "Web servers, and certificate checks for many home servers." },
+    { "port": 443, "label": "HTTPS", "why": "Encrypted web servers and many self-hosted apps." },
+    { "port": 3389, "label": "Remote Desktop", "why": "Windows Remote Desktop. Risky to expose directly; a VPN is safer." },
+    { "port": 8080, "label": "HTTP (alternative)", "why": "Web apps and proxies that don't use port 80." },
+    { "port": 8443, "label": "HTTPS (alternative)", "why": "Admin panels and apps that don't use port 443." },
+    { "port": 25565, "label": "Minecraft (Java)", "why": "The default port for Minecraft Java Edition servers." },
+    { "port": 32400, "label": "Plex", "why": "Remote access to a Plex Media Server." }
+  ]
+}

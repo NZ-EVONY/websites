@@ -1,0 +1,10 @@
+{
+  "_comment": "Starting values, to tune from real traffic (docs/UNVERIFIED.md). Binding limits are set in wrangler.jsonc (period must be 10 or 60 s, counted per Cloudflare location). Quotas here are enforced by the Limiter Durable Object, per pseudonymous IP hash.",
+  "rdns": { "perIpPerDay": 60 },
+  "whois": { "perIpPerDay": 100, "globalPerMinute": 300, "cacheSeconds": 600, "hopTimeoutMs": 4000, "totalTimeoutMs": 9000, "maxHops": 3, "maxBytesPerHop": 102400 },
+  "portCheck": {
+    "perIpPer10Min": 3, "perIpPerDay": 20, "globalPerHour": 600, "globalConcurrent": 20,
+    "cacheSeconds": 60, "connectTimeoutMs": 2500, "requestDeadlineMs": 8000, "maxInFlight": 5, "maxJitterMs": 150, "maxBodyBytes": 512
+  },
+  "retentionHours": 24
+}

@@ -1,12 +1,31 @@
 {
   "name": "myaddr",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "What's-my-IP site with IP/DNS lookup, WHOIS, port check, ping and traceroute.",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "start:lan": "ALLOW_PRIVATE=1 node server.js"
+  "type": "module",
+  "description": "MyAddr: what's-my-IP and network tools site. Static pages + one small Cloudflare Worker.",
+  "engines": {
+    "node": ">=22"
   },
-  "engines": { "node": ">=18" }
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:prod": "node scripts/build.mjs --prod",
+    "dev": "node scripts/build.mjs && wrangler dev --local",
+    "test": "node scripts/build.mjs && node --test \"tests/unit/*.test.mjs\" \"tests/worker/*.test.mjs\" \"tests/build/*.test.mjs\"",
+    "test:unit": "node --test \"tests/unit/*.test.mjs\"",
+    "test:worker": "node --test \"tests/worker/*.test.mjs\"",
+    "test:build": "node scripts/build.mjs && node --test \"tests/build/*.test.mjs\"",
+    "test:e2e": "node --test \"tests/e2e/*.test.mjs\"",
+    "lighthouse": "node scripts/build.mjs && node scripts/lighthouse.mjs",
+    "report:content": "node scripts/report-content.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "types": "wrangler types",
+    "dryrun": "wrangler deploy --dry-run --outdir .wrangler-dry"
+  },
+  "devDependencies": {
+    "axe-core": "4.13.0",
+    "lighthouse": "13.5.0",
+    "playwright-core": "1.63.0",
+    "wrangler": "4.146.0"
+  }
 }
