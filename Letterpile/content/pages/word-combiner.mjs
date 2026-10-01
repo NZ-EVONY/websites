@@ -27,7 +27,6 @@ export default ctx => {
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Press <b>Combine</b> to blend the words above. With the example words, one of the blends is <b>brunch</b>.</p></div>`,
     prose: `<p>A blend, sometimes called a portmanteau, joins the start of one word to the end of another, like breakfast and lunch making brunch. The combiner does that mechanically for any two to four words you give it. It tries every split that keeps a recognizable piece of each word, throws out results nobody could pronounce, and sorts what's left: blends that happen to be words already, then invented blends, then the words simply joined. It's a brainstorming tool for names, handles, puns and games.</p>
-<!--@slot after-intro-->
 <h2>How blends are built</h2>
 <p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognizable, and it drops anything that has no vowel or stacks up four consonants. With three or four words it blends every pair, in both orders.</p>
 <p>Results come in three piles:</p>
@@ -36,6 +35,7 @@ export default ctx => {
 <li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
 <li><b>Joined</b>: the words simply stuck together in every order.</li>
 </ul>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type two words. Use <b>+ Add word</b> for up to four.</li>
@@ -59,6 +59,7 @@ export default ctx => {
 </ul>
 <h2>Limits</h2>
 <p>Only the letters A to Z are used. The pronounceability check is a simple rule about vowels and consonant clusters, so some odd results slip through and some good ones are dropped. ${ctx.WORDLIST_NOTE}</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>The words you enter are combined in your browser and not sent to Letterpile. They do appear in the page address so you can share a result.</p>
 <h2>Ideas</h2>

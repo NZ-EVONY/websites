@@ -66,6 +66,7 @@
 
   const isWord = w => SET.has(String(w).toLowerCase());
   const isHidden = w => !showAll && HIDDEN.has(String(w).toLowerCase());
+  const isVisibleWord = w => isWord(w) && !isHidden(w);
   const sortKey = w => [...w].sort().join("");
 
   function keyMap() {
@@ -142,6 +143,21 @@
       if (used !== null) out.push({ word: w, blanks: used });
     }
     return out;
+  }
+
+  // unscramble(), grouped by length (longest first) and trimmed to `perGroup` per group,
+  // so a worker sends back only what the page shows. Words stay in list (a-z) order.
+  function unscrambleGrouped(input, opts = {}, perGroup = 200) {
+    const all = unscramble(input, opts);
+    const groups = new Map();
+    for (const it of all) {
+      const n = it.word.length;
+      if (!groups.has(n)) groups.set(n, { n, count: 0, items: [] });
+      const g = groups.get(n);
+      g.count++;
+      if (g.items.length < perGroup) g.items.push(it);
+    }
+    return { total: all.length, groups: [...groups.values()].sort((a, b) => b.n - a.n) };
   }
 
   function score(word, scheme = "scrabble", blankLetters = "") {
@@ -362,7 +378,7 @@
   const LIMITS = { letters: 15, blanks: 3 };
 
   const api = {
-    load, init, isWord, isHidden, setShowAll, LIMITS, parseLetters, unscramble, findPlays, score, anagrams, patternSearch,
+    load, init, isWord, isHidden, isVisibleWord, setShowAll, LIMITS, parseLetters, unscramble, unscrambleGrouped, findPlays, score, anagrams, patternSearch,
     wordleConstraints, wordleCandidates, combine, scrambleText, scrambleWord, randomWord, shuffle,
     SCHEMES, get words() { return WORDS; }, get showAll() { return showAll; },
   };

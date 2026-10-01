@@ -3,7 +3,7 @@
    load (that downloaded the whole word list before anyone used the tool). */
 (function () {
   "use strict";
-  const { $, esc, chip, plainWord, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, esc, chip, plainWord, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const inputs = () => [...document.querySelectorAll("#inputs .w")];
   inputs().forEach(i => letterInput(i, { blanks: false, max: 40 }));
   function addInput(value = "") {
@@ -20,8 +20,9 @@
     setParams({ w: words.join(",") });
     const out = $("#results");
     if (words.length < 2) { out.innerHTML = `<p class="empty">Enter at least two words.</p>`; return; }
-    withWords(out, () => {
-      const { joined, blends } = Engine.combine(words);
+    withWords(out, async current => {
+      const { joined, blends } = await compute("combine", words);
+      if (!current()) return;
       const real = blends.filter(b => b.real), fresh = blends.filter(b => !b.real);
       const block = (title, list, plain) => list.length ? `<section class="group"><h3>${title} <span class="count">${list.length}</span></h3>
         <div class="words">${list.map(w => plain ? plainWord(w.word || w) : chip(w)).join("")}</div></section>` : "";

@@ -1,7 +1,7 @@
 /* Crossword Solver page. Extracted from the live crossword-solver.html inline script. */
 (function () {
   "use strict";
-  const { $, esc, chip, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, esc, chip, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const norm = s => s.toLowerCase().replace(/[^a-z?_.*]/g, "");
   letterInput($("#include"), { blanks: false });
   letterInput($("#exclude"), { blanks: false });
@@ -16,8 +16,9 @@
     const out = $("#results");
     if (pattern.length < 2) { out.innerHTML = `<p class="empty">Enter a pattern of at least two squares.</p>`; return; }
     $("#len").textContent = `${pattern.length} squares`;
-    withWords(out, () => {
-      const found = Engine.patternSearch(pattern, { include, exclude });
+    withWords(out, async current => {
+      const found = await compute("patternSearch", pattern, { include, exclude });
+      if (!current()) return;
       const shown = found.slice(0, 800);
       out.innerHTML = found.length
         ? `<p class="summary">${found.length.toLocaleString()} ${found.length === 1 ? "word fits" : "words fit"} <code>${esc(pattern.toUpperCase())}</code></p>

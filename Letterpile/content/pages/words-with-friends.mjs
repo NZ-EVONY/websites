@@ -15,11 +15,11 @@ export default ctx => {
     lede: "The same idea as the tile game word finder, scored with commonly used Words With Friends letter values and a 35-point bonus for playing all seven tiles.",
     tool: ctx.finderForm(),
     prose: `<p>Words With Friends looks like other crossword-style tile games, but it prices several letters differently, so the best-scoring word for a rack can change. This finder lists every word your tiles can make from Letterpile's word list and ranks them with the letter values commonly reported for Words With Friends, plus a 35-point bonus for using all seven tiles. Add board letters to build through them. Scores are base values only; the board's bonus squares are up to you.</p>
-<!--@slot after-intro-->
 <h2>How Words With Friends scoring differs</h2>
 <p>The table lists every letter whose commonly used value differs from the values used in Scrabble-style games:</p>
 ${ctx.valueDiffTable()}
 <p>Playing all seven tiles is commonly reported to earn 35 points here rather than 50, so a big-tile play on a premium square often beats using every tile. Check your game's rules, as values and bonuses can change.</p>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Enter your tiles in <b>Your rack</b>, with <kbd>?</kbd> for a blank.</li>
@@ -45,6 +45,7 @@ ${ctx.valueDiffTable()}
 </ul>
 <h2>Limits and accuracy</h2>
 <p>Words With Friends uses its own dictionary. ${ctx.WORDLIST_NOTE} Expect some words here that the game rejects, and some newer words it accepts that are missing here. Letterpile is independent and not affiliated with Zynga.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Your tiles are processed in your browser and never sent to Letterpile. A definition is fetched from a third-party dictionary only if you ask for one.</p>`,
     faq: [

@@ -243,3 +243,22 @@ test("no file or folder in public/ uses a reserved Windows name; renamed pages r
   }
   assert.ok(lines.some(l => l.startsWith("/words-starting-with/con ")), "the CON page redirect is missing");
 });
+
+test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 KB", async () => {
+  const { gzipSync } = await import("node:zlib");
+  const gz = f => gzipSync(fs.readFileSync(path.join(PUBLIC, f)), { level: 9 }).length;
+  const m = manifest();
+  const css = gz(m.assets["style.css"].slice(1));
+  assert.ok(css <= 12 * 1024, `CSS ${css} bytes`);
+  let worst = { html: 0, js: 0 };
+  for (const p of pages) {
+    const html = gz(p.file);
+    const scripts = [...p.html.matchAll(/<script src="([^"]+)"/g)].map(x => x[1].slice(1));
+    if (/data-worker="([^"]+)"/.test(p.html)) scripts.push(p.html.match(/data-worker="([^"]+)"/)[1].slice(1));
+    const js = scripts.reduce((s, f) => s + gz(f), 0);
+    assert.ok(html <= 60 * 1024, `${p.file}: HTML ${html} bytes`);
+    assert.ok(js <= 15 * 1024, `${p.file}: JS ${js} bytes`);
+    worst = { html: Math.max(worst.html, html), js: Math.max(worst.js, js) };
+  }
+  console.log(`# budget: CSS ${css} B, worst HTML ${worst.html} B, worst JS ${worst.js} B (gzip -9; word list excluded)`);
+});

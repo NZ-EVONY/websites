@@ -23,7 +23,7 @@ export default function layout(page, ctx) {
   const slot = name => (slotsOn.includes(name) ? adSlot(name, { dev: ads.dev }) : "");
   const scripts = [];
   if (page.script) {
-    scripts.push(`<script src="${assets["engine.js"]}" data-words="${assets["words.js"]}" defer></script>`);
+    scripts.push(`<script src="${assets["engine.js"]}" data-words="${assets["words.js"]}" data-worker="${assets["worker.js"]}" defer></script>`);
   }
   scripts.push(`<script src="${assets["site.js"]}" defer></script>`);
   if (page.script) scripts.push(`<script src="${assets[`js/${page.script}.js`]}" defer></script>`);

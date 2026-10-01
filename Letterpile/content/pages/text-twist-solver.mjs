@@ -29,9 +29,9 @@ export default ctx => {
         <div class="tiles tiles--wheel" id="wheel"></div>
         <div class="results" id="results" aria-live="polite"><p class="empty">Words from your letters will appear here, longest first.</p></div>`,
     prose: `<p>Letter-wheel games give you a small set of letters, often six or seven, and ask you to find every word hidden in them, usually three letters or longer. This solver lists them all from its word list, longest first, so you can find the word that uses every letter and fill in the shorter ones you're missing. If the game shows the shape of an answer with some letters already filled in, a slot pattern narrows the list to just the words that fit.</p>
-<!--@slot after-intro-->
 <h2>One solver, several games</h2>
 <p>Text Twist, Wordscapes, Word Cookies and plenty of newspaper word wheels all ask the same thing: find the words hidden in a small set of letters, usually three letters or longer, without reusing a letter. The rules for minimum length and which words count vary, so the solver lets you set the minimum length.</p>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type the letters from the wheel (up to 10).</li>
@@ -60,6 +60,7 @@ export default ctx => {
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} The list is broader than any one game's, so you'll see extra words these games don't accept. Longer, more common words are the safest bets. Letterpile is independent of the games named here.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>The letters you enter are solved in your browser and not sent to Letterpile.</p>`,
     faq: [

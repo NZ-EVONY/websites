@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Scrambler","url":"https://letterpile.app/word-scrambler","description":"Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I scramble a whole paragraph?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to 5,000 characters. Each word is scrambled separately unless you choose “Mix all letters in the text”."}},{"@type":"Question","name":"Will the scrambled word always be different?","acceptedAnswer":{"@type":"Answer","text":"Yes, whenever a different order exists. A word with only one distinct letter, or a very short word in “keep first & last” mode, can't change."}},{"@type":"Question","name":"Are punctuation and capitals kept?","acceptedAnswer":{"@type":"Answer","text":"Yes. Punctuation, numbers and spaces stay where they were, and capital letters keep their positions."}},{"@type":"Question","name":"How does the challenge pick words?","acceptedAnswer":{"@type":"Answer","text":"It picks a random word of the chosen length from the visible ENABLE list, skipping words ending in S, ED or ING."}},{"@type":"Question","name":"Is my text saved?","acceptedAnswer":{"@type":"Answer","text":"No. It stays in your browser and disappears when you leave the page."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Scrambler","item":"https://letterpile.app/word-scrambler"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/scrambler.9d0433a6c7.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/scrambler.0627d06ff4.js" defer></script>
 </head>
 <body data-page="scrambler">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -103,7 +103,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>The scrambler works the other way round from the rest of the site: instead of finding words in jumbled letters, it jumbles your words. Paste any text, choose a style, and it produces up to ten different scrambled versions at once, keeping punctuation and capitals where they were. Teachers use it for spelling and reading exercises, puzzle makers for jumbles, and anyone can use the built-in challenge to practice unscrambling. Scrambling uses a secure random shuffle in your browser, and the text never leaves your device.</p>
-
 <h2>Scrambling styles</h2>
 <table>
 <tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
@@ -114,6 +113,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
 </table>
 <p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were. Words of one repeated letter, and words of three letters or fewer in “keep first &amp; last” mode, can't change and are left as they are. The example column shows one possible result; yours will differ every time.</p>
+
 <h2>How to use it</h2>
 <ol>
 <li>Type or paste your text (up to 5,000 characters).</li>
@@ -138,6 +138,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits</h2>
 <p>Only the letters A to Z are scrambled; accented letters and other alphabets are left as they are. The scrambler doesn't check that the result isn't accidentally another word. The challenge's answers come from the open ENABLE word list, so it accepts some uncommon words.</p>
+
 <h2>Privacy</h2>
 <p>Your text is scrambled in your browser and is never sent to Letterpile. It isn't saved, and it isn't added to the page address.</p>
         

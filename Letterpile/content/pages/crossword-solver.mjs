@@ -35,7 +35,6 @@ export default ctx => {
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Matching words will appear here.</p></div>`,
     prose: `<p>When you know the length of a crossword answer and some of its letters, this solver lists every word in its list that fits. Type the pattern with a question mark for each empty square, and optionally say which letters must appear somewhere or can't appear in the gaps. It doesn't read clues; it narrows down spellings, which is often all you need once a couple of crossing answers are in. It's equally handy for word ladders, puzzle design and any game where you know a word's shape.</p>
-<!--@slot after-intro-->
 <h2>Writing a pattern</h2>
 <p>One character per square. Known letters as themselves; unknown squares as <kbd>?</kbd>, <kbd>_</kbd> or <kbd>.</kbd>. The pattern's length is the answer's length, shown under the box as you type.</p>
 <table>
@@ -45,6 +44,7 @@ export default ctx => {
 <tr><td>Must include</td><td>These letters appear somewhere in the word</td></tr>
 <tr><td>Exclude</td><td>These letters can't fill the empty squares</td></tr>
 </table>
+<!--@slot after-intro-->
 <h2>Worked patterns</h2>
 <p>Every count below was computed from the list this site uses:</p>
 <table>
@@ -71,6 +71,7 @@ ${examples.map(([p, o, d, r]) => `<tr><td>${code(p)}</td><td>${fmtOpts(o)}</td><
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} Crossword answers often include names, abbreviations and phrases, which a word list doesn't contain. Use the results to test ideas, then check them against the clue.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Patterns are matched in your browser, and nothing you type is sent to Letterpile.</p>`,
     faq: [

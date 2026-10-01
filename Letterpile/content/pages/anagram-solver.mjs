@@ -29,9 +29,9 @@ export default ctx => {
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Anagrams will appear here. Example: <kbd>LISTEN</kbd> rearranges into ${ctx.list(listen, 5)}.</p></div>`,
     prose: `<p>An anagram rearranges every letter of a word or phrase into something new. This solver takes up to 15 letters and finds every single word in its list that uses exactly those letters, and, if you like, every pair of words that does. Spaces, capitals and punctuation are ignored, so you can paste a name or a short phrase. It's useful for cryptic crossword clues, jumbles, word games and naming ideas, and it runs entirely in your browser.</p>
-<!--@slot after-intro-->
 <h2>Anagrams vs. words within</h2>
 <p>This page only shows arrangements that use <em>all</em> your letters: <code>LISTEN</code> gives ${ctx.list(listen, 5)}. For shorter words made from some of the letters, use the <a href="/">Word Unscrambler</a>. The difference is the same as between a perfect and a partial anagram, explained in <a href="/guides/anagram-basics">What Is an Anagram?</a></p>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type a word, name or phrase. Only the letters count.</li>
@@ -56,6 +56,7 @@ export default ctx => {
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} Names and capitalized words are not in the list, so a name can be rearranged into common words but not into other names. Two-word search stops at 400 pairs.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Whatever you type, including a name, is processed in your browser and not sent to Letterpile. A definition lookup, if you ask for one, sends only that word to the dictionary service.</p>
 <h2>Where anagrams show up</h2>

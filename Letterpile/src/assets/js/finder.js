@@ -2,7 +2,7 @@
    (data-scheme="wwf"). Extracted from the two live pages' identical inline scripts. */
 (function () {
   "use strict";
-  const { $, chip, renderGroups, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, chip, renderGroups, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const SCHEME = document.body.dataset.scheme;
   const BONUS = Engine.SCHEMES[SCHEME].bingo;
   for (let n = 2; n <= 15; n++) $("#len").insertAdjacentHTML("beforeend", `<option>${n}</option>`);
@@ -42,7 +42,12 @@
     const { letters, blanks } = Engine.parseLetters(rack, 2);
     if (!letters.length && !blanks) { out.innerHTML = `<p class="empty">Enter the letters on your rack.</p>`; return; }
     if (letters.length + blanks > 9) { out.innerHTML = `<p class="empty">That's more tiles than a rack holds.</p>`; return; }
-    withWords(out, () => { last = Engine.findPlays(rack, opts); render(); });
+    withWords(out, async current => {
+      const found = await compute("findPlays", rack, opts);
+      if (!current()) return;
+      last = found;
+      render();
+    });
   }
 
   $("#form").addEventListener("submit", e => { e.preventDefault(); run(); });

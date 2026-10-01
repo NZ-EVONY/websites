@@ -24,7 +24,8 @@ being upgraded for AdSense readiness. Owner: Bee (New Zealand). American English
 ## Commands
 - `npm run build` · `npm test` (build + unit + build-output) · `npm run regression` · `npm run lighthouse`
 - `npm run serve` (http://localhost:8788) · `npx wrangler dev --local` · `npm run dry-run` · `npm run check:deploy`
-- `npm run wordlist:diff` regenerates `docs/WORDLIST-DIFF.md`.
+- `npm run wordlist:diff` regenerates `docs/WORDLIST-DIFF.md`. `npm run test:e2e`, `npm run measure:longtasks`, `npm run build:ads-preview`.
+- Searches run in `src/assets/worker.js` via `UI.compute(fn, ...args)`; never call heavy `Engine.*` searches on the main thread.
 
 ## Hard rules
 - **Never deploy.** No `wrangler deploy` (except `--dry-run`), `versions upload`, `login`, `whoami`, `secret`, `kv`, `r2`, `d1`, `tail`, `rollback`, `delete`. `wrangler dev` local only. Never read `.wrangler/`.

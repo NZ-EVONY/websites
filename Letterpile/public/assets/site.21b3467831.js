@@ -71,19 +71,27 @@
   // A non-clickable word or phrase (blends, two-word anagrams).
   const plainWord = s => `<span class="word plain static">${esc(s)}</span>`;
 
-  // Group results by word length, longest first, with a cap per group.
+  // Group results by word length, longest first, with a cap per group. Accepts a flat list,
+  // or the { total, groups } shape from Engine.unscrambleGrouped (already grouped and trimmed).
+  const byWord = (a, b) => { const x = a.word || a, y = b.word || b; return x < y ? -1 : x > y ? 1 : 0; };
   function renderGroups(items, { perGroup = 200, scheme, sort = "alpha", label = n => `${n}-letter words` } = {}) {
-    const groups = new Map();
-    for (const it of items) {
-      const n = (it.word || it).length;
-      if (!groups.has(n)) groups.set(n, []);
-      groups.get(n).push(it);
+    let groups;
+    if (items.groups) groups = items.groups.map(g => [g.n, g.items, g.count]);
+    else {
+      const m = new Map();
+      for (const it of items) {
+        const n = (it.word || it).length;
+        if (!m.has(n)) m.set(n, []);
+        m.get(n).push(it);
+      }
+      groups = [...m.entries()].sort((a, b) => b[0] - a[0]).map(([n, list]) => {
+        if (sort === "alpha") list.sort(byWord);
+        return [n, list.slice(0, perGroup), list.length];
+      });
     }
-    return [...groups.entries()].sort((a, b) => b[0] - a[0]).map(([n, list]) => {
-      if (sort === "alpha") list.sort((a, b) => (a.word || a).localeCompare(b.word || b));
-      const shown = list.slice(0, perGroup);
-      const extra = list.length - shown.length;
-      return `<section class="group"><h3>${label(n)} <span class="count">${list.length}</span></h3>
+    return groups.map(([n, shown, count]) => {
+      const extra = count - shown.length;
+      return `<section class="group"><h3>${label(n)} <span class="count">${count}</span></h3>
         <div class="words">${shown.map(it => chip(it, { scheme })).join("")}</div>
         ${extra > 0 ? `<p class="hint more">…and ${extra} more. Narrow it down with the filters.</p>` : ""}</section>`;
     }).join("");
@@ -93,16 +101,52 @@
     el.innerHTML = `<p class="loading">${esc(msg)}</p>`;
   }
 
-  // Run fn once the word list is ready, showing a spinner the first time.
-  async function withWords(el, fn) {
-    if (!Engine.words) showLoading(el);
+  // ---------- searches (in a Web Worker when possible) ----------
+
+  // Searches run in a worker so long ones never freeze the page. The worker loads the same
+  // engine.js and word file; if workers aren't available, the engine runs here instead.
+  const engineEl = document.querySelector("script[data-worker]");
+  let worker = null, workerReady = false, seq = 0;
+  const pending = new Map();
+  function startWorker() {
+    if (worker || !engineEl || !("Worker" in window)) return worker;
     try {
-      await Engine.load();
-      // Yield so the spinner paints before a heavy search.
-      await new Promise(r => setTimeout(r, 0));
-      fn();
+      worker = new Worker(engineEl.dataset.worker);
+      worker.onmessage = e => {
+        const p = pending.get(e.data.id);
+        if (!p) return;
+        pending.delete(e.data.id);
+        workerReady = true;
+        e.data.error ? p.reject(new Error(e.data.error)) : p.resolve(e.data.result);
+      };
+      worker.onerror = () => { for (const p of pending.values()) p.reject(new Error("Couldn't load the word list.")); pending.clear(); worker = null; };
+      const abs = u => new URL(u, location.href).href;
+      worker.postMessage({ type: "init", engine: abs(engineEl.src), words: abs(engineEl.dataset.words) });
+    } catch { worker = null; }
+    return worker;
+  }
+  function compute(fn, ...args) {
+    const w = startWorker();
+    if (!w) return Engine.load().then(() => Engine[fn](...args));
+    return new Promise((resolve, reject) => {
+      const id = ++seq;
+      pending.set(id, { resolve, reject });
+      w.postMessage({ id, fn, args, showAll: Engine.showAll });
+    });
+  }
+  const isReady = () => workerReady || !!Engine?.words;
+
+  // Run an (async) search, showing a spinner while the word list loads the first time.
+  // fn receives current(): false once a newer search has started on the same element,
+  // so a slow, older result never overwrites a newer one.
+  async function withWords(el, fn) {
+    const tok = (el._searchToken = (el._searchToken || 0) + 1);
+    const current = () => el._searchToken === tok;
+    if (!isReady()) showLoading(el);
+    try {
+      await fn(current);
     } catch (e) {
-      el.innerHTML = `<p class="error">${esc(e.message)} Check your connection and try again.</p>`;
+      if (current()) el.innerHTML = `<p class="error">${esc(e.message)} Check your connection and try again.</p>`;
     }
   }
 
@@ -133,7 +177,7 @@
   // Start fetching the word list as soon as someone starts using a tool form,
   // rather than on page load (keeps the first paint light).
   if (Engine) {
-    const warm = () => { Engine.load().catch(() => {}); };
+    const warm = () => { compute("isWord", "a").catch(() => {}); };
     document.querySelectorAll(".tool-form, [data-warm]").forEach(f => {
       ["pointerdown", "keydown", "input"].forEach(t => f.addEventListener(t, warm, { once: true, passive: true }));
     });
@@ -153,7 +197,7 @@
         Engine.setShowAll(box.checked);
         try { localStorage.setItem("showAll", box.checked ? "1" : "0"); } catch {}
         document.querySelectorAll("[data-show-all]").forEach(b => { b.checked = box.checked; });
-        if (Engine.words) filterListeners.forEach(fn => fn());
+        if (isReady()) filterListeners.forEach(fn => fn());
       });
     });
   }
@@ -240,5 +284,5 @@
     if (w) define(w.dataset.word, w.dataset.scheme);
   });
 
-  window.UI = { $, esc, chip, plainWord, renderGroups, withWords, getParams, setParams, toast, define, letterInput, onWordsFilter };
+  window.UI = { $, esc, chip, plainWord, renderGroups, withWords, compute, isReady, getParams, setParams, toast, define, letterInput, onWordsFilter };
 })();

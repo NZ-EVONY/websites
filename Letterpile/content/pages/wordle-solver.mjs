@@ -33,7 +33,6 @@ export default ctx => {
         ${ctx.showAllToggle}
         <div class="results" id="results" aria-live="polite"><p class="empty">Add your first guess to see the words that still fit. Before any guess, all ${fmt(shown5)} five-letter words in the list are possible.</p></div>`,
     prose: `<p>This solver helps with daily five-letter guessing puzzles. You enter the guesses you've already made and set each tile to the color the game showed, and it lists every word in its word list that is still consistent with all of those clues, with a few suggested next guesses at the top. It doesn't know today's answer and never shows it; it only applies the logic you could do by hand. Four- to eight-letter variants are supported too.</p>
-<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type a guess you've made in the game and press <b>Add</b>. It appears as a row of gray tiles.</li>
@@ -42,6 +41,7 @@ export default ctx => {
 <li>Pick your next guess from the suggestions, or from the full list if you prefer an everyday word.</li>
 <li>Use <b>Reset</b> to start a new puzzle, or × to remove one guess. Change <b>Word length</b> for 4- to 8-letter variants.</li>
 </ol>
+<!--@slot after-intro-->
 <h2>How the solver thinks</h2>
 <ul>
 <li><b>Green</b> pins a letter to that spot.</li>
@@ -63,6 +63,7 @@ export default ctx => {
 </ul>
 <h2>Limits and accuracy</h2>
 <p>The list is a general English word list (ENABLE), not the game's own answer list, so it includes obscure words the game won't pick as answers. The old Letterpile list had more five-letter words; ENABLE has ${fmt(five)}, of which ${fmt(shown5)} are shown by default. If the top suggestion looks odd, the next few usually include the everyday word. Wordle™ is a trademark of The New York Times Company; Letterpile is not affiliated with it.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Your guesses stay in your browser. They're kept in this tab's session storage so a reload doesn't lose them, and are cleared when you close the tab.</p>`,
     faq: [

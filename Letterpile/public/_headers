@@ -17,7 +17,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
   Strict-Transport-Security: max-age=31536000
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-K5vt4AwK4N9Ia2Tw+CJLh5IT8U/NaluGi2+sRpu0QAg='; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.dictionaryapi.dev; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-K5vt4AwK4N9Ia2Tw+CJLh5IT8U/NaluGi2+sRpu0QAg='; style-src 'self'; img-src 'self' data:; connect-src 'self' https://api.dictionaryapi.dev; worker-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable

@@ -1,7 +1,7 @@
 /* Word Unscrambler page (/). Extracted from the inline script of the live index.html. */
 (function () {
   "use strict";
-  const { $, withWords, renderGroups, getParams, setParams, esc, letterInput, onWordsFilter } = UI;
+  const { $, withWords, compute, renderGroups, getParams, setParams, esc, letterInput, onWordsFilter } = UI;
   const { letters: MAX, blanks: MAX_BLANKS } = Engine.LIMITS;
   for (let n = 2; n <= 15; n++) $("#len").insertAdjacentHTML("beforeend", `<option>${n}</option>`);
   const clean = s => s.toLowerCase().replace(/[^a-z]/g, "");
@@ -19,10 +19,11 @@
     if (l.length + blanks < 2) { out.innerHTML = `<p class="empty">Enter at least two letters.</p>`; return; }
     if (l.length > MAX) { out.innerHTML = `<p class="empty">Use up to ${MAX} letters (plus up to ${MAX_BLANKS} blanks).</p>`; return; }
     const shown = (l + "?".repeat(blanks)).toUpperCase();
-    withWords(out, () => {
-      const found = Engine.unscramble(letters, opts);
-      out.innerHTML = found.length
-        ? `<p class="summary">${found.length.toLocaleString()} words from <code>${esc(shown)}</code></p>` + renderGroups(found)
+    withWords(out, async current => {
+      const found = await compute("unscrambleGrouped", letters, opts);
+      if (!current()) return;
+      out.innerHTML = found.total
+        ? `<p class="summary">${found.total.toLocaleString()} words from <code>${esc(shown)}</code></p>` + renderGroups(found)
         : `<p class="empty">No words found. Try fewer letters, removing a filter, or adding a <kbd>?</kbd> blank. Check the spelling of your letters too.</p>`;
     });
   }

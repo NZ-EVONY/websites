@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Combiner","url":"https://letterpile.app/word-combiner","description":"Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a portmanteau word?","acceptedAnswer":{"@type":"Answer","text":"A word made by blending parts of two others, keeping the sound or sense of both, such as brunch from breakfast and lunch."}},{"@type":"Question","name":"Why are some blends marked as real words?","acceptedAnswer":{"@type":"Answer","text":"If a blend happens to be spelled like a word in the ENABLE list, it's listed first. That doesn't mean the word has anything to do with your inputs."}},{"@type":"Question","name":"Can I combine more than two words?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to four. Every pair is blended, in both orders."}},{"@type":"Question","name":"Why don't I see a blend I expected?","acceptedAnswer":{"@type":"Answer","text":"The combiner keeps at least a fifth of each word and drops blends with no vowel or with four consonants in a row. Your blend may break one of those rules."}},{"@type":"Question","name":"Can I use these blends as a business name?","acceptedAnswer":{"@type":"Answer","text":"The tool only suggests spellings. Check trademarks and availability yourself before using any name."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Combiner","item":"https://letterpile.app/word-combiner"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/combiner.d3a6839443.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/combiner.603b547461.js" defer></script>
 </head>
 <body data-page="combiner">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -78,7 +78,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>A blend, sometimes called a portmanteau, joins the start of one word to the end of another, like breakfast and lunch making brunch. The combiner does that mechanically for any two to four words you give it. It tries every split that keeps a recognizable piece of each word, throws out results nobody could pronounce, and sorts what's left: blends that happen to be words already, then invented blends, then the words simply joined. It's a brainstorming tool for names, handles, puns and games.</p>
-
 <h2>How blends are built</h2>
 <p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognizable, and it drops anything that has no vowel or stacks up four consonants. With three or four words it blends every pair, in both orders.</p>
 <p>Results come in three piles:</p>
@@ -87,6 +86,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
 <li><b>Joined</b>: the words simply stuck together in every order.</li>
 </ul>
+
 <h2>How to use it</h2>
 <ol>
 <li>Type two words. Use <b>+ Add word</b> for up to four.</li>
@@ -110,6 +110,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits</h2>
 <p>Only the letters A to Z are used. The pronounceability check is a simple rule about vowels and consonant clusters, so some odd results slip through and some good ones are dropped. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+
 <h2>Privacy</h2>
 <p>The words you enter are combined in your browser and not sent to Letterpile. They do appear in the page address so you can share a result.</p>
 <h2>Ideas</h2>

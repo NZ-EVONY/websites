@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Text Twist and Wordscapes Solver","url":"https://letterpile.app/text-twist-solver","description":"Find every 3+ letter word in your letter wheel, with slot patterns for partly solved answers.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which games does it work for?","acceptedAnswer":{"@type":"Answer","text":"Any game where you make words from a fixed set of letters without reusing them, such as letter wheels, word cookies and Text Twist-style rounds."}},{"@type":"Question","name":"What is a slot pattern?","acceptedAnswer":{"@type":"Answer","text":"A pattern for one answer, with known letters in place and ? for unknown squares, like ?A?? for a four-letter word with A second."}},{"@type":"Question","name":"Why does it list words my game won't accept?","acceptedAnswer":{"@type":"Answer","text":"It uses the open ENABLE word list, which is larger than most games' lists. Prefer common words when you're unsure."}},{"@type":"Question","name":"Can I change the minimum word length?","acceptedAnswer":{"@type":"Answer","text":"Yes, from 3 to 6 letters, with the Minimum length menu."}},{"@type":"Question","name":"What does the Twist button do?","acceptedAnswer":{"@type":"Answer","text":"It shuffles the letters in the box, to help you spot words yourself. It doesn't change the results."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Text Twist and Wordscapes Solver","item":"https://letterpile.app/text-twist-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/twist.53621e3547.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/twist.de5008a5f6.js" defer></script>
 </head>
 <body data-page="twist">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -80,9 +80,9 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>Letter-wheel games give you a small set of letters, often six or seven, and ask you to find every word hidden in them, usually three letters or longer. This solver lists them all from its word list, longest first, so you can find the word that uses every letter and fill in the shorter ones you're missing. If the game shows the shape of an answer with some letters already filled in, a slot pattern narrows the list to just the words that fit.</p>
-
 <h2>One solver, several games</h2>
 <p>Text Twist, Wordscapes, Word Cookies and plenty of newspaper word wheels all ask the same thing: find the words hidden in a small set of letters, usually three letters or longer, without reusing a letter. The rules for minimum length and which words count vary, so the solver lets you set the minimum length.</p>
+
 <h2>How to use it</h2>
 <ol>
 <li>Type the letters from the wheel (up to 10).</li>
@@ -111,6 +111,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits and accuracy</h2>
 <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The list is broader than any one game's, so you'll see extra words these games don't accept. Longer, more common words are the safest bets. Letterpile is independent of the games named here.</p>
+
 <h2>Privacy</h2>
 <p>The letters you enter are solved in your browser and not sent to Letterpile.</p>
         

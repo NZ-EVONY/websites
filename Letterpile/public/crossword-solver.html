@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Crossword Solver","url":"https://letterpile.app/crossword-solver","description":"Type the letters you know and use ? for the gaps to find every word that fits, with must-include and exclude letters.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which characters stand for an unknown letter?","acceptedAnswer":{"@type":"Answer","text":"Use ?, _, . or * for each empty square. Letters stand for themselves. Anything else is ignored."}},{"@type":"Question","name":"What's the difference between Must include and Exclude?","acceptedAnswer":{"@type":"Answer","text":"Must include lists letters that appear somewhere in the answer. Exclude lists letters that can't fill any empty square; letters you've already placed are never excluded."}},{"@type":"Question","name":"Can it solve the clue for me?","acceptedAnswer":{"@type":"Answer","text":"No. It matches spellings, not meanings. It's most useful once you have a few crossing letters."}},{"@type":"Question","name":"Why isn't a name or abbreviation found?","acceptedAnswer":{"@type":"Answer","text":"The word list contains ordinary lowercase words only, so names, places and most abbreviations are not included."}},{"@type":"Question","name":"How long can a pattern be?","acceptedAnswer":{"@type":"Answer","text":"Up to 21 squares."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Crossword Solver","item":"https://letterpile.app/crossword-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/crossword.bd1d61b556.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/crossword.97d936105a.js" defer></script>
 </head>
 <body data-page="crossword">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -79,7 +79,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>When you know the length of a crossword answer and some of its letters, this solver lists every word in its list that fits. Type the pattern with a question mark for each empty square, and optionally say which letters must appear somewhere or can't appear in the gaps. It doesn't read clues; it narrows down spellings, which is often all you need once a couple of crossing answers are in. It's equally handy for word ladders, puzzle design and any game where you know a word's shape.</p>
-
 <h2>Writing a pattern</h2>
 <p>One character per square. Known letters as themselves; unknown squares as <kbd>?</kbd>, <kbd>_</kbd> or <kbd>.</kbd>. The pattern's length is the answer's length, shown under the box as you type.</p>
 <table>
@@ -89,6 +88,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <tr><td>Must include</td><td>These letters appear somewhere in the word</td></tr>
 <tr><td>Exclude</td><td>These letters can't fill the empty squares</td></tr>
 </table>
+
 <h2>Worked patterns</h2>
 <p>Every count below was computed from the list this site uses:</p>
 <table>
@@ -115,6 +115,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits and accuracy</h2>
 <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. Crossword answers often include names, abbreviations and phrases, which a word list doesn't contain. Use the results to test ideas, then check them against the clue.</p>
+
 <h2>Privacy</h2>
 <p>Patterns are matched in your browser, and nothing you type is sent to Letterpile.</p>
         

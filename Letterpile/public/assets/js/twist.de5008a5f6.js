@@ -1,7 +1,7 @@
 /* Text Twist and Wordscapes Solver page. Extracted from the live text-twist-solver.html inline script. */
 (function () {
   "use strict";
-  const { $, renderGroups, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, renderGroups, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const V = Engine.SCHEMES.scrabble.values;
   const drawWheel = s => { $("#wheel").innerHTML = [...s].map(ch => `<span>${ch}<sub>${V[ch]}</sub></span>`).join(""); };
   letterInput($("#letters"), { blanks: false });
@@ -14,10 +14,11 @@
     const out = $("#results");
     if (letters.length < 3) { out.innerHTML = `<p class="empty">Enter at least three letters.</p>`; return; }
     const pattern = slots ? new RegExp("^" + [...slots].map(c => /[a-z]/.test(c) ? c : "[a-z]").join("") + "$") : null;
-    withWords(out, () => {
-      const found = Engine.unscramble(letters, { min, pattern });
-      out.innerHTML = found.length
-        ? `<p class="summary">${found.length} words</p>` + renderGroups(found)
+    withWords(out, async current => {
+      const found = await compute("unscrambleGrouped", letters, { min, pattern });
+      if (!current()) return;
+      out.innerHTML = found.total
+        ? `<p class="summary">${found.total} words</p>` + renderGroups(found)
         : `<p class="empty">No words${slots ? " fit that slot pattern" : ""}. Check the letters${slots ? " and the pattern length" : ""}, or lower the minimum length.</p>`;
     });
   }

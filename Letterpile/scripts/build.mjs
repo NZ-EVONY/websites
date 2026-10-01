@@ -15,8 +15,14 @@ import { renderNode } from "../content/programmatic.mjs";
 import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
-const OUT = path.join(ROOT, "public");
-const DEV = process.argv.includes("--dev");
+// Options: --dev (dashed ad placeholders), --ads-preview (slots on every page type that has
+// slot positions, for checking placement; implies --dev), --out <dir> (default public/).
+// Never deploy a --dev or --ads-preview build.
+const arg = n => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : null; };
+const OUT = path.resolve(ROOT, arg("--out") || "public");
+const PREVIEW = process.argv.includes("--ads-preview");
+const DEV = process.argv.includes("--dev") || PREVIEW;
+const MAIN = OUT === path.join(ROOT, "public"); // only the real build writes manifest and reports
 const readJson = f => JSON.parse(fs.readFileSync(path.join(ROOT, f), "utf8"));
 const site = readJson("site.config.json");
 const nav = readJson("config/nav.json");
@@ -66,7 +72,7 @@ assets["words.js"] = wordsName;
 // ---------- static assets (content-hashed names) ----------
 
 const SRC = path.join(ROOT, "src/assets");
-const assetFiles = ["style.css", "engine.js", "site.js", ...fs.readdirSync(path.join(SRC, "js")).filter(f => f.endsWith(".js")).map(f => `js/${f}`)];
+const assetFiles = ["style.css", "engine.js", "site.js", "worker.js", ...fs.readdirSync(path.join(SRC, "js")).filter(f => f.endsWith(".js")).map(f => `js/${f}`)];
 for (const rel of assetFiles) {
   const buf = fs.readFileSync(path.join(SRC, rel));
   const ext = path.extname(rel);
@@ -145,9 +151,9 @@ const ctx = {
   ads: {
     dev: DEV || adsCfg.showDevPlaceholders,
     enabledFor(page) {
-      const t = adsCfg.pageTypes[page.type];
+      const t = PREVIEW ? { ...adsCfg.pageTypes[page.type], enabled: true } : adsCfg.pageTypes[page.type];
       if (!t?.enabled || page.noindex) return [];
-      if (page.template && !adsCfg.ADS_ENABLED_FOR_TEMPLATE_PAGES) return [];
+      if (page.template && !adsCfg.ADS_ENABLED_FOR_TEMPLATE_PAGES && !PREVIEW) return [];
       return t.slots;
     },
   },
@@ -247,7 +253,7 @@ const simFail = sims.filter(r => {
   return r.max > limit;
 });
 fs.mkdirSync(path.join(ROOT, "reports"), { recursive: true });
-fs.writeFileSync(path.join(ROOT, "reports", "similarity.json"), JSON.stringify(sims.sort((a, b) => b.max - a.max), null, 2));
+if (MAIN) fs.writeFileSync(path.join(ROOT, "reports", "similarity.json"), JSON.stringify(sims.sort((a, b) => b.max - a.max), null, 2));
 if (simFail.length) throw new Error(`Similarity gate failed for ${simFail.length} page(s):\n${simFail.slice(0, 20).map(r => `  ${r.page} ~ ${r.with}: ${r.max.toFixed(3)}`).join("\n")}`);
 
 // ---------- robots, sitemap, ads.txt ----------
@@ -270,6 +276,7 @@ const csp = [
   "style-src 'self'",
   "img-src 'self' data:",
   "connect-src 'self' https://api.dictionaryapi.dev",
+  "worker-src 'self'",
   "base-uri 'none'",
   "form-action 'self'",
   "frame-ancestors 'none'",
@@ -326,10 +333,10 @@ if (forbidden.length) throw new Error(`Forbidden files in public/: ${forbidden.j
 const placeholders = new Set();
 for (const f of all.filter(f => f.endsWith(".html"))) for (const m of fs.readFileSync(path.join(OUT, f), "utf8").matchAll(/\{\{[A-Z_]+\}\}/g)) placeholders.add(m[0]);
 
-fs.writeFileSync(path.join(ROOT, "public-manifest.json"), JSON.stringify({ assets, pages: pages.map(p => ({ path: p.path, file: p.file, type: p.type, updated: p.updated, noindex: !!p.noindex, ...(p.wordsListed ? { listed: p.wordsListed.length } : {}) })) }, null, 2) + "\n");
+if (MAIN) fs.writeFileSync(path.join(ROOT, "public-manifest.json"), JSON.stringify({ assets, pages: pages.map(p => ({ path: p.path, file: p.file, type: p.type, updated: p.updated, noindex: !!p.noindex, ...(p.wordsListed ? { listed: p.wordsListed.length } : {}) })) }, null, 2) + "\n");
 // Which words each indexable page lists (used by the coverage test).
-fs.writeFileSync(path.join(ROOT, "reports", "coverage.json"), JSON.stringify({ pages: pages.filter(p => p.wordsListed && !p.noindex).map(p => ({ path: p.path, words: p.wordsListed })) }));
+if (MAIN) fs.writeFileSync(path.join(ROOT, "reports", "coverage.json"), JSON.stringify({ pages: pages.filter(p => p.wordsListed && !p.noindex).map(p => ({ path: p.path, words: p.wordsListed })) }));
 if (gate.dropped.length) console.log(`Quality gate dropped ${gate.dropped.length} generated page(s): ${gate.dropped.slice(0, 10).join("; ")}`);
-console.log(`Built ${pages.length} pages, ${all.length} files into public/${DEV ? " (DEV build: ad placeholders visible)" : ""}.`);
+console.log(`Built ${pages.length} pages, ${all.length} files into ${path.relative(ROOT, OUT) || "."}/${PREVIEW ? " (ADS PREVIEW build: do not deploy)" : DEV ? " (DEV build: ad placeholders visible)" : ""}.`);
 console.log(`Word list: ENABLE, ${fmt(data.words.length)} words (SHA-256 ok), ${data.blocked.length} hidden by default.`);
 if (placeholders.size) console.log(`Placeholders still to fill in site.config.json: ${[...placeholders].join(", ")} (see docs/BEE-TODO.md)`);

@@ -17,7 +17,9 @@
     "wordlist:diff": "node scripts/wordlist-diff.mjs",
     "dev": "wrangler dev --local",
     "dry-run": "wrangler deploy --dry-run --outdir .wrangler-dry",
-    "check:deploy": "node scripts/check-deploy.mjs"
+    "check:deploy": "node scripts/check-deploy.mjs",
+    "measure:longtasks": "node scripts/measure-longtasks.mjs",
+    "build:ads-preview": "node scripts/build.mjs --ads-preview --out reports/ads-preview"
   },
   "devDependencies": {
     "axe-core": "4.13.0",

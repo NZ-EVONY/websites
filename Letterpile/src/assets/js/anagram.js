@@ -1,7 +1,7 @@
 /* Anagram Solver page. Extracted from the live anagram-solver.html inline script. */
 (function () {
   "use strict";
-  const { $, esc, chip, plainWord, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, esc, chip, plainWord, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const MAX = Engine.LIMITS.letters;
   letterInput($("#q"), { blanks: false });
   function run() {
@@ -11,8 +11,9 @@
     const letters = q.toLowerCase().replace(/[^a-z]/g, "");
     if (letters.length < 2) { out.innerHTML = `<p class="empty">Enter at least two letters.</p>`; return; }
     if (letters.length > MAX) { out.innerHTML = `<p class="empty">Use up to ${MAX} letters.</p>`; return; }
-    withWords(out, () => {
-      const r = Engine.anagrams(letters, { phrases });
+    withWords(out, async current => {
+      const r = await compute("anagrams", letters, { phrases });
+      if (!current()) return;
       const single = r.exact.length
         ? `<section class="group"><h3>Single-word anagrams <span class="count">${r.exact.length}</span></h3><div class="words">${r.exact.map(w => chip(w)).join("")}</div></section>`
         : `<p class="empty spaced">No single-word anagrams of <b>${esc(letters.toUpperCase())}</b> in the word list. Check the spelling, or try the two-word option.</p>`;

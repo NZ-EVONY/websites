@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Wordle Solver","url":"https://letterpile.app/wordle-solver","description":"Enter your guesses and colors to see which five-letter words still fit, plus a suggested next guess. No spoilers.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does the solver know today's answer?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to the game and doesn't know any day's answer. It only lists words that fit the clues you enter."}},{"@type":"Question","name":"Why does it suggest words the game never uses?","acceptedAnswer":{"@type":"Answer","text":"It uses the open ENABLE word list, not the game's answer list. Many valid but obscure words can't be answers. Prefer familiar words when you choose."}},{"@type":"Question","name":"How do repeated letters work?","acceptedAnswer":{"@type":"Answer","text":"A gray tile on a repeated letter means there are no more copies than the ones shown green or yellow. Guessing SPEED when the answer has one E gives one colored E and one gray E."}},{"@type":"Question","name":"How are the suggested guesses chosen?","acceptedAnswer":{"@type":"Answer","text":"Each remaining word gets a score: for every different letter in it, the number of remaining words that contain that letter. Higher scores test more common letters at once."}},{"@type":"Question","name":"It says no words fit. What went wrong?","acceptedAnswer":{"@type":"Answer","text":"Usually one tile's color doesn't match the game. Check each row, especially repeated letters. It's also possible the answer isn't in the ENABLE list."}},{"@type":"Question","name":"Can I use it for 6-letter or 4-letter puzzles?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose the word length before adding guesses. Lengths from 4 to 8 are supported."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Wordle Solver","item":"https://letterpile.app/wordle-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/wordle.740c1a4681.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/wordle.02e2e3a30a.js" defer></script>
 </head>
 <body data-page="wordle">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -76,7 +76,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>This solver helps with daily five-letter guessing puzzles. You enter the guesses you've already made and set each tile to the color the game showed, and it lists every word in its word list that is still consistent with all of those clues, with a few suggested next guesses at the top. It doesn't know today's answer and never shows it; it only applies the logic you could do by hand. Four- to eight-letter variants are supported too.</p>
-
 <h2>How to use it</h2>
 <ol>
 <li>Type a guess you've made in the game and press <b>Add</b>. It appears as a row of gray tiles.</li>
@@ -85,6 +84,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <li>Pick your next guess from the suggestions, or from the full list if you prefer an everyday word.</li>
 <li>Use <b>Reset</b> to start a new puzzle, or × to remove one guess. Change <b>Word length</b> for 4- to 8-letter variants.</li>
 </ol>
+
 <h2>How the solver thinks</h2>
 <ul>
 <li><b>Green</b> pins a letter to that spot.</li>
@@ -106,6 +106,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits and accuracy</h2>
 <p>The list is a general English word list (ENABLE), not the game's own answer list, so it includes obscure words the game won't pick as answers. The old Letterpile list had more five-letter words; ENABLE has 8,636, of which 8,564 are shown by default. If the top suggestion looks odd, the next few usually include the everyday word. Wordle™ is a trademark of The New York Times Company; Letterpile is not affiliated with it.</p>
+
 <h2>Privacy</h2>
 <p>Your guesses stay in your browser. They're kept in this tab's session storage so a reload doesn't lose them, and are cleared when you close the tab.</p>
         

@@ -22,3 +22,8 @@
 | 18 | Wordle hard-mode description (“revealed hints must be used in later guesses”) | General description of a game feature, not checked against the game's current rules | Check the game's help page |
 | 19 | Whether 694 generated word-list pages are judged “low value” by Google or AdSense | Cannot be tested before launch | Keep `ADS_ENABLED_FOR_TEMPLATE_PAGES=false`; review a sample; watch Search Console coverage |
 | 20 | Blocklist completeness after the Phase 2 additions (389 words) | Judgment call | Spot-check generated lists; add to `data/blocklist-extra.txt` |
+| 21 | Long-task numbers | Lab measurements in headless Chromium on this container's CPU, with simulated 4× slowdown as a phone proxy; not field INP | Search Console Core Web Vitals / CrUX after launch |
+| 22 | Web Worker behavior in older browsers | Tested in Chromium only (plus the no-Worker fallback) | Try Safari and Firefox, and an older phone |
+| 23 | Cross-browser rendering (Firefox, Safari) and real devices | Only Chromium is available here | Open the site on an iPhone and an Android phone |
+| 24 | Screen readers | axe-core and keyboard tests only | Try VoiceOver (iPhone/Mac) or NVDA (Windows) on the Wordle Solver and one tool page |
+| 25 | Cloudflare's handling of `_redirects` together with `html_handling` in production | Verified in `wrangler dev --local` only | `curl -sI https://letterpile.app/words-starting-with/con` after deploy (expect 301) |

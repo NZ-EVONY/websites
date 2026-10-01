@@ -3,7 +3,7 @@
    guess has been added (it used to load on page open). */
 (function () {
   "use strict";
-  const { $, esc, chip, withWords, letterInput, onWordsFilter } = UI;
+  const { $, esc, chip, withWords, compute, letterInput, onWordsFilter } = UI;
   const CYCLE = { b: "y", y: "g", g: "b" };
   const NAMES = { b: "gray", y: "yellow", g: "green" };
   let rows = [];
@@ -24,8 +24,9 @@
     const out = $("#results");
     const size = +$("#size").value;
     if (!rows.length) { out.innerHTML = emptyHtml; return; }
-    withWords(out, () => {
-      const list = Engine.wordleCandidates(rows, size);
+    withWords(out, async current => {
+      const list = await compute("wordleCandidates", rows, size);
+      if (!current()) return;
       if (!list.length) { out.innerHTML = `<p class="empty">No words fit these colors. Check each tile: a letter that is gray in one spot and green or yellow in another usually means a repeated letter.</p>`; return; }
       const top = list.slice(0, 12);
       const rest = list.slice(0, 600).map(x => x.word).sort();

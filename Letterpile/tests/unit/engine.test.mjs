@@ -185,3 +185,15 @@ test("scrambling keeps letters and changes order when possible", () => {
   assert.match(t, /^\w+, \w+ \w+!$/);
   assert.equal(E.scrambleText("abc def", "reverse"), "cba fed");
 });
+
+test("unscrambleGrouped matches unscramble, grouped longest first and trimmed", () => {
+  const flat = E.unscramble("retains?").map(x => x.word);
+  const g = E.unscrambleGrouped("retains?", {}, 5);
+  assert.equal(g.total, flat.length);
+  assert.equal(g.groups.reduce((s, x) => s + x.count, 0), flat.length);
+  for (let i = 1; i < g.groups.length; i++) assert.ok(g.groups[i - 1].n > g.groups[i].n);
+  for (const x of g.groups) {
+    assert.ok(x.items.length <= 5);
+    assert.deepEqual(x.items.map(i => i.word), flat.filter(w => w.length === x.n).slice(0, 5));
+  }
+});

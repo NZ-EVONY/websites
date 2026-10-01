@@ -46,7 +46,6 @@ export default ctx => {
           <p id="feedback" class="hint feedback" aria-live="polite"></p>
         </section>`,
     prose: `<p>The scrambler works the other way round from the rest of the site: instead of finding words in jumbled letters, it jumbles your words. Paste any text, choose a style, and it produces up to ten different scrambled versions at once, keeping punctuation and capitals where they were. Teachers use it for spelling and reading exercises, puzzle makers for jumbles, and anyone can use the built-in challenge to practice unscrambling. Scrambling uses a secure random shuffle in your browser, and the text never leaves your device.</p>
-<!--@slot after-intro-->
 <h2>Scrambling styles</h2>
 <table>
 <tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
@@ -57,6 +56,7 @@ export default ctx => {
 <tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
 </table>
 <p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were. Words of one repeated letter, and words of three letters or fewer in “keep first &amp; last” mode, can't change and are left as they are. The example column shows one possible result; yours will differ every time.</p>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type or paste your text (up to 5,000 characters).</li>
@@ -81,6 +81,7 @@ ${levels.map(([n, a, b, c]) => `<tr><td>${n}</td><td>${a}–${b} letters</td><td
 </ul>
 <h2>Limits</h2>
 <p>Only the letters A to Z are scrambled; accented letters and other alphabets are left as they are. The scrambler doesn't check that the result isn't accidentally another word. The challenge's answers come from the open ENABLE word list, so it accepts some uncommon words.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Your text is scrambled in your browser and is never sent to Letterpile. It isn't saved, and it isn't added to the page address.</p>`,
     faq: [

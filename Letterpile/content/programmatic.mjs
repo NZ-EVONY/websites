@@ -144,8 +144,10 @@ ${curated}
 <tr><th>Fact</th><th>Value</th></tr>
 <tr><td>Words in this list</td><td>${n0(s.count)}</td></tr>
 <tr><td>Share of the ENABLE list shown on this site</td><td>${shareText(s.count)}%</td></tr>
-<tr><td>Longest</td><td>${listOf(s.longest, 3)}</td></tr>
-<tr><td>Shortest</td><td>${listOf(s.shortest, 3)}</td></tr>
+${s.maxLen === s.minLen
+    ? `<tr><td>Length</td><td>All ${s.maxLen} letters</td></tr>`
+    : `<tr><td>Longest</td><td>${listOf(s.longest, 3)}${s.longest.length > 3 ? ` and ${n0(s.longest.length - 3)} more` : ""} (${s.maxLen} letters)</td></tr>
+<tr><td>Shortest</td><td>${listOf(s.shortest, 3)}${s.shortest.length > 3 ? ` and ${n0(s.shortest.length - 3)} more` : ""} (${s.minLen} letters)</td></tr>`}
 <tr><td>Highest base score (common values)</td><td>${code(s.top)}, ${s.topScore}</td></tr>
 <tr><td>No repeated letters</td><td>${n0(s.distinct)}</td></tr>
 </table>

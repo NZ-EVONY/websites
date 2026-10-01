@@ -1,7 +1,7 @@
 /* Jumble Solver page. Extracted from the live jumble-solver.html inline script. */
 (function () {
   "use strict";
-  const { $, esc, chip, plainWord, withWords, getParams, setParams, letterInput, onWordsFilter } = UI;
+  const { $, esc, chip, plainWord, withWords, compute, getParams, setParams, letterInput, onWordsFilter } = UI;
   const inputs = () => [...document.querySelectorAll("#inputs input")];
   function addInput(v = "") {
     if (inputs().length >= 8) return;
@@ -22,17 +22,24 @@
     setParams({ w: words.filter(Boolean).join(","), final: fin });
     const out = $("#results");
     if (!words.some(Boolean) && !fin) { out.innerHTML = `<p class="empty">Enter at least one scrambled word.</p>`; return; }
-    withWords(out, () => {
-      let html = words.map(w => {
+    withWords(out, async current => {
+      const solved = await Promise.all(words.map(async w => {
+        if (!w) return null;
+        const [r, self] = await Promise.all([compute("anagrams", w), compute("isVisibleWord", w)]);
+        return self ? [w, ...r.exact] : r.exact;
+      }));
+      const finR = fin ? await compute("anagrams", fin, { phrases: fin.length >= 6 }) : null;
+      const finSelf = fin ? await compute("isVisibleWord", fin) : false;
+      if (!current()) return;
+      let html = words.map((w, i) => {
         if (!w) return "";
-        const ans = Engine.anagrams(w).exact;
-        const all = Engine.isWord(w) && !Engine.isHidden(w) ? [w, ...ans] : ans;
+        const all = solved[i];
         return `<section class="group"><h3>${esc(w.toUpperCase())} <span class="count">${all.length ? all.length + (all.length === 1 ? " answer" : " answers") : "no match"}</span></h3>
           <div class="words">${all.length ? all.map(a => chip(a)).join("") : `<span class="hint">No anagram found. Check the letters.</span>`}</div></section>`;
       }).join("");
       if (fin) {
-        const r = Engine.anagrams(fin, { phrases: fin.length >= 6 });
-        const single = Engine.isWord(fin) && !Engine.isHidden(fin) ? [fin, ...r.exact] : r.exact;
+        const r = finR;
+        const single = finSelf ? [fin, ...r.exact] : r.exact;
         html += `<section class="group"><h3>Final: ${esc(fin.toUpperCase())}</h3>
           ${single.length ? `<div class="words spaced">${single.map(a => chip(a)).join("")}</div>` : ""}
           ${r.phrases.length ? `<div class="words">${r.phrases.slice(0, 200).map(plainWord).join("")}</div>` : ""}

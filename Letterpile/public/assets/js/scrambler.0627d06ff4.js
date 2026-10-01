@@ -3,7 +3,7 @@
    (or on first use) instead of on page load. */
 (function () {
   "use strict";
-  const { $, esc, toast } = UI;
+  const { $, esc, toast, compute } = UI;
 
   $("#form").addEventListener("submit", e => {
     e.preventDefault();
@@ -25,9 +25,9 @@
     $("#puzzle").innerHTML = [...shown].map((ch, i) => `<span${i < revealed ? ' class="revealed"' : ""}>${ch}<sub>${Engine.SCHEMES.scrabble.values[ch]}</sub></span>`).join("");
   };
   const setStreak = () => { $("#streak").textContent = `Solved: ${solved} · Streak: ${streak}`; };
-  function newPuzzle() {
+  async function newPuzzle() {
     const [min, max] = $("#level").value.split("-").map(Number);
-    answer = Engine.randomWord({ min, max });
+    answer = await compute("randomWord", { min, max });
     shown = Engine.scrambleWord(answer);
     revealed = 0;
     $("#feedback").textContent = "";
@@ -35,12 +35,12 @@
     drawTiles();
   }
   const sameLetters = (a, b) => [...a].sort().join("") === [...b].sort().join("");
-  $("#guessForm").addEventListener("submit", e => {
+  $("#guessForm").addEventListener("submit", async e => {
     e.preventDefault();
     if (!answer) return;
     const g = $("#guess").value.toLowerCase().replace(/[^a-z]/g, "");
     if (!g) return;
-    if (sameLetters(g, answer) && Engine.isWord(g)) {
+    if (sameLetters(g, answer) && await compute("isWord", g)) {
       solved++; streak++;
       $("#feedback").innerHTML = `<b class="good">Correct!</b> ${g === answer ? "" : `(We were thinking of <b>${answer.toUpperCase()}</b>, but yours counts.)`} Next one coming up…`;
       setStreak();
@@ -70,14 +70,14 @@
     setStreak();
     setTimeout(newPuzzle, answer ? 1200 : 0);
   });
-  $("#level").addEventListener("change", () => { if (Engine.words) newPuzzle(); });
+  $("#level").addEventListener("change", () => { if (started) newPuzzle(); });
 
   let started = false;
   function start() {
     if (started) return;
     started = true;
     $("#puzzle").innerHTML = `<p class="loading">Loading words…</p>`;
-    Engine.load().then(newPuzzle, e => { $("#puzzle").innerHTML = `<p class="error">${esc(e.message)}</p>`; });
+    newPuzzle().catch(e => { $("#puzzle").innerHTML = `<p class="error">${esc(e.message)}</p>`; });
   }
   const box = $("#challenge");
   if ("IntersectionObserver" in window) {

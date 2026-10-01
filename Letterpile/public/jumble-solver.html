@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Jumble Solver","url":"https://letterpile.app/jumble-solver","description":"Solve a whole jumble puzzle at once: enter each scrambled word, then get help with the final bonus phrase.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How many words can I solve at once?","acceptedAnswer":{"@type":"Answer","text":"Up to eight scrambled words, plus the final letters. Four boxes are shown to start; use + Add word for more."}},{"@type":"Question","name":"Why does one word have several answers?","acceptedAnswer":{"@type":"Answer","text":"Some letter sets spell more than one word. Pick the one that gives sensible circled letters; puzzle makers usually choose the most familiar word."}},{"@type":"Question","name":"Can it solve the final phrase?","acceptedAnswer":{"@type":"Answer","text":"It suggests single words and two-word phrases made from all the final letters. Longer phrases need human judgment."}},{"@type":"Question","name":"A word shows no match. What now?","acceptedAnswer":{"@type":"Answer","text":"Check each letter against the puzzle. If they're right, the answer may not be in the ENABLE word list the site uses."}},{"@type":"Question","name":"Does it work for other scrambled-word puzzles?","acceptedAnswer":{"@type":"Answer","text":"Yes. Any puzzle where a word is scrambled and every letter must be used works the same way."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Jumble Solver","item":"https://letterpile.app/jumble-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/jumble.d9e94d3dc1.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/jumble.05948e6e30.js" defer></script>
 </head>
 <body data-page="jumble">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -78,7 +78,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>Newspaper-style jumble puzzles give you a handful of scrambled words, then ask you to use some of their letters to answer a riddle. This solver handles both parts. Type each scrambled word in its own box (up to eight) and press <b>Solve all</b> to see every word each one can make with all its letters. Then type the circled letters to get single-word and two-word suggestions for the final answer. It's built for getting unstuck on one word as much as for checking the whole puzzle.</p>
-
 <h2>Solving a jumble</h2>
 <ol>
 <li>Type each scrambled word into its own box. Order doesn't matter. Use <b>+ Add word</b> for more boxes.</li>
@@ -86,6 +85,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <li>Collect the circled letters into <b>Final puzzle letters</b> for single-word and two-word answers to the cartoon's punchline. Longer punchlines usually need some human judgment, but the pairs are a strong head start.</li>
 </ol>
 <p>If a box shows no answer, check for a mistyped letter. Newspaper jumbles tend to use everyday words, so the answer is usually the most familiar word in the results.</p>
+
 <h2>A worked example</h2>
 <p>Here is a made-up four-word puzzle and what the solver returns for each word:</p>
 <table>
@@ -103,6 +103,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits and accuracy</h2>
 <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The solver has no idea what the riddle says, so it can't rank answers by meaning. Words up to 12 letters per box and 18 final letters are accepted.</p>
+
 <h2>Privacy</h2>
 <p>Your letters are solved in your browser and are not sent to Letterpile. They appear in the page address so you can share the puzzle.</p>
         

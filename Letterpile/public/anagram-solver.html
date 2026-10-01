@@ -16,16 +16,16 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Anagram Solver","url":"https://letterpile.app/anagram-solver","description":"Find single-word and two-word anagrams of any word or name by rearranging every letter.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What's the difference between this and the unscrambler?","acceptedAnswer":{"@type":"Answer","text":"The anagram solver uses every letter you enter. The Word Unscrambler also finds shorter words made from some of the letters."}},{"@type":"Question","name":"Can I enter a name or a phrase?","acceptedAnswer":{"@type":"Answer","text":"Yes. Spaces, capitals and punctuation are ignored, up to 15 letters. Results are made of ordinary words from the list, not names."}},{"@type":"Question","name":"How are two-word anagrams found?","acceptedAnswer":{"@type":"Answer","text":"The solver tries each word of at least three letters that your letters can make, then checks whether the leftover letters spell another word in the list."}},{"@type":"Question","name":"Why does the two-word list stop at 400?","acceptedAnswer":{"@type":"Answer","text":"Long inputs can produce thousands of pairs, most of them uninteresting. Stopping at 400 keeps the page fast. Use fewer letters to narrow it."}},{"@type":"Question","name":"Why don't I see my own word in the results?","acceptedAnswer":{"@type":"Answer","text":"The original word is left out of the single-word anagrams, since it isn't a rearrangement."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Anagram Solver","item":"https://letterpile.app/anagram-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
-<script src="/assets/site.bf57889a6b.js" defer></script>
-<script src="/assets/js/anagram.16f154ab42.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/js/anagram.228f22ee08.js" defer></script>
 </head>
 <body data-page="anagram">
 <a class="skip" href="#main">Skip to content</a>
@@ -33,7 +33,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
   </div>
 </header>
 <nav class="navbar" id="navbar" aria-label="Word tools">
@@ -75,9 +75,9 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </div>
       <article class="prose">
         <p>An anagram rearranges every letter of a word or phrase into something new. This solver takes up to 15 letters and finds every single word in its list that uses exactly those letters, and, if you like, every pair of words that does. Spaces, capitals and punctuation are ignored, so you can paste a name or a short phrase. It's useful for cryptic crossword clues, jumbles, word games and naming ideas, and it runs entirely in your browser.</p>
-
 <h2>Anagrams vs. words within</h2>
 <p>This page only shows arrangements that use <em>all</em> your letters: <code>LISTEN</code> gives <code>ELINTS</code>, <code>ENLIST</code>, <code>INLETS</code>, <code>SILENT</code> and <code>TINSEL</code>. For shorter words made from some of the letters, use the <a href="/">Word Unscrambler</a>. The difference is the same as between a perfect and a partial anagram, explained in <a href="/guides/anagram-basics">What Is an Anagram?</a></p>
+
 <h2>How to use it</h2>
 <ol>
 <li>Type a word, name or phrase. Only the letters count.</li>
@@ -102,6 +102,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Limits and accuracy</h2>
 <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. Names and capitalized words are not in the list, so a name can be rearranged into common words but not into other names. Two-word search stops at 400 pairs.</p>
+
 <h2>Privacy</h2>
 <p>Whatever you type, including a name, is processed in your browser and not sent to Letterpile. A definition lookup, if you ask for one, sends only that word to the dictionary service.</p>
 <h2>Where anagrams show up</h2>

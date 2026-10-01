@@ -32,9 +32,9 @@ export default ctx => {
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make ${fmt(ex.length)} words, including ${ctx.list(exSix, 3)}.</p></div>`,
     prose: `<p>A word unscrambler answers one question: which words can I spell with these letters? Type up to 15 letters, add a <kbd>?</kbd> for each blank tile, and Letterpile lists every word from its word list that your letters can make, grouped by length with the longest first. It's handy for tile games, word wheels, jumbles and crossword clues where you know the letters but not the order. Everything runs in your browser, so results appear as soon as the word list has loaded.</p>
-<!--@slot after-intro-->
 <h2>How it works</h2>
 <p>Letterpile checks your letters against the ${fmt(ctx.total)} words in the open ENABLE word list and keeps every word you could spell without reusing a tile. It doesn't try every arrangement of your letters; it counts them, then checks each word against the counts, which is much faster. The guide <a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a> explains the method step by step.</p>
+<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type your letters in the box. Upper or lower case doesn't matter, and anything that isn't a letter is ignored.</li>
@@ -69,6 +69,7 @@ export default ctx => {
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} The tool doesn't know your game's board, bonus squares or rules about outside help. Point values shown when you tap a word are commonly used tile values. Some vulgar words are hidden by default; the “Show all words” switch brings them back.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>The letters you type are processed in your browser and are not sent to Letterpile. They appear in the page address so that links can be shared. Definition lookups are the one exception: when you press “Look up definition”, that word is sent to a third-party dictionary service. See the <a href="/privacy-policy">Privacy Policy</a>.</p>
 <h2>What people use it for</h2>

@@ -9,6 +9,7 @@ git status                      # should be clean
 npm install                     # first time only
 npm test                        # must end with "# fail 0"
 npm run regression              # must end with "# fail 0"
+npm run test:e2e                # browser tests (needs Chrome); must end with "# fail 0"
 npm run build
 npm run check:deploy            # must print "OK: ..." (fails while {{PLACEHOLDERS}} remain)
 npm run dry-run                 # uploads nothing; prints "Read N files from the assets directory ...\public"
@@ -56,7 +57,7 @@ curl.exe -s  https://letterpile.app/robots.txt              # must contain the S
 curl.exe -s  https://letterpile.app/ads.txt
 ```
 
-Open the ten tool URLs and the new pages in a browser and try each tool once. If `robots.txt` shows only Cloudflare's "content signals" block and no `Sitemap:` line, Cloudflare's managed robots.txt is overriding the file: change that setting in the dashboard (Security → Bots / AI crawl control, wording may differ) rather than editing the site.
+Open the ten tool URLs and the new pages in a browser and try each tool once. Also check `curl.exe -sI https://letterpile.app/words-starting-with/con` returns 301 to `/words-starting-with/con-words`. If `robots.txt` shows only Cloudflare's "content signals" block and no `Sitemap:` line, Cloudflare's managed robots.txt is overriding the file: change that setting in the dashboard (Security → Bots / AI crawl control, wording may differ) rather than editing the site.
 
 ## 4. Rollback
 
@@ -70,7 +71,7 @@ Open the ten tool URLs and the new pages in a browser and try each tool once. If
 | Redirect `www.letterpile.app` → `https://letterpile.app` permanently (Redirect Rule or Bulk Redirect) | `www` serves a duplicate of the site today (per the planner's check). Option: keep the `www` custom-domain route in `wrangler.jsonc` (the redirect rule runs first; **not verified** how it interacts with a Worker custom domain, check Cloudflare's docs) or remove the route and add a proxied DNS record for `www` that the redirect rule handles. |
 | Turn on **Always Use HTTPS** and Automatic HTTPS Rewrites | `http://letterpile.app` returns 200 today (per the planner's check). |
 | Keep **Bot Fight Mode OFF**, no managed challenges on content paths, not "I'm Under Attack" | It can block Googlebot, Mediapartners-Google and Google-Display-Ads-Bot, breaking indexing and AdSense review. After launch check Security → Events for challenged Google user agents. |
-| Rocket Loader off, Email Address Obfuscation off, Web Analytics automatic injection off (unless you decide otherwise) | They inject or rewrite scripts, which breaks the strict CSP and interferes with consent banners and ads. |
+| Rocket Loader off, Email Address Obfuscation off, Web Analytics automatic injection off (unless you decide otherwise) | They inject or rewrite scripts, which breaks the strict CSP (and the search worker) and interferes with consent banners and ads. |
 | Decide on the managed `robots.txt` / AI-crawler content signals | Affects what the live `robots.txt` shows. |
 | Google Search Console: Domain property, submit the sitemap, inspect a few URLs | Indexing. |
 | AdSense application | Only after the Phase 2 content is live and indexed and you've read it; see `docs/BEE-TODO.md`. Approval is never guaranteed. |

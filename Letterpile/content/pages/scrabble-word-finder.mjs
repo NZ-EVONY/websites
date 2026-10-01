@@ -20,7 +20,6 @@ export default ctx => {
     lede: "Enter your rack to see every word you can make, ranked by points. Add letters already on the board to find words that build through them.",
     tool: ctx.finderForm(),
     prose: `<p>This finder is for crossword-style tile games where you hold a rack of up to seven letters. Type your rack, with <kbd>?</kbd> for a blank, and it lists every word your tiles can make, highest score first, using the letter values commonly used in Scrabble-style games. Add a letter or a run of letters already on the board and it shows only words that pass through them. Scores are base tile values: the finder can't see your board's bonus squares, so use the list to spot options and the board to choose between them.</p>
-<!--@slot after-intro-->
 <h2>How to use it</h2>
 <ol>
 <li>Type your rack in <b>Your rack</b>, up to 7 letters. Use <kbd>?</kbd> for each blank tile (up to two).</li>
@@ -29,6 +28,7 @@ export default ctx => {
 <li>Press <b>Find words</b>. Switch the view between “Highest score first” and “Grouped by length”.</li>
 <li>Tap a word for its points and an optional definition.</li>
 </ol>
+<!--@slot after-intro-->
 <h2>Reading the results</h2>
 <p>Each tile shows the word's base score from the letter values commonly used in Scrabble-style games (listed in the sidebar). Blank tiles score zero, so a word that needs a blank is worth less than the same word from real tiles; the finder always spends your real tiles first. Words that use all seven of your tiles get the 50-point all-tiles bonus (commonly reported; check your game's rules) and a colored outline.</p>
 <h3>Using board letters</h3>
@@ -53,6 +53,7 @@ export default ctx => {
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} Letterpile is not an official word source for any game. Values and the all-tiles bonus are commonly used figures, not a rulebook. Bonus squares, crossing words and the tiles left in the bag are not considered.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Your rack and board letters stay in your browser; nothing is sent to Letterpile. Only a definition lookup you choose sends that one word to a dictionary service.</p>`,
     faq: [

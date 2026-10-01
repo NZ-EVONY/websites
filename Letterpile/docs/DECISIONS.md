@@ -48,3 +48,11 @@
 ## Between Phase 2 and Phase 3
 - Windows-reserved names: any URL segment equal to CON, PRN, AUX, NUL, COM1–9 or LPT1–9 (any case) gets a `-words` suffix (`scripts/pagegen.mjs` `safeSegment`); keys are a–z only, so the suffix can't collide. All links use the safe path; `public/_redirects` 301-redirects the natural URL (verified in `wrangler dev --local`: `/words-starting-with/con` → `/words-starting-with/con-words`). The build fails if any file or folder in `public/` has a reserved base name. Only affected page today: words starting with CON.
 - Site settings from Bee: operator and author "Letterpile", contact nz@letterpile.app, governing law New Zealand, lastReviewed 2026-10-01 (stored in `site.config.json`; not currently shown on any page).
+
+## Phase 3
+- Web Worker added (`src/assets/worker.js`): the measurement justified it. Before: the two-word anagram search caused a 270 ms main-thread long task unthrottled (~950 ms at 4× CPU slowdown). After: no long task ≥ 50 ms unthrottled in any measured case; worst 159 ms at 4×. All searches go through `UI.compute()`, which falls back to the main thread when workers are unavailable (tested). CSP gained `worker-src 'self'`.
+- Results from an older search are discarded if a newer search started (search token in `withWords`).
+- The worker returns grouped, trimmed unscramble results (`Engine.unscrambleGrouped`) so only displayed words cross back; result groups use `content-visibility: auto`.
+- Tool-page ad slot markers moved: first slot after the first full section (was right after the intro, 74–101 px from the results area), second slot before the Privacy section (was directly above the FAQ toggles). Tool slots remain disabled; `npm run build:ads-preview` shows them.
+- Ad slots render as empty labeled boxes until AdSense code is pasted (as the brief specifies). On guides, hubs and affix pages that means a visible "Advertisement" label over reserved blank space; see BEE-TODO.
+- Placement check: in the ads-preview build every slot is ≥ 150 px from any button/input/select/summary/results area, below the h1, outside the tool card, at most 3 per page, at 360 and 1280 px (tested).

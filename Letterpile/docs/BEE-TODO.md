@@ -30,3 +30,9 @@ Things only Bee can do, or must decide. Ordered roughly by when they matter.
 16. Skim the 12 guides and the ten tool explainers for tone and anything you disagree with; copy lives in `content/pages/`.
 17. Guides show "Last updated" from git and carry `datePublished: 2026-10-01` in their structured data. If you'd rather use the deploy date, change `published` in each `content/pages/guides/*.mjs`.
 18. If you see a word on any list page that you think should be hidden, add it to `data/blocklist-extra.txt` and rebuild.
+
+## Phase 3 notes
+19. **Empty ad boxes:** guides, hubs and the 23 affix pages render an "Advertisement" label over reserved blank space (280px on phones, 110px on wider screens) even before AdSense is wired in. That is what the brief asked for, but it can look unfinished to a reviewer. If you'd rather hide them until the ad code is in, set `enabled: false` for `guide`, `hub` and `affix` in `config/ads.json` and rebuild; turn them back on when you paste the AdSense units.
+20. To see where ads would go on every page type (including tool pages), run `npm run build:ads-preview` and open `reports/ads-preview` with `node scripts/serve.mjs reports/ads-preview 8788`. Never deploy that folder.
+21. Test the site on a real iPhone and Android phone, and with a screen reader (VoiceOver or NVDA) if you can.
+22. After the first deploy, run PageSpeed Insights on `/`, `/wordle-solver` and one guide, and look at Search Console's Core Web Vitals report after a few weeks of traffic (the only place real INP shows up).

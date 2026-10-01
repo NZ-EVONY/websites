@@ -1,6 +1,6 @@
 # Status
 
-**Current phase: Phase 2 complete. Waiting for Bee to type "continue" before Phase 3.** Nothing has been deployed.
+**All three phases complete.** Nothing has been deployed. Start with `docs/FINAL-REPORT.md`, then `docs/BEE-TODO.md` and `docs/DEPLOY.md`.
 
 Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`). Rollback tag: `live-before-upgrade` (commit `25944fa`). The tag exists in the cloud session but **could not be pushed** (git proxy refused tag pushes); create it locally with `git tag live-before-upgrade 25944fa`.
 
@@ -32,5 +32,9 @@ Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`
 - `npm run report:content`. 31 substantial non-programmatic pages.
 - Follow-up: Windows-reserved page names avoided (`/words-starting-with/con-words` + `_redirects`, build check); site settings filled in, so `npm run check:deploy` now passes.
 
-## Phase 3 (next): performance, accessibility, polish
-Long-task measurement for 15-letter + blank searches (Web Worker only if > 200 ms), ad-slot distance-from-controls check (≥150px) in Playwright, axe-core on every template, screenshots at 360px/wide in both themes, contrast table, Lighthouse before/after on the six URLs in the brief, `docs/FINAL-REPORT.md`.
+## Phase 3: done
+- Web Worker for all searches (measured: 270 ms long task before, none ≥ 50 ms after, unthrottled), main-thread fallback, stale-result guard.
+- Browser tests: axe (every template, light and dark), keyboard, CLS, ad placement (≥ 150 px from controls, ads-preview build), 360px overflow, long-task budget.
+- Fixes found by the tests: dark-mode button contrast, light-mode tile values, layout shift on shared result links, tool ad-slot positions, table overflow on phones, theme icon, guide summary style.
+- Performance budget test; Lighthouse 100/100/100/100 and CLS 0 on the six URLs; screenshots in `reports/screens/`.
+- Docs: FINAL-REPORT, DESIGN (contrast table), DEPLOY, BEE-TODO, UNVERIFIED finalized.

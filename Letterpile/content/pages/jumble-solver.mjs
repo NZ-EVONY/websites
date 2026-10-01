@@ -28,7 +28,6 @@ export default ctx => {
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Answers will appear here, one group per scrambled word.</p></div>`,
     prose: `<p>Newspaper-style jumble puzzles give you a handful of scrambled words, then ask you to use some of their letters to answer a riddle. This solver handles both parts. Type each scrambled word in its own box (up to eight) and press <b>Solve all</b> to see every word each one can make with all its letters. Then type the circled letters to get single-word and two-word suggestions for the final answer. It's built for getting unstuck on one word as much as for checking the whole puzzle.</p>
-<!--@slot after-intro-->
 <h2>Solving a jumble</h2>
 <ol>
 <li>Type each scrambled word into its own box. Order doesn't matter. Use <b>+ Add word</b> for more boxes.</li>
@@ -36,6 +35,7 @@ export default ctx => {
 <li>Collect the circled letters into <b>Final puzzle letters</b> for single-word and two-word answers to the cartoon's punchline. Longer punchlines usually need some human judgment, but the pairs are a strong head start.</li>
 </ol>
 <p>If a box shows no answer, check for a mistyped letter. Newspaper jumbles tend to use everyday words, so the answer is usually the most familiar word in the results.</p>
+<!--@slot after-intro-->
 <h2>A worked example</h2>
 <p>Here is a made-up four-word puzzle and what the solver returns for each word:</p>
 <table>
@@ -53,6 +53,7 @@ ${puzzle.map((w, i) => `<tr><td>${code(w)}</td><td>${answers[i].length ? answers
 </ul>
 <h2>Limits and accuracy</h2>
 <p>${ctx.WORDLIST_NOTE} The solver has no idea what the riddle says, so it can't rank answers by meaning. Words up to 12 letters per box and 18 final letters are accepted.</p>
+<!--@slot before-faq-->
 <h2>Privacy</h2>
 <p>Your letters are solved in your browser and are not sent to Letterpile. They appear in the page address so you can share the puzzle.</p>`,
     faq: [

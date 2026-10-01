@@ -2,7 +2,7 @@
 
 Letterpile (https://letterpile.app) is a static word-tools site. Ten pages share one word engine and one word list, and every tool runs entirely in the browser. The site is built from source files in this folder into `public/`, which is what Cloudflare serves.
 
-> **Status:** upgrade in progress (Phases 1 and 2 of 3 done). See `docs/STATUS.md`. Nothing has been deployed by the upgrade; Bee deploys with `npx wrangler deploy` after reviewing `docs/DEPLOY.md`.
+> **Status:** upgrade complete (all three phases); not deployed. Read `docs/FINAL-REPORT.md`. See `docs/STATUS.md`. Nothing has been deployed by the upgrade; Bee deploys with `npx wrangler deploy` after reviewing `docs/DEPLOY.md`.
 
 ## Pages
 
@@ -43,6 +43,10 @@ npm run check:deploy     # fails if placeholders or private files would be publi
 npm run dry-run          # wrangler deploy --dry-run (uploads nothing)
 npm run wordlist:diff    # regenerates docs/WORDLIST-DIFF.md
 npm run report:content   # word counts per page, flags pages under the minimums
+npm run test:e2e         # browser tests: accessibility, layout shift, ad placement, long tasks, privacy behavior
+npm run measure:longtasks  # main-thread long tasks during heavy searches (add 4 for 4x CPU slowdown)
+npm run build:ads-preview  # build with ad slots on every page type into reports/ads-preview (never deploy)
+node scripts/screenshots.mjs  # 360px/1280px, light/dark screenshots into reports/screens
 ```
 
 Lighthouse and the browser tests need Chrome or Chromium. They look for Chrome in the usual Windows/macOS/Linux places, or set `CHROME_PATH`.
@@ -60,6 +64,7 @@ src/assets/engine.js  Word logic (unscramble, scoring, anagrams, Wordle, blends,
 src/assets/site.js    Shared behaviour: menus, theme, definition popup, results display, "show all words" switch
 src/assets/style.css  All styles
 src/assets/js/*.js    Each tool page's own script (formerly inline <script> blocks)
+src/assets/worker.js  Web Worker that runs searches off the main thread
 data/                 ENABLE word list, its source record, the blocklists
 licenses/             ENABLE README and licence paragraph, LDNOOBW licence, the old list's MIT licence
 config/               nav.json (menus), ads.json (ad slot switches), quality.json (content thresholds)
