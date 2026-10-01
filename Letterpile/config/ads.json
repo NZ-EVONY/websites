@@ -3,12 +3,52 @@
   "ADS_ENABLED_FOR_TEMPLATE_PAGES": false,
   "showDevPlaceholders": false,
   "pageTypes": {
-    "tool": { "enabled": false, "slots": ["after-intro", "mid-article", "before-faq"] },
-    "guide": { "enabled": true, "slots": ["after-intro", "mid-article", "before-faq"] },
-    "hub": { "enabled": true, "slots": ["after-intro", "before-faq"] },
-    "affix": { "enabled": true, "slots": ["after-intro"] },
-    "programmatic": { "enabled": false, "slots": ["after-intro"] },
-    "trust": { "enabled": false, "slots": [] },
-    "error": { "enabled": false, "slots": [] }
+    "tool": {
+      "enabled": false,
+      "slots": [
+        "after-intro",
+        "mid-article",
+        "before-faq"
+      ]
+    },
+    "guide": {
+      "enabled": true,
+      "slots": [
+        "after-intro",
+        "mid-article",
+        "before-faq"
+      ]
+    },
+    "hub": {
+      "enabled": true,
+      "slots": [
+        "after-intro",
+        "before-faq"
+      ]
+    },
+    "affix": {
+      "enabled": true,
+      "slots": [
+        "after-intro"
+      ]
+    },
+    "programmatic": {
+      "enabled": false,
+      "slots": [
+        "after-intro"
+      ]
+    },
+    "trust": {
+      "enabled": false,
+      "slots": []
+    },
+    "error": {
+      "enabled": false,
+      "slots": []
+    },
+    "utility": {
+      "enabled": false,
+      "slots": []
+    }
   }
 }

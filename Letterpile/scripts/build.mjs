@@ -10,6 +10,9 @@ import { wordData, fmt } from "./wordstats.mjs";
 import layout, { HEAD_SCRIPT } from "../src/templates/layout.mjs";
 import { esc } from "../src/templates/partials/util.mjs";
 import { WORDLIST_NOTE, TRADEMARKS } from "../src/templates/partials/footer.mjs";
+import { buildTree } from "./pagegen.mjs";
+import { renderNode } from "../content/programmatic.mjs";
+import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
 const OUT = path.join(ROOT, "public");
@@ -131,6 +134,7 @@ const sortWords = ws => ws.slice().sort((a, b) => b.length - a.length || a.local
 const ctx = {
   site, nav, assets, esc, fmt, list, longDate, year: new Date().getUTCFullYear(),
   total: data.words.length, byLength: data.byLength, blockedCount: data.blocked.length,
+  clean: data.clean, cleanSet: new Set(data.clean), Engine, code: asCode, today,
   WORDLIST_NOTE, TRADEMARKS, showAllToggle, finderForm, valuesTable, valueDiffTable, assertWords, assertNotWords,
   unscramble: letters => sortWords(Engine.unscramble(letters).map(x => x.word)),
   anagrams: w => Engine.anagrams(w).exact,
@@ -149,21 +153,102 @@ const ctx = {
   },
 };
 
-// ---------- pages ----------
+// ---------- programmatic word-list pages ----------
+
+const affixes = readJson("content/affixes.json").affixes;
+for (const a of affixes) {
+  const words = [...a.html.matchAll(/<code>([a-z]+)<\/code>/g)].map(m => m[1]).filter(w => w !== a.affix);
+  assertWords(words);
+  const n = a.html.replace(/<[^>]+>/g, " ").split(/\s+/).filter(Boolean).length;
+  if (n < 150) throw new Error(`content/affixes.json: the ${a.affix} intro has ${n} words; the minimum is 150.`);
+}
+const tree = buildTree({ clean: data.clean, Engine, quality, fmt, esc, affixes });
+ctx.tree = tree;
+ctx.wordLists = tree;
+
+// ---------- hand-written pages (content/pages/**/*.mjs) ----------
 
 const pageDir = path.join(ROOT, "content/pages");
+const modFiles = [];
+(function walk(d) { for (const e of fs.readdirSync(d, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name))) e.isDirectory() ? walk(path.join(d, e.name)) : e.name.endsWith(".mjs") && modFiles.push(path.relative(pageDir, path.join(d, e.name)).split(path.sep).join("/")); })(pageDir);
 const pages = [];
-for (const f of fs.readdirSync(pageDir).filter(f => f.endsWith(".mjs")).sort()) {
+const late = [];
+for (const f of modFiles) {
   const mod = await import(pathToFileURL(path.join(pageDir, f)).href);
-  const page = mod.default(ctx);
+  const entry = { f, mod };
+  if (mod.late) { late.push(entry); continue; }
+  pages.push(prepare(mod.default(ctx), f));
+}
+function prepare(page, f) {
   const sources = [`content/pages/${f}`];
   if (page.script) sources.push(`src/assets/js/${page.script}.js`);
+  if (page.type === "guide" || page.type === "hub") sources.push("data/enable1.txt");
   page.updated = page.updated || lastChanged(sources);
   page.source = f;
   if (page.path !== "/" && page.type !== "error") page.crumbs = page.crumbs || [{ name: "Home", path: "/" }, { name: page.h1, path: page.path }];
-  pages.push(page);
+  return page;
 }
-for (const page of pages) write(page.file, layout(page, { ...ctx, nav, ads: ctx.ads }));
+
+// Generated pages, with the quality gate. A page that fails is not generated: its
+// words fold back into its parent's "Other" section and the parent is re-rendered.
+const wlUpdated = lastChanged(["data/enable1.txt", "content/programmatic.mjs", "content/affixes.json", "scripts/pagegen.mjs"]);
+const gate = { dropped: [] };
+function renderAll() {
+  return tree.nodes.map(n => {
+    const p = renderNode(n, tree, ctx);
+    p.updated = wlUpdated;
+    p.node = n;
+    return p;
+  });
+}
+let generated = renderAll();
+for (let pass = 0; pass < 3; pass++) {
+  const failing = generated.filter(p => {
+    const words = wordCount(proseText(`<main>${p.prose}</main>`));  // strict: no tables or headings
+    const facts = (p.prose.match(/data-fact="/g) || []).length;
+    const min = p.type === "affix" ? quality.minWords.affix : quality.minWords.programmatic;
+    p.gate = { words, facts };
+    return words < min || facts < quality.programmatic.minFacts;
+  });
+  if (!failing.length) break;
+  for (const p of failing) {
+    const n = p.node;
+    gate.dropped.push(`${p.path} (${p.gate.words} words, ${p.gate.facts} facts)`);
+    tree.nodes.splice(tree.nodes.indexOf(n), 1);
+    if (n.parent) { n.parent.children.splice(n.parent.children.indexOf(n), 1); n.parent.folded.push(...n.words); n.parent.folded.sort(); }
+    else tree.rootFolded[n.family].push(...n.words);
+  }
+  generated = renderAll();
+}
+pages.push(...generated);
+
+// Pages that need the full page list (HTML sitemap, hubs).
+ctx.pages = pages;
+for (const { f, mod } of late) pages.push(prepare(mod.default(ctx), f));
+
+// ---------- render ----------
+
+const seen = new Map();
+for (const page of pages) {
+  if (seen.has(page.path)) throw new Error(`Two pages claim ${page.path}: ${seen.get(page.path)} and ${page.source || page.key}`);
+  seen.set(page.path, page.source || page.key);
+  page.html = layout(page, { ...ctx, nav, ads: ctx.ads });
+  write(page.file, page.html);
+}
+
+// Similarity check on the written copy (thresholds in config/quality.json).
+const simPages = pages.filter(p => !p.noindex).map(p => ({ url: p.path, html: p.html, type: p.type }));
+const sims = maxSimilarity(simPages);
+const typeOf = new Map(simPages.map(p => [p.url, p.type]));
+const simFail = sims.filter(r => {
+  const t = typeOf.get(r.page), other = typeOf.get(r.with);
+  const templated = x => x === "programmatic" || x === "affix";
+  const limit = templated(t) && templated(other) ? quality.similarity.maxJaccardGenerated : quality.similarity.maxJaccard;
+  return r.max > limit;
+});
+fs.mkdirSync(path.join(ROOT, "reports"), { recursive: true });
+fs.writeFileSync(path.join(ROOT, "reports", "similarity.json"), JSON.stringify(sims.sort((a, b) => b.max - a.max), null, 2));
+if (simFail.length) throw new Error(`Similarity gate failed for ${simFail.length} page(s):\n${simFail.slice(0, 20).map(r => `  ${r.page} ~ ${r.with}: ${r.max.toFixed(3)}`).join("\n")}`);
 
 // ---------- robots, sitemap, ads.txt ----------
 
@@ -232,7 +317,10 @@ if (forbidden.length) throw new Error(`Forbidden files in public/: ${forbidden.j
 const placeholders = new Set();
 for (const f of all.filter(f => f.endsWith(".html"))) for (const m of fs.readFileSync(path.join(OUT, f), "utf8").matchAll(/\{\{[A-Z_]+\}\}/g)) placeholders.add(m[0]);
 
-fs.writeFileSync(path.join(ROOT, "public-manifest.json"), JSON.stringify({ assets, pages: pages.map(p => ({ path: p.path, file: p.file, type: p.type, updated: p.updated, noindex: !!p.noindex })) }, null, 2) + "\n");
+fs.writeFileSync(path.join(ROOT, "public-manifest.json"), JSON.stringify({ assets, pages: pages.map(p => ({ path: p.path, file: p.file, type: p.type, updated: p.updated, noindex: !!p.noindex, ...(p.wordsListed ? { listed: p.wordsListed.length } : {}) })) }, null, 2) + "\n");
+// Which words each indexable page lists (used by the coverage test).
+fs.writeFileSync(path.join(ROOT, "reports", "coverage.json"), JSON.stringify({ pages: pages.filter(p => p.wordsListed && !p.noindex).map(p => ({ path: p.path, words: p.wordsListed })) }));
+if (gate.dropped.length) console.log(`Quality gate dropped ${gate.dropped.length} generated page(s): ${gate.dropped.slice(0, 10).join("; ")}`);
 console.log(`Built ${pages.length} pages, ${all.length} files into public/${DEV ? " (DEV build: ad placeholders visible)" : ""}.`);
 console.log(`Word list: ENABLE, ${fmt(data.words.length)} words (SHA-256 ok), ${data.blocked.length} hidden by default.`);
 if (placeholders.size) console.log(`Placeholders still to fill in site.config.json: ${[...placeholders].join(", ")} (see docs/BEE-TODO.md)`);

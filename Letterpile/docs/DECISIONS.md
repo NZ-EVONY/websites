@@ -6,7 +6,7 @@
 - Assets get content-hashed names (`style.<hash>.css`, `words.<hash>.js`) with `Cache-Control: immutable`; HTML keeps Cloudflare's default `max-age=0, must-revalidate`.
 - `html_handling: "drop-trailing-slash"` kept: `wrangler dev --local` showed `/`, `/word-scrambler` = 200; `/word-scrambler.html`, `/word-scrambler/`, `/index.html`, `/about.html` = 307 to the clean URL; unknown path = 404 with `404.html`. No surprises for the ten live URLs.
 - Root `.assetsignore` removed; the build writes `public/.assetsignore` (Wrangler reads it from the assets directory).
-- Blocklist: LDNOOBW English single words + simple inflections (-s, -es, -ed, -d, -ing, -er, -ers, -y) + 17-word supplement, minus a 17-word allowlist of ordinary words (e.g. escort, scat, intercourse, suck) = 324 ENABLE words hidden by default.
+- Blocklist: LDNOOBW English single words + simple inflections (-s, -es, -ed, -d, -ing, -er, -ers, -y) + a short supplement (`data/blocklist-extra.txt`) minus an allowlist of ordinary words (e.g. escort, scat, intercourse, suck, retarding). Phase 1: 324 words hidden; Phase 2 review added ethnic/religious/sexual slurs the LDNOOBW list misses (e.g. lowercase *jew* as a verb, *lez*, *gyp*, *squaw*, *fagot*) → 389 hidden. Ordinary-meaning words kept visible: *paddy*, *chink*, *gimp*, *fairy*, *limey*.
 - Tools hide blocklisted words by default with a visible "Show all words, including vulgar ones" switch (remembered in localStorage `showAll`); static pages always exclude them.
 - Definitions: kept the Free Dictionary API, made it a deliberate "Look up definition" button with a disclosure line, in-memory cache, polite 404/429/offline messages, `referrerPolicy: no-referrer`, `credentials: omit`.
 - `innerHTML` audit: kept `esc()` for strings that are sanitized to a–z or produced by the engine; switched third-party definition text to DOM text nodes.
@@ -27,3 +27,20 @@
 - `public-manifest.json` (asset names, page list) is written at the repo root for tests; it is not deployed.
 - Lighthouse runs via `scripts/lighthouse.mjs` with an async in-process server (a sync child process blocked the server and hung).
 - Placeholders stay visible as `{{NAME}}` in built pages; `npm run check:deploy` refuses to pass until they are filled.
+
+## Phase 2
+- Generated word-list pages use the visible list (hidden words excluded). Families: by length (2–15), starting with, ending in. A list over 5,000 words becomes an overview that links to child pages extended by one letter (recursively); children under 100 words fold into the parent's "Other" section. Top-level length pages are always generated (the 2-letter list has 96 words).
+- Generated-page URLs: `/words-by-length/{n}-letter-words[/{prefix}]`, `/words-starting-with/{prefix}` and `/words-ending-in/{suffix}` (flat, so two-letter partitions double as two-letter prefix/suffix pages). Verified in `wrangler dev --local` that `guides.html` and the `guides/` folder coexist (`/guides` and `/guides/x` both 200).
+- Result: 671 generated + 23 curated affix pages = 694, at the top of the brief's 300–700 soft cap. Not reduced further: the 100-word child minimum and 5,000-word maximum fix the count.
+- Curated affixes attach to the partition page with the same URL when one exists (e.g. `/words-starting-with/un`), otherwise get a standalone page.
+- Quality gate (build): generated pages need ≥150 words of written copy (strict count: no tables, headings, word lists or link lists) and ≥5 `data-fact` numbers; curated affix pages ≥250. Pages failing are dropped and their words folded into the parent. Current result: none dropped.
+- Similarity: 5-word shingles, Jaccard index on written copy only. Limit 0.20 whenever a hand-written page (tool, guide, hub, trust) is involved; 0.60 between two template-built word-list pages. Current maxima: hand-written 0.093 (/about ~ /terms); generated 0.545.
+- Word counts for minimums (`npm run report:content`, tests) include headings and tables but exclude word lists, link lists, forms, breadcrumbs and the related-links block.
+- Every number on generated pages is wrapped in `<span data-fact data-value>`; a test recounts 20 seeded random pages independently.
+- "Most useful words" sample on overview pages is an evenly spaced alphabetical sample, labeled as such (no frequency data exists to rank usefulness honestly).
+- Guides `datePublished` is 2026-10-01 (the date the copy was written); `dateModified` comes from git. Bee may want to set datePublished to the deploy date.
+- Two-letter glosses: written for this site; words whose meaning wasn't certain (al, de, et, ne, od, oe, un, wo) get only a part of speech.
+- Ad slots render on guides (after-intro, mid-article), hubs (after-intro) and curated affix pages (after-intro); never on tools (off), generated pages (`ADS_ENABLED_FOR_TEMPLATE_PAGES=false`), trust, 404 or the HTML sitemap.
+- HTML site map at `/sitemap` (type "utility": no ads, no word minimum). Footer gained Guides, Word Lists and Site Map links.
+- Prose link color darkened to `#a3431d` in the light theme (accent `#c2562b` on `--bg` was ~4.1:1); buttons keep the accent.
+- All 726 titles are ≤ 60 characters and descriptions ≤ 155 (tested).

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is an Anagram? Examples, Types and Tricks | Letterpile</title>
+<meta name="description" content="What anagrams are, perfect versus partial anagrams, real examples, and quick tricks for spotting them.">
+<link rel="canonical" href="https://letterpile.app/guides/anagram-basics">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="What Is an Anagram? Examples, Types and Tricks | Letterpile">
+<meta property="og:description" content="What anagrams are, perfect versus partial anagrams, real examples, and quick tricks for spotting them.">
+<meta property="og:url" content="https://letterpile.app/guides/anagram-basics">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"What Is an Anagram?","description":"What anagrams are, perfect versus partial anagrams, real examples, and quick tricks for spotting them.","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Person","name":"{{AUTHOR_NAME}}"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/anagram-basics"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"What Is an Anagram?","item":"https://letterpile.app/guides/anagram-basics"}]}]}</script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+</head>
+<body data-page="guide-anagram">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">What Is an Anagram?</span></li></ol></nav>
+    <article class="panel prose doc">
+        <h1 class="page-title">What Is an Anagram?</h1>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
+        <p class="summary">An anagram is a word or phrase made by rearranging all the letters of another, using each letter exactly once. <code>LISTEN</code> and <code>SILENT</code> are anagrams; so are <code>DORMITORY</code> and <code>DIRTY ROOM</code>. This guide explains the different kinds, shows real examples checked against Letterpile's word list, and gives a few tricks for finding anagrams in your head.</p>
+<!-- AD SLOT: after-intro. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="after-intro" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<h2>The rule: same letters, same counts</h2>
+<p>Two words are anagrams when they have exactly the same letters the same number of times. Order doesn't matter, and in phrase anagrams spaces and punctuation are ignored. A quick test is to write both words' letters in alphabetical order: if the results match, they are anagrams. <code>EARTH</code> and <code>HEART</code> both sort to <code>AEHRT</code>.</p>
+<table>
+<tr><th>Word</th><th>Anagram</th><th>Letters in order</th></tr>
+<tr><td><code>LISTEN</code></td><td><code>SILENT</code></td><td><code>EILNST</code></td></tr><tr><td><code>NIGHT</code></td><td><code>THING</code></td><td><code>GHINT</code></td></tr><tr><td><code>EARTH</code></td><td><code>HEART</code></td><td><code>AEHRT</code></td></tr><tr><td><code>BELOW</code></td><td><code>ELBOW</code></td><td><code>BELOW</code></td></tr><tr><td><code>DUSTY</code></td><td><code>STUDY</code></td><td><code>DSTUY</code></td></tr><tr><td><code>SAVE</code></td><td><code>VASE</code></td><td><code>AESV</code></td></tr>
+</table>
+<h2>Perfect and partial anagrams</h2>
+<p>A <b>perfect</b> (or full) anagram uses every letter. That is what most people mean by the word, and it's what Letterpile's <a href="/anagram-solver">Anagram Solver</a> finds.</p>
+<p>A <b>partial</b> anagram, sometimes called a subanagram, uses only some of the letters. The letters of <code>HEART</code> contain 44 shorter words in the list, such as <code>EATH</code>, <code>HAET</code>, <code>HARE</code> and <code>HART</code>. Finding those is the job of a word unscrambler, like the <a href="/">Word Unscrambler</a>, rather than an anagram solver.</p>
+<h2>Single-word and phrase anagrams</h2>
+<p>Single-word anagrams swap one word for another. Phrase anagrams rearrange letters across word boundaries, like <code>DORMITORY</code> into <code>DIRTY ROOM</code>. Phrase anagrams are popular in puzzles because a phrase gives far more possible arrangements, and the best ones relate in meaning to the original. Letterpile's solver can find two-word anagrams; longer phrases need more human judgment.</p>
+<!-- AD SLOT: mid-article. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="mid-article" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<h2>How common are anagrams?</h2>
+<p>More common than you might think. In Letterpile's list, 12,248 sets of letters spell two or more words, covering 28,502 words in total (about 16.5% of the list). Most sets are pairs, but some are large:</p>
+<table>
+<tr><th>Words in the set</th><th>How many sets</th></tr>
+<tr><td>2</td><td>9,548</td></tr><tr><td>3</td><td>1,893</td></tr><tr><td>4</td><td>504</td></tr><tr><td>5</td><td>185</td></tr><tr><td>6</td><td>67</td></tr><tr><td>7</td><td>36</td></tr><tr><td>8</td><td>8</td></tr><tr><td>9</td><td>4</td></tr><tr><td>10</td><td>1</td></tr><tr><td>11</td><td>2</td></tr>
+</table>
+<p>The largest set has 11 words, all spelled from the letters <code>AELRST</code>: <code>ALERTS</code>, <code>ALTERS</code>, <code>ARTELS</code>, <code>ESTRAL</code>, <code>LASTER</code>, <code>RATELS</code>, <code>SALTER</code>, <code>SLATER</code>, <code>STALER</code>, <code>STELAR</code> and <code>TALERS</code>. Many of those are uncommon words, which is typical: big anagram sets usually include obscure entries.</p>
+<h2>Anagrams in word games</h2>
+<p>Many word games are anagram games in disguise. A rack of tiles is a set of letters waiting to be rearranged; a jumble asks for the one arrangement that's a word; letter-wheel games ask for every partial anagram of the wheel. That is why experienced players learn letter sets rather than single words: once you know that a set such as <code>AELRST</code> spells several words, you can pick whichever one fits the board. The seven letters <code>AEINRST</code>, for example, spell <code>ANESTRI</code>, <code>ANTSIER</code>, <code>NASTIER</code>, <code>RATINES</code>, <code>RETAINS</code>, <code>RETINAS</code>, <code>RETSINA</code>, <code>STAINER</code> and <code>STEARIN</code> in this list, and they are made almost entirely of 1-point letters, which is why such sets come up so often.</p>
+<h2>Mistakes to avoid</h2>
+<ul>
+<li><b>Losing count of repeated letters.</b> <code>LISTEN</code> and <code>SILENT</code> each have one of every letter, but many words don't. Two E's in one word need two E's in the other.</li>
+<li><b>Changing a plural.</b> Adding or removing an S changes the letter set, so a plural and a singular are never anagrams of each other.</li>
+<li><b>Expecting a link in meaning.</b> Most anagram pairs are coincidences. The ones that seem to comment on each other are memorable precisely because they're rare.</li>
+</ul>
+<h2>Tricks for spotting anagrams</h2>
+<ol>
+<li><b>Pull out common chunks.</b> Look for endings like -ING, -ED, -ER or -ES and set them aside; the rest is shorter and easier.</li>
+<li><b>Try consonant pairs.</b> Groups such as TH, CH, ST and TR often start or end words.</li>
+<li><b>Alternate vowels and consonants.</b> Writing the letters in a circle, or shuffling them, breaks the hold of the order you first saw. Letterpile's <a href="/text-twist-solver">Text Twist solver</a> has a Twist button for exactly this.</li>
+<li><b>Check with signatures.</b> If you think you have one, sort both sets of letters and compare.</li>
+</ol>
+<h2>Checking an anagram by hand</h2>
+<p>Without a tool, the fastest reliable check is to cross letters off. Write the first word, then go through the second word letter by letter, crossing off one matching letter in the first each time. If every letter is crossed off exactly once and nothing is left over, the two are anagrams. It takes a few seconds and catches the usual slip, a repeated letter counted once.</p>
+<h2>Where anagrams turn up</h2>
+<p>Cryptic crossword clues often hide an anagram signaled by a word like “confused” or “broken”. Newspaper jumbles are anagram puzzles. Some games ask for every word in a set of letters, which is anagram-finding with partial anagrams allowed. And many people just enjoy them: a good anagram that matches its original in meaning is a small piece of wordplay. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+        
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/anagram-solver">Anagram Solver</a></li><li><a href="/jumble-solver">Jumble Solver</a></li><li><a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a></li><li><a href="/">Word Unscrambler</a></li></ul>
+      </section>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

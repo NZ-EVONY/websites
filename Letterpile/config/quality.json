@@ -1,9 +1,28 @@
 {
   "_comment": "Content quality thresholds used by the build and tests. Not Google rules; our own bar.",
-  "minWords": { "tool": 600, "guide": 800, "hub": 300, "trust": 300, "affix": 250, "programmatic": 150 },
-  "phase1MinWords": { "trust": 300 },
-  "similarity": { "method": "5-gram word shingles, Jaccard index, prose only (word lists excluded)", "maxJaccard": 0.2 },
-  "programmatic": { "minFacts": 5, "minWordsListPage": 100, "minWordsCuratedAffix": 25, "maxWordsOnOnePage": 5000 },
+  "minWords": {
+    "tool": 600,
+    "guide": 800,
+    "hub": 300,
+    "trust": 300,
+    "affix": 250,
+    "programmatic": 150
+  },
+  "phase1MinWords": {
+    "trust": 300
+  },
+  "similarity": {
+    "method": "5-word shingles, Jaccard index, on the written copy only (word lists, tables, link lists, headings, crumbs, tool forms and the related-links block removed)",
+    "maxJaccard": 0.2,
+    "maxJaccardGenerated": 0.6,
+    "_note": "maxJaccard (0.2) applies whenever a hand-written page (tool, guide, hub, trust) is involved. maxJaccardGenerated (0.6) applies between two template-built word-list pages (generated or curated affix), which share headings-free template sentences by design."
+  },
+  "programmatic": {
+    "minFacts": 5,
+    "minWordsListPage": 100,
+    "minWordsCuratedAffix": 25,
+    "maxWordsOnOnePage": 5000
+  },
   "maxPublicFiles": 5000,
   "titleMax": 60,
   "descriptionMax": 155

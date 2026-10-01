@@ -4,7 +4,7 @@ Things only Bee can do, or must decide. Ordered roughly by when they matter.
 
 ## Before the first deploy
 0. **Create the rollback tag on your PC** (the cloud session could not push tags): `git fetch origin` then `git tag live-before-upgrade 25944fa`. It marks the live site as it was before the upgrade; `npm run regression` helpers, `npm run wordlist:diff` and the rollback steps use it.
-1. **Fill in `site.config.json`**: `operatorName` (how you want to be named on About/Privacy/Terms), `contactEmail` (an address you check), `governingLaw` (suggested: "New Zealand"). Then `npm run build` and `npm run check:deploy` must print OK. Every `TODO-BEE:` comment in the built HTML points here.
+1. **Fill in `site.config.json`**: `operatorName` (how you want to be named on About/Privacy/Terms), `contactEmail` (an address you check), `governingLaw` (suggested: "New Zealand"), `authorName` (shown as the author of the guides in their structured data; use your name or "Letterpile"). Then `npm run build` and `npm run check:deploy` must print OK. Every `TODO-BEE:` comment in the built HTML points here.
 2. **Read `docs/WORDLIST-DIFF.md`** and confirm you're happy that ~101,800 words disappear from the tools (including `qi` and `za`) and the Wordle pool shrinks from 12,578 to 8,636 five-letter words.
 3. **About page, "How this site is made"**: rewrite or approve the paragraph (`content/pages/about.mjs`).
 4. **Decide**: keep "Scrabble" out of the `/scrabble-word-finder` title (current default) or put it back for search reasons. Trademark risk vs search visibility; the URL stays either way.
@@ -24,3 +24,9 @@ Things only Bee can do, or must decide. Ordered roughly by when they matter.
 12. Consent: wire in a Google-certified CMP supporting **IAB TCF v2.3** (Google's Privacy & messaging or another certified CMP) at the **CMP INTEGRATION POINT** (`src/templates/partials/cmp-slot.mjs`), loading **before** AdSense. Remove `hidden` from the footer "Privacy settings" link (`src/templates/partials/footer.mjs`) and connect it to the CMP. The banner must be an overlay (no layout shift); re-run `npm run lighthouse` and check CLS.
 13. Update the Privacy Policy's Advertising, Consent and US-state sections (marked `TODO-BEE`), and the "Last updated" date will move automatically on the next build.
 14. Ad slots: tool pages ship with slots **off** (`config/ads.json` → `pageTypes.tool.enabled: false`); guides and hubs (Phase 2) have them on. Flip tool pages only after looking at a few pages yourself. `ADS_ENABLED_FOR_TEMPLATE_PAGES` stays `false` until you've reviewed a sample of the generated word-list pages.
+
+## Phase 2 review (content)
+15. **Read a sample of the generated word-list pages yourself** (for example five random ones from `/sitemap`) before ever setting `ADS_ENABLED_FOR_TEMPLATE_PAGES` to `true` in `config/ads.json`. There are 694 of them.
+16. Skim the 12 guides and the ten tool explainers for tone and anything you disagree with; copy lives in `content/pages/`.
+17. Guides show "Last updated" from git and carry `datePublished: 2026-10-01` in their structured data. If you'd rather use the deploy date, change `published` in each `content/pages/guides/*.mjs`.
+18. If you see a word on any list page that you think should be hidden, add it to `data/blocklist-extra.txt` and rebuild.

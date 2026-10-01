@@ -13,7 +13,8 @@ being upgraded for AdSense readiness. Owner: Bee (New Zealand). American English
 - Word list: ENABLE (`data/enable1.txt`, public domain). Build fails if its SHA-256/count differ from `data/SOURCE.md`.
 
 ## Layout
-- `content/pages/*.mjs`: one module per page (meta + copy); numbers come from `ctx` (computed from the list).
+- `content/pages/**/*.mjs`: one module per page (meta + copy); numbers come from `ctx` (computed from the list). `export const late = true` renders after generated pages.
+- `scripts/pagegen.mjs` + `content/programmatic.mjs` + `content/affixes.json`: generated word-list pages (quality and similarity gates in `config/quality.json`).
 - `src/templates/`: `layout.mjs` + partials (header, nav, sidebar, footer, breadcrumbs, jsonld, ad-slot, cmp-slot, adsense-slot).
 - `src/assets/`: `engine.js` (pure word engine, also runs in Node), `site.js` (shared behaviour), `style.css`, `js/*.js` (per-page scripts).
 - `scripts/`: build, wordstats, serve (local Cloudflare-like server), lighthouse, wordlist-diff, baseline-capture, check-deploy.

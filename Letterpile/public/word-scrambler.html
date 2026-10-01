@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Scrambler","url":"https://letterpile.app/word-scrambler","description":"Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Scrambler","item":"https://letterpile.app/word-scrambler"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Scrambler","url":"https://letterpile.app/word-scrambler","description":"Scramble words, sentences or whole paragraphs, keep the first and last letters, or play a quick unscramble challenge.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I scramble a whole paragraph?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to 5,000 characters. Each word is scrambled separately unless you choose “Mix all letters in the text”."}},{"@type":"Question","name":"Will the scrambled word always be different?","acceptedAnswer":{"@type":"Answer","text":"Yes, whenever a different order exists. A word with only one distinct letter, or a very short word in “keep first & last” mode, can't change."}},{"@type":"Question","name":"Are punctuation and capitals kept?","acceptedAnswer":{"@type":"Answer","text":"Yes. Punctuation, numbers and spaces stay where they were, and capital letters keep their positions."}},{"@type":"Question","name":"How does the challenge pick words?","acceptedAnswer":{"@type":"Answer","text":"It picks a random word of the chosen length from the visible ENABLE list, skipping words ending in S, ED or ING."}},{"@type":"Question","name":"Is my text saved?","acceptedAnswer":{"@type":"Answer","text":"No. It stays in your browser and disappears when you leave the page."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Scrambler","item":"https://letterpile.app/word-scrambler"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
 <script src="/assets/site.bf57889a6b.js" defer></script>
 <script src="/assets/js/scrambler.9d0433a6c7.js" defer></script>
 </head>
@@ -101,20 +101,60 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
           <p id="feedback" class="hint feedback" aria-live="polite"></p>
         </section>
       </div>
-      
       <article class="prose">
-        <h2>Scrambling styles</h2>
-        <table>
-          <tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
-          <tr><td>Scramble each word</td><td><code>zpuzle</code></td><td>Word jumbles and worksheets</td></tr>
-          <tr><td>Keep first &amp; last letter</td><td><code>pzzule</code></td><td>The “you can still read this” effect</td></tr>
-          <tr><td>Mix all letters</td><td>letters cross word boundaries</td><td>Hard mode, or making anagram puzzles</td></tr>
-          <tr><td>Shuffle word order</td><td>sentence order changes</td><td>Grammar and sentence-building exercises</td></tr>
-          <tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
-        </table>
-        <p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were. Scrambling happens in your browser; the text is not sent anywhere.</p>
-        <h2>Why keeping the ends works</h2>
-        <p>Fluent readers take in the outline of a word as much as its letter order, so a word that starts and ends correctly is often readable even when the middle is chaos. It works best on short, familiar words and breaks down fast on long or unusual ones.</p>
+        <p>The scrambler works the other way round from the rest of the site: instead of finding words in jumbled letters, it jumbles your words. Paste any text, choose a style, and it produces up to ten different scrambled versions at once, keeping punctuation and capitals where they were. Teachers use it for spelling and reading exercises, puzzle makers for jumbles, and anyone can use the built-in challenge to practice unscrambling. Scrambling uses a secure random shuffle in your browser, and the text never leaves your device.</p>
+
+<h2>Scrambling styles</h2>
+<table>
+<tr><th>Style</th><th>Example: “puzzle”</th><th>Good for</th></tr>
+<tr><td>Scramble each word</td><td><code>zpuzle</code></td><td>Word jumbles and worksheets</td></tr>
+<tr><td>Keep first &amp; last letter</td><td><code>pzzule</code></td><td>The “you can still read this” effect</td></tr>
+<tr><td>Mix all letters</td><td>letters cross word boundaries</td><td>Hard mode, or making anagram puzzles</td></tr>
+<tr><td>Shuffle word order</td><td>sentence order changes</td><td>Grammar and sentence-building exercises</td></tr>
+<tr><td>Reverse each word</td><td><code>elzzup</code></td><td>Secret notes and mirror games</td></tr>
+</table>
+<p>Words are always shuffled into a different order when one exists. Punctuation, numbers and capital positions stay where they were. Words of one repeated letter, and words of three letters or fewer in “keep first &amp; last” mode, can't change and are left as they are. The example column shows one possible result; yours will differ every time.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Type or paste your text (up to 5,000 characters).</li>
+<li>Choose a <b>Style</b> and how many <b>Versions</b> you want.</li>
+<li>Press <b>Scramble</b>. Press it again for new versions.</li>
+<li>Press <b>Copy</b> to copy every version, one per line, ready to paste into a document.</li>
+</ol>
+<h2>Why keeping the ends works</h2>
+<p>Fluent readers take in the outline of a word as much as its letter order, so a word that starts and ends correctly is often readable even when the middle is chaos. It works best on short, familiar words and breaks down fast on long or unusual ones. Try it on a sentence of your own with the “Keep first &amp; last letter” style.</p>
+<h2>The unscramble challenge</h2>
+<p>Below the scrambler is a small game. It picks a word from the list, scrambles it, and asks you to find a word that uses every tile. Any word in the list with exactly those letters counts, not just the one it picked. <b>Hint</b> fixes the next letter of the intended word in place (and resets your streak), <b>Shuffle</b> rearranges the unfixed tiles, and <b>New word</b> reveals the answer and moves on.</p>
+<table>
+<tr><th>Level</th><th>Word lengths</th><th>Words it can pick from</th></tr>
+<tr><td>Easy</td><td>4–5 letters</td><td>8,480</td></tr><tr><td>Medium</td><td>6–7 letters</td><td>21,015</td></tr><tr><td>Hard</td><td>8–10 letters</td><td>32,189</td></tr>
+</table>
+<p>To keep puzzles fair, the challenge skips words ending in S, ED or ING, and never picks a word from the hidden list.</p>
+<h2>Ideas for teachers and puzzle makers</h2>
+<ul>
+<li>Make a spelling worksheet: paste a word list, choose “Scramble each word” and 10 versions, and give each group a different version.</li>
+<li>Build a sentence-order activity with “Shuffle word order”.</li>
+<li>Make a harder anagram puzzle with “Mix all letters” on a short phrase, then check that a solution exists with the <a href="/anagram-solver">Anagram Solver</a>.</li>
+</ul>
+<h2>Limits</h2>
+<p>Only the letters A to Z are scrambled; accented letters and other alphabets are left as they are. The scrambler doesn't check that the result isn't accidentally another word. The challenge's answers come from the open ENABLE word list, so it accepts some uncommon words.</p>
+<h2>Privacy</h2>
+<p>Your text is scrambled in your browser and is never sent to Letterpile. It isn't saved, and it isn't added to the page address.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>Can I scramble a whole paragraph?</summary><div class="faq-a">Yes, up to 5,000 characters. Each word is scrambled separately unless you choose “Mix all letters in the text”.</div></details>
+        <details class="faq-item"><summary>Will the scrambled word always be different?</summary><div class="faq-a">Yes, whenever a different order exists. A word with only one distinct letter, or a very short word in “keep first & last” mode, can't change.</div></details>
+        <details class="faq-item"><summary>Are punctuation and capitals kept?</summary><div class="faq-a">Yes. Punctuation, numbers and spaces stay where they were, and capital letters keep their positions.</div></details>
+        <details class="faq-item"><summary>How does the challenge pick words?</summary><div class="faq-a">It picks a random word of the chosen length from the visible ENABLE list, skipping words ending in S, ED or ING.</div></details>
+        <details class="faq-item"><summary>Is my text saved?</summary><div class="faq-a">No. It stays in your browser and disappears when you leave the page.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/">Word Unscrambler</a></li><li><a href="/jumble-solver">Jumble Solver</a></li><li><a href="/anagram-solver">Anagram Solver</a></li><li><a href="/guides/anagram-basics">What Is an Anagram?</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
       </article>
   </main>
   <aside class="sidebar" id="sidebar">
@@ -128,7 +168,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <footer class="footer">
   <div class="wrap">
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
-    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>

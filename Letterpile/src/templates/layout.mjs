@@ -28,20 +28,38 @@ export default function layout(page, ctx) {
   scripts.push(`<script src="${assets["site.js"]}" defer></script>`);
   if (page.script) scripts.push(`<script src="${assets[`js/${page.script}.js`]}" defer></script>`);
 
+  // Ad slots are placed with <!--@slot NAME--> markers in the copy; "before-faq" is added
+  // automatically above the FAQ when the copy has no marker for it.
+  const fill = html => html.replace(/<!--@slot ([a-z-]+)-->/g, (_, n) => slot(n));
+  const faq = page.faq?.length ? `${/<!--@slot before-faq-->/.test(page.prose) ? "" : slot("before-faq")}
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        ${page.faqIntro ? `<p>${page.faqIntro}</p>` : ""}
+        ${page.faq.map(f => `<details class="faq-item"><summary>${f.q}</summary><div class="faq-a">${f.a}</div></details>`).join("\n        ")}
+      </section>` : "";
+  const related = page.related?.length ? `<section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul>${page.related.map(r => `<li><a href="${r.href}">${esc(r.label)}</a>${r.note ? ` <span class="hint">${r.note}</span>` : ""}</li>`).join("")}</ul>
+      </section>` : "";
+  const updated = page.updated && page.showUpdated !== false ? `<p class="updated">Last updated: <time datetime="${page.updated}">${ctx.longDate(page.updated)}</time></p>` : "";
   const main = page.type === "tool"
     ? `<div class="panel tool-card">
         <h1 class="page-title">${esc(page.h1)}</h1>
         ${page.lede ? `<p class="lede">${page.lede}</p>` : ""}
         ${page.tool}
       </div>
-      ${slot("after-intro")}
       <article class="prose">
-        ${page.prose}
+        ${fill(page.prose)}
+        ${faq}
+        ${related}
+        ${updated}
       </article>`
-    : `<article class="panel prose doc">
+    : `<article class="panel prose doc${page.type === "programmatic" || page.type === "affix" ? " wide" : ""}">
         <h1 class="page-title">${esc(page.h1)}</h1>
-        ${page.updated && page.showUpdated !== false ? `<p class="updated">Last updated: <time datetime="${page.updated}">${ctx.longDate(page.updated)}</time></p>` : ""}
-        ${page.prose}
+        ${updated}
+        ${fill(page.prose)}
+        ${faq}
+        ${related}
       </article>`;
 
   return `<!doctype html>

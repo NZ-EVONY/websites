@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wordle Strategy and Letter Logic | Letterpile</title>
+<meta name="description" content="Practical ways to narrow a five-letter puzzle: letter frequency in a real word list, opening patterns and common traps.">
+<link rel="canonical" href="https://letterpile.app/guides/wordle-strategy">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Wordle Strategy and Letter Logic | Letterpile">
+<meta property="og:description" content="Practical ways to narrow a five-letter puzzle: letter frequency in a real word list, opening patterns and common traps.">
+<meta property="og:url" content="https://letterpile.app/guides/wordle-strategy">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Wordle Strategy and Letter Logic","description":"Practical ways to narrow a five-letter puzzle: letter frequency in a real word list, opening patterns and common traps.","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Person","name":"{{AUTHOR_NAME}}"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/wordle-strategy"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Wordle Strategy and Letter Logic","item":"https://letterpile.app/guides/wordle-strategy"}]}]}</script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+</head>
+<body data-page="guide-wordle">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Wordle Strategy and Letter Logic</span></li></ol></nav>
+    <article class="panel prose doc">
+        <h1 class="page-title">Wordle Strategy and Letter Logic</h1>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
+        <p class="summary">Daily five-letter puzzles reward a simple habit: use each guess to learn as much as possible, then use what you learned. This guide shows which letters are most common in five-letter words, how the colors work with repeated letters, and a worked example of a puzzle narrowing down. The numbers come from the 8,564 five-letter words in the open ENABLE list that Letterpile uses, not from the game's own answer list, which is smaller and mostly made of everyday words.</p>
+<!-- AD SLOT: after-intro. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="after-intro" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<h2>Which letters are most common</h2>
+<p>The table shows the share of five-letter words in the list that contain each letter at least once. It is a useful guide to which letters are worth testing early.</p>
+<table>
+<tr><th>Letter</th><th>Words containing it</th><th>Share</th></tr>
+<tr><td>S</td><td>3,957</td><td>46.2%</td></tr><tr><td>E</td><td>3,859</td><td>45.1%</td></tr><tr><td>A</td><td>3,482</td><td>40.7%</td></tr><tr><td>R</td><td>2,655</td><td>31.0%</td></tr><tr><td>O</td><td>2,511</td><td>29.3%</td></tr><tr><td>I</td><td>2,412</td><td>28.2%</td></tr><tr><td>L</td><td>2,163</td><td>25.3%</td></tr><tr><td>T</td><td>2,068</td><td>24.1%</td></tr><tr><td>N</td><td>1,835</td><td>21.4%</td></tr><tr><td>U</td><td>1,580</td><td>18.4%</td></tr><tr><td>D</td><td>1,555</td><td>18.2%</td></tr><tr><td>C</td><td>1,359</td><td>15.9%</td></tr>
+</table>
+<p>S tops the list because the word list includes many plurals, such as five-letter words made by adding S to a four-letter word. A puzzle that avoids plurals as answers will make S less useful than this table suggests, which is one reason to treat these numbers as a starting point.</p>
+<h2>Letters by position</h2>
+<p>Where a letter tends to sit matters too. In this list the most common letters in each position are:</p>
+<table>
+<tr><th>Position</th><th>Most common letters</th></tr>
+<tr><td>1</td><td>S (1,041), C (661), B (582)</td></tr><tr><td>2</td><td>A (1,473), O (1,318), E (1,056)</td></tr><tr><td>3</td><td>A (847), R (785), I (736)</td></tr><tr><td>4</td><td>E (1,687), A (659), T (613)</td></tr><tr><td>5</td><td>S (2,662), E (929), Y (887)</td></tr>
+</table>
+<p>A letter that turns yellow tells you it's in the word but not in that spot. Knowing where letters usually sit helps you guess where it belongs.</p>
+<h2>Opening guesses</h2>
+<p>A good first guess uses five different letters, mostly common ones, so every tile tests something new. Words such as <code>SLATE</code> and <code>CRANE</code> fit that description. There is no single best opener: some players prefer to test vowels, others common consonants. What matters more is the second guess, which should use the first guess's colors and still test new letters where possible.</p>
+<p>Of the five-letter words in the list, 2,932 have a repeated letter. Repeated-letter words test fewer letters, so they are weaker as early guesses, but don't rule them out as answers.</p>
+<!-- AD SLOT: mid-article. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="mid-article" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<h2>How colors work with repeated letters</h2>
+<ul>
+<li><b>Green</b>: right letter, right spot.</li>
+<li><b>Yellow</b>: the letter is in the word, but somewhere else.</li>
+<li><b>Gray</b>: the word has no more copies of that letter than the ones already shown green or yellow.</li>
+</ul>
+<p>The third rule is the one that trips people up. Suppose the answer were <code>SPEED</code> and you guessed <code>GEESE</code>. The colors would be gray, yellow, green, yellow, gray. Two E's are green or yellow because the answer has two E's; the third E is gray even though E is in the word, because there is no third E. A gray tile on a repeated letter limits how many copies there are; it doesn't rule the letter out.</p>
+<h2>A worked example</h2>
+<p>Say the answer is <code>SPORE</code> (we pick it here only to compute the colors; the solver never knows the answer).</p>
+<ol>
+<li>Guess <code>CRANE</code>. The colors come back: gray, yellow, gray, gray, green. Using those clues, 86 words in the list still fit.</li>
+<li>Guess <code>SPILT</code>, which keeps the letters we know about in useful places and tests new ones. Colors: green, green, gray, gray, gray. Now 3 words fit.</li>
+<li>From there, pick the most familiar word among the few that remain. Everyday words are more likely to be answers than obscure ones.</li>
+</ol>
+<p>You can replay this in the <a href="/wordle-solver">Wordle Solver</a>: add each guess and tap the tiles to match the colors above.</p>
+<p>If you want to check a worked example yourself, the <a href="/crossword-solver">Crossword Solver</a> can show every word that fits a pattern of known letters, which is a quick way to see how many candidates a set of green tiles leaves.</p>
+<h2>Common traps</h2>
+<ul>
+<li><b>Repeating known-gray letters.</b> Every letter in a guess should either test something new or confirm a position.</li>
+<li><b>Fixing too early.</b> When many words share four letters (for example, a run of words that differ only in the first letter), a guess that tests several of those first letters at once can save turns.</li>
+<li><b>Ignoring yellow positions.</b> A yellow letter can't be in the spot where it was yellow. Move it.</li>
+</ul>
+<h2>About this list and the game</h2>
+<p>Wordle™ is a trademark of The New York Times Company; Letterpile is not affiliated with it. The game uses its own word lists, which are not the ENABLE list. The solver on this site can suggest words the game will never use as answers, and it may miss words the game accepts as guesses. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+        
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/guides/solve-daily-word-puzzles">Solving Daily Word Puzzles</a></li><li><a href="/words-by-length/5-letter-words">5-letter words</a></li><li><a href="/crossword-solver">Crossword Solver (pattern search)</a></li></ul>
+      </section>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Crossword Solver","url":"https://letterpile.app/crossword-solver","description":"Type the letters you know and use ? for the gaps to find every word that fits, with must-include and exclude letters.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Crossword Solver","item":"https://letterpile.app/crossword-solver"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Crossword Solver","url":"https://letterpile.app/crossword-solver","description":"Type the letters you know and use ? for the gaps to find every word that fits, with must-include and exclude letters.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which characters stand for an unknown letter?","acceptedAnswer":{"@type":"Answer","text":"Use ?, _, . or * for each empty square. Letters stand for themselves. Anything else is ignored."}},{"@type":"Question","name":"What's the difference between Must include and Exclude?","acceptedAnswer":{"@type":"Answer","text":"Must include lists letters that appear somewhere in the answer. Exclude lists letters that can't fill any empty square; letters you've already placed are never excluded."}},{"@type":"Question","name":"Can it solve the clue for me?","acceptedAnswer":{"@type":"Answer","text":"No. It matches spellings, not meanings. It's most useful once you have a few crossing letters."}},{"@type":"Question","name":"Why isn't a name or abbreviation found?","acceptedAnswer":{"@type":"Answer","text":"The word list contains ordinary lowercase words only, so names, places and most abbreviations are not included."}},{"@type":"Question","name":"How long can a pattern be?","acceptedAnswer":{"@type":"Answer","text":"Up to 21 squares."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Crossword Solver","item":"https://letterpile.app/crossword-solver"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
 <script src="/assets/site.bf57889a6b.js" defer></script>
 <script src="/assets/js/crossword.bd1d61b556.js" defer></script>
 </head>
@@ -77,19 +77,61 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Matching words will appear here.</p></div>
       </div>
-      
       <article class="prose">
-        <h2>Writing a pattern</h2>
-        <p>One character per square. Known letters as themselves; unknown squares as <kbd>?</kbd>, <kbd>_</kbd> or <kbd>.</kbd>. The pattern's length is the answer's length.</p>
-        <table>
-          <tr><th>Pattern</th><th>Finds (in the ENABLE list)</th></tr>
-          <tr><td><code>?A?E</code></td><td>128 four-letter words with A second and E last, such as <code>BAKE</code>, <code>CAFE</code> and <code>GAME</code></td></tr>
-          <tr><td><code>????ING</code></td><td>1,516 seven-letter words ending in ING</td></tr>
-          <tr><td><code>Q????</code> + exclude <code>U</code></td><td>five-letter Q words without a U: <code>QAIDS</code>, <code>QANAT</code> and <code>QOPHS</code></td></tr>
-        </table>
-        <h2>Using the extra filters</h2>
-        <p><b>Must include</b> is for letters you know are in the answer but not where, from a crossing clue you half-remember. <b>Exclude</b> removes letters from the empty squares only, so a letter you've already placed is never excluded.</p>
-        <p>Answers with spaces, like phrases, aren't supported. Enter the letters without the gap. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+        <p>When you know the length of a crossword answer and some of its letters, this solver lists every word in its list that fits. Type the pattern with a question mark for each empty square, and optionally say which letters must appear somewhere or can't appear in the gaps. It doesn't read clues; it narrows down spellings, which is often all you need once a couple of crossing answers are in. It's equally handy for word ladders, puzzle design and any game where you know a word's shape.</p>
+
+<h2>Writing a pattern</h2>
+<p>One character per square. Known letters as themselves; unknown squares as <kbd>?</kbd>, <kbd>_</kbd> or <kbd>.</kbd>. The pattern's length is the answer's length, shown under the box as you type.</p>
+<table>
+<tr><th>Symbol</th><th>Meaning</th></tr>
+<tr><td>A–Z</td><td>This square is that letter</td></tr>
+<tr><td><kbd>?</kbd> <kbd>_</kbd> <kbd>.</kbd> <kbd>*</kbd></td><td>Any one letter (an empty square)</td></tr>
+<tr><td>Must include</td><td>These letters appear somewhere in the word</td></tr>
+<tr><td>Exclude</td><td>These letters can't fill the empty squares</td></tr>
+</table>
+<h2>Worked patterns</h2>
+<p>Every count below was computed from the list this site uses:</p>
+<table>
+<tr><th>Pattern</th><th>Filters</th><th>What it means</th><th>Matches</th><th>Examples</th></tr>
+<tr><td><code>?A?E</code></td><td>–</td><td>four letters, A second, E last</td><td>128</td><td><code>BABE</code>, <code>BADE</code> and <code>BAKE</code></td></tr><tr><td><code>????ING</code></td><td>–</td><td>seven letters ending in ING</td><td>1,514</td><td><code>ABASING</code>, <code>ABATING</code> and <code>ABIDING</code></td></tr><tr><td><code>Q????</code></td><td>exclude <code>U</code></td><td>five-letter Q words without a U in the gaps</td><td>3</td><td><code>QAIDS</code>, <code>QANAT</code> and <code>QOPHS</code></td></tr><tr><td><code>C?O?S</code></td><td>–</td><td>five letters: C, gap, O, gap, S</td><td>18</td><td><code>CHOPS</code>, <code>CHOWS</code> and <code>CIONS</code></td></tr><tr><td><code>C?O?S</code></td><td>include <code>R</code></td><td>the same, but must contain an R</td><td>4</td><td><code>CROCS</code>, <code>CROPS</code> and <code>CROSS</code></td></tr><tr><td><code>?????</code></td><td>include <code>XZ</code></td><td>any five letters containing both X and Z</td><td>1</td><td><code>ZAXES</code></td></tr><tr><td><code>S???E</code></td><td>exclude <code>AEIOU</code></td><td>S _ _ _ E with no other vowels</td><td>2</td><td><code>SLYPE</code> and <code>STYLE</code></td></tr><tr><td><code>??GHT</code></td><td>–</td><td>five letters ending in GHT</td><td>14</td><td><code>AUGHT</code>, <code>BIGHT</code> and <code>DIGHT</code></td></tr>
+</table>
+<p>The Q pattern finds <code>QAIDS</code>, <code>QANAT</code> and <code>QOPHS</code>: five-letter Q words with no U in the open squares.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Count the squares and type the pattern, using a question mark for each one you don't know.</li>
+<li>If a crossing clue tells you a letter is in the answer but not where, add it to <b>Must include</b>.</li>
+<li>If you've ruled letters out, add them to <b>Exclude</b>.</li>
+<li>Press <b>Search</b>. Tap any result for its definition.</li>
+</ol>
+<h2>Using the extra filters</h2>
+<p><b>Must include</b> is for letters you know are in the answer but not where, from a crossing clue you half-remember. <b>Exclude</b> removes letters from the empty squares only, so a letter you've already placed is never excluded.</p>
+<h2>Reading the results</h2>
+<p>The count shows how many words fit; up to 800 are listed alphabetically. If you see hundreds, fill in another crossing letter before searching again.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Miscounting squares.</b> Check the length shown under the box against the grid.</li>
+<li><b>Phrases.</b> Answers with spaces, like phrases, aren't supported as such. Enter all the letters without the gap; multi-word answers will only match if the joined form is in the list, which is rare.</li>
+<li><b>Proper nouns.</b> Names of people and places aren't in the word list, so crossword answers like those won't be found.</li>
+</ul>
+<h2>Limits and accuracy</h2>
+<p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. Crossword answers often include names, abbreviations and phrases, which a word list doesn't contain. Use the results to test ideas, then check them against the clue.</p>
+<h2>Privacy</h2>
+<p>Patterns are matched in your browser, and nothing you type is sent to Letterpile.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>Which characters stand for an unknown letter?</summary><div class="faq-a">Use ?, _, . or * for each empty square. Letters stand for themselves. Anything else is ignored.</div></details>
+        <details class="faq-item"><summary>What's the difference between Must include and Exclude?</summary><div class="faq-a">Must include lists letters that appear somewhere in the answer. Exclude lists letters that can't fill any empty square; letters you've already placed are never excluded.</div></details>
+        <details class="faq-item"><summary>Can it solve the clue for me?</summary><div class="faq-a">No. It matches spellings, not meanings. It's most useful once you have a few crossing letters.</div></details>
+        <details class="faq-item"><summary>Why isn't a name or abbreviation found?</summary><div class="faq-a">The word list contains ordinary lowercase words only, so names, places and most abbreviations are not included.</div></details>
+        <details class="faq-item"><summary>How long can a pattern be?</summary><div class="faq-a">Up to 21 squares.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/words-by-length">Words by Length</a></li><li><a href="/">Word Unscrambler</a></li><li><a href="/guides/solve-daily-word-puzzles">Solving Daily Word Puzzles</a></li><li><a href="/guides/word-lists-explained">Word Lists Explained</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
       </article>
   </main>
   <aside class="sidebar" id="sidebar">
@@ -103,7 +145,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <footer class="footer">
   <div class="wrap">
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
-    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>

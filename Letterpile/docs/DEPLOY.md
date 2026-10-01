@@ -16,7 +16,7 @@ git diff live-before-upgrade -- wrangler.jsonc
 ```
 
 - Look at `public/` once: only HTML pages, `assets/`, `data/`, `licenses/`, `_headers`, `robots.txt`, `sitemap.xml`, `ads.txt`, `favicon.svg`, `.assetsignore`. No `docs`, `.git`, `.wrangler`, `node_modules`, `tests`, backups or `.md` files (the tests and `check:deploy` also enforce this).
-- The dry-run line counts folders too ("Read 39 files" = 35 files + 4 folders for the Phase 1 build). Write the commit, file count and that number in `docs/deploy-log.md`, and compare with the previous entry.
+- The dry-run line counts folders too ("Read 39 files" = 35 files + 4 folders for the Phase 1 build; "Read 764 files" = 746 files + 18 folders after Phase 2). Write the commit, file count and that number in `docs/deploy-log.md`, and compare with the previous entry.
 
 ### What the first deploy changes in the upload (old vs new)
 
@@ -77,7 +77,7 @@ Open the ten tool URLs and the new pages in a browser and try each tool once. If
 
 ## 6. Free-plan facts (from the brief; re-check on Cloudflare's docs)
 
-Static asset requests are free and unlimited; there is no Worker script, so Workers request quotas don't apply. Up to 20,000 files per version on the free plan and 25 MiB per file; `_headers` up to 100 rules. This site has 35 files (the build fails above 5,000). The biggest file is the word list at about 1.7 MB.
+Static asset requests are free and unlimited; there is no Worker script, so Workers request quotas don't apply. Up to 20,000 files per version on the free plan and 25 MiB per file; `_headers` up to 100 rules. After Phase 2 this site has 746 files (the build fails above 5,000). The biggest file is the word list at about 1.7 MB.
 
 ## 7. Updating later
 

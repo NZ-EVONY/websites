@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Lists Explained: Where Words Come From | Letterpile</title>
+<meta name="description" content="Why games accept different words, what ENABLE and other open word lists are, and why this site claims no official status.">
+<link rel="canonical" href="https://letterpile.app/guides/word-lists-explained">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Word Lists Explained: Where Words Come From | Letterpile">
+<meta property="og:description" content="Why games accept different words, what ENABLE and other open word lists are, and why this site claims no official status.">
+<meta property="og:url" content="https://letterpile.app/guides/word-lists-explained">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Word Lists Explained","description":"Why games accept different words, what ENABLE and other open word lists are, and why this site claims no official status.","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Person","name":"{{AUTHOR_NAME}}"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/word-lists-explained"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Lists Explained","item":"https://letterpile.app/guides/word-lists-explained"}]}]}</script>
+<script src="/assets/site.bf57889a6b.js" defer></script>
+</head>
+<body data-page="guide-lists">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><span aria-hidden="true">◐</span></button>
+  </div>
+</header>
+<nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main wrap">
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Word Lists Explained</span></li></ol></nav>
+    <article class="panel prose doc">
+        <h1 class="page-title">Word Lists Explained</h1>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
+        <p class="summary">Every word tool and word game relies on a list of words it treats as valid. Those lists are chosen by people, for different purposes, so they disagree, especially about short, informal, new and borrowed words. This guide explains what a word list is, which one Letterpile uses and why, and how to check whether your own game will accept a word. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+<!-- AD SLOT: after-intro. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="after-intro" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<h2>A word list is not a dictionary</h2>
+<p>A dictionary explains words: meanings, pronunciations, origins. A word list for games is simply a set of spellings that count. It usually has no definitions, no capitalized words (names and places are left out), no hyphens or spaces, and it includes all the inflected forms a game needs, such as plurals and verb endings. That is why a list can contain a word that you won't find as a headword in a dictionary: it may be a plural, or a form a dictionary lists under its base word.</p>
+<h2>The list Letterpile uses: ENABLE</h2>
+<p>Letterpile uses ENABLE (often distributed as <code>enable1.txt</code>). It was compiled by M. Cooper and Alan Beale and released into the public domain, with a request that users credit them as its originators and don't restrict its redistribution. Their README describes it as an alternative to “official” word lists for word game players and designers. You can read the <a href="/licenses/enable.txt">ENABLE README and licence text</a> on this site.</p>
+<p>The copy Letterpile ships has 172,823 words, all lowercase letters A to Z, from two letters up to 28 (the longest is <code>ETHYLENEDIAMINETETRAACETATES</code>). Of those, 96 have two letters and 8,564 visible words have five. Letterpile hides some vulgar words and slurs by default; the tools have a switch to show them, and the word list file itself is unchanged and free to download (see <a href="/about">About</a>).</p>
+<h2>Why Letterpile switched lists</h2>
+<p>Until recently the site used a larger list that came from a software package. The package itself had a clear licence, but the origin of the list inside it could not be traced to a clearly licensed source. ENABLE's public-domain release is documented, so the site moved to it. The change removed many obscure words and some short ones that returning visitors may miss, such as <code>QI</code> and <code>ZA</code>.</p>
+<!-- AD SLOT: mid-article. Paste AdSense <ins> unit here. Do not auto-refresh. -->
+<aside class="ad-slot" data-ad-slot="mid-article" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+<p>Because the list is just spellings, it carries no information about how common a word is. A tool built on it can tell you that a word exists in the list, but not whether most people would recognize it.</p>
+<h2>Why games disagree</h2>
+<ul>
+<li><b>Different purposes.</b> A list for casual players may leave out obscure words; a list for competitive play may include as many as possible.</li>
+<li><b>Different regions.</b> British and American spellings differ (colour and color), and some lists include both while others pick one.</li>
+<li><b>Different dates.</b> Language keeps changing. Newer lists add slang and borrowings; older lists, like ENABLE, don't have them.</li>
+<li><b>Different policies.</b> Some games remove offensive words; some keep them because they are part of the language.</li>
+</ul>
+<p>The result is that the same letters can be a word in one game and not in another. None of <code>QI</code>, <code>ZA</code>, <code>OK</code>, <code>EW</code> is in ENABLE, for example, although some games accept some of them.</p>
+<h2>Other lists you may hear about</h2>
+<p>Competitive tile games in North America and elsewhere use their own lexicons, maintained by word game organizations and publishers, often referred to by abbreviations such as NWL or CSW (the latter associated with Collins). Those lists are not public domain, and Letterpile does not use them. If you play in a club or tournament, its rules will say which list applies.</p>
+<p>Other open lists exist too. SCOWL, by Kevin Atkinson, is a family of English word lists organized by how common words are; it is a possible alternative if ENABLE ever stopped being suitable.</p>
+<h2>What “valid” means on Letterpile</h2>
+<p>When a Letterpile tool shows a word, it means one thing only: the word is in the ENABLE list (and not hidden). It does <b>not</b> mean the word is accepted by any particular game, and nothing on this site is an official word source for any game. Letter values and bonuses shown are commonly used values, not any game's rulebook.</p>
+<h2>How to check a word for your game</h2>
+<ol>
+<li>Look for a word checker in the game itself. Many apps reject invalid words before you play them.</li>
+<li>Check the game's rules or help pages, which often name the dictionary used.</li>
+<li>For club or tournament play, use the word judge or adjudication tool the organizers specify.</li>
+<li>Use Letterpile to find candidates, then confirm them with your game.</li>
+</ol>
+<h2>Summary</h2>
+<p>A word list is a set of accepted spellings chosen for a purpose. Letterpile uses ENABLE, an open, public-domain list compiled by M. Cooper and Alan Beale. Games use their own lists, which can differ in either direction, so the safest habit is to treat any tool's answer as a suggestion and check it against your game.</p>
+        
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/about">About Letterpile</a></li><li><a href="/guides/two-letter-words">Two-Letter Words</a></li><li><a href="/words-by-length">Words by Length</a></li><li><a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a></li></ul>
+      </section>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

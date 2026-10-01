@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Combiner","url":"https://letterpile.app/word-combiner","description":"Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Combiner","item":"https://letterpile.app/word-combiner"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Combiner","url":"https://letterpile.app/word-combiner","description":"Combine two to four words into blends like breakfast + lunch = brunch. Handy for names, usernames and puns.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a portmanteau word?","acceptedAnswer":{"@type":"Answer","text":"A word made by blending parts of two others, keeping the sound or sense of both, such as brunch from breakfast and lunch."}},{"@type":"Question","name":"Why are some blends marked as real words?","acceptedAnswer":{"@type":"Answer","text":"If a blend happens to be spelled like a word in the ENABLE list, it's listed first. That doesn't mean the word has anything to do with your inputs."}},{"@type":"Question","name":"Can I combine more than two words?","acceptedAnswer":{"@type":"Answer","text":"Yes, up to four. Every pair is blended, in both orders."}},{"@type":"Question","name":"Why don't I see a blend I expected?","acceptedAnswer":{"@type":"Answer","text":"The combiner keeps at least a fifth of each word and drops blends with no vowel or with four consonants in a row. Your blend may break one of those rules."}},{"@type":"Question","name":"Can I use these blends as a business name?","acceptedAnswer":{"@type":"Answer","text":"The tool only suggests spellings. Check trademarks and availability yourself before using any name."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Combiner","item":"https://letterpile.app/word-combiner"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
 <script src="/assets/site.bf57889a6b.js" defer></script>
 <script src="/assets/js/combiner.d3a6839443.js" defer></script>
 </head>
@@ -76,19 +76,59 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Press <b>Combine</b> to blend the words above. With the example words, one of the blends is <b>brunch</b>.</p></div>
       </div>
-      
       <article class="prose">
-        <h2>How blends are built</h2>
-        <p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognizable, and it drops anything that has no vowel or stacks up four consonants.</p>
-        <p>Results come in three piles:</p>
-        <ul>
-          <li><b>Blends that are already words</b>: splices that land on a word in the ENABLE list, sometimes the famous one.</li>
-          <li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
-          <li><b>Joined</b>: the words simply stuck together in every order.</li>
-        </ul>
-        <p>The combiner works on spelling only. It does not know what words mean, so results are for fun and idea-sparking.</p>
-        <h2>Ideas</h2>
-        <p>Business and product names, pet names, usernames, couple names, fantasy creatures, and puns for group chats. Try your two names, or two things your product does.</p>
+        <p>A blend, sometimes called a portmanteau, joins the start of one word to the end of another, like breakfast and lunch making brunch. The combiner does that mechanically for any two to four words you give it. It tries every split that keeps a recognizable piece of each word, throws out results nobody could pronounce, and sorts what's left: blends that happen to be words already, then invented blends, then the words simply joined. It's a brainstorming tool for names, handles, puns and games.</p>
+
+<h2>How blends are built</h2>
+<p>For each pair of words, the combiner takes the start of one and the end of the other: <b>br</b>eakfast + l<b>unch</b> gives <b>brunch</b>, <b>sm</b>oke + f<b>og</b> gives <b>smog</b>. It keeps at least a fifth of each word, so both sources are still recognizable, and it drops anything that has no vowel or stacks up four consonants. With three or four words it blends every pair, in both orders.</p>
+<p>Results come in three piles:</p>
+<ul>
+<li><b>Blends that are already words</b>: splices that land on a word in the ENABLE list, sometimes the famous one.</li>
+<li><b>New blends</b>: invented words, most balanced first. This is where names come from.</li>
+<li><b>Joined</b>: the words simply stuck together in every order.</li>
+</ul>
+<h2>How to use it</h2>
+<ol>
+<li>Type two words. Use <b>+ Add word</b> for up to four.</li>
+<li>Press <b>Combine</b>.</li>
+<li>Scan the new blends for ones that sound right when said aloud; the top of the list keeps the two halves most evenly.</li>
+<li>Copy the link from your address bar to share the results.</li>
+</ol>
+<h2>Worked examples</h2>
+<ul>
+<li><code>BREAKFAST</code> + <code>LUNCH</code> gives 61 blends, of which 4 are already words in the list: <code>BREACH</code>, <code>LAST</code>, <code>LUST</code> and <code>BRUNCH</code>.</li>
+<li><code>SPOON</code> + <code>FORK</code> gives new blends such as <code>FORPOON</code>, <code>SPOORK</code>, <code>FOROON</code>, <code>SPOOFORK</code> and <code>FORKPOON</code>. (The familiar “spork” is invented, so it appears among the new blends rather than as a listed word.)</li>
+<li><code>MOTOR</code> + <code>HOTEL</code>: the blend <code>MOTEL</code> is among the results.</li>
+</ul>
+<h2>Reading the results</h2>
+<p>Blends that are words in the list are clickable, so you can check a definition. New blends and joined forms are plain text. The new-blend list shows the first 150.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Expecting meaning.</b> The combiner blends spelling only. It doesn't know what words mean, so results are for fun and idea-sparking.</li>
+<li><b>Using very short words.</b> Two- or three-letter words leave little to keep from each side. Longer words give more interesting splices.</li>
+<li><b>Assuming a blend is available as a name.</b> Check trademarks and domain names yourself before using a blend for a business.</li>
+</ul>
+<h2>Limits</h2>
+<p>Only the letters A to Z are used. The pronounceability check is a simple rule about vowels and consonant clusters, so some odd results slip through and some good ones are dropped. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.</p>
+<h2>Privacy</h2>
+<p>The words you enter are combined in your browser and not sent to Letterpile. They do appear in the page address so you can share a result.</p>
+<h2>Ideas</h2>
+<p>Business and product names, pet names, usernames, couple names, fantasy creatures, and puns for group chats. Try your two names, or two things your product does.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>What is a portmanteau word?</summary><div class="faq-a">A word made by blending parts of two others, keeping the sound or sense of both, such as brunch from breakfast and lunch.</div></details>
+        <details class="faq-item"><summary>Why are some blends marked as real words?</summary><div class="faq-a">If a blend happens to be spelled like a word in the ENABLE list, it's listed first. That doesn't mean the word has anything to do with your inputs.</div></details>
+        <details class="faq-item"><summary>Can I combine more than two words?</summary><div class="faq-a">Yes, up to four. Every pair is blended, in both orders.</div></details>
+        <details class="faq-item"><summary>Why don't I see a blend I expected?</summary><div class="faq-a">The combiner keeps at least a fifth of each word and drops blends with no vowel or with four consonants in a row. Your blend may break one of those rules.</div></details>
+        <details class="faq-item"><summary>Can I use these blends as a business name?</summary><div class="faq-a">The tool only suggests spellings. Check trademarks and availability yourself before using any name.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/word-scrambler">Word Scrambler</a></li><li><a href="/anagram-solver">Anagram Solver</a></li><li><a href="/guides/hooks-prefixes-and-suffixes">Hooks, Prefixes and Suffixes</a></li><li><a href="/">Word Unscrambler</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
       </article>
   </main>
   <aside class="sidebar" id="sidebar">
@@ -102,7 +142,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <footer class="footer">
   <div class="wrap">
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
-    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>

@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.4b0479445d.css">
+<link rel="stylesheet" href="/assets/style.998aaed8ee.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Words With Friends Word Finder","url":"https://letterpile.app/words-with-friends","description":"Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Words With Friends Word Finder","item":"https://letterpile.app/words-with-friends"}]}]}</script>
-<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.4ade5cec2f.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Words With Friends Word Finder","url":"https://letterpile.app/words-with-friends","description":"Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do these letter values come from?","acceptedAnswer":{"@type":"Answer","text":"They are the values commonly reported for the game, not taken from an official source. Check the values shown in your game, as they may change."}},{"@type":"Question","name":"Why is the all-tiles bonus 35 and not 50?","acceptedAnswer":{"@type":"Answer","text":"35 points is the bonus commonly reported for Words With Friends. Other tile games commonly use 50. Check your game's rules."}},{"@type":"Question","name":"Will the game accept every word listed?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The game has its own dictionary, and Letterpile uses the open ENABLE word list. Use the results as suggestions and let the game confirm them."}},{"@type":"Question","name":"Do the scores include double and triple squares?","acceptedAnswer":{"@type":"Answer","text":"No. The finder can't see your board, so scores are base tile values plus the all-tiles bonus."}},{"@type":"Question","name":"Can I search for words that use a letter on the board?","acceptedAnswer":{"@type":"Answer","text":"Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Words With Friends Word Finder","item":"https://letterpile.app/words-with-friends"}]}]}</script>
+<script src="/assets/engine.7ba5bea6cb.js" data-words="/data/words.54646e019a.js" defer></script>
 <script src="/assets/site.bf57889a6b.js" defer></script>
 <script src="/assets/js/finder.9000188912.js" defer></script>
 </head>
@@ -82,11 +82,12 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         </form>
         <div class="results" id="results" aria-live="polite"><p class="empty">Playable words will appear here, highest score first. Use <kbd>?</kbd> for a blank tile.</p></div>
       </div>
-      
       <article class="prose">
-        <h2>How Words With Friends scoring differs</h2>
-        <p>The game looks like other crossword-style tile games but prices letters differently, so the best play for the same rack often changes. Notable differences in the commonly used values:</p>
-        <table>
+        <p>Words With Friends looks like other crossword-style tile games, but it prices several letters differently, so the best-scoring word for a rack can change. This finder lists every word your tiles can make from Letterpile's word list and ranks them with the letter values commonly reported for Words With Friends, plus a 35-point bonus for using all seven tiles. Add board letters to build through them. Scores are base values only; the board's bonus squares are up to you.</p>
+
+<h2>How Words With Friends scoring differs</h2>
+<p>The table lists every letter whose commonly used value differs from the values used in Scrabble-style games:</p>
+<table>
           <tr><th>Letter</th><th>Other tile games (common values)</th><th>Words With Friends (common values)</th></tr>
           <tr><td>B, C, M, P</td><td>3</td><td>4</td></tr>
           <tr><td>G</td><td>2</td><td>3</td></tr>
@@ -95,13 +96,49 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
           <tr><td>L, N, U</td><td>1</td><td>2</td></tr>
           <tr><td>V</td><td>4</td><td>5</td></tr>
         </table>
-        <p>Playing all seven tiles is commonly reported to earn 35 points here rather than 50, so a big-tile play on a premium square often beats using every tile. Check your game's rules, as values and bonuses can change.</p>
-        <h2>Tips</h2>
-        <ul>
-          <li>Two-letter plays with <code>J</code>, <code>X</code> and <code>Z</code> across double- or triple-letter squares can score in both directions.</li>
-          <li>Letters that are cheap elsewhere, like L, N and U, are worth a little more here, so words packed with them can score better than you expect.</li>
-        </ul>
-        <p>Words With Friends uses its own dictionary. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. Expect some words here that the game rejects, and some newer words it accepts that are missing here.</p>
+<p>Playing all seven tiles is commonly reported to earn 35 points here rather than 50, so a big-tile play on a premium square often beats using every tile. Check your game's rules, as values and bonuses can change.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Enter your tiles in <b>Your rack</b>, with <kbd>?</kbd> for a blank.</li>
+<li>Add any board letters you want to play through.</li>
+<li>Use <b>Advanced filters</b> if the word must start, end or contain certain letters, or be a set length.</li>
+<li>Press <b>Find words</b>, then choose “Highest score first” or “Grouped by length”.</li>
+</ol>
+<h2>Same rack, different ranking</h2>
+<p>To see why separate values matter, here is the rack <code>LUNARET</code> scored both ways. With Words With Friends values the top plays are <code>NEUTRAL</code> (45), <code>ELUANT</code> (9), <code>LUNATE</code> (9). With the values used by Scrabble-style games they are <code>NEUTRAL</code> (57), <code>ANTLER</code> (6), <code>ELUANT</code> (6). Letters like L, N and U, worth 2 here instead of 1, push some words up the list.</p>
+<p>A few more comparisons by base score: <code>HYMN</code> is 12 here and 12 with the other values; <code>JAB</code> is 15 here and 12 with the other values; <code>LULL</code> is 8 here and 4 with the other values.</p>
+<h2>Reading the results</h2>
+<p>Each word shows its base score. Outlined words use all seven of your tiles and include the 35-point bonus. Letters underlined with dots come from a blank and score nothing. Switch to “Grouped by length” to see the longest options together.</p>
+<h2>Tips</h2>
+<ul>
+<li>Two-letter plays with <code>J</code>, <code>X</code> and <code>Z</code> across double- or triple-letter squares can score in both directions.</li>
+<li>Letters that are cheap elsewhere, like L, N and U, are worth a little more here, so words packed with them can score better than you expect.</li>
+<li>Because the all-tiles bonus is smaller, don't hold tiles back for a seven-letter play as long as you might in other games.</li>
+</ul>
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Using the other finder by habit.</b> The <a href="/scrabble-word-finder">tile game word finder</a> ranks with different values; pick the one that matches your game.</li>
+<li><b>Ignoring the board.</b> Premium squares can be worth far more than the difference between two words in this list.</li>
+</ul>
+<h2>Limits and accuracy</h2>
+<p>Words With Friends uses its own dictionary. Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. Expect some words here that the game rejects, and some newer words it accepts that are missing here. Letterpile is independent and not affiliated with Zynga.</p>
+<h2>Privacy</h2>
+<p>Your tiles are processed in your browser and never sent to Letterpile. A definition is fetched from a third-party dictionary only if you ask for one.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>Where do these letter values come from?</summary><div class="faq-a">They are the values commonly reported for the game, not taken from an official source. Check the values shown in your game, as they may change.</div></details>
+        <details class="faq-item"><summary>Why is the all-tiles bonus 35 and not 50?</summary><div class="faq-a">35 points is the bonus commonly reported for Words With Friends. Other tile games commonly use 50. Check your game's rules.</div></details>
+        <details class="faq-item"><summary>Will the game accept every word listed?</summary><div class="faq-a">Not necessarily. The game has its own dictionary, and Letterpile uses the open ENABLE word list. Use the results as suggestions and let the game confirm them.</div></details>
+        <details class="faq-item"><summary>Do the scores include double and triple squares?</summary><div class="faq-a">No. The finder can't see your board, so scores are base tile values plus the all-tiles bonus.</div></details>
+        <details class="faq-item"><summary>Can I search for words that use a letter on the board?</summary><div class="faq-a">Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li><li><a href="/guides/letter-values-and-tile-counts">Letter Values and Tile Counts</a></li><li><a href="/guides/rack-balance">Rack Balance Explained</a></li><li><a href="/guides/hooks-prefixes-and-suffixes">Hooks, Prefixes and Suffixes</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
       </article>
   </main>
   <aside class="sidebar" id="sidebar">
@@ -116,7 +153,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <footer class="footer">
   <div class="wrap">
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
-    <nav aria-label="About this site"><div class="cols legal"><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
