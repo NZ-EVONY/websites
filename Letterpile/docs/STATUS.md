@@ -30,6 +30,7 @@ Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`
 - Generated word-list pages (`scripts/pagegen.mjs`, copy in `content/programmatic.mjs`): 671 generated + 23 curated affix pages (`content/affixes.json`), quality gate, similarity gate, full coverage of the visible list.
 - Tests: `tests/build/content.test.mjs` (word minimums, similarity, typed-percentage ban, FAQ/Article rules, coverage, size rules, blocklist on static pages, independent recount of 20 pages).
 - `npm run report:content`. 31 substantial non-programmatic pages.
+- Follow-up: Windows-reserved page names avoided (`/words-starting-with/con-words` + `_redirects`, build check); site settings filled in, so `npm run check:deploy` now passes.
 
 ## Phase 3 (next): performance, accessibility, polish
 Long-task measurement for 15-letter + blank searches (Web Worker only if > 200 ms), ad-slot distance-from-controls check (≥150px) in Playwright, axe-core on every template, screenshots at 360px/wide in both themes, contrast table, Lighthouse before/after on the six URLs in the brief, `docs/FINAL-REPORT.md`.

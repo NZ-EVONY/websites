@@ -9,7 +9,7 @@ export default ctx => ({
 
 <h2>Who runs this site</h2>
 <p>Letterpile is run by ${ctx.site.operatorName}, based in ${ctx.site.country}. For anything in this policy, email <a href="mailto:${ctx.site.contactEmail}">${ctx.site.contactEmail}</a>. For the purposes of the GDPR and UK GDPR, the operator is the data controller for the processing described here that the site itself decides on.</p>
-<!-- TODO-BEE: replace {{OPERATOR_NAME}} and {{CONTACT_EMAIL}} in site.config.json (see docs/BEE-TODO.md). -->
+<!-- Operator name and contact email come from site.config.json (operatorName, contactEmail). -->
 
 <h2>What the tools do with what you type</h2>
 <p>Letters, words, patterns and filters you type into the tools are processed by JavaScript in your own browser. They are not sent to Letterpile or stored by it. To make results shareable, the tools put your input into the page address (for example <code>?letters=…</code>). That address stays in your browser history, and if you share the link, whoever receives it can see the input.</p>

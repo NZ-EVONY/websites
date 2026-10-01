@@ -9,6 +9,21 @@
 import { createHash } from "node:crypto";
 
 const LETTERS = "abcdefghijklmnopqrstuvwxyz";
+
+// Windows can't create files or folders with these base names (any extension, any case),
+// so a page key like "con" would break checkouts on Windows. Such segments get a suffix;
+// keys are a-z only, so "-words" can never collide with another page. The build writes a
+// redirect from the natural URL (see renamedPaths) and fails on any reserved name left.
+export const WINDOWS_RESERVED = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
+export const SAFE_SUFFIX = "-words";
+export const safeSegment = s => (WINDOWS_RESERVED.test(s) ? s + SAFE_SUFFIX : s);
+// Natural path -> safe path, for every page whose URL had to change.
+export const renamedPaths = new Map();
+function safePath(natural) {
+  const safe = natural.split("/").map(safeSegment).join("/");
+  if (safe !== natural) renamedPaths.set(natural, safe);
+  return safe;
+}
 const VOWELS = new Set("aeiou");
 const up = s => s.toUpperCase();
 
@@ -37,20 +52,20 @@ export function buildTree({ clean, Engine, quality, fmt, esc, affixes }) {
       root: { path: "/words-by-length", name: "Words by Length" },
       label: n => `${n}-letter words`,
       top: () => Array.from({ length: 14 }, (_, i) => i + 2).map(n => ({ key: String(n), words: clean.filter(w => w.length === n) })),
-      path: (n, prefix) => `/words-by-length/${n}-letter-words${prefix ? "/" + prefix : ""}`,
+      path: (n, prefix) => safePath(`/words-by-length/${n}-letter-words${prefix ? "/" + prefix : ""}`),
       // children of an n-letter node split by the next letter of the prefix
       split: (node) => LETTERS.split("").map(l => ({ prefix: (node.prefix || "") + l })).map(c => ({ ...c, words: node.words.filter(w => w.startsWith(c.prefix)) })),
     },
     starts: {
       root: { path: "/words-starting-with", name: "Words Starting With" },
       top: () => LETTERS.split("").map(l => ({ key: l, words: clean.filter(w => w.startsWith(l)) })),
-      path: k => `/words-starting-with/${k}`,
+      path: k => safePath(`/words-starting-with/${k}`),
       split: node => LETTERS.split("").map(l => node.key + l).map(k => ({ key: k, words: node.words.filter(w => w.startsWith(k) && w !== node.key) })),
     },
     ends: {
       root: { path: "/words-ending-in", name: "Words Ending In" },
       top: () => LETTERS.split("").map(l => ({ key: l, words: clean.filter(w => w.endsWith(l)) })),
-      path: k => `/words-ending-in/${k}`,
+      path: k => safePath(`/words-ending-in/${k}`),
       split: node => LETTERS.split("").map(l => l + node.key).map(k => ({ key: k, words: node.words.filter(w => w.endsWith(k) && w !== node.key) })),
     },
   };

@@ -230,3 +230,16 @@ test("trust pages meet the minimum word count", () => {
     assert.ok(words >= quality.minWords.trust, `${f}: ${words} words (minimum ${quality.minWords.trust})`);
   }
 });
+
+test("no file or folder in public/ uses a reserved Windows name; renamed pages redirect", () => {
+  const reserved = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
+  for (const f of publicFiles()) for (const seg of f.split("/")) assert.doesNotMatch(seg.replace(/\..*$/, ""), reserved, f);
+  const lines = readPublic("_redirects").split("\n").filter(l => l.trim() && !l.startsWith("#"));
+  for (const l of lines) {
+    const [from, to, status] = l.split(/\s+/);
+    assert.equal(status, "301", l);
+    assert.ok(from.split("/").some(seg => reserved.test(seg)), `${from} needs no redirect`);
+    assert.ok(fs.existsSync(path.join(PUBLIC, to.slice(1) + ".html")), `${to} is not a built page`);
+  }
+  assert.ok(lines.some(l => l.startsWith("/words-starting-with/con ")), "the CON page redirect is missing");
+});

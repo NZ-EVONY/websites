@@ -26,7 +26,7 @@ git diff live-before-upgrade -- wrangler.jsonc
 | `assets/engine.js`, `assets/site.js`, `assets/style.css` | `assets/engine.<hash>.js`, `assets/site.<hash>.js`, `assets/style.<hash>.css`, `assets/js/<page>.<hash>.js` (9) |
 | `data/words.js` (old list) | `data/words.<hash>.js` (ENABLE) |
 | `data/LICENSE-wordlist.txt` | `licenses/enable.txt` |
-| — | `about.html`, `contact.html`, `privacy-policy.html`, `terms.html`, `404.html`, `robots.txt`, `sitemap.xml`, `ads.txt`, `_headers`, `favicon.svg` |
+| — | `about.html`, `contact.html`, `privacy-policy.html`, `terms.html`, `404.html`, `robots.txt`, `sitemap.xml`, `ads.txt`, `_headers`, `_redirects`, `favicon.svg`, guides and word-list pages |
 | (anything else in the folder could have been uploaded) | only `public/` can be uploaded |
 
 Old asset URLs (`/assets/engine.js`, `/data/words.js`, ...) will return 404 after the deploy. Only a tab left open across the deploy is affected (it needs a reload).
@@ -77,7 +77,7 @@ Open the ten tool URLs and the new pages in a browser and try each tool once. If
 
 ## 6. Free-plan facts (from the brief; re-check on Cloudflare's docs)
 
-Static asset requests are free and unlimited; there is no Worker script, so Workers request quotas don't apply. Up to 20,000 files per version on the free plan and 25 MiB per file; `_headers` up to 100 rules. After Phase 2 this site has 746 files (the build fails above 5,000). The biggest file is the word list at about 1.7 MB.
+Static asset requests are free and unlimited; there is no Worker script, so Workers request quotas don't apply. Up to 20,000 files per version on the free plan and 25 MiB per file; `_headers` up to 100 rules. After Phase 2 this site has 747 files (the build fails above 5,000). The biggest file is the word list at about 1.7 MB.
 
 ## 7. Updating later
 

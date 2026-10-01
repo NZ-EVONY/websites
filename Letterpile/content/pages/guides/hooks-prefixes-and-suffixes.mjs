@@ -1,6 +1,7 @@
 // Guide: hooks, prefixes and suffixes. All hook examples computed from the shipped list.
 // Rendered late so the affix table only links to pages that passed the quality gate.
 export const late = true;
+import { safeSegment } from "../../../scripts/pagegen.mjs";
 export default ctx => {
   const { code, fmt } = ctx;
   const S = ctx.cleanSet;
@@ -26,7 +27,7 @@ export default ctx => {
   const suffixes = ["ing", "ed", "ly", "er", "est", "ness", "ful", "less", "tion", "able", "ment", "ous", "ish"];
   const nodes = ctx.tree.byPath;
   const affixRow = (a, fam) => {
-    const p = fam === "starts" ? `/words-starting-with/${a}` : `/words-ending-in/${a}`;
+    const p = fam === "starts" ? `/words-starting-with/${safeSegment(a)}` : `/words-ending-in/${safeSegment(a)}`;
     const n = nodes.get(p);
     if (!n) return "";
     const stems = n.words.filter(w => S.has(fam === "starts" ? w.slice(a.length) : w.slice(0, -a.length))).length;

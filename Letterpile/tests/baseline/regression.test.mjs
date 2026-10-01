@@ -31,7 +31,12 @@ test("the ten live URLs exist in public/ as clean-URL pages with title, h1 and d
 });
 
 test("no live URL became a redirect, and nothing that shouldn't be public is", () => {
-  assert.ok(!fs.existsSync(path.join(PUBLIC, "_redirects")), "no _redirects file expected");
+  // _redirects only maps renamed (Windows-reserved) URLs; none of the ten live URLs may be redirected.
+  const redirFile = path.join(PUBLIC, "_redirects");
+  if (fs.existsSync(redirFile)) {
+    const froms = fs.readFileSync(redirFile, "utf8").split("\n").filter(l => l.trim() && !l.startsWith("#")).map(l => l.split(/\s+/)[0]);
+    for (const p of baseline.pages) assert.ok(!froms.includes(p.path), `${p.path} is redirected`);
+  }
   for (const f of publicFiles()) assert.doesNotMatch(f, /(^|\/)(\.git|\.backup|\.wrangler|node_modules|docs|tests|scripts)(\/|$)|\.md$|enable1\.txt$|wrangler\.jsonc$|\.dev\.vars$/);
 });
 

@@ -1,5 +1,5 @@
 // Tiny local static server for previews and tests. Usage: node scripts/serve.mjs <dir> [port]
-// It imitates the parts of Cloudflare static assets this site relies on:
+// It imitates the parts of Cloudflare static assets this site relies on (plus simple _redirects):
 //   - html_handling "drop-trailing-slash": /foo serves foo.html or foo/index.html;
 //     /foo.html and /foo/ redirect (307) to /foo; / serves index.html.
 //   - not_found_handling "404-page": unknown paths serve /404.html with status 404.
@@ -36,6 +36,10 @@ export function createServer(root) {
   root = path.resolve(root);
   const hdrFile = path.join(root, "_headers");
   const rules = fs.existsSync(hdrFile) ? parseHeaders(fs.readFileSync(hdrFile, "utf8")) : [];
+  // _redirects: static "from to [status]" lines only (no splats or placeholders).
+  const redirFile = path.join(root, "_redirects");
+  const redirs = new Map(fs.existsSync(redirFile) ? fs.readFileSync(redirFile, "utf8").split(/\r?\n/)
+    .filter(l => l.trim() && !l.trim().startsWith("#")).map(l => l.trim().split(/\s+/)).map(([f, t, s]) => [f, [t, +(s || 302)]]) : []);
   const exists = f => fs.existsSync(f) && fs.statSync(f).isFile();
 
   return http.createServer((req, res) => {
@@ -44,6 +48,7 @@ export function createServer(root) {
     if (p.includes("..")) { res.writeHead(400); return res.end(); }
     const redirect = to => { res.writeHead(307, { Location: to + url.search }); res.end(); };
 
+    if (redirs.has(p)) { const [to, status] = redirs.get(p); res.writeHead(status, { Location: to + url.search }); return res.end(); }
     if (p !== "/" && p.endsWith("/")) return redirect(p.replace(/\/+$/, ""));
     if (p.endsWith("/index.html")) return redirect(p.slice(0, -"index.html".length).replace(/(.)\/$/, "$1"));
     if (p.endsWith(".html")) return redirect(p.slice(0, -5));

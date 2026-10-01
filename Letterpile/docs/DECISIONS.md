@@ -44,3 +44,7 @@
 - HTML site map at `/sitemap` (type "utility": no ads, no word minimum). Footer gained Guides, Word Lists and Site Map links.
 - Prose link color darkened to `#a3431d` in the light theme (accent `#c2562b` on `--bg` was ~4.1:1); buttons keep the accent.
 - All 726 titles are ≤ 60 characters and descriptions ≤ 155 (tested).
+
+## Between Phase 2 and Phase 3
+- Windows-reserved names: any URL segment equal to CON, PRN, AUX, NUL, COM1–9 or LPT1–9 (any case) gets a `-words` suffix (`scripts/pagegen.mjs` `safeSegment`); keys are a–z only, so the suffix can't collide. All links use the safe path; `public/_redirects` 301-redirects the natural URL (verified in `wrangler dev --local`: `/words-starting-with/con` → `/words-starting-with/con-words`). The build fails if any file or folder in `public/` has a reserved base name. Only affected page today: words starting with CON.
+- Site settings from Bee: operator and author "Letterpile", contact nz@letterpile.app, governing law New Zealand, lastReviewed 2026-10-01 (stored in `site.config.json`; not currently shown on any page).
