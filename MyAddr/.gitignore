@@ -1,0 +1,6 @@
+node_modules/
+.backup/
+.wrangler/
+.wrangler-dry/
+reports/
+.dev.vars
