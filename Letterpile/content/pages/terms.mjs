@@ -4,7 +4,7 @@ export default ctx => ({
   title: "Terms of Use | Letterpile",
   description: "The terms for using Letterpile, including disclaimers, trademark notices and limits of liability.",
   h1: "Terms of Use",
-  prose: `<p>These terms apply to your use of Letterpile (<a href="/">letterpile.app</a>), a free website of word-game helper tools run by ${ctx.site.operatorName}. By using the site you agree to them. If you don't agree, please don't use the site.</p>
+  prose: `<p>These terms apply to your use of Letterpile (<a href="/">letterpile.app</a>), a free website of word-game helper tools run by ${ctx.site.operatorName} in ${ctx.site.country}. By using the site you agree to them. If you don't agree, please don't use the site.</p>
 
 <h2>Using the tools</h2>
 <p>You may use the tools for any lawful personal or educational purpose, including while playing word games, as long as the rules of the game or competition you are playing allow outside help. Many games and clubs do not allow it during play; that is between you and the people you play with.</p>

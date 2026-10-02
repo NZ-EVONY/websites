@@ -91,7 +91,7 @@
     }
     return groups.map(([n, shown, count]) => {
       const extra = count - shown.length;
-      return `<section class="group"><h3>${label(n)} <span class="count">${count}</span></h3>
+      return `<section class="group" data-len="${n}"><h3>${label(n)} <span class="count">${count}</span></h3>
         <div class="words">${shown.map(it => chip(it, { scheme })).join("")}</div>
         ${extra > 0 ? `<p class="hint more">…and ${extra} more. Narrow it down with the filters.</p>` : ""}</section>`;
     }).join("");
@@ -182,6 +182,41 @@
       ["pointerdown", "keydown", "input"].forEach(t => f.addEventListener(t, warm, { once: true, passive: true }));
     });
   }
+
+  // ---------- tile rack preview (decorative) ----------
+
+  // Mirrors the letters typed into a tool's main input as tiles with their point values.
+  // aria-hidden: screen readers already have the input itself. Ghost tiles show free slots.
+  const TILE_COLORS = ["coral", "sun", "mint", "blue", "violet"];
+  document.querySelectorAll("[data-rack-for]").forEach(rack => {
+    const input = document.getElementById(rack.dataset.rackFor);
+    if (!input) return;
+    const slots = Number(rack.dataset.slots) || 0;
+    const scheme = Engine?.SCHEMES?.[document.body.dataset.scheme] || Engine?.SCHEMES?.scrabble;
+    let shown = "";
+    const draw = animate => {
+      const v = input.value.toLowerCase().replace(/[*_]/g, "?").replace(/[^a-z?]/g, "").slice(0, 18);
+      const tiles = [...v].map((ch, i) => {
+        const t = document.createElement("span");
+        if (ch === "?") { t.className = "tile blank"; t.textContent = "?"; }
+        else {
+          t.className = `tile c-${TILE_COLORS[(ch.charCodeAt(0) - 97) % TILE_COLORS.length]}`;
+          t.textContent = ch;
+          const pts = scheme?.values?.[ch];
+          if (pts != null) { const sup = document.createElement("sup"); sup.textContent = pts; t.append(sup); }
+        }
+        if (animate && i >= shown.length) t.classList.add("pop");
+        return t;
+      });
+      for (let n = v.length; n < slots; n++) { const g = document.createElement("span"); g.className = "tile ghost"; tiles.push(g); }
+      rack.replaceChildren(...tiles);
+      shown = v;
+    };
+    input.addEventListener("input", () => draw(true));
+    // Shared links fill the input from the address without an input event.
+    input.form?.addEventListener("submit", () => draw(false));
+    addEventListener("pageshow", () => draw(false));
+  });
 
   // ---------- "show all words" toggle ----------
 

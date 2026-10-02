@@ -7,10 +7,13 @@ export const TRADEMARKS = "Scrabble® is a registered trademark of Hasbro, Inc. 
 export default function footer({ nav, site, year }) {
   return `<footer class="footer">
   <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>${esc(site.brand)}</a>
+    <p class="tagline">Free word-game helpers, from ${esc(site.operatorName)} in ${esc(site.country)}.</p>
     <nav aria-label="All word tools"><div class="cols">${[...nav.main, ...nav.more].map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("")}</div></nav>
     <nav aria-label="About this site"><div class="cols legal">${nav.legal.map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("")}
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:${esc(site.contactEmail)}">${esc(site.contactEmail)}</a>.</p>
     <p>${WORDLIST_NOTE} The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
     <p class="fine">${TRADEMARKS}</p>
     <p class="fine">© ${year} ${esc(site.brand)}. Site code, design and text © ${esc(site.brand)}; the ENABLE word list is public domain and free to redistribute.</p>

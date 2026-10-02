@@ -1,6 +1,6 @@
 # Status
 
-**All three phases complete.** Nothing has been deployed. Start with `docs/FINAL-REPORT.md`, then `docs/BEE-TODO.md` and `docs/DEPLOY.md`.
+**All three phases complete, plus the "Tile Table, Night Edition" visual refresh** (branch `claude/letterpile-refresh`, committed locally, not pushed). Nothing has been deployed. Start with `docs/FINAL-REPORT.md`, then `docs/BEE-TODO.md` and `docs/DEPLOY.md`.
 
 Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`). Rollback tag: `live-before-upgrade` (commit `25944fa`). The tag exists in the cloud session but **could not be pushed** (git proxy refused tag pushes); create it locally with `git tag live-before-upgrade 25944fa`.
 
@@ -38,3 +38,8 @@ Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`
 - Fixes found by the tests: dark-mode button contrast, light-mode tile values, layout shift on shared result links, tool ad-slot positions, table overflow on phones, theme icon, guide summary style.
 - Performance budget test; Lighthouse 100/100/100/100 and CLS 0 on the six URLs; screenshots in `reports/screens/`.
 - Docs: FINAL-REPORT, DESIGN (contrast table), DEPLOY, BEE-TODO, UNVERIFIED finalized.
+
+## Visual refresh: done (branch `claude/letterpile-refresh`)
+- New look from `design/*-v2.html`: navy stage header/hero/footer, pill nav, tile motif, chunky buttons, length-coloured result chips, category cards, tool grid, A-Z tiles, steps, guide cards, restyled dialog and FAQ (`docs/DESIGN.md`).
+- New: `src/templates/partials/home-extras.mjs`, rack preview and `data-len` in `site.js`, `scripts/contrast.mjs` (`npm run check:contrast`), `tests/build/identity.test.mjs`, and an e2e check that hidden elements stay hidden.
+- Not pushed; waiting for Bee.

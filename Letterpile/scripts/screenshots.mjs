@@ -1,4 +1,4 @@
-// Screenshots at 360px and 1280px, light and dark, for a visual check.
+// Screenshots at 390px and 1280px, light and dark, for a visual check.
 // Usage: node scripts/screenshots.mjs [dir=public]  ->  reports/screens/*.png (gitignored)
 import fs from "node:fs";
 import path from "node:path";
@@ -19,14 +19,14 @@ const base = `http://localhost:${server.address().port}`;
 const browser = await chromium.launch({ executablePath: findChrome() });
 let n = 0;
 try {
-  for (const scheme of ["light", "dark"]) for (const width of [360, 1280]) {
-    const ctx = await browser.newContext({ viewport: { width, height: width === 360 ? 780 : 900 }, colorScheme: scheme, deviceScaleFactor: 1 });
+  for (const scheme of ["light", "dark"]) for (const width of [390, 1280]) {
+    const ctx = await browser.newContext({ viewport: { width, height: width === 390 ? 844 : 900 }, colorScheme: scheme, deviceScaleFactor: 1 });
     const page = await ctx.newPage();
     for (const [name, url] of PAGES) {
       await page.goto(base + url);
       if (name === "wordle") { await page.fill("#guess", "crane"); await page.press("#guess", "Enter"); await page.click('.wtile[data-i="2"]'); await page.click('.wtile[data-i="4"]'); await page.click('.wtile[data-i="4"]'); }
       if (url.includes("?") || name === "wordle") await page.waitForSelector("#results .summary, #results .toolbar", { timeout: 30000 });
-      await page.waitForTimeout(200);
+      await page.waitForTimeout(1100); // let the one-time tile animations finish
       await page.screenshot({ path: path.join(out, `${name}-${width}-${scheme}.png`), fullPage: false });
       n++;
     }

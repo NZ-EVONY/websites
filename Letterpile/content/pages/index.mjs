@@ -1,4 +1,12 @@
 // Word Unscrambler (/). Copy reused from the live page, expanded; examples computed by the engine.
+// The tool sits in the navy hero; home-extras adds the category cards, tool grid, A-Z tiles,
+// how-it-works steps and guide cards between the results and the copy.
+import homeExtras from "../../src/templates/partials/home-extras.mjs";
+import { tile } from "../../src/templates/partials/util.mjs";
+import guideUnscramblers from "./guides/how-word-unscramblers-work.mjs";
+import guideWordle from "./guides/wordle-strategy.mjs";
+import guideQ from "./guides/words-with-q-without-u.mjs";
+
 export default ctx => {
   const { code, fmt, Engine } = ctx;
   const ex = ctx.unscramble("eilnst");
@@ -18,6 +26,7 @@ export default ctx => {
             <input class="big-input grow" id="letters" type="text" maxlength="18" placeholder="Enter letters, e.g. TACRE?" aria-label="Letters (up to 15, plus up to 3 ? blanks)" required>
             <button class="btn" type="submit">Unscramble</button>
           </div>
+          <div class="rack" data-rack-for="letters" aria-hidden="true"></div>
           <details class="advanced" id="adv">
             <summary>Advanced filters</summary>
             <div class="row">
@@ -29,8 +38,8 @@ export default ctx => {
             <label class="check mt"><input type="checkbox" id="exact"> Use every letter (anagrams only)</label>
           </details>
           ${ctx.showAllToggle}
-        </form>
-        <div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make ${fmt(ex.length)} words, including ${ctx.list(exSix, 3)}.</p></div>`,
+        </form>`,
+    results: `<div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make ${fmt(ex.length)} words, including ${ctx.list(exSix, 3)}.</p></div>`,
     prose: `<p>A word unscrambler answers one question: which words can I spell with these letters? Type up to 15 letters, add a <kbd>?</kbd> for each blank tile, and Letterpile lists every word from its word list that your letters can make, grouped by length with the longest first. It's handy for tile games, word wheels, jumbles and crossword clues where you know the letters but not the order. Everything runs in your browser, so results appear as soon as the word list has loaded.</p>
 <h2>How it works</h2>
 <p>Letterpile checks your letters against the ${fmt(ctx.total)} words in the open ENABLE word list and keeps every word you could spell without reusing a tile. It doesn't try every arrangement of your letters; it counts them, then checks each word against the counts, which is much faster. The guide <a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a> explains the method step by step.</p>
@@ -88,6 +97,12 @@ export default ctx => {
       { href: "/guides/how-word-unscramblers-work", label: "How Word Unscramblers Work" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
     ],
+    hero: {
+      eyebrow: "Free word-game helper",
+      facts: [`${fmt(ctx.total)} words in the open ENABLE list`, "Letters stay in your browser", `${ctx.nav.main.length + ctx.nav.more.length} tools, all free`],
+      pile: `<div class="pile" aria-hidden="true">${[["W", "c-coral"], ["O", "c-sun"], ["R", "c-blue"], ["D", "c-mint"], ["S", "c-violet"], ["Z", "c-wood"], ["E", "c-sun"], ["A", "c-coral"], ["Q", "c-blue"]].map(([l, c]) => tile(l, { color: c, value: Engine.SCHEMES.scrabble.values[l.toLowerCase()] })).join("")}</div>`,
+    },
+    extras: homeExtras({ ctx, guides: [guideUnscramblers, guideWordle, guideQ].map(g => g(ctx)) }),
     sidebar: `<section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>`,
   };
 };

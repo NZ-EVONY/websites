@@ -12,32 +12,29 @@
 <meta property="og:description" content="Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.">
 <meta property="og:url" content="https://letterpile.app/">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.1253831fd5.css">
+<link rel="stylesheet" href="/assets/style.a7106bdd4f.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://letterpile.app/#website","name":"Letterpile","url":"https://letterpile.app/","inLanguage":"en-US","publisher":{"@id":"https://letterpile.app/#organization"}},{"@type":"Organization","@id":"https://letterpile.app/#organization","name":"Letterpile","url":"https://letterpile.app/"},{"@type":"WebApplication","name":"Word Unscrambler","url":"https://letterpile.app/","description":"Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do blank tiles work?","acceptedAnswer":{"@type":"Answer","text":"Type a ? (or * or _) for each blank, up to three. A blank can stand for any letter. The tool uses your real letters first and marks the letters a blank had to fill with a dotted underline."}},{"@type":"Question","name":"Why is a word I expected missing?","acceptedAnswer":{"@type":"Answer","text":"Each game uses its own dictionary. This tool uses the open ENABLE word list, which doesn't include some words other lists have, such as QI and ZA. A few vulgar words are also hidden unless you turn on “Show all words”."}},{"@type":"Question","name":"Is what I type stored anywhere?","acceptedAnswer":{"@type":"Answer","text":"No. Your letters are processed in your browser and are not sent to or stored by Letterpile. They appear in the page address so you can share a search, and only a definition lookup you ask for sends a word to a third-party service."}},{"@type":"Question","name":"How many letters can I enter?","acceptedAnswer":{"@type":"Answer","text":"Up to 15 letters plus up to 3 blanks. Longer inputs are rejected with a message, because results would be enormous and slow."}},{"@type":"Question","name":"How many words are in the list?","acceptedAnswer":{"@type":"Answer","text":"The ENABLE list has 172,823 words. 389 vulgar words and slurs are hidden by default."}},{"@type":"Question","name":"Can I use it while playing a game?","acceptedAnswer":{"@type":"Answer","text":"It's a word-finding aid. Whether outside help is allowed depends on the game and the people you play with, so check your game's rules first."}}]}]}</script>
-<script src="/assets/engine.be6821e486.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.3d6414c67f.js" defer></script>
-<script src="/assets/site.5d609eb936.js" defer></script>
-<script src="/assets/js/unscramble.1c6709b54c.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.2317ae118f.js" defer></script>
+<script src="/assets/js/unscramble.e8343c87c0.js" defer></script>
 </head>
 <body data-page="unscrambler">
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap">
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
-    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
-  </div>
-</header>
-<nav class="navbar" id="navbar" aria-label="Word tools">
-  <ul class="nav-main wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
     <li><a href="/" aria-current="page">Word Unscrambler</a></li>
     <li><a href="/word-scrambler">Word Scrambler</a></li>
     <li><a href="/word-combiner">Word Combiner</a></li>
@@ -57,10 +54,14 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
     </li>
   </ul>
 </nav>
-<div class="layout wrap">
-  <main class="content" id="main">
-    
-    <div class="panel tool-card">
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<main class="home" id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i>Free word-game helper</p>
         <h1 class="page-title">Word Unscrambler</h1>
         <p class="lede">Type your letters and see every word hiding in them, longest first. Use <kbd>?</kbd> for a blank or unknown letter.</p>
         <form class="tool-form" id="form" autocomplete="off">
@@ -68,6 +69,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
             <input class="big-input grow" id="letters" type="text" maxlength="18" placeholder="Enter letters, e.g. TACRE?" aria-label="Letters (up to 15, plus up to 3 ? blanks)" required>
             <button class="btn" type="submit">Unscramble</button>
           </div>
+          <div class="rack" data-rack-for="letters" aria-hidden="true"></div>
           <details class="advanced" id="adv">
             <summary>Advanced filters</summary>
             <div class="row">
@@ -80,8 +82,44 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
           </details>
           <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
         </form>
-        <div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make 90 words, including <code>ELINTS</code>, <code>ENLIST</code> and <code>INLETS</code>.</p></div>
+        <ul class="facts"><li>172,823 words in the open ENABLE list</li><li>Letters stay in your browser</li><li>10 tools, all free</li></ul>
       </div>
+      <div class="pile" aria-hidden="true"><span class="tile c-coral" aria-hidden="true">W<sup>4</sup></span><span class="tile c-sun" aria-hidden="true">O<sup>1</sup></span><span class="tile c-blue" aria-hidden="true">R<sup>1</sup></span><span class="tile c-mint" aria-hidden="true">D<sup>2</sup></span><span class="tile c-violet" aria-hidden="true">S<sup>1</sup></span><span class="tile c-wood" aria-hidden="true">Z<sup>10</sup></span><span class="tile c-sun" aria-hidden="true">E<sup>1</sup></span><span class="tile c-coral" aria-hidden="true">A<sup>1</sup></span><span class="tile c-blue" aria-hidden="true">Q<sup>10</sup></span></div>
+    </div>
+  </section>
+  <div class="wrap home-body">
+    <section class="panel results-panel" aria-label="Results">
+      <div class="results" id="results" aria-live="polite"><p class="empty">Your words will appear here, longest first. Example: the letters <kbd>EILNST</kbd> make 90 words, including <code>ELINTS</code>, <code>ENLIST</code> and <code>INLETS</code>.</p></div>
+    </section>
+    <section class="section" aria-labelledby="cats-h">
+      <h2 id="cats-h">Pick your game</h2>
+      <p class="section-lede">Find words from your letters, browse every word by how it starts or ends, or learn the tricks behind the tiles.</p>
+      <ul class="cats"><li class="cat c-coral"><div class="top"><span class="tile lg c-coral" aria-hidden="true">W<sup>4</sup></span><h3><a href="#tools">Word finders</a></h3></div><p>Unscramble, solve and combine. 10 free tools for tile games, Wordle, jumbles and crosswords.</p><ul class="mini" aria-label="Examples"><li>Unscrambler</li><li>Wordle</li><li>Anagram</li><li>Crossword</li></ul><span class="go" aria-hidden="true">Open the tools →</span></li><li class="cat c-sun"><div class="top"><span class="tile lg c-sun" aria-hidden="true">S<sup>1</sup></span><h3><a href="/words-starting-with">Starts with</a></h3></div><p>Every word that begins with a letter or a prefix like un-, re- or pre-.</p><ul class="mini" aria-label="Examples"><li>A to Z</li><li>un-</li><li>re-</li><li>pre-</li></ul><span class="go" aria-hidden="true">Browse by first letter →</span></li><li class="cat c-blue"><div class="top"><span class="tile lg c-blue" aria-hidden="true">E<sup>1</sup></span><h3><a href="/words-ending-in">Ends with</a></h3></div><p>Plurals, past tenses and suffixes such as -ing, -ed and -ly.</p><ul class="mini" aria-label="Examples"><li>A to Z</li><li>-ing</li><li>-ed</li><li>-ly</li></ul><span class="go" aria-hidden="true">Browse by last letter →</span></li><li class="cat c-mint"><div class="top"><span class="tile lg c-mint" aria-hidden="true">C<sup>3</sup></span><h3><a href="/words-by-length">Contains</a></h3></div><p>Use the Contains filter in any finder for letters hiding inside a word, like qu or ing, or browse every word by length.</p><ul class="mini" aria-label="Examples"><li>qu</li><li>ing</li><li>by length</li></ul><span class="go" aria-hidden="true">Browse by length →</span></li><li class="cat c-violet"><div class="top"><span class="tile lg c-violet" aria-hidden="true">G<sup>2</sup></span><h3><a href="/guides">Guides</a></h3></div><p>Plain-English guides to anagrams, two-letter words, rack balance and Wordle logic.</p><ul class="mini" aria-label="Examples"><li>Anagrams</li><li>Two-letter words</li><li>Wordle</li></ul><span class="go" aria-hidden="true">Read the guides →</span></li></ul>
+    </section>
+    <section class="section" id="tools" aria-labelledby="tools-h">
+      <h2 id="tools-h">All 10 word tools</h2>
+      <p class="section-lede">Every tool runs in your browser, so results appear as soon as the word list has loaded.</p>
+      <ul class="tools"><li><a class="tool" href="/"><span class="tile md c-coral" aria-hidden="true">U</span><span><strong>Word Unscrambler</strong><small>Find every word hiding in your letters</small></span></a></li><li><a class="tool" href="/word-scrambler"><span class="tile md c-sun" aria-hidden="true">S</span><span><strong>Word Scrambler</strong><small>Scramble words, sentences or paragraphs</small></span></a></li><li><a class="tool" href="/word-combiner"><span class="tile md c-blue" aria-hidden="true">+</span><span><strong>Word Combiner</strong><small>Blend two to four words into one</small></span></a></li><li><a class="tool" href="/scrabble-word-finder"><span class="tile md c-mint" aria-hidden="true">Q</span><span><strong>Tile Game Word Finder</strong><small>Playable words ranked by letter score</small></span></a></li><li><a class="tool" href="/words-with-friends"><span class="tile md c-violet" aria-hidden="true">W</span><span><strong>Words With Friends Finder</strong><small>High-scoring plays for your tiles</small></span></a></li><li><a class="tool" href="/wordle-solver"><span class="tile md c-coral" aria-hidden="true">5</span><span><strong>Wordle Solver</strong><small>Which five-letter words still fit</small></span></a></li><li><a class="tool" href="/anagram-solver"><span class="tile md c-sun" aria-hidden="true">A</span><span><strong>Anagram Solver</strong><small>Single and two-word anagrams</small></span></a></li><li><a class="tool" href="/jumble-solver"><span class="tile md c-blue" aria-hidden="true">J</span><span><strong>Jumble Solver</strong><small>Solve a whole jumble puzzle at once</small></span></a></li><li><a class="tool" href="/crossword-solver"><span class="tile md c-mint" aria-hidden="true">?</span><span><strong>Crossword Solver</strong><small>Fill the gaps with ? for unknown letters</small></span></a></li><li><a class="tool" href="/text-twist-solver"><span class="tile md c-violet" aria-hidden="true">T</span><span><strong>Text Twist &amp; Wordscapes</strong><small>Every word in your letter wheel</small></span></a></li></ul>
+    </section>
+    <section class="section" aria-labelledby="az-h">
+      <h2 id="az-h">Browse by first letter</h2>
+      <p class="section-lede">Pick a letter to see every word that starts with it. The small number is how many words there are.</p>
+      <ul class="az"><li><a href="/words-starting-with/a">A<small> 10,444<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/b">B<small> 9,233<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/c">C<small> 16,207<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/d">D<small> 10,122<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/e">E<small> 7,057<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/f">F<small> 6,740<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/g">G<small> 5,574<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/h">H<small> 6,287<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/i">I<small> 6,975<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/j">J<small> 1,367<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/k">K<small> 1,712<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/l">L<small> 5,048<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/m">M<small> 9,616<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/n">N<small> 4,380<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/o">O<small> 5,840<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/p">P<small> 14,535<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/q">Q<small> 822<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/r">R<small> 10,145<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/s">S<small> 18,906<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/t">T<small> 8,730<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/u">U<small> 5,070<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/v">V<small> 2,726<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/w">W<small> 3,683<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/x">X<small> 136<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/y">Y<small> 547<span class="sr-only"> words</span></small></a></li><li><a href="/words-starting-with/z">Z<small> 532<span class="sr-only"> words</span></small></a></li></ul>
+    </section>
+    <section class="section" aria-labelledby="how-h">
+      <h2 id="how-h">How it works</h2>
+      <ol class="steps">
+        <li><span class="tile md c-coral" aria-hidden="true">1</span><div><h3>Type your letters</h3><p>Up to 15, with <kbd>?</kbd> for each blank tile.</p></div></li>
+        <li><span class="tile md c-sun" aria-hidden="true">2</span><div><h3>Press Unscramble</h3><p>Words appear grouped by length, longest first.</p></div></li>
+        <li><span class="tile md c-blue" aria-hidden="true">3</span><div><h3>Tap any word</h3><p>See its points and, if you want, look up a definition.</p></div></li>
+      </ol>
+    </section>
+    <section class="section" aria-labelledby="guides-h">
+      <h2 id="guides-h">Fresh from the guides</h2>
+      <ul class="guide-cards"><li><h3><a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a></h3><p>How an unscrambler turns jumbled letters into words: letter counts, blank tiles, and why it is fast.</p></li><li><h3><a href="/guides/wordle-strategy">Wordle Strategy and Letter Logic</a></h3><p>Practical ways to narrow a five-letter puzzle: letter frequency in a real word list, opening patterns and common traps.</p></li><li><h3><a href="/guides/words-with-q-without-u">Words With Q and No U</a></h3><p>Every word in the open ENABLE list that has a Q but no U, with notes on how to use them.</p></li></ul>
+      <a class="more-link" href="/guides">All guides →</a>
+    </section>
+    <div class="home-copy">
       <article class="prose">
         <p>A word unscrambler answers one question: which words can I spell with these letters? Type up to 15 letters, add a <kbd>?</kbd> for each blank tile, and Letterpile lists every word from its word list that your letters can make, grouped by length with the longest first. It's handy for tile games, word wheels, jumbles and crossword clues where you know the letters but not the order. Everything runs in your browser, so results appear as soon as the word list has loaded.</p>
 <h2>How it works</h2>
@@ -141,23 +179,21 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <h2 id="related-title">Related tools and guides</h2>
         <ul><li><a href="/anagram-solver">Anagram Solver</a> <span class="hint">every-letter rearrangements, including two-word ones</span></li><li><a href="/scrabble-word-finder">Tile Game Word Finder</a> <span class="hint">plays ranked by letter score</span></li><li><a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a></li><li><a href="/guides/two-letter-words">Two-Letter Words</a></li></ul>
       </section>
-        <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
+        <p class="updated">Last updated: <time datetime="2026-10-02">October 2, 2026</time></p>
       </article>
-  </main>
-  <aside class="sidebar" id="sidebar">
-  <section class="panel">
-    <h2>Word tools</h2>
-    <ul><li><a href="/" aria-current="page"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
-  </section>
-  <section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>
-</aside>
-</div>
+      <div class="home-aside" id="sidebar"><section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section></div>
+    </div>
+  </div>
+</main>
 <footer class="footer">
   <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
     <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
     <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
     <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>

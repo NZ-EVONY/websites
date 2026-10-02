@@ -12,32 +12,29 @@
 <meta property="og:description" content="Enter your rack and board letters to see playable words ranked by letter score, with blank tiles and all-tiles bonuses.">
 <meta property="og:url" content="https://letterpile.app/scrabble-word-finder">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.1253831fd5.css">
+<link rel="stylesheet" href="/assets/style.a7106bdd4f.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Finder for Tile Games","url":"https://letterpile.app/scrabble-word-finder","description":"Enter your rack and board letters to see playable words ranked by letter score, with blank tiles and all-tiles bonuses.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which letter values does it use?","acceptedAnswer":{"@type":"Answer","text":"The values commonly used in English Scrabble-style tile games, shown in the sidebar: for example E is 1, K is 5, J and X are 8, Q and Z are 10. Your game may use different values."}},{"@type":"Question","name":"Does it include bonus squares?","acceptedAnswer":{"@type":"Answer","text":"No. Scores are base tile values plus the commonly reported 50-point bonus for using all seven tiles. The finder can't see your board."}},{"@type":"Question","name":"How do blanks work?","acceptedAnswer":{"@type":"Answer","text":"Type ? for each blank, up to two. A blank can be any letter but scores zero. The finder uses your real tiles first, and dotted letters in the results show where a blank is needed."}},{"@type":"Question","name":"Why does it show words my game doesn't allow?","acceptedAnswer":{"@type":"Answer","text":"It uses the open ENABLE word list, which differs from game dictionaries in both directions. Always check a word with your game before relying on it."}},{"@type":"Question","name":"What does the board letters box do?","acceptedAnswer":{"@type":"Answer","text":"It keeps only words that pass through the letters you type there, in that order. Those letters count toward the score but don't come from your rack."}},{"@type":"Question","name":"Is this site connected to the makers of Scrabble?","acceptedAnswer":{"@type":"Answer","text":"No. Letterpile is independent and is not affiliated with, endorsed by or sponsored by Hasbro, Mattel or any game publisher."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Finder for Tile Games","item":"https://letterpile.app/scrabble-word-finder"}]}]}</script>
-<script src="/assets/engine.be6821e486.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.3d6414c67f.js" defer></script>
-<script src="/assets/site.5d609eb936.js" defer></script>
-<script src="/assets/js/finder.b399da8e2c.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.2317ae118f.js" defer></script>
+<script src="/assets/js/finder.6ce1fa94be.js" defer></script>
 </head>
 <body data-page="scrabble" data-scheme="scrabble">
 <a class="skip" href="#main">Skip to content</a>
 <header class="masthead">
   <div class="wrap">
-    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><span aria-hidden="true">☰</span></button>
-    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span>L</span><span>P</span><span>!</span></span>Letterpile</a>
-    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
-  </div>
-</header>
-<nav class="navbar" id="navbar" aria-label="Word tools">
-  <ul class="nav-main wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
     <li><a href="/">Word Unscrambler</a></li>
     <li><a href="/word-scrambler">Word Scrambler</a></li>
     <li><a href="/word-combiner">Word Combiner</a></li>
@@ -57,6 +54,9 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
     </li>
   </ul>
 </nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
 <div class="layout wrap">
   <main class="content" id="main">
     <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Word Finder for Tile Games</span></li></ol></nav>
@@ -68,6 +68,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
             <label class="field grow2"><span>Your rack</span><input class="big-input" id="rack" type="text" maxlength="9" placeholder="Up to 7 letters, ? for blanks" required></label>
             <label class="field"><span>Letters on board (optional)</span><input class="big-input" id="board" type="text" maxlength="8" placeholder="e.g. E or ING"></label>
           </div>
+          <div class="rack" data-rack-for="rack" data-slots="7" aria-hidden="true"><span class="tile ghost"></span><span class="tile ghost"></span><span class="tile ghost"></span><span class="tile ghost"></span><span class="tile ghost"></span><span class="tile ghost"></span><span class="tile ghost"></span></div>
           <details class="advanced" id="adv">
             <summary>Advanced filters</summary>
             <div class="row">
@@ -141,7 +142,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <aside class="sidebar" id="sidebar">
   <section class="panel">
     <h2>Word tools</h2>
-    <ul><li><a href="/"><span class="ico" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder" aria-current="page"><span class="ico" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder" aria-current="page"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
   </section>
   <section class="panel"><h2>Common tile values</h2><div class="values"><span>a<b>1</b></span><span>b<b>3</b></span><span>c<b>3</b></span><span>d<b>2</b></span><span>e<b>1</b></span><span>f<b>4</b></span><span>g<b>2</b></span><span>h<b>4</b></span><span>i<b>1</b></span><span>j<b>8</b></span><span>k<b>5</b></span><span>l<b>1</b></span><span>m<b>3</b></span><span>n<b>1</b></span><span>o<b>1</b></span><span>p<b>3</b></span><span>q<b>10</b></span><span>r<b>1</b></span><span>s<b>1</b></span><span>t<b>1</b></span><span>u<b>1</b></span><span>v<b>4</b></span><span>w<b>4</b></span><span>x<b>8</b></span><span>y<b>4</b></span><span>z<b>10</b></span></div></section>
       <section class="panel tip"><h2>Tip</h2><p>Premium squares aren't counted here. A 12-point word on a triple-word square beats a 30-pointer in the open, so check the board before you pick.</p></section>
@@ -149,10 +150,13 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </div>
 <footer class="footer">
   <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
     <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
     <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
     <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
     <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
     <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>

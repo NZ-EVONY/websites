@@ -84,3 +84,17 @@ test("no horizontal scrolling at 360px", { skip, timeout: 300000 }, async () => 
     assert.deepEqual(bad, []);
   });
 });
+
+test("elements marked hidden stay hidden (the CMP footer link, empty toast, closed dialog)", { skip, timeout: 300000 }, async () => {
+  await withBrowser(async (browser, base) => {
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const page = await ctx.newPage();
+    const bad = [];
+    for (const u of TEMPLATE_PAGES) {
+      await page.goto(base + u);
+      const shown = await page.evaluate(() => [...document.querySelectorAll("[hidden]")].filter(e => e.getClientRects().length).map(e => e.id || e.className));
+      if (shown.length) bad.push(`${u}: ${shown.join(", ")}`);
+    }
+    assert.deepEqual(bad, []);
+  });
+});

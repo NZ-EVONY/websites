@@ -56,3 +56,21 @@
 - Tool-page ad slot markers moved: first slot after the first full section (was right after the intro, 74–101 px from the results area), second slot before the Privacy section (was directly above the FAQ toggles). Tool slots remain disabled; `npm run build:ads-preview` shows them.
 - Ad slots render as empty labeled boxes until AdSense code is pasted (as the brief specifies). On guides, hubs and affix pages that means a visible "Advertisement" label over reserved blank space; see BEE-TODO.
 - Placement check: in the ads-preview build every slot is ≥ 150 px from any button/input/select/summary/results area, below the h1, outside the tool card, at most 3 per page, at 360 and 1280 px (tested).
+
+## Visual refresh: "Tile Table, Night Edition" (October 2026)
+- Mockups `design/*-v2.html` are the reference; the v1 teal files were ignored. Only the look changed.
+- The main navigation moved inside `<header class="masthead">` (pill nav on the navy stage); `<nav class="navbar" id="navbar">` markup and ids kept, so tests and `site.js` work unchanged.
+- No-JavaScript visitors on narrow screens still get the existing behaviour (menu hidden below 860px); the mockup's `html.js` approach needs a change to the pinned head script, which was off limits.
+- Home: the tool sits in a navy hero; results get their own panel below it; the sidebar's tool list is replaced by the ten-tool grid, and the page's Tip panel sits beside the copy in a `div` with the same `id="sidebar"` (an `<aside>` inside `<main>` is an axe best-practice issue).
+- `site.config.json` operatorName stays "an independent publisher"; pages add "in {country}" so contact, terms, about and the footer read "an independent publisher in New Zealand". authorName/publisherName "Letterpile"; JSON-LD author is that Organization.
+- The contact page's TODO comment about setting the email was removed (the email is set: nz@letterpile.app).
+- Home A-Z counts are computed from the visible list (`ctx.clean`) and tested to equal the `/words-starting-with` hub's counts.
+- "Contains" card links to `/words-by-length` and says so ("use the Contains filter in any finder ... or browse every word by length"), because there is no Contains hub.
+- Tile point values (hero pile, category tiles, rack preview) come from the engine's `scrabble` scheme (the finders use their page's scheme); tool-grid icons are the existing nav icons without values.
+- Rack preview: a decorative `aria-hidden` element mirrors the main letters input on the home page and the two tile finders (`data-rack-for`); other tools have different inputs and were left alone.
+- Result-chip colour follows the group length via `data-len` on `.group`; ungrouped (score-sorted) lists keep the default wood edge.
+- Chip entrance animation uses transform only (no fade): axe measured half-faded chips as low contrast.
+- Global `[hidden] { display: none !important; }`: a component display rule had revealed the hidden "Privacy settings" footer link; a new e2e test checks hidden elements stay hidden.
+- `theme-color` is `#0A1030` in both schemes (the stage colour).
+- Screenshots script now captures 390 and 1280px (360px overflow stays covered by the e2e test) and waits for the one-time tile animations.
+- `CLAUDE.md` and `docs/AUDIT.md` no longer name the sibling project folder (the brief asked that the other site's name not appear in `Letterpile/`); the hard rule now says "never touch the sibling project folders".

@@ -122,6 +122,7 @@ const finderForm = () => `<form class="tool-form" id="form" autocomplete="off">
             <label class="field grow2"><span>Your rack</span><input class="big-input" id="rack" type="text" maxlength="9" placeholder="Up to 7 letters, ? for blanks" required></label>
             <label class="field"><span>Letters on board (optional)</span><input class="big-input" id="board" type="text" maxlength="8" placeholder="e.g. E or ING"></label>
           </div>
+          <div class="rack" data-rack-for="rack" data-slots="7" aria-hidden="true">${'<span class="tile ghost"></span>'.repeat(7)}</div>
           <details class="advanced" id="adv">
             <summary>Advanced filters</summary>
             <div class="row">

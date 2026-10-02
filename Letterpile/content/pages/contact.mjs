@@ -4,9 +4,8 @@ export default ctx => ({
   title: "Contact Letterpile",
   description: "How to contact the person who runs Letterpile for corrections, questions or privacy requests.",
   h1: "Contact",
-  prose: `<p>Letterpile is run by ${ctx.site.operatorName}. The best way to get in touch is by email:</p>
+  prose: `<p>Letterpile is run by ${ctx.site.operatorName} in ${ctx.site.country}. The best way to get in touch is by email:</p>
 <p class="contact-email"><a href="mailto:${ctx.site.contactEmail}">${ctx.site.contactEmail}</a></p>
-<!-- TODO-BEE: set contactEmail in site.config.json. Never publish an address you don't check. -->
 
 <h2>What to write about</h2>
 <ul>

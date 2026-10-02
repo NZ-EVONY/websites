@@ -42,6 +42,37 @@ export default function layout(page, ctx) {
         <ul>${page.related.map(r => `<li><a href="${r.href}">${esc(r.label)}</a>${r.note ? ` <span class="hint">${r.note}</span>` : ""}</li>`).join("")}</ul>
       </section>` : "";
   const updated = page.updated && page.showUpdated !== false ? `<p class="updated">Last updated: <time datetime="${page.updated}">${ctx.longDate(page.updated)}</time></p>` : "";
+  // The home page puts its tool in the navy "stage" hero; results, the home sections and the
+  // copy follow full width (the ten-tool grid replaces the sidebar's tool list there).
+  const heroMain = page.hero ? `<main class="home" id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        ${page.hero.eyebrow ? `<p class="eyebrow"><i></i>${page.hero.eyebrow}</p>` : ""}
+        <h1 class="page-title">${esc(page.h1)}</h1>
+        ${page.lede ? `<p class="lede">${page.lede}</p>` : ""}
+        ${page.tool}
+        ${page.hero.facts?.length ? `<ul class="facts">${page.hero.facts.map(f => `<li>${f}</li>`).join("")}</ul>` : ""}
+      </div>
+      ${page.hero.pile || ""}
+    </div>
+  </section>
+  <div class="wrap home-body">
+    <section class="panel results-panel" aria-label="Results">
+      ${page.results}
+    </section>
+    ${page.extras || ""}
+    <div class="home-copy">
+      <article class="prose">
+        ${fill(page.prose)}
+        ${faq}
+        ${related}
+        ${updated}
+      </article>
+      <div class="home-aside" id="sidebar">${page.sidebar || ""}</div>
+    </div>
+  </div>
+</main>` : "";
   const main = page.type === "tool"
     ? `<div class="panel tool-card">
         <h1 class="page-title">${esc(page.h1)}</h1>
@@ -88,15 +119,14 @@ ${scripts.join("\n")}
 </head>
 <body data-page="${esc(page.key)}"${page.scheme ? ` data-scheme="${page.scheme}"` : ""}>
 <a class="skip" href="#main">Skip to content</a>
-${header()}
-${nav({ nav: ctx.nav, page })}
-<div class="layout wrap">
+${header({ navHtml: nav({ nav: ctx.nav, page }) })}
+${page.hero ? heroMain : `<div class="layout wrap">
   <main class="content" id="main">
     ${breadcrumbs(page.crumbs)}
     ${main}
   </main>
   ${sidebar({ nav: ctx.nav, page })}
-</div>
+</div>`}
 ${footer({ nav: ctx.nav, site, year: ctx.year })}
 </body>
 </html>

@@ -1,19 +1,19 @@
 {
   "assets": {
     "words.js": "/data/words.54646e019a.js",
-    "style.css": "/assets/style.1253831fd5.css",
-    "engine.js": "/assets/engine.be6821e486.js",
-    "site.js": "/assets/site.5d609eb936.js",
-    "worker.js": "/assets/worker.3d6414c67f.js",
-    "js/anagram.js": "/assets/js/anagram.44f3ec6002.js",
-    "js/combiner.js": "/assets/js/combiner.94d8f4fd70.js",
-    "js/crossword.js": "/assets/js/crossword.8780fa2459.js",
-    "js/finder.js": "/assets/js/finder.b399da8e2c.js",
-    "js/jumble.js": "/assets/js/jumble.173523a9d2.js",
-    "js/scrambler.js": "/assets/js/scrambler.6794dcf1f5.js",
-    "js/twist.js": "/assets/js/twist.d1877890ea.js",
-    "js/unscramble.js": "/assets/js/unscramble.1c6709b54c.js",
-    "js/wordle.js": "/assets/js/wordle.198988244b.js"
+    "style.css": "/assets/style.a7106bdd4f.css",
+    "engine.js": "/assets/engine.7fe4595c1f.js",
+    "site.js": "/assets/site.2317ae118f.js",
+    "worker.js": "/assets/worker.fc5fafd163.js",
+    "js/anagram.js": "/assets/js/anagram.228f22ee08.js",
+    "js/combiner.js": "/assets/js/combiner.603b547461.js",
+    "js/crossword.js": "/assets/js/crossword.97d936105a.js",
+    "js/finder.js": "/assets/js/finder.6ce1fa94be.js",
+    "js/jumble.js": "/assets/js/jumble.05948e6e30.js",
+    "js/scrambler.js": "/assets/js/scrambler.0627d06ff4.js",
+    "js/twist.js": "/assets/js/twist.de5008a5f6.js",
+    "js/unscramble.js": "/assets/js/unscramble.e8343c87c0.js",
+    "js/wordle.js": "/assets/js/wordle.02e2e3a30a.js"
   },
   "pages": [
     {
@@ -27,7 +27,7 @@
       "path": "/about",
       "file": "about.html",
       "type": "trust",
-      "updated": "2026-10-02",
+      "updated": "2026-10-03",
       "noindex": false
     },
     {
@@ -41,7 +41,7 @@
       "path": "/contact",
       "file": "contact.html",
       "type": "trust",
-      "updated": "2026-10-01",
+      "updated": "2026-10-02",
       "noindex": false
     },
     {
@@ -132,7 +132,7 @@
       "path": "/",
       "file": "index.html",
       "type": "tool",
-      "updated": "2026-10-01",
+      "updated": "2026-10-02",
       "noindex": false
     },
     {
@@ -160,7 +160,7 @@
       "path": "/terms",
       "file": "terms.html",
       "type": "trust",
-      "updated": "2026-10-01",
+      "updated": "2026-10-02",
       "noindex": false
     },
     {
