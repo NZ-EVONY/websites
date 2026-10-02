@@ -107,8 +107,7 @@ ${page.noindex ? `<meta name="robots" content="noindex, follow">\n` : ""}<meta p
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="${site.themeColorLight}" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="${site.themeColorDark}" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="${site.themeColorDark}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>${HEAD_SCRIPT}</script>
 <link rel="stylesheet" href="${assets["style.css"]}">

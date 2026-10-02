@@ -49,7 +49,7 @@ test("Open Graph, Twitter card, theme-color, favicon", () => {
   for (const p of pages) {
     for (const prop of ["og:title", "og:description", "og:type", "og:url"]) assert.match(p.html, new RegExp(`<meta property="${prop}" content="[^"]+">`), `${p.file} ${prop}`);
     assert.match(p.html, /<meta name="twitter:card" content="summary">/);
-    assert.equal((p.html.match(/<meta name="theme-color"/g) || []).length, 2);
+    assert.equal((p.html.match(/<meta name="theme-color"/g) || []).length, 1);
     assert.match(p.html, /<link rel="icon" href="\/favicon\.svg"/);
   }
   assert.ok(fs.existsSync(path.join(PUBLIC, "favicon.svg")));

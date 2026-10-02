@@ -74,3 +74,5 @@
 - `theme-color` is `#0A1030` in both schemes (the stage colour).
 - Screenshots script now captures 390 and 1280px (360px overflow stays covered by the e2e test) and waits for the one-time tile animations.
 - `CLAUDE.md` and `docs/AUDIT.md` no longer name the sibling project folder (the brief asked that the other site's name not appear in `Letterpile/`); the hard rule now says "never touch the sibling project folders".
+
+- 2026-10-03: Dark is the default theme for everyone (no system-theme following). Light stays available via the header toggle (data-theme=light, saved in localStorage). theme-color meta is a single dark value.

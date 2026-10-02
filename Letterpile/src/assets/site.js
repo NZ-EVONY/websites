@@ -32,7 +32,7 @@
   // The theme is applied before first paint by the inline script in <head>.
   const root = document.documentElement;
   const themeBtn = $("#themeToggle");
-  const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDark = () => root.dataset.theme !== "light";
   const syncTheme = () => themeBtn?.setAttribute("aria-pressed", String(isDark()));
   themeBtn?.addEventListener("click", () => {
     root.dataset.theme = isDark() ? "light" : "dark";
