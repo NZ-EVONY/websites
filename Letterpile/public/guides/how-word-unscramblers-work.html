@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
+<link rel="stylesheet" href="/assets/style.1253831fd5.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"How Word Unscramblers Work","description":"How an unscrambler turns jumbled letters into words: letter counts, blank tiles, and why it is fast.","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Organization","name":"Letterpile"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/how-word-unscramblers-work"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"How Word Unscramblers Work","item":"https://letterpile.app/guides/how-word-unscramblers-work"}]}]}</script>
-<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/site.5d609eb936.js" defer></script>
 </head>
 <body data-page="guide-unscramblers">
 <a class="skip" href="#main">Skip to content</a>
@@ -62,8 +62,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <h1 class="page-title">How Word Unscramblers Work</h1>
         <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
         <p class="summary">A word unscrambler doesn't shuffle your letters into every possible order. It does something simpler: it counts the letters you have, then keeps every word in its list that can be spelled with those counts. Blank tiles are spare counts that can stand for any letter. This guide walks through the idea with a small example, explains why the method is quick, and says what it can't do.</p>
-<!-- AD SLOT: after-intro. Paste AdSense <ins> unit here. Do not auto-refresh. -->
-<aside class="ad-slot" data-ad-slot="after-intro" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+
 <h2>The obvious way, and why it's slow</h2>
 <p>The first idea most people have is to rearrange the letters every possible way and look each arrangement up. With three letters there are only six orders, so that works. With seven distinct letters there are 5,040 orders for the full-length words alone, and you also want all the shorter words hiding inside the rack, which multiplies the work again. At ten or more letters the number of orders runs into the millions. Most of those arrangements are gibberish, so the time is spent checking strings that could never be words.</p>
 <h2>The better way: count the letters</h2>
@@ -83,8 +82,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <tr><th>Word</th><th>Signature</th></tr>
 <tr><td><code>ELINTS</code></td><td><code>EILNST</code></td></tr><tr><td><code>ENLIST</code></td><td><code>EILNST</code></td></tr><tr><td><code>INLETS</code></td><td><code>EILNST</code></td></tr><tr><td><code>LISTEN</code></td><td><code>EILNST</code></td></tr><tr><td><code>SILENT</code></td><td><code>EILNST</code></td></tr><tr><td><code>TINSEL</code></td><td><code>EILNST</code></td></tr>
 </table>
-<!-- AD SLOT: mid-article. Paste AdSense <ins> unit here. Do not auto-refresh. -->
-<aside class="ad-slot" data-ad-slot="mid-article" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+
 <h2>Filters</h2>
 <p>Most unscramblers let you narrow results with filters such as “starts with”, “ends with”, “contains” or a fixed length. These are cheap extra checks applied to each candidate word before the letter counting, and they are useful when a word has to join letters already on a board. For example, there are 3,864 four-letter words in the list, but only a small fraction of them can be spelled from any particular rack, and a starts-with filter cuts that further.</p>
 <h2>Why it can run in your browser</h2>

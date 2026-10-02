@@ -12,7 +12,7 @@
       ]
     },
     "guide": {
-      "enabled": true,
+      "enabled": false,
       "slots": [
         "after-intro",
         "mid-article",
@@ -20,14 +20,14 @@
       ]
     },
     "hub": {
-      "enabled": true,
+      "enabled": false,
       "slots": [
         "after-intro",
         "before-faq"
       ]
     },
     "affix": {
-      "enabled": true,
+      "enabled": false,
       "slots": [
         "after-intro"
       ]

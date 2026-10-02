@@ -13,7 +13,7 @@ Every statement below is in one of three buckets: **VERIFIED** (run and observed
 | Header, nav, footer | Injected by JavaScript | In the raw HTML; footer has legal links, credits, trademark notice |
 | Text per tool page | 157–269 words | 609–938 words plus FAQ |
 | SEO plumbing | None | Canonical, Open Graph, Twitter card, theme-color, JSON-LD (`WebSite`, `Organization`, `WebApplication`, `Article`, `FAQPage`, `BreadcrumbList`), `robots.txt`, `sitemap.xml`, HTML `/sitemap`, query-string URLs `noindex` |
-| Trust pages | None | Privacy Policy, Terms, About, Contact (Letterpile, nz@letterpile.app, New Zealand) |
+| Trust pages | None | Privacy Policy, Terms, About, Contact (an independent publisher, nz@letterpile.app, New Zealand) |
 | Security | Cloudflare defaults | `_headers`: strict CSP (one hashed inline script, `worker-src 'self'`), nosniff, Referrer-Policy, Permissions-Policy, HSTS; immutable caching for hashed assets |
 | Deployment surface | Whole folder uploaded | Only `public/` (`assets.directory`), `drop-trailing-slash`, real 404 page |
 | JavaScript | Inline scripts, main-thread searches | 9 small page scripts, shared `site.js`, searches in a Web Worker with main-thread fallback |

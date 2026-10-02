@@ -16,14 +16,14 @@
 <meta name="theme-color" content="#211e25" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.bb226c3de0.css">
+<link rel="stylesheet" href="/assets/style.1253831fd5.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Solving Daily Word Puzzles","description":"A step-by-step method for daily word puzzles: use constraints, track eliminated letters and avoid wasted guesses.","datePublished":"2026-10-01","dateModified":"2026-10-01","author":{"@type":"Organization","name":"Letterpile"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/solve-daily-word-puzzles"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Solving Daily Word Puzzles","item":"https://letterpile.app/guides/solve-daily-word-puzzles"}]}]}</script>
-<script src="/assets/site.21b3467831.js" defer></script>
+<script src="/assets/site.5d609eb936.js" defer></script>
 </head>
 <body data-page="guide-daily">
 <a class="skip" href="#main">Skip to content</a>
@@ -62,8 +62,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <h1 class="page-title">Solving Daily Word Puzzles</h1>
         <p class="updated">Last updated: <time datetime="2026-10-01">October 1, 2026</time></p>
         <p class="summary">Daily word puzzles where you guess a hidden word and get colored feedback reward method more than luck. The idea is to treat each guess as an experiment: decide what you want to learn, read the feedback carefully, and keep a clear record of what's ruled in and out. This guide describes a step-by-step method, works through an example with real numbers from Letterpile's list, and covers when to guess for the answer and when to probe.</p>
-<!-- AD SLOT: after-intro. Paste AdSense <ins> unit here. Do not auto-refresh. -->
-<aside class="ad-slot" data-ad-slot="after-intro" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+
 <h2>Step 1: Know your search space</h2>
 <p>Before the first guess, every five-letter word is possible. In the word list this site uses that is 8,564 words, though a daily puzzle's answer list is much smaller and mostly made of familiar words. Each guess should cut that space down as much as possible.</p>
 <h2>Step 2: Turn feedback into rules</h2>
@@ -76,8 +75,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <p>Position and presence are different kinds of information. A green tells you exactly where; a yellow tells you the letter exists and removes one position. Two yellows for the same letter in different guesses remove two positions, which can pin it down without ever seeing green.</p>
 <h2>Step 3: Repeated letters</h2>
 <p>Gray doesn't always mean “not in the word”. If you guess a word with two copies of a letter and the answer has one, one copy will be colored and the other gray. The gray copy only tells you there isn't a second one. The <a href="/guides/wordle-strategy">Wordle strategy guide</a> has a worked example.</p>
-<!-- AD SLOT: mid-article. Paste AdSense <ins> unit here. Do not auto-refresh. -->
-<aside class="ad-slot" data-ad-slot="mid-article" aria-label="Advertisement"><span class="ad-label">Advertisement</span><div class="ad-slot__inner" data-ad-placeholder></div></aside>
+
 <h2>Step 4: Probe or go for it?</h2>
 <p>Once few words remain, you have a choice. You can guess one of the remaining words, which might win immediately, or play a <em>probe</em>: a word chosen to test several of the remaining possibilities at once, even if it can't be the answer.</p>
 <p>Probing pays off when many candidates differ in only one position. For example, <code>BOUND</code>, <code>FOUND</code>, <code>HOUND</code>, <code>MOUND</code>, <code>POUND</code>, <code>ROUND</code>, <code>SOUND</code> and <code>WOUND</code> all fit the pattern <code>?OUND</code>. Guessing them one by one could take many turns; a single probe word containing several of the possible first letters can rule most of them out at once. When only two or three candidates remain, guessing one of them is usually better, because a probe can't win.</p>

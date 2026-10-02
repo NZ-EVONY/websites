@@ -18,7 +18,7 @@ export default function jsonld({ page, site }) {
   if (page.type === "guide") {
     graph.push({
       "@type": "Article", headline: page.h1, description: page.description, datePublished: page.published, dateModified: page.updated,
-      author: { "@type": "Person", name: site.authorName }, publisher: { "@type": "Organization", name: site.publisherName },
+      author: { "@type": "Organization", name: site.authorName }, publisher: { "@type": "Organization", name: site.publisherName },
       mainEntityOfPage: abs(page.path),
     });
   }

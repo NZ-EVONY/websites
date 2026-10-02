@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Finder for Tile Games | Letterpile (design mockup v2)</title>
+<meta name="description" content="Design mockup of a Letterpile word-finder tool page.">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A1030" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234D8DFF'/%3E%3Ctext x='16' y='23' font-size='20' font-weight='800' text-anchor='middle' font-family='sans-serif' fill='%230A1030'%3EL%3C/text%3E%3C/svg%3E">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}d.classList.add("js")})(document.documentElement);</script>
+<style>
+/* ===== Letterpile refresh: "Tile Table" design (mockup) ===== */
+:root{
+  /* page (light theme) */
+  --bg:#F3F5FF; --surface:#FFFFFF; --surface-2:#E8ECFF; --line:#CBD3F5; --field:#6A76A8;
+  --ink:#0A1030; --muted:#4A557F; --link:#1F4FD8; --outline:#1F4FD8;
+  /* the stage: header, hero, footer. Navy in BOTH themes */
+  --stage:#0A1030; --stage-2:#131B45; --stage-ink:#FFFFFF; --stage-muted:#D3DBFF; --stage-grid:rgb(77 141 255 / .10); --stage-line:#2D3E86;
+  /* accents */
+  --blue:#4D8DFF; --violet:#9A7BFF;
+  /* letter tiles (same in both themes; always navy ink) */
+  --coral:#FF7A5C; --sun:#FFCC33; --mint:#35DCA2; --tile-blue:#5C9DFF; --tile-violet:#A98BFF; --wood:#FFE9B8; --tile-ink:#0A1030;
+  --focus:#1D3FD1; --focus-stage:#FFDD55; --shadow:0 1px 0 rgb(10 16 48 / .06),0 10px 24px -12px rgb(10 16 48 / .3);
+  --ad-h:280px;
+  --display:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN","Arial Rounded MT Bold",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  --text:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+  color-scheme:light;
+}
+@media (min-width:768px){:root{--ad-h:110px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1735;--surface:#161F4A;--surface-2:#1D2960;--line:#2D3E86;--field:#7F92E6;--ink:#F2F5FF;--muted:#AEBBE6;--link:#7FB0FF;--outline:#4D8DFF;
+--focus:#FFDD55;--shadow:0 1px 0 rgb(0 0 0 / .3),0 12px 28px -14px rgb(0 0 0 / .7);color-scheme:dark;}}
+:root[data-theme="dark"]{--bg:#0E1735;--surface:#161F4A;--surface-2:#1D2960;--line:#2D3E86;--field:#7F92E6;--ink:#F2F5FF;--muted:#AEBBE6;--link:#7FB0FF;--outline:#4D8DFF;
+--focus:#FFDD55;--shadow:0 1px 0 rgb(0 0 0 / .3),0 12px 28px -14px rgb(0 0 0 / .7);color-scheme:dark;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cat{background:var(--surface);color:var(--ink);border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 12px 28px -12px var(--c)}}
+:root[data-theme="dark"] .cat{background:var(--surface);color:var(--ink);border-color:var(--c);box-shadow:0 0 0 1px var(--c),0 12px 28px -12px var(--c)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.6 var(--text)}
+img,svg{max-width:100%}
+a{color:var(--link)}
+h1,h2,h3{font-family:var(--display);line-height:1.15;letter-spacing:-.01em;margin:0}
+p{margin:0 0 1em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+@media (min-width:640px){.wrap{padding:0 24px}}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
+.masthead :focus-visible,.hero :focus-visible,.footer :focus-visible{outline-color:var(--focus-stage)}
+.skip{position:absolute;left:8px;top:-80px;z-index:100;background:var(--blue);color:var(--tile-ink);padding:10px 16px;border-radius:10px;font-weight:800;text-decoration:none}
+.skip:focus{top:8px}
+kbd{font:700 .85em var(--display);background:var(--surface-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:0 6px}
+
+/* ---- tiles ---- */
+.tile{--ts:48px;--c:var(--wood);display:inline-grid;place-items:center;position:relative;flex:none;width:var(--ts);height:var(--ts);
+  border-radius:calc(var(--ts)*.2);background:var(--c);color:var(--tile-ink);font:800 calc(var(--ts)*.5)/1 var(--display);text-transform:uppercase;
+  box-shadow:inset 0 calc(var(--ts)*-.07) 0 rgb(0 0 0 / .16),inset 0 2px 0 rgb(255 255 255 / .5),0 3px 0 rgb(0 0 0 / .22)}
+.tile sup{position:absolute;right:calc(var(--ts)*.1);bottom:calc(var(--ts)*.09);font-size:max(10px,calc(var(--ts)*.24));font-weight:700;line-height:1}
+.tile.sm{--ts:36px}.tile.md{--ts:44px}.tile.lg{--ts:64px}
+.tile.blank{background:var(--wood);box-shadow:inset 0 0 0 3px var(--tile-ink),0 3px 0 rgb(0 0 0 / .22)}
+.tile.ghost{background:transparent;box-shadow:inset 0 0 0 2px rgb(255 255 255 / .55);color:transparent}
+.c-coral{--c:var(--coral)}.c-sun{--c:var(--sun)}.c-blue{--c:var(--tile-blue)}.c-mint{--c:var(--mint)}.c-violet{--c:var(--tile-violet)}.c-wood{--c:var(--wood)}
+
+/* ---- header ---- */
+.masthead{background:var(--stage);color:var(--stage-ink)}
+.masthead--solo{border-radius:0 0 28px 28px}
+.masthead .wrap{display:flex;align-items:center;gap:8px;min-height:68px}
+.brand{display:flex;align-items:center;min-height:44px;gap:10px;text-decoration:none;color:var(--stage-ink);font:800 1.5rem/1 var(--display);letter-spacing:-.02em}
+.brand .tiles{display:flex;gap:3px}
+.brand .tile{--ts:28px}
+.brand .tile:nth-child(1){transform:rotate(-7deg)}.brand .tile:nth-child(2){transform:translateY(2px)}.brand .tile:nth-child(3){transform:rotate(6deg)}
+.site-nav{margin-left:auto}
+.site-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:4px;align-items:center}
+.site-nav a,.site-nav summary{display:block;padding:10px 14px;border-radius:999px;color:var(--stage-ink);text-decoration:none;font-weight:700;font-size:.95rem;cursor:pointer;list-style:none;min-height:44px;line-height:24px}
+.site-nav summary::-webkit-details-marker{display:none}
+.site-nav a:hover,.site-nav summary:hover{background:rgb(255 255 255 / .12)}
+.site-nav a[aria-current="page"]{background:var(--violet);color:var(--tile-ink)}
+.caret{display:inline-block;margin-left:6px;border:5px solid transparent;border-top-color:currentColor;border-bottom:0;vertical-align:2px}
+.has-dd{position:relative}
+.dd{position:absolute;right:0;top:calc(100% + 6px);z-index:30;min-width:250px;background:var(--stage-2);border:2px solid var(--stage-line);border-radius:16px;box-shadow:var(--shadow);padding:8px;display:grid;gap:2px}
+.dd a{border-radius:10px;color:var(--stage-ink)}
+.icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;border:2px solid var(--field);background:var(--surface);color:var(--ink);cursor:pointer;flex:none}
+.icon-btn:hover{border-color:var(--ink)}
+.masthead .icon-btn{background:transparent;border-color:var(--blue);color:var(--stage-ink)}
+.masthead .icon-btn:hover{background:rgb(77 141 255 / .2);border-color:var(--blue)}
+.nav-toggle{display:none;margin-left:auto}
+.theme-btn{margin-left:4px}
+@media (max-width:859px){
+  html.js .nav-toggle{display:grid}
+  html.js .site-nav{display:none;order:5;flex-basis:100%;margin:0 0 12px}
+  html.js .site-nav.open{display:block}
+  .masthead .wrap{flex-wrap:wrap}
+  .site-nav ul{flex-direction:column;align-items:stretch;background:var(--stage-2);border:2px solid var(--stage-line);border-radius:18px;padding:8px}
+  .dd{position:static;box-shadow:none;border:0;padding:0 0 0 12px;min-width:0;background:none}
+  html:not(.js) .nav-toggle{display:none}
+  html:not(.js) .site-nav ul{flex-wrap:wrap;flex-direction:row;background:none;border:0;padding:0}
+  .theme-btn{margin-left:0}
+  html:not(.js) .site-nav{flex-basis:100%}
+}
+@media (max-width:859px){html.js .nav-toggle{margin-left:auto}}
+
+/* ---- buttons / forms ---- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:10px 26px;border:0;border-radius:16px;background:var(--blue);color:var(--tile-ink);
+  font:800 1.1rem/1 var(--display);cursor:pointer;text-decoration:none;box-shadow:inset 0 -4px 0 rgb(10 16 48 / .22),0 4px 0 #2748B8;transition:transform .12s ease,box-shadow .12s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(3px);box-shadow:inset 0 -4px 0 rgb(10 16 48 / .22),0 1px 0 #2748B8}
+.btn.secondary{color:var(--ink);background:transparent;border:2px solid var(--outline);box-shadow:none;min-height:48px;font-size:1rem}
+.btn.secondary:hover{background:var(--surface-2)}
+.btn.small{min-height:44px;font-size:.95rem;padding:8px 18px}
+.field{display:grid;gap:6px;min-width:0}
+.field>span,.label{font-size:.8rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+input[type=text],select{width:100%;min-height:48px;font:inherit;padding:8px 14px;border-radius:14px;border:2px solid var(--field);background:var(--surface);color:var(--ink)}
+input[type=text]:focus,select:focus{border-color:var(--outline)}
+.check{display:inline-flex;align-items:center;gap:10px;min-height:44px;cursor:pointer;font-size:.95rem}
+.check input{width:22px;height:22px;accent-color:var(--link)}
+.big-input{font:800 1.5rem/1.2 var(--display)!important;letter-spacing:.14em;text-transform:uppercase;min-height:60px!important;border-radius:18px!important;padding:8px 18px!important}
+.big-input::placeholder{letter-spacing:.02em;text-transform:none;font-weight:600;font-size:1.05rem;color:var(--muted);opacity:1}
+
+/* ---- hero ---- */
+.hero{background-color:var(--stage);background-image:linear-gradient(var(--stage-grid) 1px,transparent 1px),linear-gradient(90deg,var(--stage-grid) 1px,transparent 1px);background-size:56px 56px;
+  color:var(--stage-ink);border-radius:0 0 36px 36px;padding:36px 0 44px;position:relative;overflow:hidden}
+.hero-grid{display:grid;gap:28px;align-items:center}
+@media (min-width:900px){.hero{padding:56px 0 64px}.hero-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgb(154 123 255 / .26);border:1px solid rgb(154 123 255 / .6);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.9rem;margin:0 0 14px}
+.eyebrow i{width:10px;height:10px;border-radius:3px;background:var(--mint);display:inline-block}
+.hero h1{font-size:clamp(2.4rem,7.5vw,4.25rem);font-weight:800;letter-spacing:-.025em;margin-bottom:12px}
+.hero .lede{color:var(--stage-muted);font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:34rem;margin-bottom:22px}
+.hero .lede kbd{background:var(--stage-2);border-color:var(--blue);color:#fff}
+.finder{max-width:36rem}
+.finder .label{color:var(--stage-muted);display:block;margin-bottom:6px}
+.input-row{display:flex;gap:10px;flex-wrap:wrap}
+.input-row input{flex:1 1 220px;min-width:0}
+.hero .input-row input{background:var(--stage-2);color:var(--stage-ink);border-color:var(--blue);box-shadow:0 0 0 4px rgb(77 141 255 / .28)}
+.hero .input-row input::placeholder{color:var(--stage-muted)}
+.hero .input-row input:focus{border-color:#fff}
+.input-row .btn{flex:0 0 auto}
+@media (max-width:420px){.input-row .btn{flex:1 1 100%}}
+.rack{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 4px;min-height:48px}
+.rack .tile{--ts:44px}
+.rack .tile.pop{animation:pop .28s ease-out both}
+.try{margin:14px 0 0;font-size:.95rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.try button{font:800 .9rem/1 var(--display);letter-spacing:.08em;background:transparent;color:#fff;border:2px solid var(--blue);border-radius:999px;padding:0 14px;min-height:44px;cursor:pointer}
+.try button:hover{background:var(--blue);color:var(--tile-ink)}
+.facts{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.95rem}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts li::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--mint);flex:none}
+.facts li:nth-child(2)::before{background:var(--sun)}.facts li:nth-child(3)::before{background:var(--coral)}
+/* pile of tiles (decorative) */
+.pile{position:relative;display:flex;flex-wrap:nowrap;gap:6px;justify-content:flex-start;order:-1}
+.pile .tile{--ts:46px;animation:drop .55s cubic-bezier(.2,.8,.3,1.2) both;transform:rotate(var(--r,0deg))}
+.pile .tile:nth-child(1){--r:-8deg}.pile .tile:nth-child(2){--r:5deg;animation-delay:.06s}.pile .tile:nth-child(3){--r:-4deg;animation-delay:.12s}
+.pile .tile:nth-child(4){--r:7deg;animation-delay:.18s}.pile .tile:nth-child(5){--r:-6deg;animation-delay:.24s}.pile .tile:nth-child(6){--r:4deg;animation-delay:.3s}
+.pile .tile:nth-child(n+7){display:none}
+@media (min-width:900px){
+  .pile{order:0;display:grid;grid-template-columns:repeat(3,auto);gap:14px;justify-content:center;transform:rotate(-4deg)}
+  .pile .tile{--ts:92px}
+  .pile .tile:nth-child(even){margin-top:22px}
+  .pile .tile:nth-child(n+7){display:grid}
+  .pile .tile:nth-child(7){--r:-5deg;animation-delay:.36s}.pile .tile:nth-child(8){--r:6deg;animation-delay:.42s}.pile .tile:nth-child(9){--r:-3deg;animation-delay:.48s}
+}
+@media (min-width:900px){.pile::before{content:"";position:absolute;inset:-12% -8%;background:radial-gradient(closest-side,rgb(77 141 255 / .38),transparent);z-index:-1}}
+@keyframes drop{from{opacity:0;transform:translateY(-28px) rotate(calc(var(--r,0deg) - 10deg))}to{opacity:1;transform:translateY(0) rotate(var(--r,0deg))}}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---- sections ---- */
+.section{padding:48px 0 8px}
+@media (min-width:768px){.section{padding:72px 0 12px}}
+.section h2{font-size:clamp(1.6rem,3.6vw,2.25rem);margin-bottom:8px}
+.section-lede{color:var(--muted);max-width:40rem;margin-bottom:24px}
+.cats{list-style:none;margin:0;padding:0;display:grid;gap:14px;grid-template-columns:1fr}
+@media (min-width:600px){.cats{grid-template-columns:repeat(2,1fr)}.cats li:last-child{grid-column:1/-1}}
+@media (min-width:960px){.cats{grid-template-columns:repeat(6,1fr)}.cats li{grid-column:span 2}.cats li:nth-child(n+4){grid-column:span 3}.cats li:last-child{grid-column:span 3}}
+.cat{position:relative;display:flex;flex-direction:column;gap:10px;padding:20px;border-radius:24px;background:var(--c);color:var(--tile-ink);border:2px solid transparent;box-shadow:var(--shadow);transition:transform .15s ease}
+.cat:hover{transform:translateY(-3px)}
+.cat .top{display:flex;align-items:center;gap:14px}
+.cat h3{font-size:1.5rem}
+.cat h3 a{color:inherit;text-decoration:none}
+.cat h3 a::after{content:"";position:absolute;inset:0;border-radius:24px}
+.cat h3 a:focus-visible{outline:none}
+.cat:has(h3 a:focus-visible){outline:3px solid var(--focus);outline-offset:3px}
+.cat p{margin:0;font-size:1rem}
+.mini{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.mini li{background:rgb(255 255 255 / .72);color:var(--tile-ink);border-radius:999px;padding:3px 12px;font-size:.88rem;font-weight:700}
+.go{margin-top:auto;font:800 .95rem var(--display)}
+.tools{list-style:none;margin:0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr))}
+.tool{display:flex;gap:12px;align-items:flex-start;height:100%;padding:14px;border-radius:18px;background:var(--surface);border:2px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .15s ease,border-color .15s ease}
+.tool:hover{transform:translateY(-2px);border-color:var(--outline)}
+.tool strong{display:block;font:800 1.02rem/1.25 var(--display)}
+.tool small{display:block;color:var(--muted);font-size:.86rem;line-height:1.35;margin-top:2px}
+.az{list-style:none;margin:0;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fill,minmax(56px,1fr))}
+.az a{display:grid;justify-items:center;gap:2px;padding:8px 0 6px;border-radius:14px;background:var(--surface);border:2px solid var(--line);color:var(--ink);text-decoration:none;font:800 1.5rem/1 var(--display);text-transform:uppercase;transition:transform .15s ease,background .15s ease}
+.az a small{font:700 .75rem/1.2 var(--text);color:var(--muted)}
+.az a:hover{background:var(--blue);color:var(--tile-ink);border-color:var(--blue);transform:translateY(-2px)}
+.az a:hover small{color:var(--tile-ink)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px;counter-reset:s}
+@media (min-width:768px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{display:flex;gap:14px;align-items:flex-start;background:var(--surface-2);border-radius:20px;padding:18px}
+.steps h3{font-size:1.15rem;margin-bottom:4px}.steps p{margin:0;font-size:.98rem;color:var(--muted)}
+.guides{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+@media (min-width:768px){.guides{grid-template-columns:repeat(3,1fr)}}
+.guides li{position:relative;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:18px;border-top:8px solid var(--tile-violet)}
+.guides li:nth-child(2){border-top-color:var(--tile-blue)}.guides li:nth-child(3){border-top-color:var(--mint)}
+.guides h3{font-size:1.15rem;margin-bottom:6px}.guides h3 a{color:var(--ink);text-decoration:none}.guides h3 a::after{content:"";position:absolute;inset:0}
+.guides li:hover{border-color:var(--outline)}
+.guides p{margin:0;color:var(--muted);font-size:.96rem}
+.more-link{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;font-weight:800}
+
+/* ---- ad slots (containers only; hidden until AdSense is approved) ---- */
+.ad-slot{display:block;min-height:var(--ad-h);margin:44px 0;text-align:center;contain:layout style}
+.ad-slot[hidden]{display:none}
+.ad-label{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.ad-slot__inner{min-height:calc(var(--ad-h) - 24px);border:2px dashed var(--line);border-radius:14px;display:grid;place-items:center;color:var(--muted);font-size:.85rem}
+
+/* ---- tool page ---- */
+.crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:4px;margin:18px 0 14px;padding:0;font-size:.9rem;color:var(--muted)}
+.crumbs li+li::before{content:"›";margin-right:4px}.crumbs a{color:var(--muted)}
+.layout{display:grid;gap:28px;padding-bottom:56px}
+@media (min-width:1000px){.layout{grid-template-columns:minmax(0,1fr) 300px}}
+.content{min-width:0}
+.panel{background:var(--surface);border:2px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:20px}
+@media (min-width:640px){.panel{padding:28px}}
+.tool-card{border-top:10px solid var(--blue)}
+.tool-card h1{font-size:clamp(1.9rem,5vw,2.6rem);margin-bottom:8px}
+.tool-card .input-row input{box-shadow:none}
+.tool-card .input-row input:focus{border-color:var(--ink)}
+.lede{color:var(--muted);font-size:1.1rem;max-width:40rem}
+.tool-form{display:grid;gap:14px;margin-top:18px}
+.tool-form .rack{margin:2px 0 0}
+.tool-form .rack .tile{--ts:clamp(34px,calc((100vw - 112px) / 7),46px)}
+.tool-form .rack .tile.ghost{box-shadow:inset 0 0 0 2px var(--line)}
+.filters{border:2px solid var(--line);border-radius:18px;padding:4px 16px;background:var(--surface-2)}
+.filters summary{cursor:pointer;font-weight:800;min-height:44px;display:flex;align-items:center;font-family:var(--display)}
+.filters[open] summary{margin-bottom:6px}
+.filter-grid{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr));padding:4px 0 12px}
+@media (min-width:640px){.filter-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.actions{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:center;justify-content:space-between;padding:0 0 12px}
+.results{margin-top:20px}
+.results-head{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;margin-bottom:16px}
+.results-head h2{font-size:1.35rem}
+.results-head h2 small{display:block;font:600 .9rem var(--text);color:var(--muted);margin-top:2px}
+.seg{margin:0;padding:0;min-width:0;display:inline-flex;border:2px solid var(--outline);border-radius:14px;overflow:hidden}
+.seg label{position:relative;display:block}
+.seg input{position:absolute;opacity:0;inset:0;cursor:pointer;margin:0}
+.seg span{display:flex;align-items:center;min-height:44px;padding:0 14px;font-weight:800;font-size:.9rem}
+.seg input:checked+span{background:var(--blue);color:var(--tile-ink)}
+.seg label:has(input:focus-visible){outline:3px solid var(--focus);outline-offset:2px}
+.group{margin-bottom:22px}
+.group h3{font-size:1.05rem;display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.count{font:800 .8rem var(--text);background:var(--surface-2);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{animation:rise .25s ease-out both}
+.chip{--g:var(--wood);display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 6px 0 14px;border-radius:14px;border:2px solid var(--line);border-bottom:4px solid var(--g);background:var(--surface);color:var(--ink);cursor:pointer;font:800 1.02rem/1 var(--display);letter-spacing:.05em;text-transform:uppercase;transition:transform .12s ease}
+.chip:hover{transform:translateY(-2px);border-color:var(--outline);border-bottom-color:var(--g)}
+.chip .cp{display:grid;place-items:center;min-width:26px;height:26px;padding:0 6px;border-radius:9px;background:var(--g);color:var(--tile-ink);font:800 .8rem/1 var(--text);letter-spacing:0}
+.chip.bingo{background:var(--coral);border-color:var(--coral);color:var(--tile-ink);border-bottom-color:rgb(10 16 48 / .35)}
+.chip.bingo .cp{background:#fff}
+.g7{--g:var(--coral)}.g6{--g:var(--sun)}.g5{--g:var(--mint)}.g4{--g:var(--tile-blue)}.g3{--g:var(--tile-violet)}
+.more{margin-top:8px}
+.empty{background:var(--surface-2);border-radius:16px;padding:18px;color:var(--muted);margin:0}
+.prose{margin-top:32px}
+.prose h2{font-size:1.5rem;margin:28px 0 10px}
+.prose ol,.prose ul{padding-left:22px}.prose li{margin:6px 0}
+.prose code{font:700 .92em var(--display);background:var(--surface-2);padding:1px 6px;border-radius:6px}
+.faq-item{border-bottom:2px solid var(--line)}
+.faq-item summary{cursor:pointer;font:800 1.05rem var(--display);min-height:48px;display:flex;align-items:center;padding:6px 0}
+.faq-item[open] summary{color:var(--link)}
+.faq-a{padding-bottom:12px;color:var(--ink)}
+.sidebar{display:grid;gap:18px;align-content:start}
+.sidebar h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:10px;font-family:var(--text);font-weight:800}
+.sidebar .panel{padding:18px;border-radius:22px}
+.sidebar ul{list-style:none;margin:0;padding:0}
+.sidebar .nav-list a{display:flex;align-items:center;gap:10px;min-height:44px;padding:4px 0;color:var(--ink);text-decoration:none;font-weight:700;border-bottom:1px solid var(--line)}
+.sidebar .nav-list li:last-child a{border-bottom:0}
+.sidebar .nav-list a:hover{color:var(--link)}
+.sidebar .nav-list a[aria-current="page"]{color:var(--link)}
+.sidebar .tile{--ts:30px}
+.values{display:grid;grid-template-columns:repeat(auto-fill,minmax(46px,1fr));gap:6px}
+.values span{display:flex;justify-content:center;align-items:baseline;gap:2px;background:var(--surface-2);border-radius:10px;padding:4px 0;font:800 .95rem var(--display);text-transform:uppercase}
+.values b{font:700 .75rem var(--text);color:var(--muted)}
+.tip p{margin:0;font-size:.98rem}
+.ad-slot.in-sidebar{margin:0}
+/* definition dialog */
+dialog.define{width:min(520px,calc(100vw - 32px));border:0;border-radius:26px;padding:0;background:var(--surface);color:var(--ink);box-shadow:0 24px 70px rgb(0 0 0 / .4)}
+dialog.define::backdrop{background:rgb(5 8 28 / .7)}
+.define header{display:flex;align-items:center;gap:12px;padding:18px 20px 12px}
+.define .word{display:flex;gap:4px;flex-wrap:wrap}
+.define .word .tile{--ts:38px}
+.define .pts{margin:0 20px;color:var(--muted);font-weight:700}
+.define .body{padding:10px 20px 20px}
+.define .close{margin-left:auto}
+
+/* ---- footer ---- */
+.footer{background:var(--stage);color:var(--stage-muted);margin-top:56px;padding:40px 0 44px;border-radius:36px 36px 0 0;font-size:.95rem}
+.footer a{color:#fff}
+.footer .brand{color:#fff;margin-bottom:10px}
+.footer .cols{list-style:none;display:flex;flex-wrap:wrap;gap:4px 22px;margin:0 0 14px;padding:0}
+.footer .cols a{display:inline-block;padding:10px 0;text-decoration:none;min-height:44px}
+.footer .cols a:hover{text-decoration:underline}
+.footer .legal{border-top:1px solid var(--stage-line);padding-top:10px}
+.footer .fine{font-size:.85rem;color:#B9C4F2}
+.footer .mail{font-weight:800}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:12px;font-weight:700}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body data-page="tilefinder">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead masthead--solo">
+  <div class="wrap">
+    <a class="brand" href="home-mockup-v2.html"><span class="tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="siteNav"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="site-nav" id="siteNav" aria-label="Word tools">
+      <ul>
+        <li><a href="home-mockup-v2.html">Word Unscrambler</a></li>
+        <li><a href="/word-scrambler">Word Scrambler</a></li>
+        <li><a href="/word-combiner">Word Combiner</a></li>
+        <li><a href="tool-mockup-v2.html" aria-current="page">Tile Game Word Finder</a></li>
+        <li class="has-dd"><details id="moreMenu"><summary>More Word Games<span class="caret" aria-hidden="true"></span></summary><div class="dd"><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></details></li>
+      </ul>
+    </nav>
+    <button class="icon-btn theme-btn" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+
+<div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="home-mockup-v2.html">Home</a></li><li><span aria-current="page">Word Finder for Tile Games</span></li></ol></nav>
+  <div class="layout">
+  <main class="content" id="main">
+    <div class="panel tool-card">
+      <h1>Word Finder for Tile Games</h1>
+      <p class="lede">Enter your rack to see every word you can make, ranked by points. Add letters already on the board to find words that build through them.</p>
+      <form class="tool-form" id="form" autocomplete="off" aria-label="Find words from your rack">
+        <div class="field"><label class="label" for="rack">Your rack</label>
+          <div class="input-row"><input class="big-input" id="rack" type="text" maxlength="9" value="AEINRST" placeholder="Up to 7 letters, ? for blanks" aria-describedby="rackHint" required><button class="btn" type="submit">Find words</button></div></div>
+        <div class="rack" id="rackPreview" data-slots="7" data-v="aeinrst" aria-hidden="true"><span class="tile c-coral ">A<sup>1</sup></span><span class="tile c-violet ">E<sup>1</sup></span><span class="tile c-blue ">I<sup>1</sup></span><span class="tile c-blue ">N<sup>1</sup></span><span class="tile c-mint ">R<sup>1</sup></span><span class="tile c-blue ">S<sup>1</sup></span><span class="tile c-violet ">T<sup>1</sup></span></div>
+        <p class="sr-only" id="rackHint">Up to 7 letters, plus up to 2 question marks for blank tiles.</p>
+        <details class="filters" id="adv">
+          <summary>Advanced filters</summary>
+          <div class="filter-grid">
+            <label class="field"><span>Starts with</span><input type="text" id="starts" maxlength="8" autocapitalize="off"></label>
+            <label class="field"><span>Ends with</span><input type="text" id="ends" maxlength="8" autocapitalize="off"></label>
+            <label class="field"><span>Contains</span><input type="text" id="contains" maxlength="8" autocapitalize="off"></label>
+            <label class="field"><span>Length</span><select id="len"><option value="">Any</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option></select></label>
+          </div>
+          <div class="actions"><label class="check"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label><button class="btn secondary small" type="reset" id="reset">Clear filters</button></div>
+        </details>
+      </form>
+      <section class="results" aria-labelledby="res-h">
+        <div class="results-head">
+          <h2 id="res-h"><span id="resCount">237 words</span> <small id="resSub">from AEINRST · mockup data</small></h2>
+          <fieldset class="seg" aria-label="Sort results" id="sortSeg"><legend class="sr-only">Sort results</legend>
+            <label><input type="radio" name="sort" value="score" checked><span>Highest score first</span></label>
+            <label><input type="radio" name="sort" value="len"><span>Grouped by length</span></label>
+          </fieldset>
+        </div>
+        <div id="results" aria-live="polite"></div>
+      </section>
+    </div>
+
+    <article class="prose">
+      <p>This finder is for crossword-style tile games where you hold a rack of up to seven letters. Type your rack, with <kbd>?</kbd> for a blank, and it lists every word your tiles can make, highest score first, using the letter values commonly used in Scrabble-style games. Scores are base tile values: the finder can't see your board's bonus squares, so use the list to spot options and the board to choose between them.</p>
+      <h2>How to use it</h2>
+      <ol>
+        <li>Type your rack in <b>Your rack</b>, up to 7 letters. Use <kbd>?</kbd> for each blank tile.</li>
+        <li>Optionally narrow by start, end, contents or length under <b>Advanced filters</b>.</li>
+        <li>Press <b>Find words</b>. Switch the view between “Highest score first” and “Grouped by length”.</li>
+        <li>Tap a word for its points and an optional definition.</li>
+      </ol>
+      <div class="ad-slot" data-ad-slot="tool-in-article" hidden><span class="ad-label">Advertisement</span><div class="ad-slot__inner"></div></div>
+      <h2>Reading the results</h2>
+      <p>Each chip shows the word and its base score. The coloured edge shows its length: <code>7</code> letters coral, <code>6</code> sunshine, <code>5</code> mint, <code>4</code> blue and <code>3</code> violet. Words that use all seven tiles are filled in coral.</p>
+      <section class="faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">Frequently asked questions</h2>
+        <details class="faq-item"><summary>How do blank tiles work?</summary><div class="faq-a"><p>Type a ? for each blank. A blank can stand for any letter. The tool uses your real letters first.</p></div></details>
+        <details class="faq-item"><summary>Why is a word I expected missing?</summary><div class="faq-a"><p>Each game uses its own dictionary. This tool uses the open ENABLE word list.</p></div></details>
+      </section>
+    </article>
+  </main>
+  <aside class="sidebar" id="sidebar" aria-label="More on Letterpile">
+    <section class="panel"><h2>Word tools</h2><ul class="nav-list"><li><a href="/"><span class="tile c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="tile c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="tile c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="tool-mockup-v2.html" aria-current="page"><span class="tile c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="tile c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="tile c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="tile c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="tile c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="tile c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="tile c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul></section>
+    <div class="ad-slot in-sidebar" data-ad-slot="tool-sidebar" hidden><span class="ad-label">Advertisement</span><div class="ad-slot__inner"></div></div>
+    <section class="panel"><h2>Letter values</h2><div class="values"><span>a<b>1</b></span><span>b<b>3</b></span><span>c<b>3</b></span><span>d<b>2</b></span><span>e<b>1</b></span><span>f<b>4</b></span><span>g<b>2</b></span><span>h<b>4</b></span><span>i<b>1</b></span><span>j<b>8</b></span><span>k<b>5</b></span><span>l<b>1</b></span><span>m<b>3</b></span><span>n<b>1</b></span><span>o<b>1</b></span><span>p<b>3</b></span><span>q<b>10</b></span><span>r<b>1</b></span><span>s<b>1</b></span><span>t<b>1</b></span><span>u<b>1</b></span><span>v<b>4</b></span><span>w<b>4</b></span><span>x<b>8</b></span><span>y<b>4</b></span><span>z<b>10</b></span></div></section>
+    <section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>
+  </aside>
+  </div>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="home-mockup-v2.html"><span class="tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p>Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><ul class="cols"><li><a href="/">Word Unscrambler</a></li><li><a href="/word-scrambler">Word Scrambler</a></li><li><a href="/word-combiner">Word Combiner</a></li><li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li><li><a href="/words-with-friends">Words With Friends Finder</a></li><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/anagram-solver">Anagram Solver</a></li><li><a href="/jumble-solver">Jumble Solver</a></li><li><a href="/crossword-solver">Crossword Solver</a></li><li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li></ul></nav>
+    <nav aria-label="About this site"><ul class="cols legal"><li><a href="/guides">Guides</a></li><li><a href="/words-by-length">Word Lists</a></li><li><a href="/about">About</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms">Terms of Use</a></li><li><a href="/sitemap">Site Map</a></li></ul></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>).</p>
+    <p class="fine">[Existing trademark disclaimer paragraph stays here unchanged: Scrabble®, Wordle™ and Words With Friends are trademarks of their owners; Letterpile is not affiliated with any of them.]</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><div class="word" id="defineWord" role="heading" aria-level="2"></div><button class="icon-btn close" type="button" id="defineClose" aria-label="Close"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 18 18"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></header>
+  <p class="pts" id="definePts"></p>
+  <div class="body"><p class="hint">In the ENABLE word list. Definitions come from a third-party dictionary service; looking one up sends the word to it.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button> <p id="defineResult" aria-live="polite"></p></div>
+</dialog>
+<script>
+(function(){
+  var V={a:1,b:3,c:3,d:2,e:1,f:4,g:2,h:4,i:1,j:8,k:5,l:1,m:3,n:1,o:1,p:3,q:10,r:1,s:1,t:1,u:1,v:4,w:4,x:8,y:4,z:10};
+  var COL=["coral","sun","mint","blue","violet"];
+  var root=document.documentElement;
+  /* theme toggle: follows the system until the visitor picks one */
+  var tb=document.getElementById("themeToggle");
+  var mq=window.matchMedia("(prefers-color-scheme: dark)");
+  function isDark(){var t=root.dataset.theme;return t?t==="dark":mq.matches}
+  function sync(){if(tb){tb.setAttribute("aria-pressed",isDark()?"true":"false")}}
+  if(tb){sync();tb.addEventListener("click",function(){var n=isDark()?"light":"dark";root.dataset.theme=n;try{localStorage.setItem("theme",n)}catch(e){}sync()})}
+  /* mobile menu */
+  var nt=document.getElementById("navToggle"),nav=document.getElementById("siteNav");
+  if(nt&&nav){nt.addEventListener("click",function(){var o=nav.classList.toggle("open");nt.setAttribute("aria-expanded",o)})}
+  var dd=document.getElementById("moreMenu");
+  if(dd){document.addEventListener("click",function(e){if(!dd.contains(e.target))dd.open=false});dd.addEventListener("keydown",function(e){if(e.key==="Escape"){dd.open=false;dd.querySelector("summary").focus()}})}
+  /* ad slots stay hidden; ?ads=preview shows the placeholders so layout can be checked */
+  if(/[?&]ads=preview/.test(location.search)){document.querySelectorAll(".ad-slot").forEach(function(s){s.hidden=false;var i=s.querySelector(".ad-slot__inner");if(i)i.textContent=s.dataset.adSlot+" (placeholder)"})}
+  /* letter-tile rack preview */
+  window.LP={V:V,COL:COL,tile:function(ch,cls){var t=document.createElement("span");t.className="tile "+(cls||"");
+      if(ch==="?"){t.className+=" blank";t.textContent="?"}else{t.className+=" c-"+COL[(ch.charCodeAt(0)-97)%5];t.textContent=ch;var s=document.createElement("sup");s.textContent=V[ch];t.appendChild(s)}return t},
+    rack:function(el,val,slots,animate){var prev=el.dataset.v||"";el.textContent="";var n=0;
+      for(var i=0;i<val.length;i++){var t=LP.tile(val[i]);if(animate&&i>=prev.length)t.className+=" pop";el.appendChild(t);n++}
+      for(;n<slots;n++){var g=document.createElement("span");g.className="tile ghost";g.textContent="·";el.appendChild(g)}
+      el.dataset.v=val}};
+  var inp=document.getElementById("letters")||document.getElementById("rack");
+  var rk=document.getElementById("rackPreview");
+  if(inp&&rk){var slots=+rk.dataset.slots||0;
+    var clean=function(v){return v.toLowerCase().replace(/[^a-z?*_]/g,"").replace(/[*_]/g,"?")};
+    var upd=function(anim){LP.rack(rk,clean(inp.value),slots,anim)};upd(false);
+    inp.addEventListener("input",function(){upd(true)});
+    document.querySelectorAll("[data-fill]").forEach(function(b){b.addEventListener("click",function(){inp.value=b.dataset.fill;rk.dataset.v="";upd(true);inp.focus()})})}
+})();
+
+(function(){
+  var WORDS="ain ains air airest airn airns airs airt airts ais ait aits ane anes anestri ani anis anise ant ante antes anti antis antre antres ants antsier are ares arise arisen ars arse arsine art arts aster astern astir ate ates ear earn earns ears east eat eats ens entia era eras ern erns ers erst estrin eta etas etna etnas inert inerts ins insert inset instar inter inters irate ire ires its nae nares naris nastier nates near nears neat neats neist nerts nest net nets nit nite niter niters nites nitre nitres nits rain rains raise ran rani ranis rant rants ras rase rat rate rates ratine ratines rats rei rein reins reis rent rents res resin rest ret retain retains retia retina retinas rets retsina ria riant rias rin rins rinse rise risen rite rites sae sain saint sane saner santir sari sarin sat sate sati satin satire sea sear seat sei sen sent senti ser sera serai serin set seta sin sine sinter sir sire siren sit sitar site snare snit sri stain stainer stair stane star stare stearin stein stern sterna stir strain stria striae tae tain tains tan tans tar tare tares tarn tarns tars tarsi tas tea tear tears teas ten tenia tenias tens terai terais tern terns tie tier tiers ties tin tine tinea tineas tines tins tire tires tis tisane train trains trans triens tries trine trines tsar".split(" ");
+  var V=LP.V,cap=60,expanded=false;
+  var data=WORDS.map(function(w){var s=0;for(var i=0;i<w.length;i++)s+=V[w[i]];return{w:w,s:s,n:w.length}});
+  data.sort(function(a,b){return b.s-a.s||(a.w<b.w?-1:1)});
+  var $=function(i){return document.getElementById(i)};
+  var out=$("results");
+  function chip(d,i){var li=document.createElement("li");var b=document.createElement("button");b.type="button";b.className="chip g"+d.n+(d.n===7?" bingo":"");b.dataset.w=d.w;
+    b.innerHTML="<span>"+d.w+"</span><span class=\"cp\">"+d.s+"<span class=\"sr-only\"> points</span></span>"+(d.n===7?"<span class=\"sr-only\">, uses all seven tiles</span>":"");
+    li.style.animationDelay=Math.min(i,24)*12+"ms";li.appendChild(b);return li}
+  function filtered(){var s=$("starts").value.toLowerCase(),e=$("ends").value.toLowerCase(),c=$("contains").value.toLowerCase(),l=$("len").value;
+    return data.filter(function(d){return(!s||d.w.indexOf(s)===0)&&(!e||d.w.slice(-e.length)===e)&&(!c||d.w.indexOf(c)>-1)&&(!l||d.n==+l)})}
+  function render(){var list=filtered(),mode=document.querySelector("input[name=sort]:checked").value;out.textContent="";
+    $("resCount").textContent=list.length+(list.length===1?" word":" words");
+    if(!list.length){var p=document.createElement("p");p.className="empty";p.textContent="No words match these filters. Try removing one.";out.appendChild(p);return}
+    if(mode==="score"){var ul=document.createElement("ul");ul.className="chips";var shown=expanded?list:list.slice(0,cap);shown.forEach(function(d,i){ul.appendChild(chip(d,i))});out.appendChild(ul);
+      if(list.length>cap&&!expanded){var b=document.createElement("button");b.type="button";b.className="btn secondary small more";b.textContent="Show all "+list.length+" words";b.onclick=function(){expanded=true;render();ul.querySelector("button").focus()};out.appendChild(b)}}
+    else{for(var n=7;n>=3;n--){var g=list.filter(function(d){return d.n===n});if(!g.length)continue;var sec=document.createElement("section");sec.className="group";
+      var h=document.createElement("h3");h.innerHTML=n+" letters <span class=\"count\">"+g.length+"</span>";sec.appendChild(h);var u=document.createElement("ul");u.className="chips";g.forEach(function(d,i){u.appendChild(chip(d,i))});sec.appendChild(u);out.appendChild(sec)}}}
+  ["starts","ends","contains","len"].forEach(function(i){$(i).addEventListener("input",function(){expanded=false;render()})});
+  document.querySelectorAll("input[name=sort]").forEach(function(r){r.addEventListener("change",render)});
+  $("form").addEventListener("submit",function(e){e.preventDefault();render()});
+  $("form").addEventListener("reset",function(){setTimeout(function(){expanded=false;render()})});
+  /* dialog */
+  var dlg=$("defineDialog");
+  out.addEventListener("click",function(e){var b=e.target.closest(".chip");if(!b)return;var w=b.dataset.w,s=0,t=$("defineWord");t.textContent="";
+    for(var i=0;i<w.length;i++){t.appendChild(LP.tile(w[i]));s+=V[w[i]]}t.setAttribute("aria-label",w.toUpperCase());
+    $("definePts").textContent=s+" points (base tile values)";$("defineResult").textContent="";dlg.showModal()});
+  $("defineClose").addEventListener("click",function(){dlg.close()});
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+  $("defineLookup").addEventListener("click",function(){$("defineResult").textContent="Mockup only: no lookup is made."});
+  var adv=$("adv");if(window.matchMedia("(min-width:900px)").matches)adv.open=true;
+  render();
+})();
+</script>
+</body>
+</html>
