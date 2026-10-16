@@ -1,6 +1,6 @@
 # Letterpile: notes for Claude Code
 
-**Read `docs/STATUS.md` first** (current phase, what's done, how to resume).
+**Read `HANDOVER.md` first** (current state, live build, rules, gotchas), then `docs/STATUS.md`.
 
 ## Purpose
 Live static site https://letterpile.app: ten in-browser word-game tools (unscrambler, scrambler,

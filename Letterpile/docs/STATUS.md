@@ -1,8 +1,8 @@
 # Status
 
-**All three phases complete, plus the "Tile Table, Night Edition" visual refresh** (branch `claude/letterpile-refresh`, committed locally, not pushed). Nothing has been deployed. Start with `docs/FINAL-REPORT.md`, then `docs/BEE-TODO.md` and `docs/DEPLOY.md`.
+**Live at https://letterpile.app from branch `claude/letterpile-refresh`** (Phases 1 to 3, the "Tile Table, Night Edition" refresh and dark-by-default; checked 16 October 2026). `main` is the old baseline and is not merged. The owner deploys; see `HANDOVER.md` for the current state, then `docs/FINAL-REPORT.md`, `docs/BEE-TODO.md` and `docs/DEPLOY.md`.
 
-Branch: `claude/new-session-9zuiol` in `NZ-EVONY/websites` (folder `Letterpile/`). Rollback tag: `live-before-upgrade` (commit `25944fa`). The tag exists in the cloud session but **could not be pushed** (git proxy refused tag pushes); create it locally with `git tag live-before-upgrade 25944fa`.
+Rollback tag: `live-before-upgrade` (on GitHub, pointing to the baseline commit `97cedeb`). The repo history was rewritten by the owner in October 2026, so older commit ids in these docs no longer exist.
 
 ## How to resume
 1. Read `CLAUDE.md`, this file, `docs/DECISIONS.md`, `docs/UNVERIFIED.md`.
