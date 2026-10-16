@@ -9,7 +9,7 @@ export default function footer({ nav, site, year }) {
   <div class="wrap">
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>${esc(site.brand)}</a>
     <p class="tagline">Free word-game helpers, from ${esc(site.operatorName)} in ${esc(site.country)}.</p>
-    <nav aria-label="All word tools"><div class="cols">${[...nav.main, ...nav.more].map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("")}</div></nav>
+    <nav aria-label="All word tools"><div class="cols">${[...(nav.games ? [nav.games] : []), ...nav.main, ...nav.more].map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("")}</div></nav>
     <nav aria-label="About this site"><div class="cols legal">${nav.legal.map(n => `<a href="${n.href}">${esc(n.label)}</a>`).join("")}
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>

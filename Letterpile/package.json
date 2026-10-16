@@ -20,7 +20,9 @@
     "check:deploy": "node scripts/check-deploy.mjs",
     "measure:longtasks": "node scripts/measure-longtasks.mjs",
     "build:ads-preview": "node scripts/build.mjs --ads-preview --out reports/ads-preview",
-    "check:contrast": "node scripts/build.mjs && node scripts/contrast.mjs"
+    "check:contrast": "node scripts/build.mjs && node scripts/contrast.mjs",
+    "games:generate": "node scripts/games/generate.mjs",
+    "games:check": "node scripts/games/check.mjs"
   },
   "devDependencies": {
     "axe-core": "4.13.0",

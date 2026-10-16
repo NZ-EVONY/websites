@@ -1,4 +1,9 @@
 {
+  "games": {
+    "href": "/games",
+    "label": "Daily Games",
+    "key": "games"
+  },
   "main": [
     {
       "href": "/",
@@ -17,15 +22,15 @@
       "label": "Word Combiner",
       "key": "combiner",
       "icon": "+"
-    },
+    }
+  ],
+  "more": [
     {
       "href": "/scrabble-word-finder",
       "label": "Tile Game Word Finder",
       "key": "scrabble",
       "icon": "Q"
-    }
-  ],
-  "more": [
+    },
     {
       "href": "/words-with-friends",
       "label": "Words With Friends Finder",

@@ -27,6 +27,9 @@ export default function layout(page, ctx) {
   }
   scripts.push(`<script src="${assets["site.js"]}" defer></script>`);
   if (page.script) scripts.push(`<script src="${assets[`js/${page.script}.js`]}" defer></script>`);
+  // Daily games: the shared core, then each game script (src/assets/games/). The hub uses hub.js; the
+  // home page's "Today's puzzles" band uses the much smaller games/band.js, without the core.
+  if (page.games?.length) scripts.push(...(page.games.includes("band") ? [] : [`<script src="${assets["games/core.js"]}" defer></script>`]), ...page.games.map(g => `<script src="${assets[`games/${g}.js`]}" defer></script>`));
 
   // Ad slots are placed with <!--@slot NAME--> markers in the copy; "before-faq" is added
   // automatically above the FAQ when the copy has no marker for it.
@@ -73,7 +76,22 @@ export default function layout(page, ctx) {
     </div>
   </div>
 </main>` : "";
-  const main = page.type === "tool"
+  // Game pages: the board panel (title, date, countdown, rollover banner, game) is full width,
+  // with no sidebar; the how-to-play copy follows.
+  const gameMain = page.type === "game" ? `<div class="panel game-card" id="game" data-game="${page.game}">
+        <div class="game-head">
+          <h1 class="page-title">${esc(page.h1)}</h1>
+          <p class="game-meta"><span data-game-date>Today's puzzle</span><span class="sep" aria-hidden="true">·</span><span>Next puzzle in <time data-countdown>--:--:--</time></span></p>
+        </div>
+        <div class="game-banner" data-rollover role="status" hidden><span>New puzzles are available.</span> <button type="button" class="btn small" data-refresh>Refresh</button></div>
+        ${page.tool}
+      </div>
+      <article class="prose">
+        ${fill(page.prose)}
+        ${faq}
+        ${related}
+      </article>` : "";
+  const main = page.type === "game" ? gameMain : page.type === "tool"
     ? `<div class="panel tool-card">
         <h1 class="page-title">${esc(page.h1)}</h1>
         ${page.lede ? `<p class="lede">${page.lede}</p>` : ""}
@@ -111,7 +129,7 @@ ${page.noindex ? `<meta name="robots" content="noindex, follow">\n` : ""}<meta p
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>${HEAD_SCRIPT}</script>
 <link rel="stylesheet" href="${assets["style.css"]}">
-${cmpSlot()}
+${page.games?.length ? `<link rel="stylesheet" href="${assets["games/games.css"]}">\n` : ""}${cmpSlot()}
 ${adsenseSlot()}
 ${jsonld({ page, site })}
 ${scripts.join("\n")}
@@ -119,7 +137,12 @@ ${scripts.join("\n")}
 <body data-page="${esc(page.key)}"${page.scheme ? ` data-scheme="${page.scheme}"` : ""}>
 <a class="skip" href="#main">Skip to content</a>
 ${header({ navHtml: nav({ nav: ctx.nav, page }) })}
-${page.hero ? heroMain : `<div class="layout wrap">
+${page.hero ? heroMain : page.type === "game" ? `<div class="wrap game-layout">
+  <main class="content" id="main">
+    ${breadcrumbs(page.crumbs)}
+    ${main}
+  </main>
+</div>` : `<div class="layout wrap">
   <main class="content" id="main">
     ${breadcrumbs(page.crumbs)}
     ${main}

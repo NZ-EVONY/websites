@@ -2,6 +2,7 @@
 // The tool sits in the navy hero; home-extras adds the category cards, tool grid, A-Z tiles,
 // how-it-works steps and guide cards between the results and the copy.
 import homeExtras from "../../src/templates/partials/home-extras.mjs";
+import { gameCards } from "../../src/templates/partials/game-cards.mjs";
 import { tile } from "../../src/templates/partials/util.mjs";
 import guideUnscramblers from "./guides/how-word-unscramblers-work.mjs";
 import guideWordle from "./guides/wordle-strategy.mjs";
@@ -102,7 +103,13 @@ export default ctx => {
       facts: [`${fmt(ctx.total)} words in the open ENABLE list`, "Letters stay in your browser", `${ctx.nav.main.length + ctx.nav.more.length} tools, all free`],
       pile: `<div class="pile" aria-hidden="true">${[["W", "c-coral"], ["O", "c-sun"], ["R", "c-blue"], ["D", "c-mint"], ["S", "c-violet"], ["Z", "c-wood"], ["E", "c-sun"], ["A", "c-coral"], ["Q", "c-blue"]].map(([l, c]) => tile(l, { color: c, value: Engine.SCHEMES.scrabble.values[l.toLowerCase()] })).join("")}</div>`,
     },
-    extras: homeExtras({ ctx, guides: [guideUnscramblers, guideWordle, guideQ].map(g => g(ctx)) }),
+    games: ["band"],
+    extras: `<section class="section home-games" aria-labelledby="games-h">
+      <h2 id="games-h">Today's puzzles</h2>
+      <p class="section-lede">Four free daily games, new at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
+      ${gameCards()}
+    </section>
+    ` + homeExtras({ ctx, guides: [guideUnscramblers, guideWordle, guideQ].map(g => g(ctx)) }),
     sidebar: `<section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>`,
   };
 };

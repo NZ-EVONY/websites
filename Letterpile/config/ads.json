@@ -49,6 +49,14 @@
     "utility": {
       "enabled": false,
       "slots": []
+    },
+    "game": {
+      "enabled": false,
+      "slots": []
+    },
+    "games": {
+      "enabled": false,
+      "slots": []
     }
   }
 }

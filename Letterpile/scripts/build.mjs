@@ -13,6 +13,7 @@ import { WORDLIST_NOTE, TRADEMARKS } from "../src/templates/partials/footer.mjs"
 import { buildTree, renamedPaths, WINDOWS_RESERVED } from "./pagegen.mjs";
 import { renderNode } from "../content/programmatic.mjs";
 import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
+import { buildGames } from "./games/publish.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
 // Options: --dev (dashed ad placeholders), --ads-preview (slots on every page type that has
@@ -72,7 +73,8 @@ assets["words.js"] = wordsName;
 // ---------- static assets (content-hashed names) ----------
 
 const SRC = path.join(ROOT, "src/assets");
-const assetFiles = ["style.css", "engine.js", "site.js", "worker.js", ...fs.readdirSync(path.join(SRC, "js")).filter(f => f.endsWith(".js")).map(f => `js/${f}`)];
+const assetFiles = ["style.css", "engine.js", "site.js", "worker.js", ...fs.readdirSync(path.join(SRC, "js")).filter(f => f.endsWith(".js")).map(f => `js/${f}`),
+  ...fs.readdirSync(path.join(SRC, "games")).filter(f => /\.(js|css)$/.test(f)).map(f => `games/${f}`)];
 for (const rel of assetFiles) {
   const buf = fs.readFileSync(path.join(SRC, rel));
   const ext = path.extname(rel);
@@ -81,6 +83,11 @@ for (const rel of assetFiles) {
   assets[rel] = name;
 }
 write("favicon.svg", `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="6" fill="#f3dfb4"/><rect x="2" y="26" width="28" height="4" rx="2" fill="#d7bd86"/><text x="16" y="23" font-family="monospace" font-weight="800" font-size="20" text-anchor="middle" fill="#3a2e18">L</text></svg>\n`);
+// ---------- daily games (content/games -> /puzzles; see GAMES.md) ----------
+
+const games = buildGames({ root: ROOT, write, hash, words: data });
+assets["games/guesses.json"] = games.guessesName;
+
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
 
 // ---------- page context ----------
@@ -139,7 +146,7 @@ const finderForm = () => `<form class="tool-form" id="form" autocomplete="off">
 
 const sortWords = ws => ws.slice().sort((a, b) => b.length - a.length || a.localeCompare(b));
 const ctx = {
-  site, nav, assets, esc, fmt, list, longDate, year: new Date().getUTCFullYear(),
+  site, nav, assets, games, esc, fmt, list, longDate, year: new Date().getUTCFullYear(),
   total: data.words.length, byLength: data.byLength, blockedCount: data.blocked.length,
   clean: data.clean, cleanSet: new Set(data.clean), Engine, code: asCode, today,
   WORDLIST_NOTE, TRADEMARKS, showAllToggle, finderForm, valuesTable, valueDiffTable, assertWords, assertNotWords,
@@ -309,6 +316,9 @@ write("_headers", `# Cloudflare static-asset headers (max 100 rules, 2,000 chara
 
 /data/*
   Cache-Control: public, max-age=31536000, immutable
+
+/puzzles/*
+  Cache-Control: public, max-age=300
 `);
 
 // Redirects from natural URLs that had to be renamed for Windows (e.g. /words-starting-with/con).

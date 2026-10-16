@@ -15,16 +15,16 @@
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.26d7d2dd48.css">
+<link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Words With Friends Word Finder","url":"https://letterpile.app/words-with-friends","description":"Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do these letter values come from?","acceptedAnswer":{"@type":"Answer","text":"They are the values commonly reported for the game, not taken from an official source. Check the values shown in your game, as they may change."}},{"@type":"Question","name":"Why is the all-tiles bonus 35 and not 50?","acceptedAnswer":{"@type":"Answer","text":"35 points is the bonus commonly reported for Words With Friends. Other tile games commonly use 50. Check your game's rules."}},{"@type":"Question","name":"Will the game accept every word listed?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The game has its own dictionary, and Letterpile uses the open ENABLE word list. Use the results as suggestions and let the game confirm them."}},{"@type":"Question","name":"Do the scores include double and triple squares?","acceptedAnswer":{"@type":"Answer","text":"No. The finder can't see your board, so scores are base tile values plus the all-tiles bonus."}},{"@type":"Question","name":"Can I search for words that use a letter on the board?","acceptedAnswer":{"@type":"Answer","text":"Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Words With Friends Word Finder","item":"https://letterpile.app/words-with-friends"}]}]}</script>
-<script src="/assets/engine.be6821e486.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.3d6414c67f.js" defer></script>
-<script src="/assets/site.0ee2323a15.js" defer></script>
-<script src="/assets/js/finder.b399da8e2c.js" defer></script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/js/finder.6ce1fa94be.js" defer></script>
 </head>
 <body data-page="wwf" data-scheme="wwf">
 <a class="skip" href="#main">Skip to content</a>
@@ -34,14 +34,15 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
     <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
     <nav class="navbar" id="navbar" aria-label="Word tools">
   <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
     <li><a href="/">Word Unscrambler</a></li>
     <li><a href="/word-scrambler">Word Scrambler</a></li>
     <li><a href="/word-combiner">Word Combiner</a></li>
-    <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
     <li class="has-dropdown">
       <details id="moreMenu" class="active">
         <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
         <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
           <li><a href="/words-with-friends" aria-current="page">Words With Friends Finder</a></li>
           <li><a href="/wordle-solver">Wordle Solver</a></li>
           <li><a href="/anagram-solver">Anagram Solver</a></li>
@@ -155,7 +156,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
     <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
-    <nav aria-label="All word tools"><div class="cols"><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
     <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>

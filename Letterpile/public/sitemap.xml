@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://letterpile.app/about</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://letterpile.app/about</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/anagram-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/contact</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/crossword-solver</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/games/word</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://letterpile.app/guides/anagram-basics</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/high-value-letters-j-q-x-z</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/how-word-unscramblers-work</loc><lastmod>2026-10-01</lastmod></url>
@@ -15,9 +16,9 @@
   <url><loc>https://letterpile.app/guides/wordle-strategy</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-with-q-without-u</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-without-vowels</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://letterpile.app/</loc><lastmod>2026-10-02</lastmod></url>
+  <url><loc>https://letterpile.app/</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://letterpile.app/jumble-solver</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://letterpile.app/privacy-policy</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/privacy-policy</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://letterpile.app/scrabble-word-finder</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/terms</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/text-twist-solver</loc><lastmod>2026-10-01</lastmod></url>
@@ -719,6 +720,7 @@
   <url><loc>https://letterpile.app/words-ending-in/ment</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-ending-in/ous</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-ending-in/ish</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/games</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://letterpile.app/guides/hooks-prefixes-and-suffixes</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/sitemap</loc><lastmod>2026-10-01</lastmod></url>

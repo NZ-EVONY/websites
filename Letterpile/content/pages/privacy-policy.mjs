@@ -20,6 +20,7 @@ export default ctx => ({
   <li><b>localStorage, <code>theme</code></b>: whether you chose the light or dark theme.</li>
   <li><b>localStorage, <code>showAll</code></b>: whether you turned on “Show all words” in the tools.</li>
   <li><b>sessionStorage, <code>wordle</code></b>: the guesses you entered in the Wordle Solver, kept until you close the tab.</li>
+  <li><b>localStorage, keys starting <code>lp-game:</code></b>: your progress, times and completion for each <a href="/games">daily game</a> and day, and your Daily Word statistics (games played, wins, streaks and guess distribution), so a reload doesn't lose them.</li>
 </ul>
 <p>You can clear these at any time in your browser settings.</p>
 

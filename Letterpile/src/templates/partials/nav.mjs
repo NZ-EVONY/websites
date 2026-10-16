@@ -1,6 +1,6 @@
 // Main navigation with the "More Word Games" dropdown. The dropdown is a native
 // <details> element, so it works without JavaScript; site.js only closes it on
-// outside click and Escape.
+// outside click and Escape. "Daily Games" comes first, styled as its own pill.
 import { esc } from "./util.mjs";
 
 export default function nav({ nav, page }) {
@@ -8,6 +8,7 @@ export default function nav({ nav, page }) {
   const inMore = nav.more.some(n => n.key === page.key);
   return `<nav class="navbar" id="navbar" aria-label="Word tools">
   <ul class="nav-main">
+    ${nav.games ? `<li><a class="nav-games" href="${nav.games.href}"${page.key === nav.games.key || page.section === nav.games.key ? ' aria-current="page"' : ""}>${esc(nav.games.label)}</a></li>` : ""}
     ${nav.main.map(n => `<li><a href="${n.href}"${cur(n)}>${esc(n.label)}</a></li>`).join("\n    ")}
     <li class="has-dropdown">
       <details id="moreMenu"${inMore ? ' class="active"' : ""}>

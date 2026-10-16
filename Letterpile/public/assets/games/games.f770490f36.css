@@ -1,0 +1,91 @@
+/* Letterpile daily games. Loaded only on the games pages and the home page (after style.css),
+   using its tokens: the Night Edition palette, tiles and panels. */
+
+/* ---------- page frame ---------- */
+.game-layout { padding: 24px 16px 56px; }
+.game-layout .content { max-width: 1080px; margin: 0 auto; }
+.game-card { border-top: 10px solid var(--mint); padding: 22px; }
+.game-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; margin-bottom: 12px; }
+.game-head .page-title { margin: 0; }
+.game-meta { margin: 0; color: var(--muted); font-size: .95rem; display: flex; flex-wrap: wrap; gap: 0 8px; }
+.game-meta time { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); }
+.game-banner { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 0 0 14px; padding: 10px 14px; border-radius: 16px; background: var(--surface-2); border: 2px solid var(--outline); font-weight: 700; }
+.game-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; margin-bottom: 12px; min-height: 44px; }
+.game-msg { font-weight: 700; min-height: 1.6em; }
+.game-tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.game-timer { font: 800 1.1rem/1 var(--font-display); font-variant-numeric: tabular-nums; min-width: 4.5ch; }
+.come-back { text-align: center; padding: 32px 8px; }
+.come-back .big { font: 800 1.8rem/1.2 var(--font-display); margin: 0 0 8px; }
+.game-done { margin-top: 16px; padding: 16px; border-radius: 18px; background: var(--surface-2); border: 2px solid var(--line); }
+.game-done h2 { margin: 0 0 6px; font-size: 1.4rem; }
+.game-done p { margin: 0 0 12px; }
+
+/* ---------- hub cards and archive ---------- */
+.game-cards { list-style: none; margin: 18px 0 8px; padding: 0; display: grid; gap: 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+.game-tile { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 22px; background: var(--c); color: var(--tile-ink); border: 2px solid transparent; box-shadow: var(--shadow); transition: transform .15s ease; }
+.game-tile:hover { transform: translateY(-2px); }
+.game-tile .top { display: flex; align-items: center; gap: 12px; }
+.game-tile h2, .game-tile h3 { margin: 0; font-size: 1.3rem; }
+.game-tile a { color: inherit; text-decoration: none; }
+.game-tile a::after { content: ""; position: absolute; inset: 0; border-radius: 22px; }
+.game-tile a:focus-visible { outline: none; }
+.game-tile:has(a:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }
+.game-tile p { margin: 0; font-size: .98rem; }
+.game-tile .game-status { margin-top: auto; font-weight: 800; font-size: .9rem; }
+.game-tile[data-state="solved"] .game-status::before, .game-tile[data-state="lost"] .game-status::before { content: ""; }
+:root:not([data-theme="light"]) .game-tile { background: var(--surface); color: var(--text); border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 12px 28px -12px var(--c); }
+:root[data-theme="dark"] .game-tile { background: var(--surface); color: var(--text); border-color: var(--c); box-shadow: 0 0 0 1px var(--c), 0 12px 28px -12px var(--c); }
+:root[data-theme="light"] .game-tile { background: var(--c); color: var(--tile-ink); border-color: transparent; box-shadow: var(--shadow); }
+.game-archive { display: grid; gap: 4px 24px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.game-archive h3 { margin: 12px 0 4px; font-size: 1.05rem; }
+.game-archive ul { margin: 0; padding-left: 1.1em; }
+.game-archive li { margin: 2px 0; }
+.home-games .section-lede time { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--text); }
+
+/* ---------- Daily Word ---------- */
+.word-game { max-width: 520px; margin: 0 auto; }
+.dw-board { display: grid; gap: 6px; justify-content: center; margin: 4px 0 16px; }
+.dw-row { display: grid; grid-template-columns: repeat(5, var(--dw, 58px)); gap: 6px; }
+.dw-tile { display: grid; place-items: center; height: var(--dw, 58px); border-radius: 12px; border: 2px solid var(--line); background: var(--surface); color: var(--text); font: 800 calc(var(--dw, 58px) * .5)/1 var(--font-display); text-transform: uppercase; position: relative; }
+.dw-tile.filled { border-color: var(--field); animation: pop .12s ease-out; }
+.dw-tile.m-g, .dw-tile.m-y, .dw-tile.m-b { color: #fff; border-color: transparent; box-shadow: inset 0 -3px 0 rgb(0 0 0 / .2); }
+.dw-tile.m-b { background: #5A5F78; }
+.dw-tile.m-y { background: #8a6a00; }
+.dw-tile.m-g { background: #2e6b3a; }
+.dw-tile.m-y::after, .dw-tile.m-g::after { position: absolute; right: 5px; top: 3px; font-size: 13px; line-height: 1; }
+.dw-tile.m-y::after { content: "•"; }
+.dw-tile.m-g::after { content: "✓"; }
+.dw-row.reveal .dw-tile { animation: flip .4s ease both; }
+.dw-row.reveal .dw-tile:nth-child(2) { animation-delay: .08s; } .dw-row.reveal .dw-tile:nth-child(3) { animation-delay: .16s; }
+.dw-row.reveal .dw-tile:nth-child(4) { animation-delay: .24s; } .dw-row.reveal .dw-tile:nth-child(5) { animation-delay: .32s; }
+.dw-row.shake { animation: shake .35s ease; }
+@keyframes flip { 0% { transform: rotateX(0); } 50% { transform: rotateX(90deg); } 100% { transform: rotateX(0); } }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes pop { from { transform: scale(.9); } to { transform: scale(1); } }
+.wkeys { display: grid; gap: 6px; user-select: none; }
+.krow { display: flex; gap: 5px; justify-content: center; }
+.key { flex: 1 1 0; max-width: 46px; min-width: 0; min-height: 54px; padding: 0; border: 0; border-radius: 10px; background: var(--surface-2); color: var(--text); font: 800 1.05rem/1 var(--font-display); text-transform: uppercase; cursor: pointer; box-shadow: inset 0 -3px 0 rgb(0 0 0 / .15); touch-action: manipulation; }
+.key.wide { flex: 1.6 1 0; max-width: 74px; font-size: .85rem; }
+.key:active { transform: translateY(2px); }
+.key.m-g, .key.m-y, .key.m-b { color: #fff; }
+.key.m-g { background: #2e6b3a; } .key.m-y { background: #8a6a00; } .key.m-b { background: #5A5F78; opacity: .75; }
+/* Phones: size the tiles so the board and keyboard fit on one screen below the title. */
+@media (max-width: 600px) {
+  .word-game { --dw: clamp(38px, min(calc((100vw - 96px) / 5), calc((100svh - 520px) / 6)), 56px); }
+  .game-layout { padding-top: 12px; }
+  .game-card { padding: 16px 12px; }
+  .krow { gap: 4px; } .key { min-height: 50px; font-size: .95rem; }
+}
+
+.word-stats { margin-top: 18px; padding: 16px; border-radius: 18px; background: var(--surface-2); border: 2px solid var(--line); }
+.word-stats h2 { margin: 0 0 10px; font-size: 1.3rem; }
+.word-stats h3 { margin: 14px 0 6px; font-size: 1rem; }
+.stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 0; text-align: center; }
+.stat-row dt { font-size: .78rem; color: var(--muted); font-weight: 700; order: 2; }
+.stat-row div { display: flex; flex-direction: column; }
+.stat-row dd { margin: 0; font: 800 1.6rem/1.1 var(--font-display); }
+.dist { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 4px; }
+.dist li { display: flex; align-items: center; gap: 8px; }
+.dist .n { width: 1ch; font-weight: 800; }
+.dist .bar { width: var(--w, 8%); min-width: 2em; padding: 2px 8px; text-align: right; border-radius: 6px; background: #5A5F78; color: #fff; font-weight: 800; font-size: .9rem; }
+.dist .bar.now { background: #2e6b3a; }
