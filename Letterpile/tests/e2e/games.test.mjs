@@ -110,3 +110,50 @@ test("Daily Sudoku: notes, conflict highlight, undo, reload keeps progress, win"
     }
   });
 });
+
+test("Daily Word Search: drag, tap-tap and keyboard selection, reload keeps progress, win", { skip }, async () => {
+  const p = puzzle("wordsearch");
+  const DIRS = [[0, 1], [1, 0], [1, 1], [-1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1]];
+  const ends = w => { const n = w.w.replace(/ /g, "").length - 1; const [dr, dc] = DIRS[w.d]; return [w.r * 20 + w.c, (w.r + dr * n) * 20 + w.c + dc * n]; };
+  await withBrowser(async (browser, base) => {
+    for (const width of WIDTHS) {
+      const { ctx, page, errors } = await openPage(browser, base, "/games/wordsearch", width);
+      await page.waitForSelector("#game[data-ready]");
+      const center = async i => { const b = await page.locator(`.ws-cell[data-i="${i}"]`).boundingBox(); return [b.x + b.width / 2, b.y + b.height / 2]; };
+      const found = () => page.locator(".ws-words li.found").count();
+      // A wrong selection is rejected.
+      await page.locator('.ws-cell[data-i="0"]').click();
+      await page.locator('.ws-cell[data-i="1"]').click();
+      const half = Math.floor(p.words.length / 2);
+      for (const [n, w] of p.words.entries()) {
+        if (n === half) {
+          await page.reload();
+          await page.waitForSelector("#game[data-ready]");
+          assert.equal(await found(), half, "found words survive a reload");
+        }
+        const [a, b] = ends(w);
+        if (n === 0) {
+          // Keyboard: focus the grid, move from cell 0 to the start, Enter, move to the end, Enter.
+          await page.focus("#wsGrid");
+          const press = async (k, times) => { for (let t = 0; t < times; t++) await page.keyboard.press(k); };
+          const go = async (from, to) => { await press(to % 20 > from % 20 ? "ArrowRight" : "ArrowLeft", Math.abs(to % 20 - from % 20)); await press(to > from ? "ArrowDown" : "ArrowUp", Math.abs(Math.floor(to / 20) - Math.floor(from / 20))); };
+          await go(0, a); await page.keyboard.press("Enter"); await go(a, b); await page.keyboard.press("Enter");
+        } else if (n % 2) {
+          await page.evaluate(() => document.getElementById("wsGrid").scrollIntoView({ block: "center" }));
+          const [x1, y1] = await center(a), [x2, y2] = await center(b);
+          await page.mouse.move(x1, y1); await page.mouse.down(); await page.mouse.move(x2, y2, { steps: 6 }); await page.mouse.up();
+        } else {
+          await page.locator(`.ws-cell[data-i="${a}"]`).click();
+          await page.locator(`.ws-cell[data-i="${b}"]`).click();
+        }
+        assert.equal(await found(), n + 1, `found "${w.w}"`);
+      }
+      await page.waitForSelector("#wsDone:not([hidden])");
+      await page.screenshot({ path: path.join(SHOTS, `wordsearch-${width}.png`) });
+      await page.click("#wsShare");
+      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Word Search #\d+: .+\nFound all \d+ words in /);
+      assert.deepEqual(errors, []);
+      await ctx.close();
+    }
+  });
+});

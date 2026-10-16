@@ -22,5 +22,5 @@ export const TEMPLATE_PAGES = [
   "/words-by-length", "/words-starting-with", "/words-ending-in",
   "/words-by-length/5-letter-words", "/words-by-length/7-letter-words/s", "/words-starting-with/q", "/words-ending-in/ness",
   "/about", "/contact", "/privacy-policy", "/terms", "/sitemap", "/no-such-page",
-  "/games", "/games/word", "/games/sudoku",
+  "/games", "/games/word", "/games/sudoku", "/games/wordsearch",
 ];

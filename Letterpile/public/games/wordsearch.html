@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Word Search: A New Theme Every Day | Letterpile</title>
+<meta name="description" content="A free daily word search: find 25 to 30 themed words hidden in a 20×20 grid, across, down, diagonally and backwards. New theme every day.">
+<link rel="canonical" href="https://letterpile.app/games/wordsearch">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Daily Word Search: A New Theme Every Day | Letterpile">
+<meta property="og:description" content="A free daily word search: find 25 to 30 themed words hidden in a 20×20 grid, across, down, diagonally and backwards. New theme every day.">
+<meta property="og:url" content="https://letterpile.app/games/wordsearch">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
+<link rel="stylesheet" href="/assets/games/games.3c9a53998f.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the puzzle change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC, with a new theme. The countdown above the grid shows how long is left."}},{"@type":"Question","name":"Do words go backwards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Words can run in all eight directions, including right to left, bottom to top and diagonally backwards."}},{"@type":"Question","name":"Can a word be hidden twice?","acceptedAnswer":{"@type":"Answer","text":"No. Each puzzle is checked so that every word on the list appears exactly once."}},{"@type":"Question","name":"The letters are small on my phone. What can I do?","acceptedAnswer":{"@type":"Answer","text":"Use Zoom in above the grid. The letters get larger and the grid scrolls; tap the first and last letters of a word to select it."}},{"@type":"Question","name":"Can I play an earlier puzzle?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Daily Games page links to the last seven days' puzzles."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Word Search","item":"https://letterpile.app/games/wordsearch"}]}]}</script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/games/core.8fffef66cb.js" defer></script>
+<script src="/assets/games/wordsearch.81fdc2aeff.js" defer></script>
+</head>
+<body data-page="game-wordsearch">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games" aria-current="page">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="wrap game-layout">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/games">Daily Games</a></li><li><span aria-current="page">Daily Word Search</span></li></ol></nav>
+    <div class="panel game-card" id="game" data-game="wordsearch">
+        <div class="game-head">
+          <h1 class="page-title">Daily Word Search</h1>
+          <p class="game-meta"><span data-game-date>Today's puzzle</span><span class="sep" aria-hidden="true">·</span><span>Next puzzle in <time data-countdown>--:--:--</time></span></p>
+        </div>
+        <div class="game-banner" data-rollover role="status" hidden><span>New puzzles are available.</span> <button type="button" class="btn small" data-refresh>Refresh</button></div>
+        <div class="ws-game">
+          <div class="game-bar"><span class="game-msg" id="wsMsg" role="status" aria-live="polite">Loading today's puzzle…</span><span class="game-tools"><span class="pill" id="wsCount"></span><span class="game-timer" id="wsTimer" aria-label="Time">0:00</span><button type="button" class="btn secondary small" id="wsZoom" aria-pressed="false">Zoom in</button></span></div>
+          <p class="ws-theme" id="wsTheme"></p>
+          <div class="ws-wrap" id="wsWrap">
+            <div class="ws-grid" id="wsGrid" tabindex="0" role="application" aria-roledescription="word search grid" aria-label="Word search grid. Drag across a word, or tap its first and last letters. With a keyboard, move with the arrow keys and press Enter at the first and last letters."></div>
+          </div>
+          <h2 class="ws-list-title">Words to find</h2>
+          <ul class="ws-words" id="wsWords"></ul>
+          <div class="game-done" id="wsDone" hidden><h2>All found!</h2><p id="wsDoneText"></p><button type="button" class="btn" id="wsShare">Share result</button></div>
+        </div>
+      </div>
+      <article class="prose">
+        <h2>How to play</h2>
+<p>Every day brings a new theme and a 20×20 grid of letters with 25 to 30 words from that theme hidden in it. Words run in straight lines in any of the eight directions: left to right, right to left, up, down and along both diagonals, forwards or backwards. Words often cross and share letters.</p>
+<ul>
+<li><b>Drag</b> from the first letter of a word to the last, with a mouse or a finger. The selection snaps to the nearest straight line.</li>
+<li><b>Or tap</b> the first letter, then the last letter. Tap the first letter again to cancel.</li>
+<li><b>With a keyboard</b>, select the grid, move with the arrow keys and press Enter or Space on the first and last letters.</li>
+</ul>
+<p>A found word is crossed off the list and stays highlighted in the grid. Words made of two words, like OVEN MITT, are hidden without the space. On a small screen, <b>Zoom in</b> makes the letters larger; scroll the grid and tap the first and last letters to select.</p>
+<h2>How the puzzles are made</h2>
+<p>Each puzzle is generated from a hand-written theme list and checked before it goes on the site: every word in the list appears in the grid exactly once, the words between them use all eight directions, and the filler letters are checked so that no rude word turns up by accident. A theme isn't repeated within five weeks.</p>
+<p>Your found words and time are saved in this browser, so you can stop and come back later. The timer pauses while the page is hidden.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>When does the puzzle change?</summary><div class="faq-a">Every day at 00:00 UTC, with a new theme. The countdown above the grid shows how long is left.</div></details>
+        <details class="faq-item"><summary>Do words go backwards?</summary><div class="faq-a">Yes. Words can run in all eight directions, including right to left, bottom to top and diagonally backwards.</div></details>
+        <details class="faq-item"><summary>Can a word be hidden twice?</summary><div class="faq-a">No. Each puzzle is checked so that every word on the list appears exactly once.</div></details>
+        <details class="faq-item"><summary>The letters are small on my phone. What can I do?</summary><div class="faq-a">Use Zoom in above the grid. The letters get larger and the grid scrolls; tap the first and last letters of a word to select it.</div></details>
+        <details class="faq-item"><summary>Can I play an earlier puzzle?</summary><div class="faq-a">Yes, the <a href="/games">Daily Games</a> page links to the last seven days' puzzles.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/games">All daily games</a></li><li><a href="/games/word">Daily Word</a></li><li><a href="/word-scrambler">Word Scrambler</a></li></ul>
+      </section>
+      </article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

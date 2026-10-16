@@ -1,0 +1,133 @@
+# Daily Word Search themes. "## Theme name" starts a theme; the words follow (25-30 are used
+# each day). Letters only; join words with _ (oven_mitt shows as OVEN MITT). Words of 4 to 20
+# letters. scripts/games/wordsearch.mjs checks every theme: at least 32 words, at least 6 of 8+
+# letters, no word inside another (forwards or backwards), nothing on the blocklist.
+
+## Ocean
+anchor barnacle current dolphin seaweed starfish jellyfish octopus lobster plankton coral reef tide wave whale shark squid oyster mussel kelp lagoon trench sailor harbor seahorse urchin stingray turtle walrus shipwreck submarine voyage driftwood tuna marlin
+
+## In the Kitchen
+spatula whisk ladle colander saucepan skillet blender toaster dishwasher kettle grater peeler rolling_pin apron napkin teapot tongs strainer cleaver cupboard freezer counter faucet dishcloth oven_mitt platter casserole timer measuring_cup sieve funnel mixer fridge
+
+## Birds of New Zealand
+kiwi kakapo takahe pukeko kereru weka morepork fantail kokako bellbird kingfisher saddleback stitchbird albatross penguin gannet oystercatcher godwit dotterel falcon harrier tomtit robin silvereye warbler rifleman shearwater petrel heron bittern swallow kaki
+
+## In the Garden
+shovel trowel compost seedling sprinkler wheelbarrow hedge lawnmower rake greenhouse trellis bulb daisy tulip fern pansy marigold sunflower lavender snail earthworm ladybug bumblebee mulch weeding watering_can gnome birdbath orchard hose glove seeds pots
+
+## Weather
+thunder lightning rainbow drizzle blizzard hurricane tornado cyclone forecast humidity sunshine cloudy breeze gust hail sleet frost mist monsoon drought heatwave snowflake temperature barometer puddle umbrella overcast storm squall downpour climate weathervane chilly
+
+## Outer Space
+galaxy nebula comet asteroid meteor planet orbit rocket astronaut telescope satellite eclipse gravity universe saturn jupiter neptune mercury venus mars pluto crater lunar solar cosmos quasar spaceship launch capsule constellation shuttle alien supernova
+
+## Fruit Bowl
+apple banana cherry lemon lime mango orange papaya peach pear plum kiwifruit apricot avocado blueberry cranberry coconut feijoa grapefruit guava lychee mandarin nectarine passionfruit persimmon raspberry strawberry tangerine watermelon quince fig date olive
+
+## Vegetable Patch
+carrot potato onion garlic cabbage lettuce spinach broccoli cauliflower pumpkin zucchini cucumber celery radish turnip parsnip beetroot asparagus artichoke eggplant capsicum leek kale corn squash shallot sprouts kumara silverbeet watercress rhubarb okra chard
+
+## Musical Instruments
+piano guitar violin cello trumpet trombone flute clarinet saxophone harp drum cymbal tuba oboe bassoon banjo ukulele harmonica accordion xylophone tambourine triangle bagpipes mandolin keyboard organ recorder bugle maracas glockenspiel synthesizer cornet sitar
+
+## Sports Day
+soccer rugby cricket tennis netball hockey basketball baseball softball volleyball badminton golf swimming rowing cycling athletics archery fencing boxing wrestling karate sailing surfing skiing diving marathon javelin hurdles relay triathlon gymnastics bowling lacrosse
+
+## Going Camping
+tent sleeping_bag lantern campfire compass backpack canteen flashlight hammock marshmallow kindling firewood tarp stove trail hiking cooler ranger cabin canoe paddle bug_spray binoculars pocketknife matches blanket pillow wilderness campsite starlight headlamp map_reading
+
+## On the Farm
+tractor barn silo paddock fence goat chicken rooster duck horse donkey pony haystack harvest plow shearing wool milking dairy pasture scarecrow trough stable windmill farmer gumboots sheepdog alpaca cattle lamb piglet calf
+
+## Creepy Crawlies
+beetle spider butterfly moth caterpillar grasshopper cricket cicada dragonfly ladybug firefly mosquito termite weta centipede millipede scorpion wasp hornet aphid flea earwig mantis slug snail worm cockroach locust tarantula larva cocoon stick_insect
+
+## Dinosaur Dig
+tyrannosaurus triceratops stegosaurus velociraptor brachiosaurus diplodocus pterodactyl ankylosaurus iguanodon allosaurus fossil skeleton bones extinct jurassic cretaceous triassic paleontologist excavate meteor herbivore carnivore predator claw tooth nest swamp volcano museum amber dig_site sediment
+
+## Forest Trees
+maple birch willow pine spruce cedar redwood sequoia cypress elm beech poplar sycamore chestnut walnut hazel magnolia eucalyptus kauri totara rimu pohutukawa kowhai matai juniper hemlock larch aspen alder mahogany baobab acacia rowan linden
+
+## Flower Shop
+rose tulip daisy lily orchid violet iris poppy peony daffodil carnation sunflower lavender marigold jasmine lilac magnolia hydrangea chrysanthemum gardenia hibiscus begonia petunia snapdragon zinnia dahlia camellia freesia geranium bouquet blossom ribbon
+
+## Jobs People Do
+teacher doctor nurse farmer baker builder plumber electrician pilot firefighter librarian dentist chef mechanic carpenter painter scientist engineer lawyer journalist architect veterinarian astronaut gardener musician cashier courier ranger florist surgeon tailor waiter
+
+## Getting Around
+train tram truck bicycle scooter motorcycle airplane helicopter ferry ship yacht canoe kayak subway taxi ambulance tractor skateboard rollerblades hovercraft glider sailboat gondola cable_car monorail rocket wagon caravan minibus trolley jet_ski tandem
+
+## The Human Body
+heart lungs brain liver kidney stomach skeleton muscle skin intestine elbow knee ankle wrist shoulder appendix thumb eyebrow eyelash forehead cheek chin tongue tooth spine skull nerve blood nose throat knuckle collarbone fingernail
+
+## What to Wear
+shirt jacket sweater trousers jeans skirt dress scarf mittens gloves beanie boots sandals sneakers socks pajamas raincoat hoodie vest belt blouse overalls cardigan shorts swimsuit slippers poncho bowtie tuxedo sunhat dungarees turtleneck
+
+## Colors
+orange yellow green blue indigo violet purple pink brown black white gray silver gold turquoise magenta crimson scarlet maroon navy teal lavender beige ivory amber olive emerald sapphire charcoal coral chartreuse aquamarine vermilion
+
+## Sweet Treats
+cookie brownie cupcake muffin pancake waffle pudding custard trifle pavlova meringue fudge toffee caramel lollipop marshmallow donut eclair macaron sundae sorbet gelato tart crumble licorice nougat chocolate cinnamon sprinkles jelly gingerbread shortbread
+
+## Breakfast Table
+cereal porridge toast jam honey marmalade yogurt omelet bacon sausage pancakes waffles croissant bagel muesli granola juice coffee milk eggs hashbrown smoothie banana berries crumpet muffin syrup kippers avocado teapot frittata grapefruit pastry oatmeal
+
+## At the Beach
+beach_ball towel sunscreen umbrella bucket spade sandcastle surfboard bodyboard lifeguard seagull wave tide rockpool snorkel flippers swimsuit sunglasses picnic dune pier boardwalk lighthouse jetty driftwood crab ice_cream sunhat kite paddle seashell pebbles
+
+## Land and Water
+mountain valley canyon glacier volcano island peninsula plateau desert prairie tributary jungle swamp marsh river lake ocean waterfall delta estuary fjord cliff cave beach lagoon reef hill meadow tundra savanna geyser archipelago headland rainforest
+
+## Back to School
+pencil eraser ruler notebook backpack calculator crayon marker scissors glue stapler textbook library classroom teacher student homework recess lunchbox chalkboard whiteboard spelling science history geography math reading lesson desk principal timetable playground
+
+## In the Workshop
+hammer screwdriver wrench pliers drill chisel level sandpaper clamp nail bolt washer toolbox ladder tape_measure spanner mallet crowbar file vise workbench paintbrush roller glue hacksaw sander router plane toolbelt goggles pegboard sawhorse
+
+## Birthday Party
+balloon candles presents wrapping ribbon streamers confetti invitation games music dancing guest costume magician lollies cupcakes juice photo smile laughter friends celebrate surprise birthday banner gift card party_hat candy sparklers pizza goody_bag
+
+## Snowy Winter
+ice frost blizzard snowman sled toboggan skiing skates mittens scarf beanie fireplace cocoa icicle igloo chill parka boots shovel penguin polar reindeer evergreen hibernate cozy frozen avalanche snowshoe earmuffs sleigh hot_chocolate thermal flurry
+
+## Autumn Days
+leaves acorn pumpkin harvest maple squirrel chestnut apple cider scarecrow hayride orchard sweater rake breeze foggy crisp golden amber russet bonfire migration geese mushroom pinecone cranberry gourd thanksgiving rainy chilly hazelnut equinox
+
+## Rainforest
+jaguar toucan parrot sloth monkey gorilla orangutan chimpanzee frog anaconda python iguana leopard macaw butterfly orchid canopy vine liana waterfall river humid tapir ocelot piranha lemur gecko hummingbird mosquito fern understory capybara
+
+## On Safari
+lion elephant giraffe zebra hippo rhino cheetah leopard hyena buffalo antelope gazelle wildebeest warthog meerkat baboon ostrich flamingo vulture crocodile savanna acacia waterhole binoculars tracker herd pride grassland impala kudu jackal mongoose
+
+## Our Pets
+puppy kitten rabbit hamster guinea_pig goldfish parrot budgie turtle tortoise lizard ferret mouse pony horse canary collar leash kennel aquarium cage whiskers paw tail bark purr fetch treat grooming hutch litter_box chinchilla gerbil
+
+## Toys and Games
+puzzle doll teddy kite yoyo marbles blocks robot train jigsaw dominoes chess checkers cards dice boomerang hula_hoop trampoline scooter crayons modeling_clay pinwheel spinning_top bubbles rocking_horse boardgame kazoo juggling skipping_rope tea_set kaleidoscope action_figure
+
+## Baking Day
+flour sugar eggs yeast dough knead whisk mixing_bowl recipe icing frosting sprinkles vanilla cinnamon nutmeg baking_powder biscuit scone bread loaf crust pastry tart muffin rolling_pin apron timer cooling_rack sieve spatula oven_mitt cake_tin
+
+## Science Lab
+beaker flask microscope test_tube pipette magnet battery circuit atom molecule element compound experiment hypothesis observe measure goggles thermometer chemistry physics biology fossil crystal acid laser prism lens gravity energy lab_coat bunsen_burner telescope
+
+## Countries of the World
+canada mexico brazil argentina chile peru france spain italy germany greece norway sweden finland ireland scotland england egypt kenya nigeria morocco india china japan korea vietnam thailand australia fiji samoa tonga switzerland portugal netherlands singapore
+
+## Capital Cities
+wellington canberra london paris berlin madrid rome lisbon dublin oslo stockholm helsinki copenhagen vienna athens cairo nairobi tokyo beijing seoul bangkok hanoi delhi ottawa washington lima santiago brasilia havana moscow warsaw prague amsterdam
+
+## Reptiles and Frogs
+lizard gecko iguana chameleon skink tuatara crocodile alligator turtle tortoise python cobra viper rattlesnake anaconda frog toad salamander newt axolotl tadpole scales basking hatchling shell terrapin komodo slither gila_monster tree_snake caiman bearded_dragon
+
+## Feelings
+happy angry excited nervous proud brave calm cheerful curious grateful hopeful jealous lonely surprised worried relaxed confident joyful bored silly scared thankful content delighted eager gentle kind patient caring amazed hopeless peaceful
+
+## Herbs and Spices
+basil oregano thyme rosemary sage parsley mint coriander dill chives cumin paprika turmeric ginger cinnamon nutmeg cloves cardamom saffron pepper vanilla fennel tarragon marjoram chili garlic mustard anise allspice lemongrass bay_leaf horseradish
+
+## Castles and Knights
+castle knight armor shield sword lance helmet moat drawbridge tower dungeon throne crown king queen princess jester dragon banner horse quest tournament archer catapult battlement courtyard banquet herald squire wizard turret chainmail
+
+## Pirate Ship
+pirate captain parrot treasure chest compass anchor cannon plank deck mast sail flag skull island cutlass eyepatch hook voyage crew galleon gold coins jewels telescope barrel rope cabin storm lookout crows_nest buccaneer shipmate doubloon
