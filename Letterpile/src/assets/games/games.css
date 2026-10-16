@@ -89,3 +89,28 @@
 .dist .n { width: 1ch; font-weight: 800; }
 .dist .bar { width: var(--w, 8%); min-width: 2em; padding: 2px 8px; text-align: right; border-radius: 6px; background: #5A5F78; color: #fff; font-weight: 800; font-size: .9rem; }
 .dist .bar.now { background: #2e6b3a; }
+
+/* ---------- Daily Sudoku ---------- */
+.sudoku-game { max-width: 480px; margin: 0 auto; }
+.pill { display: inline-block; padding: 4px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); font-weight: 800; font-size: .85rem; }
+.pill:empty { display: none; }
+.sd-grid { display: grid; grid-template-rows: repeat(9, 1fr); aspect-ratio: 1; width: 100%; border: 3px solid var(--text); border-radius: 12px; overflow: hidden; background: var(--surface); }
+.sd-row { display: grid; grid-template-columns: repeat(9, 1fr); }
+.sd-cell { position: relative; display: grid; place-items: center; min-width: 0; padding: 0; border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); color: var(--link); font: 700 clamp(1.1rem, 5.4vw, 1.7rem)/1 var(--font-display); cursor: pointer; }
+.sd-cell:nth-child(3n) { border-right: 2px solid var(--text); } .sd-cell:nth-child(9) { border-right: 0; }
+.sd-row:nth-child(3n) .sd-cell { border-bottom: 2px solid var(--text); } .sd-row:nth-child(9) .sd-cell { border-bottom: 0; }
+.sd-cell.given { color: var(--text); font-weight: 800; }
+.sd-cell.peer { background: var(--surface-2); }
+.sd-cell.same { background: rgb(77 141 255 / .28); }
+.sd-cell.sel { background: rgb(77 141 255 / .5); }
+.sd-cell.clash { color: var(--error); background-image: linear-gradient(rgb(255 90 70 / .18), rgb(255 90 70 / .18)); }
+.sd-cell:focus-visible { outline: 3px solid var(--focus); outline-offset: -3px; border-radius: 0; z-index: 1; }
+.sd-notes { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; height: 100%; padding: 2px; font: 600 clamp(.5rem, 2.1vw, .72rem)/1 var(--font-body); color: var(--muted); }
+.sd-notes i { display: grid; place-items: center; font-style: normal; }
+.sd-grid.solved .sd-cell { color: var(--good); }
+.sd-grid.solved .sd-cell.given { color: var(--text); }
+.sd-pad { display: grid; grid-template-columns: repeat(9, 1fr); gap: 5px; margin-top: 14px; }
+.sd-pad .key { max-width: none; min-height: 52px; font-size: 1.3rem; }
+.sd-actions { display: flex; gap: 8px; margin-top: 10px; }
+.sd-actions .btn { flex: 1; padding-left: 8px; padding-right: 8px; }
+.sd-actions #sdNotes[aria-pressed="true"] { background: var(--blue); color: var(--accent-ink); border-color: var(--blue); }

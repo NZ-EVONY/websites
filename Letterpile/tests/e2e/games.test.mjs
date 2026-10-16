@@ -70,3 +70,43 @@ test("games hub: four cards, countdown, today's status, last week's archive", { 
     await ctx.close();
   });
 });
+
+test("Daily Sudoku: notes, conflict highlight, undo, reload keeps progress, win", { skip }, async () => {
+  const p = puzzle("sudoku");
+  const solution = decode(p.s, `sudoku:${today}`);
+  await withBrowser(async (browser, base) => {
+    for (const width of WIDTHS) {
+      const { ctx, page, errors } = await openPage(browser, base, "/games/sudoku", width);
+      await page.waitForSelector("#game[data-ready]");
+      const empty = [...p.givens].map((c, i) => (c === "0" ? i : -1)).filter(i => i >= 0);
+      const cell = i => page.locator(`.sd-cell[data-i="${i}"]`);
+      // Notes: pencil a 1 and a 2 into the first empty square.
+      await cell(empty[0]).click();
+      await page.keyboard.press("n");
+      await page.keyboard.press("1"); await page.keyboard.press("2");
+      assert.match(await cell(empty[0]).getAttribute("aria-label"), /notes 1 2/);
+      await page.keyboard.press("n");
+      // A digit that clashes with a given in the same row is flagged, and undo removes it.
+      const r = Math.floor(empty[0] / 9);
+      const rowGiven = [...Array(9).keys()].map(c => r * 9 + c).find(i => p.givens[i] !== "0");
+      await page.keyboard.press(p.givens[rowGiven]);
+      assert.equal(await cell(empty[0]).evaluate(el => el.classList.contains("clash")), true);
+      await page.click("#sdUndo");
+      assert.match(await cell(empty[0]).getAttribute("aria-label"), /notes 1 2/);
+      // Fill half, reload, check it was kept, then finish (half by keyboard, half by number pad).
+      const half = Math.floor(empty.length / 2);
+      for (const i of empty.slice(0, half)) { await cell(i).click(); await page.keyboard.press(solution[i]); }
+      await page.reload();
+      await page.waitForSelector("#game[data-ready]");
+      assert.equal(await cell(empty[half - 1]).textContent(), solution[empty[half - 1]]);
+      for (const i of empty.slice(half)) { await cell(i).click(); await page.click(`#sdPad [data-digit="${solution[i]}"]`); }
+      await page.waitForSelector("#sdDone:not([hidden])");
+      assert.match(await page.textContent("#sdMsg"), /^Solved in \d+:\d\d\.$/);
+      await page.screenshot({ path: path.join(SHOTS, `sudoku-${width}.png`) });
+      await page.click("#sdShare");
+      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Sudoku #\d+ \((Easy|Medium|Hard)\)\nSolved in /);
+      assert.deepEqual(errors, []);
+      await ctx.close();
+    }
+  });
+});

@@ -2,10 +2,11 @@
 // and optionally validateSet() (checks across dates). Used by the build, games:generate,
 // games:check and the tests.
 import * as word from "./word.mjs";
+import * as sudoku from "./sudoku.mjs";
 import { GAMES, puzzleDates, readPuzzle } from "./util.mjs";
 
 export { GAMES, puzzleDates, readPuzzle };
-export const MODULES = { word };
+export const MODULES = { word, sudoku };
 
 export function validatePuzzle(game, p, ctx) {
   const m = MODULES[game];
