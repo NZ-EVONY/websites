@@ -9,6 +9,9 @@ Licences below were read from the actual licence files (data) or the installed p
 | **ENABLE word list** (enable1), compiled by M. Cooper and Alan Beale | `data/enable1.txt`, 172,823 words, SHA-256 `3f161302…1a89`; see `data/SOURCE.md` | Public domain; the authors ask to be credited as originators and that redistribution of the list not be restricted. Text: `licenses/ENABLE-README.txt` (from the ENABLE2K README), `licenses/ENABLE-LICENSE.txt` | Footer of every page, About, Terms, `/licenses/enable.txt`, header comment of `/data/words.*.js` |
 | **LDNOOBW** English list (List of Dirty, Naughty, Obscene and Otherwise Bad Words) | `data/blocklist.txt`, retrieved from the project's GitHub `master` branch | CC BY 4.0, verified from the repository's `LICENSE` file (`licenses/LDNOOBW-LICENSE-CC-BY-4.0.txt`) and README | About page (credit, licence link, and a statement of the changes made). Changes: only single a–z entries used, simple inflections added, an allowlist of ordinary words (`data/blocklist-allow.txt`) and a short supplement of our own (`data/blocklist-extra.txt`). The resulting hidden-word list ships in `/data/words.*.js` (`WORD_HIDE`). |
 
+| **CMU Pronouncing Dictionary** (cmudict), Carnegie Mellon University | `cmudict.dict` from github.com/cmusphinx/cmudict (master), retrieved October 2026; SHA-256 recorded in the header of `scripts/lexicon/cmudict-enable.txt`. Kept: first pronunciation of the 50,751 words also in the visible ENABLE list (`scripts/tools/vendor-cmudict.mjs`) | BSD-style (2-clause) licence, verified from the repository's `LICENSE` file (`licenses/CMUdict-LICENSE.txt`); redistributions must keep the copyright notice and reproduce it in documentation | Footer of every page, About, `/licenses/cmudict.txt`. Ships as `/data/rhymes.*.json` (Rhyming Words Finder, Syllable Counter) |
+| **SCOWL** common-word levels (see below) | Levels 10-35 only, limited to visible ENABLE words | As below (`licenses/SCOWL-Copyright.txt`) | Footer of every page, About, `/licenses/scowl.txt`, header comment of `/data/common.*.js`. Ships as `/data/common.*.js`, used by the Phase 4 solvers to rank everyday words first |
+
 ## Used by visitors' browsers on request only
 
 | What | Notes |
@@ -16,7 +19,7 @@ Licences below were read from the actual licence files (data) or the installed p
 | Free Dictionary API (`api.dictionaryapi.dev`) | Called from the visitor's browser only when they press "Look up definition". No key. Disclosed in the Privacy Policy and allowed in the CSP `connect-src`. Its terms were not reviewed for this upgrade (see `docs/UNVERIFIED.md`). |
 | Wiktionary, Merriam-Webster | Plain links only. |
 
-## Used by the puzzle generators only (never copied into `public/`)
+## Used by the puzzle generators (and, since Phase 4, levels 10-35 shipped as above)
 
 | What | Version / retrieved | Licence (verified from) | Notes |
 |---|---|---|---|

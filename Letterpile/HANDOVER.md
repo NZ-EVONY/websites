@@ -5,9 +5,10 @@ Facts marked **(checked 16 Oct)** were confirmed against the live site and GitHu
 
 ## 1. What this is
 
-Letterpile is a live static site at **https://letterpile.app**: ten in-browser word-game tools
+Letterpile is a live static site at **https://letterpile.app**: in-browser word-game tools
 (unscrambler, scrambler, combiner, tile-game finder, Words With Friends finder, Wordle, anagram,
-jumble, crossword, Text Twist), 12 guides, four hubs and 694 generated word-list pages, built from
+jumble, crossword, Text Twist; Phase 4 added letter hive, word grid, letter box, multi-board,
+word ladder, hangman, cryptogram, rhyming words and syllable counter, listed in `config/nav.json`), 12 guides, four hubs and 694 generated word-list pages, built from
 the public-domain ENABLE word list. It is run by an independent publisher in New Zealand (always
 say it that way; never use a personal name). Contact: `nz@letterpile.app`. American English.
 

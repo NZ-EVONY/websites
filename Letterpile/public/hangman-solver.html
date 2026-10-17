@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hangman Solver: Matching Words and Best Guess | Letterpile</title>
+<meta name="description" content="Type the hangman pattern and your wrong guesses to list every word that still fits and see which letter to guess next.">
+<link rel="canonical" href="https://letterpile.app/hangman-solver">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Hangman Solver: Matching Words and Best Guess | Letterpile">
+<meta property="og:description" content="Type the hangman pattern and your wrong guesses to list every word that still fits and see which letter to guess next.">
+<meta property="og:url" content="https://letterpile.app/hangman-solver">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.e31aa709a6.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Hangman Solver","url":"https://letterpile.app/hangman-solver","description":"Type the hangman pattern and your wrong guesses to list every word that still fits and see which letter to guess next.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I type a blank?","acceptedAnswer":{"@type":"Answer","text":"Use an underscore or a question mark for each unknown letter. Spaces are ignored, so “_ A _ _ E _” works too."}},{"@type":"Question","name":"How is the best next letter chosen?","acceptedAnswer":{"@type":"Answer","text":"For each letter you haven't tried, the solver counts how many remaining words contain it. The letter in the most words is listed first."}},{"@type":"Question","name":"Why can't a blank be a letter that's already showing?","acceptedAnswer":{"@type":"Answer","text":"In hangman a correct guess reveals every copy of the letter, so any other copy would already be on the board."}},{"@type":"Question","name":"Does it work for phrases?","acceptedAnswer":{"@type":"Answer","text":"Not as a whole. Solve one word at a time, using the same wrong guesses for each word."}},{"@type":"Question","name":"It says no words fit. What now?","acceptedAnswer":{"@type":"Answer","text":"Check the pattern length and the wrong letters. The word may also be a name, a phrase or a word not in the ENABLE list."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Hangman Solver","item":"https://letterpile.app/hangman-solver"}]}]}</script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/js/wt-client.cd3b29cc6a.js" data-core="/assets/js/wordtools.9819c024ad.js" data-worker="/assets/js/tools-worker.c3dbcd03cc.js" data-common="/data/common.3c8018bf5c.js" defer></script>
+<script src="/assets/js/hangman.119742d313.js" defer></script>
+</head>
+<body data-page="hangman">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu" class="active">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+          <li><a href="/letter-hive-solver">Letter Hive Solver</a></li>
+          <li><a href="/word-grid-solver">Word Grid Solver</a></li>
+          <li><a href="/letter-box-solver">Letter Box Solver</a></li>
+          <li><a href="/multi-board-solver">Multi-Board Word Solver</a></li>
+          <li><a href="/word-ladder-solver">Word Ladder Solver</a></li>
+          <li><a href="/hangman-solver" aria-current="page">Hangman Solver</a></li>
+          <li><a href="/cryptogram-solver">Cryptogram Solver</a></li>
+          <li><a href="/rhyming-words">Rhyming Words Finder</a></li>
+          <li><a href="/syllable-counter">Syllable Counter</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Hangman Solver</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Hangman Solver</h1>
+        <p class="lede">Type the word as it stands, with an underscore for each blank, and the letters you've already missed.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row">
+            <label class="field grow2"><span>Pattern</span><input class="big-input" id="pattern" type="text" maxlength="20" placeholder="e.g. _A__E_" required></label>
+            <label class="field"><span>Wrong guesses</span><input class="big-input" id="wrong" type="text" maxlength="26" placeholder="e.g. STO"></label>
+          </div>
+          <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+          <div class="row"><button class="btn" type="submit">Find words</button></div>
+        </form>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Use _ or ? for each blank. Possible words and the best next letters appear here.</p></div>
+      </div>
+      <article class="prose">
+        <p>In hangman, one player thinks of a word and draws a blank for each letter; the other guesses letters one at a time. A right guess fills in every copy of that letter, and a wrong one adds a stroke to the gallows. This solver takes the word as it stands, plus the letters that have already missed, and lists every word in our list that still fits. It also ranks the letters you haven't tried by how many of those words contain them, which is the simplest good way to choose the next guess.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Type the pattern: known letters in place and an underscore (or a question mark) for each blank. <code>_A__E_</code> is a six-letter word with A second and E fifth.</li>
+<li>Type every wrong guess so far, in any order.</li>
+<li>Press <b>Find words</b>. You'll see how many words fit, the best letters to try next, and the words themselves, everyday words first.</li>
+</ol>
+
+<h2>A worked example</h2>
+<p>Say the board shows <code>_A__E_</code> and you've already missed S, T and O. The solver finds 441 words that fit. The best next guess is <code>R</code>, which appears in 265 of them (60%), with <code>D</code> close behind in 253. If <code>R</code> turns out to be the last letter, the field drops to 137 words.</p>
+<h2>Why the rules matter to the search</h2>
+<p>Two hangman rules do a lot of the work. First, a correct guess reveals every copy of the letter, so a blank can't hold a letter that's already showing. With <code>_A__E_</code>, no blank can be another A or E. Second, a missed letter appears nowhere in the word. The solver applies both, which is why it can cut thousands of words down to a few hundred after two or three guesses.</p>
+<h2>Choosing the next letter</h2>
+<p>The ranking counts, for each untried letter, how many remaining words contain it at least once. Guessing the top letter gives you the best chance of a hit, and a hit usually splits the remaining words into much smaller groups depending on where the letter lands. At the very start of a five-letter game, with nothing filled in, 8,564 words are possible and the top letters are <code>S</code>, <code>E</code> and <code>A</code>.</p>
+<p>A cleverer guesser can sometimes do better by picking a letter that splits the words evenly rather than one that's merely common, but the difference is small and the common-letter rule is easy to follow at the table.</p>
+<h2>Tips for setting a hard word</h2>
+<ul>
+<li><b>Short words are harder than long ones.</b> A long word gives away many letters with each hit; a short word with uncommon letters leaves few clues.</li>
+<li><b>Avoid the common letters.</b> Words built from J, X, Z, Y and a single vowel resist the usual E-A-R-S-T opening.</li>
+<li><b>Repeated letters don't help much.</b> One right guess fills in every copy, so a word with three E's is easier, not harder.</li>
+</ul>
+<h2>Limits</h2>
+<p>The solver uses ENABLE, an open word list for word games, so it knows many rare words. That's useful when you're stuck and less useful when your friend picked an everyday word; the everyday words are listed first for that reason. Names, places and phrases aren't in the list. Up to 400 words are shown, and the count covers all of them.</p>
+
+<h2>Privacy</h2>
+<p>The search runs in your browser. The address bar keeps the pattern and misses so you can share the position.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>How do I type a blank?</summary><div class="faq-a">Use an underscore or a question mark for each unknown letter. Spaces are ignored, so “_ A _ _ E _” works too.</div></details>
+        <details class="faq-item"><summary>How is the best next letter chosen?</summary><div class="faq-a">For each letter you haven't tried, the solver counts how many remaining words contain it. The letter in the most words is listed first.</div></details>
+        <details class="faq-item"><summary>Why can't a blank be a letter that's already showing?</summary><div class="faq-a">In hangman a correct guess reveals every copy of the letter, so any other copy would already be on the board.</div></details>
+        <details class="faq-item"><summary>Does it work for phrases?</summary><div class="faq-a">Not as a whole. Solve one word at a time, using the same wrong guesses for each word.</div></details>
+        <details class="faq-item"><summary>It says no words fit. What now?</summary><div class="faq-a">Check the pattern length and the wrong letters. The word may also be a name, a phrase or a word not in the ENABLE list.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/crossword-solver">Crossword Solver</a></li><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/cryptogram-solver">Cryptogram Solver</a></li><li><a href="/words-by-length">Words by length</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-coral" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-sun" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-blue" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-mint" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-violet" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver" aria-current="page"><span class="ico c-coral" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-sun" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-blue" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-mint" aria-hidden="true">3</span>Syllable Counter</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>. Pronunciations from the CMU Pronouncing Dictionary, © Carnegie Mellon University (<a href="/licenses/cmudict.txt">licence</a>); everyday-word rankings from SCOWL by Kevin Atkinson (<a href="/licenses/scowl.txt">licence</a>).</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™, Spelling Bee and Letter Boxed are trademarks of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Boggle is a trademark of Hasbro, Inc. Quordle is a trademark of Merriam-Webster, Inc. and Octordle of Encyclopaedia Britannica, Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

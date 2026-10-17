@@ -8,7 +8,9 @@ import { ROOT } from "../helpers.mjs";
 import { withBrowser, skip, TEMPLATE_PAGES } from "./helpers-browser.mjs";
 
 const AXE = fs.readFileSync(path.join(ROOT, "node_modules/axe-core/axe.min.js"), "utf8");
-const WITH_RESULTS = ["/?letters=listen", "/scrabble-word-finder?rack=retains", "/anagram-solver?q=listen", "/crossword-solver?p=c%3Fo%3Fs", "/word-combiner?w=breakfast,lunch", "/jumble-solver?w=elbat"];
+const WITH_RESULTS = ["/?letters=listen", "/scrabble-word-finder?rack=retains", "/anagram-solver?q=listen", "/crossword-solver?p=c%3Fo%3Fs", "/word-combiner?w=breakfast,lunch", "/jumble-solver?w=elbat",
+  "/letter-hive-solver?l=mchine&c=a", "/word-grid-solver?g=trapsenilodcqart", "/letter-box-solver?s=tch-nai-ole-pry", "/word-ladder-solver?from=cold&to=warm",
+  "/hangman-solver?p=_a__e_&x=sto", "/cryptogram-solver?t=aol+lhysf+pyk", "/rhyming-words?w=rhyme", "/syllable-counter?t=letters+in+a+pile"];
 
 test("axe: no serious or critical issues on any template (light and dark)", { skip, timeout: 600000 }, async () => {
   await withBrowser(async (browser, base) => {

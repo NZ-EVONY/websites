@@ -14,6 +14,7 @@ import { buildTree, renamedPaths, WINDOWS_RESERVED } from "./pagegen.mjs";
 import { renderNode } from "../content/programmatic.mjs";
 import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
 import { buildGames } from "./games/publish.mjs";
+import { WordTools, commonWords, commonJs, rhymeData, pronunciations, rhymeTail, syllables } from "./tooldata.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
 // Options: --dev (dashed ad placeholders), --ads-preview (slots on every page type that has
@@ -69,6 +70,15 @@ const assets = {};
 const wordsName = `/data/words.${hash(wordsJs)}.js`;
 write(wordsName, wordsJs);
 assets["words.js"] = wordsName;
+// Word tools data (see scripts/tooldata.mjs): common words for ranking, rhymes and syllables.
+const common = commonWords(data);
+const commonText = commonJs(common);
+assets["common.js"] = `/data/common.${hash(commonText)}.js`;
+write(assets["common.js"], commonText);
+const rhymes = JSON.stringify(rhymeData());
+assets["rhymes.json"] = `/data/rhymes.${hash(rhymes)}.json`;
+write(assets["rhymes.json"], rhymes);
+WordTools.use(data.clean, WordTools.commonMap(`${common.very.join(" ")}|${common.common.join(" ")}`));
 
 // ---------- static assets (content-hashed names) ----------
 
@@ -92,6 +102,8 @@ assets["games/lp-words.json"] = games.lpWordsName;
 // Share (Open Graph) images, made by scripts/og-images.mjs and committed in src/assets/og/.
 for (const f of fs.readdirSync(path.join(SRC, "og")).filter(f => f.endsWith(".png"))) write(`og/${f}`, fs.readFileSync(path.join(SRC, "og", f)));
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
+write("licenses/scowl.txt", fs.readFileSync(path.join(ROOT, "licenses/SCOWL-Copyright.txt")));
+write("licenses/cmudict.txt", fs.readFileSync(path.join(ROOT, "licenses/CMUdict-LICENSE.txt")));
 
 // ---------- page context ----------
 
@@ -152,6 +164,7 @@ const ctx = {
   site, nav, assets, games, esc, fmt, list, longDate, year: new Date().getUTCFullYear(),
   total: data.words.length, byLength: data.byLength, blockedCount: data.blocked.length,
   clean: data.clean, cleanSet: new Set(data.clean), Engine, code: asCode, today,
+  WordTools, pron: pronunciations(), rhymeTail, syllables,
   WORDLIST_NOTE, TRADEMARKS, showAllToggle, finderForm, valuesTable, valueDiffTable, assertWords, assertNotWords,
   unscramble: letters => sortWords(Engine.unscramble(letters).map(x => x.word)),
   anagrams: w => Engine.anagrams(w).exact,

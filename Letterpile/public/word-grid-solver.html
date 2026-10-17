@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Word Grid Solver: Find Words in a Letter Grid | Letterpile</title>
+<meta name="description" content="Type in a 4x4 or 5x5 letter grid and see every word you can trace through touching tiles, longest first. Tap a word to see its path.">
+<link rel="canonical" href="https://letterpile.app/word-grid-solver">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Word Grid Solver: Find Words in a Letter Grid | Letterpile">
+<meta property="og:description" content="Type in a 4x4 or 5x5 letter grid and see every word you can trace through touching tiles, longest first. Tap a word to see its path.">
+<meta property="og:url" content="https://letterpile.app/word-grid-solver">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.e31aa709a6.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Word Grid Solver","url":"https://letterpile.app/word-grid-solver","description":"Type in a 4x4 or 5x5 letter grid and see every word you can trace through touching tiles, longest first. Tap a word to see its path.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does the Qu tile work?","acceptedAnswer":{"@type":"Answer","text":"Type Q in a square and it becomes Qu. Words through that square use both letters, so QUIT needs only three tiles."}},{"@type":"Question","name":"Can a word use the same tile twice?","acceptedAnswer":{"@type":"Answer","text":"No. Each tile can be used once per word, which is the standard rule. A letter that appears on two different tiles can be used once from each."}},{"@type":"Question","name":"Do diagonal moves count?","acceptedAnswer":{"@type":"Answer","text":"Yes. A word can step to any of the up to eight tiles around the current one."}},{"@type":"Question","name":"Why are there so many strange words?","acceptedAnswer":{"@type":"Answer","text":"The open ENABLE list includes many rare words. Everyday words are listed first in each length group."}},{"@type":"Question","name":"Can I use it for a 6x6 grid?","acceptedAnswer":{"@type":"Answer","text":"Not yet. It supports 4 × 4 and 5 × 5, the two common sizes."}},{"@type":"Question","name":"How do I see where a word is?","acceptedAnswer":{"@type":"Answer","text":"Tap or press it in the results. Its tiles light up on the grid, numbered in order, and the path is spelled out under the grid."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Word Grid Solver","item":"https://letterpile.app/word-grid-solver"}]}]}</script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/js/wt-client.cd3b29cc6a.js" data-core="/assets/js/wordtools.9819c024ad.js" data-worker="/assets/js/tools-worker.c3dbcd03cc.js" data-common="/data/common.3c8018bf5c.js" defer></script>
+<script src="/assets/js/grid.7d6200576e.js" defer></script>
+</head>
+<body data-page="grid">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu" class="active">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+          <li><a href="/letter-hive-solver">Letter Hive Solver</a></li>
+          <li><a href="/word-grid-solver" aria-current="page">Word Grid Solver</a></li>
+          <li><a href="/letter-box-solver">Letter Box Solver</a></li>
+          <li><a href="/multi-board-solver">Multi-Board Word Solver</a></li>
+          <li><a href="/word-ladder-solver">Word Ladder Solver</a></li>
+          <li><a href="/hangman-solver">Hangman Solver</a></li>
+          <li><a href="/cryptogram-solver">Cryptogram Solver</a></li>
+          <li><a href="/rhyming-words">Rhyming Words Finder</a></li>
+          <li><a href="/syllable-counter">Syllable Counter</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Word Grid Solver</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Word Grid Solver</h1>
+        <p class="lede">Fill in the grid row by row (or paste all the letters at once), then press Find words. Tap any result to light up its path.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row">
+            <label class="field narrow"><span>Grid size</span><select id="size"><option value="4" selected>4 × 4</option><option value="5">5 × 5</option></select></label>
+            <label class="field grow2"><span>Or type all the letters</span><input id="quick" type="text" maxlength="40" placeholder="Row by row, e.g. TRAPSENILODCQART"></label>
+            <label class="field narrow"><span>Shortest word</span><select id="min"><option value="3" selected>3 letters</option><option value="4">4 letters</option><option value="5">5 letters</option></select></label>
+          </div>
+          <div class="wt-grid" id="grid" role="group" aria-label="Letter grid. Type one letter per square; Q becomes Qu."></div>
+          <p class="wt-path" id="path" aria-live="polite"></p>
+          <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+          <div class="row"><button class="btn" type="submit">Find words</button><button class="btn secondary" type="button" id="clearGrid">Clear grid</button></div>
+        </form>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Every word in the grid appears here, longest first. Type Q for a Qu tile.</p></div>
+      </div>
+      <article class="prose">
+        <p>Letter-grid games such as Boggle shake a set of letter cubes into a square tray, usually four by four or five by five, and give you a few minutes to find as many words as you can. A word is traced through tiles that touch, including diagonally, and each tile can be used only once in the same word. This solver finds every word in the grid at once, so you can check a finished round, settle an argument about a word, or see the long words you missed.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Choose 4 × 4 or 5 × 5.</li>
+<li>Type the letters into the squares, one per square. The cursor moves on as you type, and the arrow keys move around the grid. You can also type or paste all the letters into the box above, row by row.</li>
+<li>Type Q for the Qu tile. Most cube sets print Qu on one face, because Q almost never appears without U, so the solver treats every Q as the pair.</li>
+<li>Press <b>Find words</b>. Results are grouped by length, longest first, with everyday words ahead of rare ones in each group. Tap a word to light up its path on the grid, numbered in order.</li>
+</ol>
+
+<h2>A worked example</h2>
+<p>Here is a 4 × 4 grid, shown as you'd see it on the table:</p>
+<table class="lp-example"><tr><td>T</td><td>R</td><td>A</td><td>P</td></tr><tr><td>S</td><td>E</td><td>N</td><td>I</td></tr><tr><td>L</td><td>O</td><td>D</td><td>C</td></tr><tr><td>Qu</td><td>A</td><td>R</td><td>T</td></tr></table>
+<p>The solver finds 383 words of three or more letters in it, 76 of them three letters long. The longest everyday word is <code>RAPIDEST</code>. The Qu tile in the bottom corner takes part in 5 words, such as <code>QUART</code> and <code>QUALE</code>. Most of the long words are rare, which says more about the word list than about the grid; the next section explains why.</p>
+<h2>Scoring and word lists</h2>
+<p>Classic rules score by length: one point for three- and four-letter words, two for five letters, three for six, five for seven and eleven for eight or more. Words found by more than one player are usually crossed out. This solver doesn't score, because house rules vary, but the length groups make it easy to tally a round.</p>
+<p>The word list is ENABLE, an open list built for word games. It's generous: it includes many words that a printed dictionary marks as rare, and some that a group of friends might reject. Agree on a dictionary before you play. If you use the solver to check a round, the everyday words near the top of each group are the ones nobody is likely to argue about.</p>
+<h2>Finding more words yourself</h2>
+<ul>
+<li><b>Hunt for endings.</b> Look for E-R, E-D, I-N-G and S next to each other, then work backward from them.</li>
+<li><b>Use the corners.</b> Corner tiles have only three neighbors, so words through them are easy to overlook.</li>
+<li><b>Find a long word, then its pieces.</b> A long word usually contains shorter ones along the same path, and each one counts.</li>
+<li><b>Plurals and tenses.</b> If an S touches the last letter of a word, you have two words for the price of one.</li>
+</ul>
+<h2>Limits and accuracy</h2>
+<p>The solver checks every possible path, so if a word in the list can be traced, it's shown. It stops at 5,000 words, far more than any real grid produces. Results depend only on the letters and the word list: a word your game accepts but ENABLE doesn't contain won't appear, and a word ENABLE contains but your game rejects will.</p>
+
+<h2>Privacy</h2>
+<p>Your grid stays in your browser; the search runs on your device. The address bar keeps the letters, so you can bookmark a grid or send it to someone.</p>
+<p>Letterpile is not affiliated with any puzzle publisher; trademarks are listed at the foot of the page.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>How does the Qu tile work?</summary><div class="faq-a">Type Q in a square and it becomes Qu. Words through that square use both letters, so QUIT needs only three tiles.</div></details>
+        <details class="faq-item"><summary>Can a word use the same tile twice?</summary><div class="faq-a">No. Each tile can be used once per word, which is the standard rule. A letter that appears on two different tiles can be used once from each.</div></details>
+        <details class="faq-item"><summary>Do diagonal moves count?</summary><div class="faq-a">Yes. A word can step to any of the up to eight tiles around the current one.</div></details>
+        <details class="faq-item"><summary>Why are there so many strange words?</summary><div class="faq-a">The open ENABLE list includes many rare words. Everyday words are listed first in each length group.</div></details>
+        <details class="faq-item"><summary>Can I use it for a 6x6 grid?</summary><div class="faq-a">Not yet. It supports 4 × 4 and 5 × 5, the two common sizes.</div></details>
+        <details class="faq-item"><summary>How do I see where a word is?</summary><div class="faq-a">Tap or press it in the results. Its tiles light up on the grid, numbered in order, and the path is spelled out under the grid.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/letter-hive-solver">Letter Hive Solver</a></li><li><a href="/text-twist-solver">Text Twist &amp; Wordscapes Solver</a></li><li><a href="/games/letterpile">Play Letterpile, our daily grid game</a></li><li><a href="/anagram-solver">Anagram Solver</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-coral" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver" aria-current="page"><span class="ico c-sun" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-blue" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-mint" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-violet" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-coral" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-sun" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-blue" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-mint" aria-hidden="true">3</span>Syllable Counter</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>. Pronunciations from the CMU Pronouncing Dictionary, © Carnegie Mellon University (<a href="/licenses/cmudict.txt">licence</a>); everyday-word rankings from SCOWL by Kevin Atkinson (<a href="/licenses/scowl.txt">licence</a>).</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™, Spelling Bee and Letter Boxed are trademarks of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Boggle is a trademark of Hasbro, Inc. Quordle is a trademark of Merriam-Webster, Inc. and Octordle of Encyclopaedia Britannica, Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

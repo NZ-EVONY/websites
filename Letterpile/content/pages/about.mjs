@@ -4,7 +4,7 @@ export default ctx => ({
   title: "About Letterpile | Letterpile",
   description: "What Letterpile is, how the tools work, which open word list powers them, credits, and how to report a problem.",
   h1: "About Letterpile",
-  prose: `<p>Letterpile is a small, independent website of free word-game helper tools, run by ${ctx.site.operatorName} in ${ctx.site.country}. It has ten tools: a word unscrambler, a word scrambler, a word combiner, word finders for tile games and Words With Friends, a Wordle solver, an anagram solver, a jumble solver, a crossword pattern solver and a Text Twist and Wordscapes solver.</p>
+  prose: `<p>Letterpile is a small, independent website of free word-game helper tools, run by ${ctx.site.operatorName} in ${ctx.site.country}. It has ${[...ctx.nav.main, ...ctx.nav.more].length} tools, from a word unscrambler and word finders for tile games to solvers for Wordle-style, honeycomb, letter-grid, letter-box, word-ladder, hangman and cryptogram puzzles, plus a rhyme finder and a syllable counter, and a set of daily puzzle games.</p>
 
 <h2>How the tools work</h2>
 <p>Every tool runs in your browser. When you first use one, your browser downloads the word list once (it is cached after that) and searches it on your own device. Nothing you type is sent to Letterpile. The unscrambler, for example, counts the letters you entered and keeps every word in the list that can be spelled from those counts, with blank tiles standing in for any letter. The Wordle solver turns your colored tiles into rules (this letter here, that letter somewhere else, no more than one of this letter) and keeps the words that pass all of them.</p>
@@ -20,6 +20,8 @@ export default ctx => ({
 <h2>Other credits</h2>
 <ul>
   <li>Definitions, when you ask for one, come from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</li>
+  <li>The Rhyming Words Finder and Syllable Counter use the <b>CMU Pronouncing Dictionary</b>, Copyright © 1993-2015 Carnegie Mellon University, used under its BSD-style licence (<a href="/licenses/cmudict.txt">licence text</a>). Letterpile keeps only the first pronunciation of words that are also in the ENABLE list.</li>
+  <li>Several solvers rank everyday words first using <b>SCOWL</b> (Spell Checker Oriented Word Lists) by Kevin Atkinson and others, sizes 10 to 35, used under its permissive licence (<a href="/licenses/scowl.txt">licence text</a>).</li>
   <li>Hosting is provided by Cloudflare.</li>
 </ul>
 

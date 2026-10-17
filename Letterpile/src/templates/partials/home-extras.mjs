@@ -15,6 +15,15 @@ const TOOL_BLURB = {
   "/jumble-solver": "Solve a whole jumble puzzle at once",
   "/crossword-solver": "Fill the gaps with ? for unknown letters",
   "/text-twist-solver": "Every word in your letter wheel",
+  "/letter-hive-solver": "Seven letters, one required, every pangram",
+  "/word-grid-solver": "Every word in a 4x4 or 5x5 grid",
+  "/letter-box-solver": "Two-word solutions for a 12-letter box",
+  "/multi-board-solver": "Track 4 or 8 five-letter boards at once",
+  "/word-ladder-solver": "Shortest path, one letter at a time",
+  "/hangman-solver": "Words that fit and the best next letter",
+  "/cryptogram-solver": "Crack letter-swap ciphers",
+  "/rhyming-words": "Perfect and near rhymes by syllable",
+  "/syllable-counter": "Syllables per word and per line",
 };
 
 export default function homeExtras({ ctx, guides }) {

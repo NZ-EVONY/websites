@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://letterpile.app/about</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/about</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/anagram-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/contact</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/crossword-solver</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/cryptogram-solver</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/crossword</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/letterpile/arcade</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/letterpile/practice</loc><lastmod>2026-10-17</lastmod></url>
@@ -24,13 +25,21 @@
   <url><loc>https://letterpile.app/guides/wordle-strategy</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-with-q-without-u</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-without-vowels</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/hangman-solver</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/jumble-solver</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/letter-box-solver</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/letter-hive-solver</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/multi-board-solver</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/privacy-policy</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://letterpile.app/rhyming-words</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/scrabble-word-finder</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/syllable-counter</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/terms</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/text-twist-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/word-combiner</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/word-grid-solver</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/word-ladder-solver</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/word-scrambler</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/wordle-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-with-friends</loc><lastmod>2026-10-01</lastmod></url>

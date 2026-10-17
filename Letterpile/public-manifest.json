@@ -1,19 +1,33 @@
 {
   "assets": {
     "words.js": "/data/words.54646e019a.js",
-    "style.css": "/assets/style.af0b10d80d.css",
+    "common.js": "/data/common.3c8018bf5c.js",
+    "rhymes.json": "/data/rhymes.18196072e8.json",
+    "style.css": "/assets/style.e31aa709a6.css",
     "engine.js": "/assets/engine.7fe4595c1f.js",
     "site.js": "/assets/site.63601426ff.js",
     "worker.js": "/assets/worker.fc5fafd163.js",
     "js/anagram.js": "/assets/js/anagram.228f22ee08.js",
+    "js/box.js": "/assets/js/box.562642b15e.js",
     "js/combiner.js": "/assets/js/combiner.603b547461.js",
     "js/crossword.js": "/assets/js/crossword.97d936105a.js",
+    "js/crypto.js": "/assets/js/crypto.094d93ec07.js",
     "js/finder.js": "/assets/js/finder.6ce1fa94be.js",
+    "js/grid.js": "/assets/js/grid.7d6200576e.js",
+    "js/hangman.js": "/assets/js/hangman.119742d313.js",
+    "js/hive.js": "/assets/js/hive.caf6b64638.js",
     "js/jumble.js": "/assets/js/jumble.05948e6e30.js",
+    "js/ladder.js": "/assets/js/ladder.d3520e4394.js",
+    "js/multi.js": "/assets/js/multi.3b32e82ca7.js",
+    "js/rhymes.js": "/assets/js/rhymes.2dc5f89e29.js",
     "js/scrambler.js": "/assets/js/scrambler.0627d06ff4.js",
+    "js/syllables.js": "/assets/js/syllables.b357cdee27.js",
+    "js/tools-worker.js": "/assets/js/tools-worker.c3dbcd03cc.js",
     "js/twist.js": "/assets/js/twist.de5008a5f6.js",
     "js/unscramble.js": "/assets/js/unscramble.e8343c87c0.js",
     "js/wordle.js": "/assets/js/wordle.02e2e3a30a.js",
+    "js/wordtools.js": "/assets/js/wordtools.9819c024ad.js",
+    "js/wt-client.js": "/assets/js/wt-client.cd3b29cc6a.js",
     "games/band.js": "/assets/games/band.e7646f011a.js",
     "games/core.js": "/assets/games/core.78150b8307.js",
     "games/crossword.js": "/assets/games/crossword.5c5cddf18b.js",
@@ -41,7 +55,7 @@
       "path": "/about",
       "file": "about.html",
       "type": "trust",
-      "updated": "2026-10-01",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -63,6 +77,13 @@
       "file": "crossword-solver.html",
       "type": "tool",
       "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/cryptogram-solver",
+      "file": "cryptogram-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -206,6 +227,13 @@
       "noindex": false
     },
     {
+      "path": "/hangman-solver",
+      "file": "hangman-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
       "path": "/",
       "file": "index.html",
       "type": "tool",
@@ -220,6 +248,27 @@
       "noindex": false
     },
     {
+      "path": "/letter-box-solver",
+      "file": "letter-box-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/letter-hive-solver",
+      "file": "letter-hive-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/multi-board-solver",
+      "file": "multi-board-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
       "path": "/privacy-policy",
       "file": "privacy-policy.html",
       "type": "trust",
@@ -227,10 +276,24 @@
       "noindex": false
     },
     {
+      "path": "/rhyming-words",
+      "file": "rhyming-words.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
       "path": "/scrabble-word-finder",
       "file": "scrabble-word-finder.html",
       "type": "tool",
       "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/syllable-counter",
+      "file": "syllable-counter.html",
+      "type": "tool",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -252,6 +315,20 @@
       "file": "word-combiner.html",
       "type": "tool",
       "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/word-grid-solver",
+      "file": "word-grid-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/word-ladder-solver",
+      "file": "word-ladder-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multi-Board Word Solver: 4 or 8 Boards at Once | Letterpile</title>
+<meta name="description" content="Track four or eight five-letter word boards at once. Enter each guess once, set every board&#39;s colors, and see the words left on each board.">
+<link rel="canonical" href="https://letterpile.app/multi-board-solver">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Multi-Board Word Solver: 4 or 8 Boards at Once | Letterpile">
+<meta property="og:description" content="Track four or eight five-letter word boards at once. Enter each guess once, set every board&#39;s colors, and see the words left on each board.">
+<meta property="og:url" content="https://letterpile.app/multi-board-solver">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.e31aa709a6.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Multi-Board Word Solver","url":"https://letterpile.app/multi-board-solver","description":"Track four or eight five-letter word boards at once. Enter each guess once, set every board's colors, and see the words left on each board.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to type each guess on every board?","acceptedAnswer":{"@type":"Answer","text":"No. Type it once; it appears on all the boards. You only set the colors on each board."}},{"@type":"Question","name":"How is the suggested guess chosen?","acceptedAnswer":{"@type":"Answer","text":"It's the top-ranked word for the unsolved board with the fewest words left. If that board has only one word, the suggestion is that word."}},{"@type":"Question","name":"What happens when a board is solved?","acceptedAnswer":{"@type":"Answer","text":"When a row on a board is all green, the board is marked solved and no longer affects the suggestion."}},{"@type":"Question","name":"Can I use it for 16 boards?","acceptedAnswer":{"@type":"Answer","text":"Not yet. It supports 4 and 8 boards, the two most common versions."}},{"@type":"Question","name":"It says no words fit a board. Why?","acceptedAnswer":{"@type":"Answer","text":"Usually one tile's color on that board doesn't match the game. Check repeated letters especially."}},{"@type":"Question","name":"Does it know the answers?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to any game; it only lists words that fit the colors you enter."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Multi-Board Word Solver","item":"https://letterpile.app/multi-board-solver"}]}]}</script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/js/multi.3b32e82ca7.js" defer></script>
+</head>
+<body data-page="multi">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu" class="active">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+          <li><a href="/letter-hive-solver">Letter Hive Solver</a></li>
+          <li><a href="/word-grid-solver">Word Grid Solver</a></li>
+          <li><a href="/letter-box-solver">Letter Box Solver</a></li>
+          <li><a href="/multi-board-solver" aria-current="page">Multi-Board Word Solver</a></li>
+          <li><a href="/word-ladder-solver">Word Ladder Solver</a></li>
+          <li><a href="/hangman-solver">Hangman Solver</a></li>
+          <li><a href="/cryptogram-solver">Cryptogram Solver</a></li>
+          <li><a href="/rhyming-words">Rhyming Words Finder</a></li>
+          <li><a href="/syllable-counter">Syllable Counter</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Multi-Board Word Solver</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Multi-Board Word Solver</h1>
+        <p class="lede">Add each guess once; it appears on every board. Tap the tiles on each board to match its colors, and each board lists the words that still fit.</p>
+        <form class="row end" id="addForm" autocomplete="off" data-warm>
+          <label class="field grow"><span>Add a guess</span><input class="big-input" id="guess" type="text" maxlength="5" placeholder="e.g. CRANE"></label>
+          <label class="field narrow"><span>Boards</span><select id="count"><option value="4" selected>4</option><option value="8">8</option></select></label>
+          <button class="btn" type="submit">Add</button>
+          <button class="btn secondary" type="button" id="undoGuess">Undo</button>
+          <button class="btn secondary" type="button" id="reset">Reset</button>
+        </form>
+        <p class="hint">Tap a tile to cycle <b class="c-grey">gray</b> → <b class="c-warn">yellow</b> → <b class="c-good">green</b>. Each tile also shows a mark: none for gray, a dot for yellow, a check for green.</p>
+        <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+        <div class="results results--short" id="summary" aria-live="polite"></div>
+        <div class="wt-boards" id="boards"></div>
+      </div>
+      <article class="prose">
+        <p>Multi-board guessing games such as Quordle (four boards) and Octordle (eight) take the five-letter puzzle and multiply it: four hidden words at once, or eight, with every guess played on all the boards together. Each board colors the same guess differently, so after a few guesses you're tracking a lot of clues. This solver keeps one set of guesses and a separate set of colors for each board, and lists the words that still fit each one.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Choose 4 or 8 boards.</li>
+<li>Type a guess you played and press <b>Add</b>. It appears on every board, all gray.</li>
+<li>On each board, tap the tiles until they match the colors your game showed for that board.</li>
+<li>Each board lists how many words are left and shows up to twelve of them. When a board is solved (all green), it's marked and skipped.</li>
+<li>The suggested next guess at the top is the leading word for the board with the fewest words left. Undo removes the last guess from every board.</li>
+</ol>
+
+<h2>Why one guess helps every board differently</h2>
+<p>Suppose the four answers were <code>PILOT</code>, <code>SHORE</code>, <code>FANCY</code> and <code>DROWN</code> and you opened with <code>CRANE</code>. The boards would show gray, gray, gray, gray, gray on board 1; gray, yellow, gray, gray, green on board 2; yellow, gray, yellow, yellow, gray on board 3; gray, green, gray, yellow, gray on board 4. Before that guess, each board had 8,564 possible words. After it, they have 1,016, 86, 20, 10 respectively. One guess, four very different results: that's why a board-by-board view helps.</p>
+<h2>Strategy for many boards</h2>
+<ul>
+<li><b>Open with coverage.</b> The first two or three guesses should test as many common letters as possible, without repeats, because the information applies to every board at once.</li>
+<li><b>Finish the easy boards early.</b> A board with one or two words left is a cheap win. Solving it also gives you a free look at the other boards.</li>
+<li><b>Use the suggestion to pick a target.</b> The suggestion comes from the board with the fewest words left, which is usually the safest next guess.</li>
+<li><b>Watch your count.</b> Four-board games usually allow nine guesses and eight-board games thirteen. Leave enough guesses for the hardest board.</li>
+</ul>
+<h2>How each board's list is worked out</h2>
+<p>Each board uses the same logic as our <a href="/wordle-solver">Wordle Solver</a>: green fixes a letter in place, yellow means the letter is in the word but not there, and gray means there are no more copies of the letter than the green and yellow ones shown. Repeated letters are handled tile by tile. Within each board's list, words are ranked by how many common letters they test among that board's remaining words.</p>
+<h2>Limits and accuracy</h2>
+<p>The word list is ENABLE, not a game's answer list, so the counts include rare words a game would never choose. The everyday word is usually near the top of each list. Five-letter words only; the solver holds up to 13 guesses.</p>
+
+<h2>Privacy</h2>
+<p>Your guesses and colors are kept in this tab's session storage, so a reload doesn't lose them. They're cleared when you close the tab.</p>
+<p>Letterpile is not affiliated with any puzzle publisher; trademarks are listed at the foot of the page.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>Do I have to type each guess on every board?</summary><div class="faq-a">No. Type it once; it appears on all the boards. You only set the colors on each board.</div></details>
+        <details class="faq-item"><summary>How is the suggested guess chosen?</summary><div class="faq-a">It's the top-ranked word for the unsolved board with the fewest words left. If that board has only one word, the suggestion is that word.</div></details>
+        <details class="faq-item"><summary>What happens when a board is solved?</summary><div class="faq-a">When a row on a board is all green, the board is marked solved and no longer affects the suggestion.</div></details>
+        <details class="faq-item"><summary>Can I use it for 16 boards?</summary><div class="faq-a">Not yet. It supports 4 and 8 boards, the two most common versions.</div></details>
+        <details class="faq-item"><summary>It says no words fit a board. Why?</summary><div class="faq-a">Usually one tile's color on that board doesn't match the game. Check repeated letters especially.</div></details>
+        <details class="faq-item"><summary>Does it know the answers?</summary><div class="faq-a">No. It has no connection to any game; it only lists words that fit the colors you enter.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/guides/wordle-strategy">Wordle Strategy and Letter Logic</a></li><li><a href="/games/word">Daily Word</a></li><li><a href="/words-by-length/5-letter-words">5-letter words</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-coral" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-sun" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-blue" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver" aria-current="page"><span class="ico c-mint" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-violet" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-coral" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-sun" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-blue" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-mint" aria-hidden="true">3</span>Syllable Counter</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>. Pronunciations from the CMU Pronouncing Dictionary, © Carnegie Mellon University (<a href="/licenses/cmudict.txt">licence</a>); everyday-word rankings from SCOWL by Kevin Atkinson (<a href="/licenses/scowl.txt">licence</a>).</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™, Spelling Bee and Letter Boxed are trademarks of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Boggle is a trademark of Hasbro, Inc. Quordle is a trademark of Merriam-Webster, Inc. and Octordle of Encyclopaedia Britannica, Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

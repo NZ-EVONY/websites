@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letter Hive Solver: Every Word and Pangram | Letterpile</title>
+<meta name="description" content="Enter the seven letters of a honeycomb word puzzle and the required center letter to list every word, with pangrams highlighted.">
+<link rel="canonical" href="https://letterpile.app/letter-hive-solver">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Letter Hive Solver: Every Word and Pangram | Letterpile">
+<meta property="og:description" content="Enter the seven letters of a honeycomb word puzzle and the required center letter to list every word, with pangrams highlighted.">
+<meta property="og:url" content="https://letterpile.app/letter-hive-solver">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.e31aa709a6.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Letter Hive Solver","url":"https://letterpile.app/letter-hive-solver","description":"Enter the seven letters of a honeycomb word puzzle and the required center letter to list every word, with pangrams highlighted.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a pangram?","acceptedAnswer":{"@type":"Answer","text":"A word that uses every one of the seven letters at least once. Some puzzles call a pangram that uses each letter exactly once a perfect pangram."}},{"@type":"Question","name":"Why does the solver list words my puzzle rejects?","acceptedAnswer":{"@type":"Answer","text":"Puzzles use their own edited answer lists. This solver uses the open ENABLE list, which includes many rare words. Tick “Everyday words only” to hide most of them."}},{"@type":"Question","name":"Can letters be used more than once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every result may reuse any letter as many times as it likes, which is the standard rule for honeycomb puzzles."}},{"@type":"Question","name":"Do I have to enter exactly six outer letters?","acceptedAnswer":{"@type":"Answer","text":"No. The solver uses whatever letters you type, so it works for variants with more or fewer letters too. The center letter is always required."}},{"@type":"Question","name":"Does it know today's answers?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to any puzzle and doesn't know which words a puzzle will accept. It only lists words that follow the rules."}},{"@type":"Question","name":"Can I find words of three letters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Change “Shortest word” to 3 letters."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Letter Hive Solver","item":"https://letterpile.app/letter-hive-solver"}]}]}</script>
+<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/js/wt-client.cd3b29cc6a.js" data-core="/assets/js/wordtools.9819c024ad.js" data-worker="/assets/js/tools-worker.c3dbcd03cc.js" data-common="/data/common.3c8018bf5c.js" defer></script>
+<script src="/assets/js/hive.caf6b64638.js" defer></script>
+</head>
+<body data-page="hive">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu" class="active">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+          <li><a href="/letter-hive-solver" aria-current="page">Letter Hive Solver</a></li>
+          <li><a href="/word-grid-solver">Word Grid Solver</a></li>
+          <li><a href="/letter-box-solver">Letter Box Solver</a></li>
+          <li><a href="/multi-board-solver">Multi-Board Word Solver</a></li>
+          <li><a href="/word-ladder-solver">Word Ladder Solver</a></li>
+          <li><a href="/hangman-solver">Hangman Solver</a></li>
+          <li><a href="/cryptogram-solver">Cryptogram Solver</a></li>
+          <li><a href="/rhyming-words">Rhyming Words Finder</a></li>
+          <li><a href="/syllable-counter">Syllable Counter</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Letter Hive Solver</span></li></ol></nav>
+    <div class="panel tool-card">
+        <h1 class="page-title">Letter Hive Solver</h1>
+        <p class="lede">Type the six outer letters and the center letter. Every word of four or more letters that uses the center letter appears below, pangrams first.</p>
+        <form class="tool-form" id="form" autocomplete="off">
+          <div class="row">
+            <label class="field grow2"><span>Outer letters</span><input class="big-input" id="outer" type="text" maxlength="12" placeholder="e.g. MCHINE" required></label>
+            <label class="field narrow"><span>Center letter</span><input class="big-input" id="center" type="text" maxlength="1" placeholder="A" required></label>
+          </div>
+          <div class="row">
+            <label class="field"><span>Shortest word</span><select id="min"><option value="3">3 letters</option><option value="4" selected>4 letters</option><option value="5">5 letters</option></select></label>
+            <label class="field"><span>Starts with</span><select id="start"><option value="">Any letter</option></select></label>
+            <label class="field"><span>Length</span><select id="len"><option value="">Any length</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9 or more</option></select></label>
+          </div>
+          <label class="check"><input type="checkbox" id="common"> Everyday words only</label>
+          <label class="check show-all"><input type="checkbox" data-show-all> Show all words, including vulgar ones</label>
+          <div class="row"><button class="btn" type="submit">Find words</button></div>
+        </form>
+        <div class="results" id="results" aria-live="polite"><p class="empty">Words appear here, grouped by length. A pangram uses all seven letters and is shown in its own group.</p></div>
+      </div>
+      <article class="prose">
+        <p>Honeycomb word puzzles, such as Spelling Bee, give you seven letters arranged in a hive: one in the middle, six around it. Every word you find must use the middle letter, may use any of the others as often as it likes, and must be at least four letters long. A word that uses all seven letters at least once is a pangram, and it usually scores a bonus. This solver lists every word in our word list that follows those rules, so you can check how many you've missed or find the pangram you can't quite see.</p>
+<h2>How to use it</h2>
+<ol>
+<li>Type the six outer letters in any order. Spaces and repeated letters are ignored.</li>
+<li>Type the center letter in its own box. Every result contains it.</li>
+<li>Press <b>Find words</b>. Pangrams come first, then every other word grouped by length, longest first.</li>
+<li>Narrow the list with <b>Starts with</b> and <b>Length</b>, which many puzzles use for their hint grids, or tick <b>Everyday words only</b> to hide rare words.</li>
+</ol>
+
+<h2>A worked example</h2>
+<p>Take the outer letters M, C, H, I, N and E, with A in the center. The solver finds 120 words of four or more letters, and 4 of them use all seven letters: <code>CHAINMEN</code>, <code>MACHINE</code>, <code>MECHANIC</code> and <code>MECHANICIAN</code>. Both <code>MACHINE</code> and <code>MECHANIC</code> are everyday words, which is typical: puzzle makers like a pangram that most players know. Among the rest, <code>CHAIN</code> and <code>MANIA</code> show how letters can repeat, and the longest word that isn't a pangram is <code>IMMANENCE</code>.</p>
+<p>Only 32 of the 120 words are on our list of everyday words. That gap is the main thing to know about any solver like this one, explained below.</p>
+<h2>Why the solver finds more words than your puzzle accepts</h2>
+<p>Daily honeycomb puzzles use their own hand-edited answer lists. They leave out obscure words, most proper nouns, hyphenated words and anything an editor thinks is unfair or unpleasant. This solver uses ENABLE, a large open word list built for word games, so it includes many words a puzzle won't take. The <b>Everyday words only</b> box filters the results down to words that appear in a list of common English words (SCOWL, sizes 10 to 35). It isn't any puzzle's answer list, but it brings the results much closer to what puzzle editors usually accept.</p>
+<p>The reverse happens too, though rarely: a puzzle may accept a newer word that ENABLE, compiled years ago, doesn't contain. If a word your puzzle accepted isn't listed here, that's why.</p>
+<h2>Tips for finding words yourself</h2>
+<ul>
+<li><b>Start with the center letter's common partners.</b> If the center is A, try endings like -AN, -AL and -ATE with the outer letters.</li>
+<li><b>Look for suffixes.</b> If E, D, N, I, G or S are outer letters, words ending -ED, -ING or -ER multiply quickly.</li>
+<li><b>Hunt the pangram by structure.</b> A pangram needs all seven letters, so it's often seven or eight letters long. Try to build it around a common ending made from the outer letters.</li>
+<li><b>Repeat letters.</b> Players often forget that letters can be reused. In the example above, <code>MAMMA</code> doubles a letter, and words like it are easy to miss.</li>
+</ul>
+<h2>Using the filters with hint grids</h2>
+<p>Many honeycomb puzzles publish a hint grid: a table showing how many answers start with each letter and how long they are. The <b>Starts with</b> and <b>Length</b> menus let you look at one cell of that grid at a time, so you can confirm that a group exists without seeing every answer at once. Set <b>Shortest word</b> to three letters for variants that allow short words, or to five for a harder game.</p>
+
+<h2>Privacy</h2>
+<p>The letters you type stay in your browser; the search runs on your device. The address bar keeps your letters so you can bookmark or share a search.</p>
+<p>Letterpile is not affiliated with any puzzle publisher; trademarks are listed at the foot of the page.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>What is a pangram?</summary><div class="faq-a">A word that uses every one of the seven letters at least once. Some puzzles call a pangram that uses each letter exactly once a perfect pangram.</div></details>
+        <details class="faq-item"><summary>Why does the solver list words my puzzle rejects?</summary><div class="faq-a">Puzzles use their own edited answer lists. This solver uses the open ENABLE list, which includes many rare words. Tick “Everyday words only” to hide most of them.</div></details>
+        <details class="faq-item"><summary>Can letters be used more than once?</summary><div class="faq-a">Yes. Every result may reuse any letter as many times as it likes, which is the standard rule for honeycomb puzzles.</div></details>
+        <details class="faq-item"><summary>Do I have to enter exactly six outer letters?</summary><div class="faq-a">No. The solver uses whatever letters you type, so it works for variants with more or fewer letters too. The center letter is always required.</div></details>
+        <details class="faq-item"><summary>Does it know today's answers?</summary><div class="faq-a">No. It has no connection to any puzzle and doesn't know which words a puzzle will accept. It only lists words that follow the rules.</div></details>
+        <details class="faq-item"><summary>Can I find words of three letters?</summary><div class="faq-a">Yes. Change “Shortest word” to 3 letters.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/word-grid-solver">Word Grid Solver</a></li><li><a href="/letter-box-solver">Letter Box Solver</a></li><li><a href="/">Word Unscrambler</a></li><li><a href="/guides/hooks-prefixes-and-suffixes">Hooks, Prefixes and Suffixes</a></li></ul>
+      </section>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver" aria-current="page"><span class="ico c-coral" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-sun" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-blue" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-mint" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-violet" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-coral" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-sun" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-blue" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-mint" aria-hidden="true">3</span>Syllable Counter</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>. Pronunciations from the CMU Pronouncing Dictionary, © Carnegie Mellon University (<a href="/licenses/cmudict.txt">licence</a>); everyday-word rankings from SCOWL by Kevin Atkinson (<a href="/licenses/scowl.txt">licence</a>).</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™, Spelling Bee and Letter Boxed are trademarks of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Boggle is a trademark of Hasbro, Inc. Quordle is a trademark of Merriam-Webster, Inc. and Octordle of Encyclopaedia Britannica, Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

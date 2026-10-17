@@ -2,7 +2,7 @@
 import { esc } from "./util.mjs";
 
 export const WORDLIST_NOTE = "Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game.";
-export const TRADEMARKS = "Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.";
+export const TRADEMARKS = "Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™, Spelling Bee and Letter Boxed are trademarks of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Boggle is a trademark of Hasbro, Inc. Quordle is a trademark of Merriam-Webster, Inc. and Octordle of Encyclopaedia Britannica, Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.";
 
 export default function footer({ nav, site, year }) {
   return `<footer class="footer">
@@ -14,7 +14,7 @@ export default function footer({ nav, site, year }) {
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
     <p>Questions or a missing word? Email <a class="mail" href="mailto:${esc(site.contactEmail)}">${esc(site.contactEmail)}</a>.</p>
-    <p>${WORDLIST_NOTE} The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p>${WORDLIST_NOTE} The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>. Pronunciations from the CMU Pronouncing Dictionary, © Carnegie Mellon University (<a href="/licenses/cmudict.txt">licence</a>); everyday-word rankings from SCOWL by Kevin Atkinson (<a href="/licenses/scowl.txt">licence</a>).</p>
     <p class="fine">${TRADEMARKS}</p>
     <p class="fine">© ${year} ${esc(site.brand)}. Site code, design and text © ${esc(site.brand)}; the ENABLE word list is public domain and free to redistribute.</p>
   </div>

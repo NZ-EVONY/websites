@@ -66,6 +66,60 @@
       "label": "Text Twist & Wordscapes",
       "key": "twist",
       "icon": "T"
+    },
+    {
+      "href": "/letter-hive-solver",
+      "label": "Letter Hive Solver",
+      "key": "hive",
+      "icon": "H"
+    },
+    {
+      "href": "/word-grid-solver",
+      "label": "Word Grid Solver",
+      "key": "grid",
+      "icon": "G"
+    },
+    {
+      "href": "/letter-box-solver",
+      "label": "Letter Box Solver",
+      "key": "box",
+      "icon": "B"
+    },
+    {
+      "href": "/multi-board-solver",
+      "label": "Multi-Board Word Solver",
+      "key": "multi",
+      "icon": "4"
+    },
+    {
+      "href": "/word-ladder-solver",
+      "label": "Word Ladder Solver",
+      "key": "ladder",
+      "icon": "L"
+    },
+    {
+      "href": "/hangman-solver",
+      "label": "Hangman Solver",
+      "key": "hangman",
+      "icon": "_"
+    },
+    {
+      "href": "/cryptogram-solver",
+      "label": "Cryptogram Solver",
+      "key": "cryptogram",
+      "icon": "C"
+    },
+    {
+      "href": "/rhyming-words",
+      "label": "Rhyming Words Finder",
+      "key": "rhymes",
+      "icon": "R"
+    },
+    {
+      "href": "/syllable-counter",
+      "label": "Syllable Counter",
+      "key": "syllables",
+      "icon": "3"
     }
   ],
   "legal": [

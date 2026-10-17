@@ -3,8 +3,10 @@
 **Read `HANDOVER.md` first** (current state, live build, rules, gotchas), then `docs/STATUS.md`.
 
 ## Purpose
-Live static site https://letterpile.app: ten in-browser word-game tools (unscrambler, scrambler,
-combiner, tile-game finder, Words With Friends finder, Wordle, anagram, jumble, crossword, Text Twist),
+Live static site https://letterpile.app: in-browser word-game tools (the list is `config/nav.json`:
+unscrambler, scrambler, combiner, finders, Wordle, anagram, jumble, crossword, Text Twist, and the
+Phase 4 solvers: letter hive, word grid, letter box, multi-board, ladder, hangman, cryptogram,
+rhymes, syllables) and daily games (`GAMES.md`),
 being upgraded for AdSense readiness. Owner: Bee (New Zealand). American English.
 
 ## Stack

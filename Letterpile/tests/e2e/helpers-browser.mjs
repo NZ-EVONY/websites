@@ -23,4 +23,6 @@ export const TEMPLATE_PAGES = [
   "/words-by-length/5-letter-words", "/words-by-length/7-letter-words/s", "/words-starting-with/q", "/words-ending-in/ness",
   "/about", "/contact", "/privacy-policy", "/terms", "/sitemap", "/no-such-page",
   "/games", "/games/word", "/games/sudoku", "/games/wordsearch", "/games/crossword", "/games/word/hints", "/games/letterpile", "/games/letterpile/practice", "/games/letterpile/arcade",
+  "/letter-hive-solver", "/word-grid-solver", "/letter-box-solver", "/multi-board-solver", "/word-ladder-solver", "/hangman-solver",
+  "/cryptogram-solver", "/rhyming-words", "/syllable-counter",
 ];

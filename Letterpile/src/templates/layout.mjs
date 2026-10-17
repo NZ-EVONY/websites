@@ -26,6 +26,8 @@ export default function layout(page, ctx) {
     scripts.push(`<script src="${assets["engine.js"]}" data-words="${assets["words.js"]}" data-worker="${assets["worker.js"]}" defer></script>`);
   }
   scripts.push(`<script src="${assets["site.js"]}" defer></script>`);
+  // Word tools (Phase 4 solvers): js/wt-client.js runs js/wordtools.js searches in js/tools-worker.js.
+  if (page.wordtools) scripts.push(`<script src="${assets["js/wt-client.js"]}" data-core="${assets["js/wordtools.js"]}" data-worker="${assets["js/tools-worker.js"]}" data-common="${assets["common.js"]}" defer></script>`);
   if (page.script) scripts.push(`<script src="${assets[`js/${page.script}.js`]}" defer></script>`);
   // Daily games: the shared core, then each game script (src/assets/games/). The hub uses hub.js; the
   // home page's "Today's puzzles" band uses the much smaller games/band.js, without the core.
