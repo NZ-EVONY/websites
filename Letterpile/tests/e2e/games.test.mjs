@@ -7,7 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { withBrowser, skip } from "./helpers-browser.mjs";
 import { ROOT, PUBLIC } from "../helpers.mjs";
-import { decode } from "../../scripts/games/util.mjs";
+import { decode, encode } from "../../scripts/games/util.mjs";
 
 const SHOTS = path.join(ROOT, "reports/games");
 fs.mkdirSync(SHOTS, { recursive: true });
@@ -258,7 +258,11 @@ test("Letterpile: drag, tap and type words, undo, hint, reload keeps progress, c
       await page.waitForFunction(() => window.WORD_DATA, null, { timeout: 30000 });
       const tile = (c, r) => page.locator(`.lp-tile[data-c="${c}"][data-r="${r}"]:not(.gone)`);
       const center = async ([c, r]) => { const b = await tile(c, r).boundingBox(); return [b.x + b.width / 2, b.y + b.height / 2]; };
-      const settle = () => page.waitForTimeout(450); // tiles falling
+      const settle = () => page.waitForTimeout(800); // tiles falling, then columns closing up
+      const { createRequire } = await import("node:module");
+      const LP = createRequire(import.meta.url)("../../src/assets/games/lp-engine.js");
+      const shown = () => page.evaluate(() => { const c = Array.from({ length: 5 }, () => []); document.querySelectorAll(".lp-tile:not(.gone)").forEach(t => { c[+t.dataset.c][+t.dataset.r] = t.firstChild.textContent; }); return c; });
+      let expected = p.board.split("/").map(c => [...c]);
       assert.equal(await page.locator(".lp-tile").count(), 25);
       // Keyboard: a letter that appears once on the board selects that tile; Escape clears.
       const letters = p.board.replace(/\//g, "");
@@ -293,6 +297,8 @@ test("Letterpile: drag, tap and type words, undo, hint, reload keeps progress, c
         assert.equal((await page.textContent("#lpWord")).toLowerCase(), m.word);
         await page.click("#lpSubmit");
         await settle();
+        expected = LP.remove(expected, m.path);
+        assert.deepEqual(await shown(), expected, `board after ${m.word} (gravity and column collapse)`);
       }
       await page.waitForSelector("#lpDone:not([hidden])");
       assert.match(await page.textContent("#lpDoneText"), new RegExp(`cleared the pile in ${sol.length} words`));
@@ -304,6 +310,35 @@ test("Letterpile: drag, tap and type words, undo, hint, reload keeps progress, c
       assert.deepEqual(errors, []);
       await ctx.close();
     }
+  });
+});
+
+test("Letterpile: an emptied column closes up, unreachable tiles dim, and the game ends by itself", { skip }, async () => {
+  // A made-up pile served in place of today's: CAT up the first column, two U's beside it.
+  const sol = [{ word: "cat", path: [[0, 0], [0, 1], [0, 2]] }];
+  const fake = { v: 1, game: "letterpile", date: today, number: 1, board: "cat/uu///", par: 1, s: encode(JSON.stringify(sol), `letterpile:${today}`) };
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await openPage(browser, base, "/about", 390);
+    await page.route(`**/puzzles/letterpile/${today}.json`, r => r.fulfill({ contentType: "application/json", body: JSON.stringify(fake) }));
+    await page.goto(base + "/games/letterpile");
+    await page.waitForSelector("#game[data-ready]");
+    if (await page.isVisible("#lpHow")) await page.click("#lpHowClose");
+    await page.waitForFunction(() => window.WORD_DATA, null, { timeout: 30000 });
+    await page.waitForTimeout(300);
+    assert.equal(await page.locator(".lp-tile.dead").count(), 0, "CUT could still use the U's");
+    assert.ok(await page.isHidden("#lpNote"));
+    for (const [c, r] of sol[0].path) await page.locator(`.lp-tile[data-c="${c}"][data-r="${r}"]:not(.gone)`).click();
+    await page.click("#lpSubmit");
+    await page.waitForSelector("#lpDone:not([hidden])");
+    await page.waitForTimeout(500);
+    assert.equal(await page.locator('.lp-tile:not(.gone)[data-c="0"]').count(), 2, "the U's slid into the first column");
+    assert.equal(await page.locator(".lp-tile.dead:not(.gone)").count(), 2, "and are dimmed");
+    assert.equal((await page.textContent("#lpNote")).trim(), "These tiles can't be reached any more.");
+    assert.equal(await page.textContent("#lpDoneTitle"), "No more words");
+    assert.match(await page.textContent("#lpDoneText"), /No word can be made from the 2 tiles left, after 1 word\./);
+    await page.screenshot({ path: path.join(SHOTS, "letterpile-stranded-390.png") });
+    assert.deepEqual(errors, []);
+    await ctx.close();
   });
 });
 

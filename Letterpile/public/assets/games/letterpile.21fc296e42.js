@@ -1,6 +1,7 @@
 /* Letterpile player (daily, practice and arcade). Tiles are absolutely placed by column and row
    (CSS custom properties), so removing a word just changes rows and the CSS transition makes the
-   tiles above fall. Progress (daily) is the list of moves, replayed from the day's board. */
+   tiles above fall; a moment later, empty columns close up and the columns to their right slide
+   left. Progress (daily) is the list of moves, replayed from the day's board. */
 (function () {
   "use strict";
   const G = window.Games, LP = window.LP, $ = s => document.querySelector(s);
@@ -13,7 +14,7 @@
   const STATS = "lp-game:letterpile:stats", SETTINGS = "lp-game:letterpile:settings", SEEN = "lp-game:letterpile:seen", BEST = "lp-game:letterpile:arcade-best";
   const SQUARE = n => (n <= 3 ? "🟨" : n === 4 ? "🟩" : n === 5 ? "🟦" : "🟪");
 
-  let dict = null, date, puzzle, start, solution = [], par = 0;
+  let dict = null, wordList = null, dead = new Set(), busy = false, date, puzzle, start, solution = [], par = 0;
   let cols, ids, nextId = 0, moves = [], hints = 0, path = [], done = false, timer = null, rnd = Math.random;
   let score = 0, movesLeft = 8, hinted = null;
 
@@ -27,7 +28,9 @@
   function loadWords() {
     return (self.WORD_DATA ? Promise.resolve() : script(root.dataset.wordlist)).then(() => {
       const hide = new Set((self.WORD_HIDE || "").split(" "));
-      dict = LP.dictionary(self.WORD_DATA.split(" ").filter(w => w.length >= 3 && !hide.has(w)));
+      wordList = self.WORD_DATA.split(" ").filter(w => w.length >= 3 && !hide.has(w));
+      dict = LP.dictionary(wordList);
+      findDead(); draw();
       submitBtn.disabled = path.length < 3;
     });
   }
@@ -54,10 +57,12 @@
       const inPath = path.findIndex(p => p[0] === c && p[1] === r);
       el.classList.toggle("on", inPath >= 0);
       el.classList.toggle("hint", !!hinted && hinted[0] === c && hinted[1] === r);
+      el.classList.toggle("dead", dead.has(ch));
       el.setAttribute("aria-pressed", String(inPath >= 0));
-      el.setAttribute("aria-label", `${ch.toUpperCase()}, ${LP.VALUES[ch]} point${LP.VALUES[ch] === 1 ? "" : "s"}, column ${c + 1}, row ${N - r} from the top${inPath >= 0 ? `, letter ${inPath + 1} of your word` : ""}`);
+      el.setAttribute("aria-label", `${ch.toUpperCase()}, ${LP.VALUES[ch]} point${LP.VALUES[ch] === 1 ? "" : "s"}, column ${c + 1}, row ${N - r} from the top${dead.has(ch) ? ", can't be reached any more" : ""}${inPath >= 0 ? `, letter ${inPath + 1} of your word` : ""}`);
     }));
     boardEl.querySelectorAll(".lp-tile").forEach(el => { if (!live.has(el.dataset.id)) { el.classList.add("gone"); setTimeout(() => el.remove(), 250); } });
+    $("#lpNote").hidden = !cols.some(col => col.some(ch => dead.has(ch)));
     const w = LP.word(cols, path);
     wordEl.textContent = w.toUpperCase();
     submitBtn.disabled = done || w.length < 3;
@@ -76,7 +81,7 @@
 
   const same = (a, b) => a && b && a[0] === b[0] && a[1] === b[1];
   function tap(cell) {
-    if (done) return;
+    if (done || busy) return;
     hinted = null;
     const i = path.findIndex(p => same(p, cell));
     if (i === path.length - 1 && i >= 0) path.pop();
@@ -89,7 +94,7 @@
   let dragging = false, moved = false, downCell = null;
   boardEl.addEventListener("pointerdown", e => {
     const cell = cellOf(e.target.closest(".lp-tile"));
-    if (!cell || done) return;
+    if (!cell || done || busy) return;
     e.preventDefault();
     dragging = true; moved = false; downCell = cell;
     boardEl.setPointerCapture?.(e.pointerId);
@@ -112,7 +117,7 @@
 
   // Typing: extend the path with a tile showing that letter, if there's exactly one choice.
   document.addEventListener("keydown", e => {
-    if (e.ctrlKey || e.metaKey || e.altKey || done) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || done || busy) return;
     if (e.target.closest("input, textarea, select, dialog[open]")) return;
     const k = e.key;
     if (k === "Enter" && !e.target.closest("button")) { e.preventDefault(); play(); }
@@ -132,26 +137,45 @@
 
   const POINTS = n => [0, 0, 0, 10, 20, 40, 70, 110, 160][Math.min(n, 8)] + Math.max(0, n - 8) * 60;
   function play() {
-    if (done || path.length < 3) return;
+    if (done || busy || path.length < 3) return;
     if (!dict) { say("Still loading the word list…"); return; }
     const w = LP.word(cols, path);
     if (!dict.has(w)) { say(`${w.toUpperCase()} isn't in the word list.`); boardEl.classList.remove("shake"); void boardEl.offsetWidth; boardEl.classList.add("shake"); return; }
     const m = { word: w, path: path.slice() };
     if (arcade) { m.points = POINTS(w.length); score += m.points; movesLeft--; }
-    apply(m);
+    drop(m);
     moves.push(m);
     path = []; hinted = null;
-    const fresh = arcade ? refill() : [];
-    draw(fresh);
-    say(`${w.toUpperCase()}${arcade ? ` +${m.points}` : ""}.`);
-    save();
-    check();
+    const after = () => {
+      const fresh = arcade ? refill() : [];
+      findDead();
+      draw(fresh);
+      say(`${w.toUpperCase()}${arcade ? ` +${m.points}` : ""}.`);
+      save();
+      check();
+    };
+    if (!gaps()) return after();
+    // Let the tiles fall first, then slide the columns together.
+    draw();
+    busy = true;
+    setTimeout(() => { busy = false; collapse(); after(); }, 260);
   }
-  function apply(m) {
+  // Gravity: the word's tiles go and the tiles above fall (ids move with their letters).
+  function drop(m) {
     const byCol = {};
     for (const [c, r] of m.path) (byCol[c] = byCol[c] || []).push(r);
     for (const c in byCol) for (const r of byCol[c].sort((a, b) => b - a)) { cols[c].splice(r, 1); ids[c].splice(r, 1); }
   }
+  // Column collapse: empty columns close up and the columns to their right slide left.
+  const gaps = () => cols.some((col, c) => !col.length && cols.slice(c).some(x => x.length));
+  function collapse() {
+    const keep = cols.map((_, c) => c).filter(c => cols[c].length);
+    const pad = a => { while (a.length < N) a.push([]); return a; };
+    cols = pad(keep.map(c => cols[c])); ids = pad(keep.map(c => ids[c]));
+  }
+  const apply = m => { drop(m); collapse(); };
+  // Letters no word can ever use again are dimmed (not in Arcade, where new tiles keep arriving).
+  function findDead() { dead = arcade || !wordList ? new Set() : LP.deadLetters(cols, wordList); }
   // Arcade: new letters (weighted by English letter frequency) fall in from the top.
   const FREQ = "eeeeeeeeeeeeaaaaaaaaaiiiiiiiiioooooooonnnnnnrrrrrrttttttllllssssuuuuddddgggbbccmmppffhhvvwwyykjxqz";
   function refill() {
@@ -173,6 +197,7 @@
     cols = LP.clone(start); nextId = 0;
     ids = cols.map(col => col.map(() => nextId++));
     for (const m of moves) apply(m);
+    findDead();
   }
   function undo() {
     if (!moves.length || arcade && done) return;
@@ -216,7 +241,7 @@
       $("#lpDoneTitle").textContent = cleared ? "Cleared!" : "No more words";
       $("#lpDoneText").textContent = cleared
         ? `You cleared the pile in ${moves.length} words${t} (par ${par})${hints ? ` using ${hints} hint${hints === 1 ? "" : "s"}` : ""}: ${moves.map(m => m.word.toUpperCase()).join(", ")}.`
-        : `No word can be made from the ${left} tile${left === 1 ? "" : "s"} left, after ${moves.length} words. Undo a word or two, or restart, to try another route.`;
+        : `No word can be made from the ${left} tile${left === 1 ? "" : "s"} left, after ${moves.length} word${moves.length === 1 ? "" : "s"}. Undo a word or two, or restart, to try another route.`;
     }
     say(arcade ? `Final score: ${score}.` : cleared ? `Cleared in ${moves.length} words (par ${par}).` : `${left} tiles left.`);
     if (daily) { record(cleared); showStats(); }
@@ -226,7 +251,7 @@
   function shareText() {
     const h = hints ? ` · ${hints} hint${hints === 1 ? "" : "s"}` : "";
     const left = LP.count(cols);
-    const head = left ? `Letterpile #${puzzle.number} — ${left} tiles left after ${moves.length} words (par ${par})` : `Letterpile #${puzzle.number} — cleared in ${moves.length} words (par ${par})`;
+    const head = left ? `Letterpile #${puzzle.number} — ${left} tiles left after ${moves.length} word${moves.length === 1 ? "" : "s"} (par ${par})` : `Letterpile #${puzzle.number} — cleared in ${moves.length} words (par ${par})`;
     return `${head}${h}\n${moves.map(m => SQUARE(m.word.length)).join("")}\nletterpile.app/games/letterpile`;
   }
 
@@ -293,6 +318,8 @@
     boardEl.style.setProperty("--n", N);
     // Saved progress is applied before the first draw, so played tiles don't flash in and out.
     if (saved) { moves = saved.moves.map(m => ({ word: m.w, path: m.p })); hints = saved.hints || 0; }
+    // Progress saved for a different board (or under older rules) is dropped.
+    if (moves.length && !LP.replay(board, moves)) { moves = []; hints = 0; if (saved) saved.done = false; }
     rebuild(); draw();
   }
   // Practice: a fresh clearable board from the same generator as the daily piles.

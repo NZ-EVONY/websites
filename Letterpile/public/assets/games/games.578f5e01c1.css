@@ -198,6 +198,9 @@
 .lp-tile.on::before { background: var(--sun); box-shadow: inset 0 0 0 3px var(--tile-ink), 0 3px 0 rgb(0 0 0 / .22); }
 .lp-tile.hint::before { background: var(--mint); animation: lp-pulse 1s ease-in-out infinite alternate; }
 .lp-tile.gone { opacity: 0; transform: translate(calc(var(--c) * 100%), calc((var(--n) - 1 - var(--r)) * 100%)) scale(.4); }
+.lp-tile.dead { color: var(--muted); }
+.lp-tile.dead::before { opacity: .4; box-shadow: none; }
+.lp-note { margin: 8px 0 0; text-align: center; font-weight: 700; color: var(--muted); }
 .lp-tile:focus-visible { outline: 3px solid var(--focus); outline-offset: -2px; border-radius: 14px; }
 @keyframes lp-pulse { to { transform: scale(1.06); } }
 .lp-board.shake { animation: shake .35s ease; }

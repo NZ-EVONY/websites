@@ -10,11 +10,16 @@ ahead of time, validated, committed, and deployed with the site.
 `/games/letterpile`, plus `/games/letterpile/practice` and `/games/letterpile/arcade`; rules and
 strategy in the guide at `/guides/letterpile`.
 
-- Engine: `src/assets/games/lp-engine.js` (board rules, tracing, gravity) and `lp-gen.js`
-  (backwards generator, solution replay, beam-search solver). Both run in Node and the browser;
+- Rules: a played word's tiles go, the tiles above fall (gravity), then any empty column closes
+  up and the columns to its right slide left (column collapse). A letter no word can use with
+  the tiles left (in any arrangement) is dimmed with a note; when no word can be traced, the
+  game ends by itself and leftovers are counted. Arcade refills after collapse.
+- Engine: `src/assets/games/lp-engine.js` (board rules, tracing, gravity and collapse, replay,
+  unreachable letters) and `lp-gen.js` (backwards generator, beam-search solver). Both run in Node and the browser;
   `lp-gen.js` loads only on the Practice page.
 - Daily piles (`scripts/games/letterpile.mjs`): built backwards from very common words (SCOWL
-  level 20 and below), so replaying the stored solution always clears the pile. Par is the
+  level 20 and below); the reverse step can also slot in a new column (reverse collapse) and
+  each step is checked by replaying it forwards, so replaying the stored solution always clears the pile. Par is the
   fewer of the solution's word count and what the solver finds in 3 seconds using common words
   (SCOWL 35 and below); players may use any ENABLE word not on the blocklist. Target par by
   weekday: Mon/Tue 5, Wed/Thu 6, Fri 7, Sat 8, Sun 7.

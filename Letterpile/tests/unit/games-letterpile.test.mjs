@@ -25,6 +25,20 @@ test("gravity: removing tiles lets the ones above fall within their column", () 
   assert.deepEqual(b, [["a", "b", "c"], ["d", "e", "f"]], "the original board is unchanged");
 });
 
+test("column collapse: an emptied column closes up and the columns to its right slide left", () => {
+  const b = [["a", "b"], ["c"], ["d", "e"], []];
+  assert.deepEqual(LP.drop(b, [[1, 0]]), [["a", "b"], [], ["d", "e"], []], "gravity alone leaves a gap");
+  assert.deepEqual(LP.remove(b, [[1, 0]]), [["a", "b"], ["d", "e"], [], []], "a move closes it");
+  assert.deepEqual(LP.remove([["x"], ["y"], ["z"]], [[0, 0], [1, 0]]), [["z"], [], []]);
+});
+
+test("unreachable letters: dimmed only when no word can use them, whatever the arrangement", () => {
+  const list = ["cat", "act", "tub"];
+  assert.deepEqual([...LP.deadLetters([["c", "a"], ["t"], ["u", "u"]], list)].sort(), ["u"]);
+  assert.deepEqual([...LP.deadLetters([["c", "a"], ["t", "u"], ["b"]], list)].sort(), [], "every letter is in some word");
+  assert.deepEqual([...LP.deadLetters([["u", "u"], [], []], list)], ["u"], "two tiles can't make a word");
+});
+
 test("finding words on a board, and a path for a given word", () => {
   const dict = LP.dictionary(["cat", "act", "tac", "dog"]);
   const b = [["c", "x"], ["a", "t"]];
@@ -33,8 +47,9 @@ test("finding words on a board, and a path for a given word", () => {
   assert.equal(LP.findPath(b, "dog"), null);
 });
 
-test("generator: 50 boards, each full and cleared by replaying its solution", () => {
+test("generator: 50 boards, each full and cleared by replaying its solution (with column collapse)", () => {
   const { byLen } = lp.lists(words);
+  let collapses = 0;
   for (let i = 0; i < 50; i++) {
     let g = null;
     for (let t = 0; !g && t < 30; t++) g = LP.generate(rng(`test${i}:${t}`), byLen, 5 + (i % 4), 5);
@@ -43,7 +58,14 @@ test("generator: 50 boards, each full and cleared by replaying its solution", ()
     assert.ok(g.cols.every(c => c.length === 5));
     const end = LP.replay(g.cols, g.solution);
     assert.ok(end && LP.count(end) === 0, `board ${i} clears`);
+    let b = g.cols;
+    for (const m of g.solution) {
+      const d = LP.drop(b, m.path);
+      if (d.some((c, j) => !c.length && d.slice(j).some(x => x.length))) collapses++;
+      b = LP.remove(b, m.path);
+    }
   }
+  assert.ok(collapses > 0, "some solutions rely on a column closing up");
 });
 
 test("every published daily pile is valid: clears with its solution, par fits the weekday", () => {

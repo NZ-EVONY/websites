@@ -8,23 +8,33 @@
   else Object.assign(root.LP, api);
 })(typeof self !== "undefined" ? self : this, function (LP) {
   "use strict";
-  const { at, count, clone, word, canTrace, remove, findWords } = LP;
+  const { at, count, clone, remove, findWords } = LP;
 
   // ---------- generation (backwards, so every board can be cleared) ----------
 
   // Inserts a word into the board along a random path of cells in the *new* board: chosen cells
-  // push the tiles above them upward (reverse gravity). Removing that path afterwards gives back
-  // the previous board, so replaying the words in reverse order clears the pile.
+  // push the tiles above them upward (reverse gravity). The word may also fill a brand-new column
+  // slotted in between the others (reverse column collapse). Removing that path afterwards gives
+  // back the previous board exactly (checked), so replaying the words in reverse order clears it.
+  const same = (a, b) => a.length === b.length && a.every((c, i) => c.join("") === b[i].join(""));
+  const collapsed = cols => cols.every((c, i) => c.length || cols.slice(i).every(x => !x.length));
   function insert(cols, w, rng, size) {
-    for (let tries = 0; tries < 300; tries++) {
+    const filled = cols.filter(c => c.length).length;
+    for (let tries = 0; tries < 600; tries++) {
+      let base = cols;
+      if (filled && filled < size && rng() < 0.3) {
+        const j = Math.floor(rng() * (filled + 1));
+        base = [...cols.slice(0, j), [], ...cols.slice(j, size - 1)];
+      }
+      const width = Math.min(size, filled + 1 + (base === cols ? 0 : 1));
       const path = [];
       const used = new Set();
       let ok = true;
       for (let i = 0; i < w.length && ok; i++) {
         const opts = [];
-        if (!i) for (let c = 0; c < size; c++) for (let r = 0; r < size; r++) opts.push([c, r]);
+        if (!i) for (let c = 0; c < width; c++) for (let r = 0; r < size; r++) opts.push([c, r]);
         else { const l = path[i - 1]; for (let dc = -1; dc <= 1; dc++) for (let dr = -1; dr <= 1; dr++) if (dc || dr) opts.push([l[0] + dc, l[1] + dr]); }
-        const good = opts.filter(([c, r]) => c >= 0 && c < size && r >= 0 && r < size && !used.has(c * 64 + r));
+        const good = opts.filter(([c, r]) => c >= 0 && c < width && r >= 0 && r < size && !used.has(c * 64 + r));
         if (!good.length) { ok = false; break; }
         const p = good[Math.floor(rng() * good.length)];
         used.add(p[0] * 64 + p[1]); path.push(p);
@@ -33,16 +43,17 @@
       // Each column must stay gap-free and within size: rows chosen must be below the new height.
       const k = {};
       for (const [c] of path) k[c] = (k[c] || 0) + 1;
-      if (Object.keys(k).some(c => cols[c].length + k[c] > size || path.some(([pc, r]) => pc == c && r >= cols[c].length + k[c]))) continue;
-      const out = clone(cols);
+      if (Object.keys(k).some(c => base[c].length + k[c] > size || path.some(([pc, r]) => pc == c && r >= base[c].length + k[c]))) continue;
+      const out = clone(base);
       for (const c in k) {
-        const newLen = cols[c].length + k[c];
+        const newLen = base[c].length + k[c];
         const col = Array(newLen).fill(null);
         path.forEach(([pc, r], i) => { if (pc == c) col[r] = w[i]; });
-        const rest = cols[c].slice();
+        const rest = base[c].slice();
         for (let r = 0; r < newLen; r++) if (col[r] == null) col[r] = rest.shift();
         out[c] = col;
       }
+      if (!collapsed(out) || !same(remove(out, path), cols)) continue;
       return { cols: out, path };
     }
     return null;
@@ -79,16 +90,6 @@
       if (!done) return null;
     }
     return { cols, solution: placed.reverse() };
-  }
-
-  // Replays a solution from a board; returns the final board or null if a move doesn't trace.
-  function replay(cols, moves) {
-    let b = cols;
-    for (const m of moves) {
-      if (!canTrace(b, m.path) || word(b, m.path) !== m.word) return null;
-      b = remove(b, m.path);
-    }
-    return b;
   }
 
   // ---------- fewest-words solver (beam search) ----------
@@ -140,5 +141,5 @@
     return out;
   }
 
-  return { insert, splitLengths, generate, replay, solve, lines };
+  return { insert, splitLengths, generate, solve, lines };
 });

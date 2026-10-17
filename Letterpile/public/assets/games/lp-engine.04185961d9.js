@@ -2,7 +2,8 @@
    the daily generator (Node). Generation and the solver are in lp-gen.js, loaded only by
    Practice mode and the generator.
    A board is an array of columns; each column lists its letters from the bottom up, so tiles
-   "fall" simply by removing entries. A cell is [col, row] with row 0 at the bottom. */
+   "fall" simply by removing entries. A cell is [col, row] with row 0 at the bottom. When a column
+   empties, the columns to its right slide left to close the gap. */
 (function (root, factory) {
   const api = factory();
   if (typeof module === "object" && module.exports) module.exports = api;
@@ -31,13 +32,33 @@
     return true;
   }
 
-  // Removes the path's tiles; the tiles above fall within their column.
-  function remove(cols, path) {
+  // Removes the path's tiles; the tiles above fall within their column (gravity only).
+  function drop(cols, path) {
     const out = clone(cols);
     const byCol = {};
     for (const [c, r] of path) (byCol[c] = byCol[c] || []).push(r);
     for (const c in byCol) for (const r of byCol[c].sort((a, b) => b - a)) out[c].splice(r, 1);
     return out;
+  }
+  // Empty columns close up: the columns to their right slide left, and the empties move to the
+  // right-hand end, so the board keeps its width.
+  function collapse(cols) {
+    const out = cols.filter(c => c.length);
+    while (out.length < cols.length) out.push([]);
+    return out;
+  }
+  // A move: gravity, then column collapse.
+  const remove = (cols, path) => collapse(drop(cols, path));
+
+  // Replays moves ([{ word, path }]) from a board; returns the final board, or null if a move
+  // doesn't trace or doesn't spell its word.
+  function replay(cols, moves) {
+    let b = cols;
+    for (const m of moves) {
+      if (!canTrace(b, m.path) || word(b, m.path) !== m.word) return null;
+      b = remove(b, m.path);
+    }
+    return b;
   }
 
   // ---------- dictionary (sorted array of words) ----------
@@ -107,8 +128,27 @@
     return walk([], 0);
   }
 
+  // Letters that no word can use any more: no word in `words` can be spelled from the tiles left
+  // (in any arrangement, since tiles keep moving) using that letter. A sound test: it never marks
+  // a letter that some later move could still clear.
+  function deadLetters(cols, words) {
+    const have = {};
+    let total = 0;
+    for (const col of cols) for (const ch of col) { have[ch] = (have[ch] || 0) + 1; total++; }
+    const letters = Object.keys(have), live = new Set(), need = {};
+    for (const w of words) {
+      if (live.size === letters.length) break;
+      if (w.length > total || w.length < 3) continue;
+      let ok = true;
+      for (const ch in need) delete need[ch];
+      for (const ch of w) { need[ch] = (need[ch] || 0) + 1; if (need[ch] > (have[ch] || 0)) { ok = false; break; } }
+      if (ok) for (const ch of w) live.add(ch);
+    }
+    return new Set(letters.filter(ch => !live.has(ch)));
+  }
+
   // Commonly used tile values (the site's "tile game" scheme).
   const VALUES = { a: 1, b: 3, c: 3, d: 2, e: 1, f: 4, g: 2, h: 4, i: 1, j: 8, k: 5, l: 1, m: 3, n: 1, o: 1, p: 3, q: 10, r: 1, s: 1, t: 1, u: 1, v: 4, w: 4, x: 8, y: 4, z: 10 };
 
-  return { adjacent, at, count, clone, word, canTrace, remove, dictionary, findWords, findPath, VALUES };
+  return { adjacent, at, count, clone, word, canTrace, drop, collapse, remove, replay, dictionary, findWords, findPath, deadLetters, VALUES };
 });
