@@ -30,7 +30,7 @@ test("at least 20 substantial non-programmatic pages", () => {
 test("prose similarity stays under the documented thresholds", () => {
   const sims = maxSimilarity(pages.map(p => ({ url: p.path, html: p.html })));
   const type = new Map(pages.map(p => [p.path, p.type]));
-  const templated = t => t === "programmatic" || t === "affix";
+  const templated = t => t === "programmatic" || t === "affix" || t === "word";
   for (const r of sims) {
     const limit = templated(type.get(r.page)) && templated(type.get(r.with)) ? quality.similarity.maxJaccardGenerated : quality.similarity.maxJaccard;
     assert.ok(r.max <= limit, `${r.page} ~ ${r.with}: ${r.max.toFixed(3)} > ${limit}`);

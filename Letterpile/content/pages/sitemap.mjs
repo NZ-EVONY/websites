@@ -17,6 +17,10 @@ export default ctx => {
 <ul class="link-cols">${by("tool").map(link).join("")}</ul>
 <h2>Guides</h2>
 <ul><li><a href="/guides">All guides</a></li>${sorted(by("guide")).map(link).join("")}</ul>
+<h2>Curated word lists</h2>
+<ul><li><a href="/lists">All curated lists</a></li>${sorted(by("list")).map(link).join("")}</ul>
+<h2>Word pages</h2>
+<p><a href="/word">Word pages and word lookup</a>: ${ctx.fmt(by("word").length)} pages for common words, listed by first letter.</p>
 <h2>About this site</h2>
 <ul>${["/about", "/contact", "/privacy-policy", "/terms"].map(p => link(pages.find(x => x.path === p))).join("")}</ul>
 ${lists.map(([prefix, name]) => `<h2>${name}</h2>

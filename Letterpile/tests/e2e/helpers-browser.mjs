@@ -25,4 +25,5 @@ export const TEMPLATE_PAGES = [
   "/games", "/games/word", "/games/sudoku", "/games/wordsearch", "/games/crossword", "/games/word/hints", "/games/letterpile", "/games/letterpile/practice", "/games/letterpile/arcade",
   "/letter-hive-solver", "/word-grid-solver", "/letter-box-solver", "/multi-board-solver", "/word-ladder-solver", "/hangman-solver",
   "/cryptogram-solver", "/rhyming-words", "/syllable-counter", "/board-solver",
+  "/word", "/word/planet", "/lists", "/lists/words-with-q", "/lists/high-scoring-short-words",
 ];

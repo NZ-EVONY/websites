@@ -29,6 +29,7 @@ export default function footer({ nav, site, year }) {
     <div class="links">
       <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
       <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <a id="definePage" href="/word">Word page</a>
       <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
     </div>
   </div>

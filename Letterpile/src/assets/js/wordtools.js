@@ -388,8 +388,33 @@
     return [...moves.values()].sort((x, y) => y.score - x.score || tier(y.word) - tier(x.word) || (x.word < y.word ? -1 : 1)).slice(0, limit);
   }
 
+  // ---------- one word, for the word lookup page ----------
+
+  // Everything the word pages show that comes from the list (points come from the engine).
+  function wordInfo(input, { limit = 120 } = {}) {
+    const w = letters(input);
+    if (!w) return null;
+    const count = s => { const c = {}; for (const ch of s) c[ch] = (c[ch] || 0) + 1; return c; };
+    const have = count(w), key = [...w].sort().join("");
+    const anagrams = [], inside = [], longer = [];
+    for (const v of LIST) {
+      if (v === w) continue;
+      if (v.length === w.length) { if ([...v].sort().join("") === key) anagrams.push(v); }
+      else if (v.length < w.length && v.length >= 3) { const c = count(v); if (Object.keys(c).every(ch => c[ch] <= (have[ch] || 0))) inside.push(v); }
+      else if (v.length > w.length && v.includes(w)) longer.push(v);
+    }
+    inside.sort((a, b) => b.length - a.length || tier(b) - tier(a) || (a < b ? -1 : 1));
+    longer.sort((a, b) => a.length - b.length || tier(b) - tier(a) || (a < b ? -1 : 1));
+    const AZ = [..."abcdefghijklmnopqrstuvwxyz"];
+    return {
+      word: w, known: SET.has(w), common: tier(w), anagrams,
+      inside: inside.slice(0, limit), insideCount: inside.length, longer: longer.slice(0, 80), longerCount: longer.length,
+      front: AZ.map(l => l + w).filter(isWord), back: AZ.map(l => w + l).filter(isWord),
+    };
+  }
+
   const tiers = ws => ws.filter(w => tier(w));
-  const api = { use, commonMap, tier, tiers, isWord, ofLength, hasPrefix, hive, grid, boxWords, box, ladder, hangman, shape, cryptogram, cipherWords, board, CLASSIC };
+  const api = { use, commonMap, tier, tiers, isWord, ofLength, hasPrefix, hive, grid, boxWords, box, ladder, hangman, shape, cryptogram, cipherWords, board, CLASSIC, wordInfo };
 
   return api;
 });

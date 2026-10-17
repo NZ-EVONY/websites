@@ -15,6 +15,7 @@ import { buildTree, renamedPaths, WINDOWS_RESERVED } from "./pagegen.mjs";
 import { renderNode } from "../content/programmatic.mjs";
 import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
 import { buildGames } from "./games/publish.mjs";
+import { wordPages, wordPageWords } from "./wordpages.mjs";
 import { WordTools, commonWords, commonJs, rhymeData, pronunciations, rhymeTail, syllables } from "./tooldata.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
@@ -267,6 +268,12 @@ for (let pass = 0; pass < 3; pass++) {
 }
 pages.push(...generated);
 
+// Word pages (/word/{word}) for the most common words; see scripts/wordpages.mjs.
+ctx.pages = pages;
+ctx.wordsUpdated = lastChanged(["data/enable1.txt", "scripts/wordpages.mjs", "scripts/lexicon/cmudict-enable.txt"]);
+ctx.wordPageWords = wordPageWords(data);
+pages.push(...wordPages(ctx, data, ctx.wordPageWords));
+
 // Pages that need the full page list (HTML sitemap, hubs).
 ctx.pages = pages;
 for (const { f, mod } of late) pages.push(prepare(mod.default(ctx), f));
@@ -287,7 +294,7 @@ const sims = maxSimilarity(simPages);
 const typeOf = new Map(simPages.map(p => [p.url, p.type]));
 const simFail = sims.filter(r => {
   const t = typeOf.get(r.page), other = typeOf.get(r.with);
-  const templated = x => x === "programmatic" || x === "affix";
+  const templated = x => x === "programmatic" || x === "affix" || x === "word";
   const limit = templated(t) && templated(other) ? quality.similarity.maxJaccardGenerated : quality.similarity.maxJaccard;
   return r.max > limit;
 });
@@ -299,10 +306,18 @@ if (simFail.length) throw new Error(`Similarity gate failed for ${simFail.length
 
 const indexable = pages.filter(p => !p.noindex && p.inSitemap !== false);
 write("robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${site.siteUrl}/sitemap.xml\n`);
-write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
+// Sitemap index: word pages in their own file, everything else in another.
+const urlset = list => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexable.map(p => `  <url><loc>${site.siteUrl}${p.path === "/" ? "/" : p.path}</loc><lastmod>${p.updated}</lastmod></url>`).join("\n")}
+${list.map(p => `  <url><loc>${site.siteUrl}${p.path === "/" ? "/" : p.path}</loc><lastmod>${p.updated}</lastmod></url>`).join("\n")}
 </urlset>
+`;
+const maps = [["sitemap-pages.xml", indexable.filter(p => p.type !== "word")], ["sitemap-words.xml", indexable.filter(p => p.type === "word")]];
+for (const [f, list] of maps) write(f, urlset(list));
+write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${maps.map(([f, list]) => `  <sitemap><loc>${site.siteUrl}/${f}</loc><lastmod>${list.map(p => p.updated).sort().at(-1)}</lastmod></sitemap>`).join("\n")}
+</sitemapindex>
 `);
 write("ads.txt", `# ads.txt for letterpile.app. Placeholder until an AdSense account exists.\n# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0  (replace pub id after AdSense account is created, uncomment)\n`);
 

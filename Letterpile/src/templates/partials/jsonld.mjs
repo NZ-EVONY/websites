@@ -8,7 +8,7 @@ export default function jsonld({ page, site }) {
     graph.push({ "@type": "WebSite", "@id": abs("/") + "#website", name: site.brand, url: abs("/"), inLanguage: site.language, publisher: { "@id": abs("/") + "#organization" } });
     graph.push({ "@type": "Organization", "@id": abs("/") + "#organization", name: site.publisherName, url: abs("/") });
   }
-  if (page.type === "tool") {
+  if (page.type === "tool" || page.webapp) {
     graph.push({
       "@type": "WebApplication", name: page.appName || page.h1, url: abs(page.path), description: page.description,
       applicationCategory: "GameApplication", operatingSystem: "Any", browserRequirements: "Requires JavaScript",

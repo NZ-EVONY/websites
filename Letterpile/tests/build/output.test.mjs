@@ -121,8 +121,12 @@ test("the early inline script marks query URLs noindex and is the only inline sc
   assert.match(HEAD_SCRIPT, /has-query/);
 });
 
-test("sitemap lists exactly the indexable canonical URLs, each built", () => {
-  const xml = readPublic("sitemap.xml");
+test("sitemap index: its sitemaps list exactly the indexable canonical URLs, each built", () => {
+  const index = readPublic("sitemap.xml");
+  assert.match(index, /<sitemapindex /);
+  const files = [...index.matchAll(/<loc>https:\/\/letterpile\.app\/([^<]+)<\/loc>/g)].map(m => m[1]);
+  assert.deepEqual(files, ["sitemap-pages.xml", "sitemap-words.xml"]);
+  const xml = files.map(readPublic).join("\n");
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
   assert.deepEqual(locs.slice().sort(), indexable.map(p => site.siteUrl + p.url).sort());
   for (const l of locs) assert.doesNotMatch(l, /\?|\.html$/);

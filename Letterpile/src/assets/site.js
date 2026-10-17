@@ -298,6 +298,8 @@
     $("#definePts").textContent = Engine ? `${Engine.score(word, s)} points (${SCHEME_LABEL[s]})` : "";
     $("#defineWiktionary").href = `https://en.wiktionary.org/wiki/${encodeURIComponent(word)}`;
     $("#defineMW").href = `https://www.merriam-webster.com/dictionary/${encodeURIComponent(word)}`;
+    const pg = $("#definePage");
+    if (pg) pg.href = `/word?w=${encodeURIComponent(word)}`;
     const btn = $("#defineLookup");
     if (defCache.has(word)) { showDefinitions(defCache.get(word)); btn.hidden = true; }
     else { $("#defineResult").replaceChildren(); btn.hidden = false; }

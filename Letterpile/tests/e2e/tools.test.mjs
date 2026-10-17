@@ -158,3 +158,21 @@ test("scan tiles: a photo of a rack is read in the browser and checked before us
     await ctx.close();
   });
 });
+
+test("word lookup: any word is filled in; a word with a page goes to it; the word window links here", { skip }, async () => {
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await open(browser, base, "/word?w=quixotic");
+    await page.waitForSelector("#result h2", { timeout: 30000 });
+    assert.equal(await page.textContent("#result h2"), "QUIXOTIC");
+    assert.ok(await page.locator('#result .word[data-word="quixotically"]').count() > 0, "longer words containing it");
+    assert.equal(await page.getAttribute('meta[name="robots"]', "content"), "noindex, follow");
+    await page.goto(base + "/word?w=planet");
+    await page.waitForURL(/\/word\/planet$/);
+    assert.match(await page.textContent("h1"), /PLANET/);
+    await page.goto(base + "/?letters=cat");
+    await page.click('#results .word[data-word="cat"]', { timeout: 30000 });
+    assert.equal(await page.getAttribute("#definePage", "href"), "/word?w=cat");
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
