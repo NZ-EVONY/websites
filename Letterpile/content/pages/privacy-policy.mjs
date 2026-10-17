@@ -13,6 +13,7 @@ export default ctx => ({
 
 <h2>What the tools do with what you type</h2>
 <p>Letters, words, patterns and filters you type into the tools are processed by JavaScript in your own browser. They are not sent to Letterpile or stored by it. To make results shareable, the tools put your input into the page address (for example <code>?letters=…</code>). That address stays in your browser history, and if you share the link, whoever receives it can see the input.</p>
+<p><b>Scan tiles.</b> Some tools can read letters from a photo of your tiles. The photo is read entirely in your browser by text-recognition software that this site hosts itself (Tesseract.js); it is never uploaded to Letterpile or anyone else. The first time you use it, your browser downloads that software and an English letter model (a few megabytes) from letterpile.app. The photo is discarded when you close the window.</p>
 
 <h2>Information stored on your device</h2>
 <p>The site itself sets no cookies. It uses your browser's storage for a few preferences, which never leave your device:</p>

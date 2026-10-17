@@ -301,7 +301,33 @@
     const btn = $("#defineLookup");
     if (defCache.has(word)) { showDefinitions(defCache.get(word)); btn.hidden = true; }
     else { $("#defineResult").replaceChildren(); btn.hidden = false; }
+    showHooks(word);
     if (!dlg.open) dlg.showModal();
+  }
+
+  // Hooks: letters that can go on the front or the back of the word to make another word.
+  async function showHooks(word) {
+    const box = $("#defineHooks");
+    if (!box) return;
+    box.replaceChildren();
+    if (!Engine || !/^[a-z]+$/.test(word)) return;
+    const AZ = [..."abcdefghijklmnopqrstuvwxyz"];
+    try {
+      const [front, back] = await Promise.all([AZ.map(l => l + word), AZ.map(l => word + l)].map(ws =>
+        Promise.all(ws.map(w => compute("isVisibleWord", w))).then(ok => ws.filter((_, i) => ok[i]))));
+      if (word !== current) return;
+      const row = (label, ws, at) => {
+        const p = el("p", { class: "hooks" }, `${label}: `);
+        if (!ws.length) p.append("none");
+        for (const w of ws) {
+          const b = el("button", { type: "button", class: "word plain", "data-word": w });
+          b.append(...(at ? [el("b", {}, w[0]), w.slice(1)] : [w.slice(0, -1), el("b", {}, w.slice(-1))]));
+          p.append(b, " ");
+        }
+        return p;
+      };
+      box.replaceChildren(row("Front hooks", front, true), row("Back hooks", back, false));
+    } catch {}
   }
 
   const dlg = $("#defineDialog");

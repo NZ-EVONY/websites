@@ -81,3 +81,30 @@ test("rhymes and syllables from the pronunciation dictionary", () => {
   assert.ok(rh.includes("rhyme") && rh.includes("time"));
   for (const [, ws] of groups) for (const w of ws.split(" ")) assert.ok(data.set.has(w.slice(1)) && !data.blockedSet.has(w.slice(1)), w);
 });
+
+test("board solver: legal plays only, scored with bonuses, crossing words, blanks and all seven tiles", async () => {
+  real();
+  const { SCHEMES } = createRequire(import.meta.url)("../../src/assets/engine.js");
+  const values = SCHEMES.scrabble.values;
+  const at = (cells, r, c, w) => { const a = [...cells]; [...w].forEach((ch, k) => { a[r * 15 + c + k] = ch; }); return a.join(""); };
+  // Empty board: must cover the center; RETAINS-type bingo = (7 + 1 for a double letter) x 2 + 50.
+  const first = T.board(".".repeat(225), T.CLASSIC, "retains", { values });
+  assert.equal(first[0].score, 66);
+  assert.ok(first.every(p => p.tiles.some(([r, c]) => r === 7 && c === 7)), "every first move covers the center");
+  // QUIZ across 8F-8I; QUIZMASTER = (10+1+1+10 + blank M 0 + 1 + S on DL 2 + 1+1+1) x 3 (TW) = 84.
+  const quiz = at(".".repeat(225), 7, 5, "quiz");
+  const best = T.board(quiz, T.CLASSIC, "aeirst?", { values })[0];
+  assert.equal(best.word, "quizmaster");
+  assert.equal(best.score, 84);
+  assert.deepEqual(best.tiles.filter(t => t[3]).map(t => t[2]), ["m"], "the blank is the M");
+  // A crossing play: X under the A of CAT makes AX (1 + 8 = 9).
+  const cat = at(".".repeat(225), 7, 6, "cat");
+  const ax = T.board(cat, T.CLASSIC, "x", { values }).find(p => p.tiles.length === 1 && p.tiles[0][0] === 8 && p.tiles[0][1] === 7);
+  assert.ok(ax && ax.words.includes("ax") && ax.score === 9);
+  // Every play's words are real words, and its tiles are on empty squares in one line.
+  for (const p of T.board(quiz, T.CLASSIC, "aeirst?", { values, limit: 200 })) {
+    for (const w of p.words) assert.ok(data.set.has(w), `${p.word}: ${w}`);
+    assert.ok(p.tiles.every(([r, c]) => quiz[r * 15 + c] === "."));
+    assert.ok(p.tiles.every(([r]) => r === p.tiles[0][0]) || p.tiles.every(([, c]) => c === p.tiles[0][1]));
+  }
+});

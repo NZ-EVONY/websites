@@ -29,6 +29,15 @@ export default function layout(page, ctx) {
   // Word tools (Phase 4 solvers): js/wt-client.js runs js/wordtools.js searches in js/tools-worker.js.
   if (page.wordtools) scripts.push(`<script src="${assets["js/wt-client.js"]}" data-core="${assets["js/wordtools.js"]}" data-worker="${assets["js/tools-worker.js"]}" data-common="${assets["common.js"]}" defer></script>`);
   if (page.script) scripts.push(`<script src="${assets[`js/${page.script}.js`]}" defer></script>`);
+  // The "Scan tiles" button sits in the HTML (after the row holding the letter box), so it doesn't
+  // shift the page when the script runs.
+  if (page.scan && page.tool && !page.tool.includes("scan-btn")) {
+    const at = page.tool.indexOf(`id="${page.scan.slice(1)}"`), end = page.tool.indexOf("</div>", at);
+    if (at < 0 || end < 0) throw new Error(`${page.path}: scan target ${page.scan} not found in the tool markup`);
+    page.tool = `${page.tool.slice(0, end + 6)}\n          <div class="scan-row"><button type="button" class="btn secondary small scan-btn" aria-haspopup="dialog">Scan tiles</button></div>${page.tool.slice(end + 6)}`;
+  }
+  // "Scan tiles" button for the page's letter box (Tesseract.js, self-hosted, loaded on use).
+  if (page.scan) scripts.push(`<script src="${assets["js/scan.js"]}" data-target="${page.scan}" data-reader="${assets["js/scan-read.js"]}" data-tesseract="${assets["tesseract/tesseract.min.js"].replace(/\/[^/]*$/, "")}" defer></script>`);
   // Daily games: the shared core, then each game script (src/assets/games/). The hub uses hub.js; the
   // home page's "Today's puzzles" band uses the much smaller games/band.js, without the core.
   if (page.games?.length) scripts.push(...(page.games.includes("band") ? [] : [`<script src="${assets["games/core.js"]}" defer></script>`]), ...page.games.map(g => `<script src="${assets[`games/${g}.js`]}" defer></script>`));

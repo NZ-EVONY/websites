@@ -8,7 +8,7 @@ export default ctx => {
   const h = "hymn";
   ctx.assertWords([h, "jab", "lull"]);
   return {
-    key: "wwf", path: "/words-with-friends", file: "words-with-friends.html", type: "tool", script: "finder", scheme: "wwf",
+    key: "wwf", path: "/words-with-friends", file: "words-with-friends.html", type: "tool", script: "finder", scan: "#rack", scheme: "wwf",
     title: "Words With Friends Finder: High-Scoring Plays | Letterpile",
     description: "Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.",
     h1: "Words With Friends Word Finder",

@@ -179,11 +179,12 @@ test("_headers: rule count, line length, CSP hash matches the inline script, cac
   assert.ok(all["Content-Security-Policy"].includes(`'sha256-${hash}'`));
   assert.match(all["Content-Security-Policy"], /connect-src 'self' https:\/\/api\.dictionaryapi\.dev/);
   for (const h of ["X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "Strict-Transport-Security"]) assert.ok(all[h], h);
-  for (const p of ["/assets/*", "/data/*"]) assert.equal(Object.fromEntries(rules.find(r => r.pattern === p).headers)["Cache-Control"], "public, max-age=31536000, immutable");
+  for (const p of ["/assets/*", "/data/*", "/vendor/*"]) assert.equal(Object.fromEntries(rules.find(r => r.pattern === p).headers)["Cache-Control"], "public, max-age=31536000, immutable");
 });
 
 test("hashed asset names match their content", () => {
   for (const [, url] of Object.entries(manifest().assets)) {
+    if (url.startsWith("/vendor/")) continue; // third-party files: versioned folder names instead
     const buf = fs.readFileSync(path.join(PUBLIC, url));
     const h = url.match(/\.([0-9a-f]{10})\.\w+$/)[1];
     assert.equal(createHash("sha256").update(buf).digest("hex").slice(0, 10), h, url);
@@ -247,7 +248,7 @@ test("no file or folder in public/ uses a reserved Windows name; renamed pages r
   assert.ok(lines.some(l => l.startsWith("/words-starting-with/con ")), "the CON page redirect is missing");
 });
 
-test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 KB (20 KB on game pages)", async () => {
+test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 KB (20 KB on game pages and the Board Solver)", async () => {
   const { gzipSync } = await import("node:zlib");
   const gz = f => gzipSync(fs.readFileSync(path.join(PUBLIC, f)), { level: 9 }).length;
   const m = manifest();
@@ -260,8 +261,9 @@ test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 
     if (/data-worker="([^"]+)"/.test(p.html)) scripts.push(p.html.match(/data-worker="([^"]+)"/)[1].slice(1));
     const js = scripts.reduce((s, f) => s + gz(f), 0);
     assert.ok(html <= 60 * 1024, `${p.file}: HTML ${html} bytes`);
-    // Game pages are interactive apps: 20 KB (see docs/DECISIONS.md); every other page 15 KB.
-    const isGame = /data-game="/.test(p.html);
+    // Game pages and the Board Solver are interactive apps: 20 KB (see docs/DECISIONS.md); every
+    // other page 15 KB.
+    const isGame = /data-game="|data-app="/.test(p.html);
     assert.ok(js <= (isGame ? 20 : 15) * 1024, `${p.file}: JS ${js} bytes`);
     worst = { html: Math.max(worst.html, html), js: Math.max(worst.js, js) };
   }

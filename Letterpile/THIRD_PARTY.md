@@ -12,6 +12,9 @@ Licences below were read from the actual licence files (data) or the installed p
 | **CMU Pronouncing Dictionary** (cmudict), Carnegie Mellon University | `cmudict.dict` from github.com/cmusphinx/cmudict (master), retrieved October 2026; SHA-256 recorded in the header of `scripts/lexicon/cmudict-enable.txt`. Kept: first pronunciation of the 50,751 words also in the visible ENABLE list (`scripts/tools/vendor-cmudict.mjs`) | BSD-style (2-clause) licence, verified from the repository's `LICENSE` file (`licenses/CMUdict-LICENSE.txt`); redistributions must keep the copyright notice and reproduce it in documentation | Footer of every page, About, `/licenses/cmudict.txt`. Ships as `/data/rhymes.*.json` (Rhyming Words Finder, Syllable Counter) |
 | **SCOWL** common-word levels (see below) | Levels 10-35 only, limited to visible ENABLE words | As below (`licenses/SCOWL-Copyright.txt`) | Footer of every page, About, `/licenses/scowl.txt`, header comment of `/data/common.*.js`. Ships as `/data/common.*.js`, used by the Phase 4 solvers to rank everyday words first |
 
+| **Tesseract.js** 7.0.0 and **tesseract.js-core** 7.0.0 (Tesseract OCR engine compiled to WebAssembly, with Leptonica) | npm devDependencies (exact versions); the build copies `dist/tesseract.min.js`, `dist/worker.min.js` and the three `*-lstm.wasm.js` engine builds to `/vendor/tesseract-7.0.0/` | Apache-2.0, verified from the packages' `package.json` and `LICENSE` (`licenses/Tesseract-Apache-2.0.txt`) | About, footer, `/licenses/tesseract.txt`. Loaded only when someone uses "Scan tiles" |
+| **tessdata_fast** English model (`eng.traineddata`) | `vendor/tessdata/eng.traineddata.gz`, see `vendor/tessdata/SOURCE.md` (SHA-256 of the original file) | Apache-2.0 (the repository's LICENSE) | As above; served at `/vendor/tesseract-7.0.0/lang/` |
+
 ## Used by visitors' browsers on request only
 
 | What | Notes |

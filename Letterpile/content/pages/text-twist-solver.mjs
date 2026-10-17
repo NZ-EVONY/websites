@@ -9,7 +9,7 @@ export default ctx => {
   const slotted = Engine.unscramble(wheel, { min: 3, pattern: re }).map(x => x.word);
   const min5 = Engine.unscramble(wheel, { min: 5 }).map(x => x.word);
   return {
-    key: "twist", path: "/text-twist-solver", file: "text-twist-solver.html", type: "tool", script: "twist",
+    key: "twist", path: "/text-twist-solver", file: "text-twist-solver.html", type: "tool", script: "twist", scan: "#letters",
     title: "Text Twist and Wordscapes Solver | Letterpile",
     description: "Find every 3+ letter word in your letter wheel, with slot patterns for partly solved answers.",
     h1: "Text Twist and Wordscapes Solver",

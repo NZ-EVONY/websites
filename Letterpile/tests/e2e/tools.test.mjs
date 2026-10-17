@@ -1,4 +1,4 @@
-// Phase 4 word tools, end to end in Chromium at phone width: each tool runs a search through the
+// Phase 4 and 5 word tools, end to end in Chromium at phone width: each tool runs a search through the
 // page's own form and shows the expected result, with no console errors. Expected values come from
 // the same search code run in Node (src/assets/js/wordtools.js) and the build's data.
 import test from "node:test";
@@ -103,6 +103,58 @@ test("word tools: results survive a reload from the address bar", { skip }, asyn
     await done(page);
     assert.equal(await page.locator(".wt-ladder li").count(), 4);
     assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
+
+test("board solver: tiles typed on the board, best play previewed and placed", { skip }, async () => {
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await open(browser, base, "/board-solver");
+    await page.click('.bs-cell[data-i="110"]');
+    await page.keyboard.type("quiz");
+    await page.fill("#rack", "aeirst?");
+    await page.click("#form button[type=submit]");
+    await page.waitForSelector(".bs-play", { timeout: 30000 });
+    assert.match((await page.textContent(".bs-play")).replace(/\s+/g, " "), /QUIZMASTER 8F across 84/);
+    assert.equal(await page.locator(".bs-cell.new").count(), 6);
+    await page.click("#playIt");
+    assert.equal(await page.inputValue("#rack"), "I");
+    assert.equal(await page.locator(".bs-cell.blank").count(), 1, "the blank M stays marked");
+    await page.screenshot({ path: path.join(SHOTS, "board-390.png") });
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
+
+test("hooks: the word dialog lists front and back hooks", { skip }, async () => {
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await open(browser, base, "/?letters=cat");
+    await page.click('#results .word[data-word="cat"]', { timeout: 30000 });
+    await page.waitForSelector("#defineHooks .hooks", { timeout: 30000 });
+    const words = await page.locator("#defineHooks .word").evaluateAll(b => b.map(x => x.dataset.word));
+    assert.ok(words.includes("scat") && words.includes("cats"), words.join(","));
+    await page.click('#defineHooks .word[data-word="scat"]');
+    assert.equal(await page.textContent("#defineWord"), "scat", "a hook opens its own word");
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
+
+test("scan tiles: a photo of a rack is read in the browser and checked before use", { skip }, async () => {
+  await withBrowser(async (browser, base) => {
+    const shot = await browser.newPage({ viewport: { width: 900, height: 300 } });
+    await shot.setContent(`<body style="margin:0;background:#3b6e4a;display:flex;gap:14px;padding:40px">${[..."RETAINS"].map(c => `<div style="width:90px;height:90px;background:#f3dfb4;border-radius:8px;display:grid;place-items:center;font:800 60px Arial;color:#222;position:relative">${c}<sub style="position:absolute;right:8px;bottom:6px;font:700 18px Arial">1</sub></div>`).join("")}</body>`);
+    const png = path.join(SHOTS, "scan-input.png");
+    await shot.screenshot({ path: png });
+    const { ctx, page, errors } = await open(browser, base, "/scrabble-word-finder");
+    const [chooser] = await Promise.all([page.waitForEvent("filechooser"), page.click(".scan-btn")]);
+    await chooser.setFiles(png);
+    await page.waitForFunction(() => /Found|No letters|instead/.test(document.querySelector(".scan-status").textContent), null, { timeout: 90000 });
+    assert.equal(await page.inputValue(".scan-out"), "RETAINS");
+    await page.click(".scan-use");
+    assert.equal(await page.inputValue("#rack"), "RETAINS");
+    // Tesseract logs "Estimating resolution" through console.error; that's not a page error.
+    assert.deepEqual(errors.filter(e => !/Estimating resolution/.test(e)), []);
     await ctx.close();
   });
 });

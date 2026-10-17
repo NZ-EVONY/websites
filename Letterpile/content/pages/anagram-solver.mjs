@@ -14,7 +14,7 @@ export default ctx => {
   ctx.assertWords([none]);
   const noneCount = Engine.anagrams(none).exact.length;
   return {
-    key: "anagram", path: "/anagram-solver", file: "anagram-solver.html", type: "tool", script: "anagram",
+    key: "anagram", path: "/anagram-solver", file: "anagram-solver.html", type: "tool", script: "anagram", scan: "#q",
     title: "Anagram Solver: Rearrange Letters into Words | Letterpile",
     description: "Find single-word and two-word anagrams of any word or name by rearranging every letter.",
     h1: "Anagram Solver",

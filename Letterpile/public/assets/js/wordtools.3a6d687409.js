@@ -244,8 +244,152 @@
     };
   }
 
+
+  // ---------- Board solver: a 15x15 tile-game board ----------
+
+  // The common bonus-square layout: "T" triple word, "D" double word (the center too), "t" triple
+  // letter, "d" double letter, "." none. Row by row.
+  const CLASSIC = [
+    "T..d...T...d..T", ".D...t...t...D.", "..D...d.d...D..", "d..D...d...D..d", "....D.....D....",
+    ".t...t...t...t.", "..d...d.d...d..", "T..d...D...d..T", "..d...d.d...d..", ".t...t...t...t.",
+    "....D.....D....", "d..D...d...D..d", "..D...d.d...D..", ".D...t...t...D.", "T..d...T...d..T",
+  ].join("");
+
+  // cells: 225 characters, "." for an empty square, a-z for a tile, A-Z for a blank tile showing
+  // that letter (worth 0). rack: letters, and ? for each blank. Returns the best plays, highest
+  // score first: { word, row, col, across, score, tiles: [[row, col, letter, isBlank]], words }.
+  // A play is legal when its tiles sit in one line with no gaps (counting tiles already there),
+  // it touches a tile already on the board (or covers the center on the first move), and every
+  // word it forms is in the list. Scoring: letter bonuses count for new tiles only; each new tile on
+  // a word bonus multiplies every word through it; blanks score 0; using 7 tiles adds `bingo`.
+  function board(cells, bonus = CLASSIC, rack = "", { values = {}, bingo = 50, limit = 60 } = {}) {
+    const N = 15, mid = 7;
+    const tile = (r, c) => (r < 0 || c < 0 || r >= N || c >= N || cells[r * N + c] === "." ? null : cells[r * N + c]);
+    const val = ch => (ch >= "a" && ch <= "z" ? values[ch] || 0 : 0);
+    const first = !/[a-zA-Z]/.test(cells);
+    const have = {};
+    let blanks = 0, nRack = 0;
+    for (const ch of String(rack).toLowerCase()) { if (ch === "?") { blanks++; nRack++; } else if (ch >= "a" && ch <= "z") { have[ch] = (have[ch] || 0) + 1; nRack++; } }
+    if (!nRack) return [];
+    // Words spellable from the rack plus every tile on the board (a quick first cut).
+    const all = { ...have };
+    for (const t of cells) if (/[a-zA-Z]/.test(t)) { const ch = t.toLowerCase(); all[ch] = (all[ch] || 0) + 1; }
+    const cands = LIST.filter(w => {
+      if (w.length < 2) return false;
+      let short = 0;
+      const n = {};
+      for (const ch of w) { n[ch] = (n[ch] || 0) + 1; if (n[ch] > (all[ch] || 0) && ++short > blanks) return false; }
+      return true;
+    });
+    const moves = new Map();
+    for (const across of [true, false]) {
+      if (first && !across) continue; // the first move scores the same either way
+      const get = (i, j) => (across ? tile(i, j) : tile(j, i));
+      const bon = (i, j) => (across ? bonus[i * N + j] : bonus[j * N + i]);
+      for (let i = 0; i < N; i++) {
+        const line = Array.from({ length: N }, (_, j) => get(i, j));
+        // Squares in this line: which letters fit the word running the other way, and its score so far.
+        const cross = line.map((t, j) => {
+          if (t) return null;
+          let up = "", down = "", base = 0;
+          for (let k = i - 1; k >= 0 && get(k, j); k--) { up = get(k, j) + up; base += val(get(k, j)); }
+          for (let k = i + 1; k < N && get(k, j); k++) { down += get(k, j); base += val(get(k, j)); }
+          if (!up && !down) return { any: true };
+          const u = up.toLowerCase(), d = down.toLowerCase(), ok = new Set();
+          for (let c = 97; c <= 122; c++) { const ch = String.fromCharCode(c); if (SET.has(u + ch + d)) ok.add(ch); }
+          return { any: false, ok, base, u, d };
+        });
+        // Words that could be spelled from the rack plus this line's tiles, indexed by
+        // length, position and letter ("5:2:e" = 5-letter words with E third).
+        const pool = { ...have };
+        for (const t of line) if (t) { const ch = t.toLowerCase(); pool[ch] = (pool[ch] || 0) + 1; }
+        const index = new Map(), need = {};
+        for (const w of cands) {
+          for (const ch in need) delete need[ch];
+          let short = 0;
+          for (const ch of w) { need[ch] = (need[ch] || 0) + 1; if (need[ch] > (pool[ch] || 0)) short++; }
+          if (short > blanks) continue;
+          for (let o = 0; o < w.length; o++) {
+            const k = `${w.length}:${o}:${w[o]}`;
+            if (!index.has(k)) index.set(k, []);
+            index.get(k).push(w);
+          }
+        }
+        // The words to try for a segment: those with its first fixed letter in place, or else those
+        // with an allowed letter where the most selective crossing word is.
+        const tryWords = (a, b) => {
+          const len = b - a + 1;
+          for (let j = a; j <= b; j++) if (line[j]) return index.get(`${len}:${j - a}:${line[j].toLowerCase()}`) || [];
+          let best = -1;
+          for (let j = a; j <= b; j++) if (!cross[j].any && (best < 0 || cross[j].ok.size < cross[best].ok.size)) best = j;
+          if (best < 0) return [..."abcdefghijklmnopqrstuvwxyz"].flatMap(ch => index.get(`${len}:${mid - a}:${ch}`) || []);
+          return [...cross[best].ok].flatMap(ch => index.get(`${len}:${best - a}:${ch}`) || []);
+        };
+        for (let a = 0; a < N; a++) {
+          if (a && line[a - 1]) continue;
+          let empties = 0, touches = false, center = false;
+          for (let b = a; b < N; b++) {
+            if (!line[b]) {
+              if (!cross[b].any && !cross[b].ok.size) break;
+              empties++;
+              if (empties > nRack) break;
+              if (!cross[b].any) touches = true;
+              if (first && across && i === mid && b === mid) center = true;
+            } else touches = true;
+            if (b === a || (b + 1 < N && line[b + 1]) || !empties || !(first ? center : touches)) continue;
+            for (const w of tryWords(a, b)) {
+              let ok = true;
+              const use = {};
+              for (let j = a; j <= b && ok; j++) {
+                const ch = w[j - a];
+                if (line[j]) ok = line[j].toLowerCase() === ch;
+                else { ok = cross[j].any || cross[j].ok.has(ch); use[ch] = (use[ch] || 0) + 1; }
+              }
+              if (!ok) continue;
+              let short = 0;
+              for (const ch in use) short += Math.max(0, use[ch] - (have[ch] || 0));
+              if (short > blanks) continue;
+              // Word bonus for the main word, and what each new tile is worth per point of its letter.
+              let wm = 1;
+              for (let j = a; j <= b; j++) if (!line[j]) { const x = bon(i, j); if (x === "D") wm *= 2; else if (x === "T") wm *= 3; }
+              const lmul = j => { const x = bon(i, j); return x === "d" ? 2 : x === "t" ? 3 : 1; };
+              const cwm = j => { const x = bon(i, j); return x === "D" ? 2 : x === "T" ? 3 : 1; };
+              const weight = j => lmul(j) * (wm + (cross[j].any ? 0 : cwm(j)));
+              // Blanks go where a letter is worth least.
+              const blankAt = new Set();
+              for (const ch in use) {
+                let extra = use[ch] - (have[ch] || 0);
+                if (extra <= 0) continue;
+                const spots = [];
+                for (let j = a; j <= b; j++) if (!line[j] && w[j - a] === ch) spots.push(j);
+                spots.sort((x, y) => weight(x) - weight(y));
+                for (const j of spots.slice(0, extra)) blankAt.add(j);
+              }
+              let main = 0, side = 0;
+              const words = [w], tiles = [];
+              for (let j = a; j <= b; j++) {
+                const ch = w[j - a];
+                if (line[j]) { main += val(line[j]); continue; }
+                const v = blankAt.has(j) ? 0 : (values[ch] || 0);
+                main += v * lmul(j);
+                const [r, c] = across ? [i, j] : [j, i];
+                tiles.push([r, c, ch, blankAt.has(j)]);
+                if (!cross[j].any) { side += (cross[j].base + v * lmul(j)) * cwm(j); words.push(cross[j].u + ch + cross[j].d); }
+              }
+              const score = main * wm + side + (tiles.length === 7 ? bingo : 0);
+              const key = tiles.map(t => t.join("")).join("|");
+              const old = moves.get(key);
+              if (!old || old.score < score) moves.set(key, { word: w, row: across ? i : a, col: across ? a : i, across, score, tiles, words });
+            }
+          }
+        }
+      }
+    }
+    return [...moves.values()].sort((x, y) => y.score - x.score || tier(y.word) - tier(x.word) || (x.word < y.word ? -1 : 1)).slice(0, limit);
+  }
+
   const tiers = ws => ws.filter(w => tier(w));
-  const api = { use, commonMap, tier, tiers, isWord, ofLength, hasPrefix, hive, grid, boxWords, box, ladder, hangman, shape, cryptogram, cipherWords };
+  const api = { use, commonMap, tier, tiers, isWord, ofLength, hasPrefix, hive, grid, boxWords, box, ladder, hangman, shape, cryptogram, cipherWords, board, CLASSIC };
 
   return api;
 });

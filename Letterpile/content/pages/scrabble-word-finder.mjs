@@ -12,7 +12,7 @@ export default ctx => {
   const board = Engine.findPlays("rtnae", { scheme: "scrabble", board: "ing" }).slice(0, 3);
   const blankRack = Engine.findPlays("quiz?", { scheme: "scrabble" }).slice(0, 3);
   return {
-    key: "scrabble", path: "/scrabble-word-finder", file: "scrabble-word-finder.html", type: "tool", script: "finder", scheme: "scrabble",
+    key: "scrabble", path: "/scrabble-word-finder", file: "scrabble-word-finder.html", type: "tool", script: "finder", scan: "#rack", scheme: "scrabble",
     appName: "Word Finder for Tile Games",
     title: "Tile Game Word Finder: Best Plays for Your Rack | Letterpile",
     description: "Enter your rack and board letters to see playable words ranked by letter score, with blank tiles and all-tiles bonuses.",

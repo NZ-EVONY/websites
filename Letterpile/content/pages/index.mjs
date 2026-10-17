@@ -17,7 +17,7 @@ export default ctx => {
   const exact = Engine.unscramble("tacre", { exact: true }).map(x => x.word);
   const startsT = Engine.unscramble("eilnst", { startsWith: "t" }).map(x => x.word);
   return {
-    key: "unscrambler", path: "/", file: "index.html", type: "tool", script: "unscramble",
+    key: "unscrambler", path: "/", file: "index.html", type: "tool", script: "unscramble", scan: "#letters",
     title: "Word Unscrambler: Find Words in Your Letters | Letterpile",
     description: "Type your letters and see every word hiding in them, longest first. Handles blank tiles and starts-with, ends-with and length filters.",
     h1: "Word Unscrambler",

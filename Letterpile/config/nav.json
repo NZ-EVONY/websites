@@ -38,6 +38,12 @@
       "icon": "W"
     },
     {
+      "href": "/board-solver",
+      "label": "Board Solver",
+      "key": "board",
+      "icon": "#"
+    },
+    {
       "href": "/wordle-solver",
       "label": "Wordle Solver",
       "key": "wordle",

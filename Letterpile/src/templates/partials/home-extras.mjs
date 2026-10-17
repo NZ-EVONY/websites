@@ -15,6 +15,7 @@ const TOOL_BLURB = {
   "/jumble-solver": "Solve a whole jumble puzzle at once",
   "/crossword-solver": "Fill the gaps with ? for unknown letters",
   "/text-twist-solver": "Every word in your letter wheel",
+  "/board-solver": "Best plays on your actual board",
   "/letter-hive-solver": "Seven letters, one required, every pangram",
   "/word-grid-solver": "Every word in a 4x4 or 5x5 grid",
   "/letter-box-solver": "Two-word solutions for a 12-letter box",

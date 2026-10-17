@@ -2,6 +2,7 @@
 //   --dev  shows dashed placeholders in ad slots (never deploy a dev build).
 // public/ is committed so Bee can diff exactly what will be deployed.
 import fs from "node:fs";
+import { createRequire } from "node:module";
 import path from "node:path";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
@@ -101,6 +102,20 @@ assets["games/lp-words.json"] = games.lpWordsName;
 
 // Share (Open Graph) images, made by scripts/og-images.mjs and committed in src/assets/og/.
 for (const f of fs.readdirSync(path.join(SRC, "og")).filter(f => f.endsWith(".png"))) write(`og/${f}`, fs.readFileSync(path.join(SRC, "og", f)));
+// Tile scanner: Tesseract.js (library, worker, WebAssembly engine) and the English model, self-hosted
+// under a versioned path and downloaded only when someone presses "Scan tiles".
+{
+  const req = createRequire(import.meta.url);
+  const tjs = path.dirname(req.resolve("tesseract.js/package.json")), core = path.dirname(req.resolve("tesseract.js-core/package.json"));
+  const v = JSON.parse(fs.readFileSync(path.join(tjs, "package.json"), "utf8")).version;
+  const base = `/vendor/tesseract-${v}`;
+  write(`${base}/tesseract.min.js`, fs.readFileSync(path.join(tjs, "dist/tesseract.min.js")));
+  write(`${base}/worker.min.js`, fs.readFileSync(path.join(tjs, "dist/worker.min.js")));
+  for (const f of ["tesseract-core-lstm.wasm.js", "tesseract-core-simd-lstm.wasm.js", "tesseract-core-relaxedsimd-lstm.wasm.js"]) write(`${base}/core/${f}`, fs.readFileSync(path.join(core, f)));
+  write(`${base}/lang/eng.traineddata.gz`, fs.readFileSync(path.join(ROOT, "vendor/tessdata/eng.traineddata.gz")));
+  assets["tesseract/tesseract.min.js"] = `${base}/tesseract.min.js`; // the other files sit beside it
+}
+write("licenses/tesseract.txt", fs.readFileSync(path.join(ROOT, "licenses/Tesseract-Apache-2.0.txt")));
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
 write("licenses/scowl.txt", fs.readFileSync(path.join(ROOT, "licenses/SCOWL-Copyright.txt")));
 write("licenses/cmudict.txt", fs.readFileSync(path.join(ROOT, "licenses/CMUdict-LICENSE.txt")));
@@ -296,7 +311,8 @@ write("ads.txt", `# ads.txt for letterpile.app. Placeholder until an AdSense acc
 const scriptHash = createHash("sha256").update(HEAD_SCRIPT).digest("base64");
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'sha256-${scriptHash}'`,
+  // 'wasm-unsafe-eval': the tile scanner's text-recognition engine is WebAssembly (self-hosted).
+  `script-src 'self' 'sha256-${scriptHash}' 'wasm-unsafe-eval'`,
   "style-src 'self'",
   "img-src 'self' data:",
   "connect-src 'self' https://api.dictionaryapi.dev",
@@ -331,6 +347,9 @@ write("_headers", `# Cloudflare static-asset headers (max 100 rules, 2,000 chara
   Cache-Control: public, max-age=31536000, immutable
 
 /data/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/vendor/*
   Cache-Control: public, max-age=31536000, immutable
 
 /puzzles/*
