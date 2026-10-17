@@ -65,6 +65,10 @@
     "list": {
       "enabled": false,
       "slots": []
+    },
+    "printable": {
+      "enabled": false,
+      "slots": []
     }
   }
 }

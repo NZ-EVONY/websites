@@ -131,3 +131,15 @@ castle knight armor shield sword lance helmet moat drawbridge tower dungeon thro
 
 ## Pirate Ship
 pirate captain parrot treasure chest compass anchor cannon plank deck mast sail flag skull island cutlass eyepatch hook voyage crew galleon gold coins jewels telescope barrel rope cabin storm lookout crows_nest buccaneer shipmate doubloon
+
+## Holidays
+christmas halloween thanksgiving easter hanukkah diwali new_year valentine fireworks parade
+presents costume pumpkin turkey lantern candles ornament wreath stocking reindeer sleigh
+chocolate carnival festival holiday vacation celebrate banner confetti greeting postcard
+sparkler feast family picnic eggnog gifts
+
+## Four Seasons
+spring summer autumn winter blossom sunshine harvest snowflake rainbow daffodil tulips
+heatwave beach leaves acorn frost icicle blizzard sledding mittens scarf sweater solstice
+equinox thunder breeze puddle umbrella sandals lemonade swimming chestnut hibernate migration
+seedling bloom

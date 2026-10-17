@@ -4,7 +4,10 @@
 // backwards), and no theme repeats within THEME_GAP days.
 import fs from "node:fs";
 import path from "node:path";
+import { createRequire } from "node:module";
 import { ROOT, rng, shuffle, keyFor, puzzleNumber, daysBetween } from "./util.mjs";
+
+const WS = createRequire(import.meta.url)("../../src/assets/games/ws-core.js");
 
 export const SIZE = 20;
 export const THEME_GAP = 35;
@@ -12,9 +15,8 @@ export const COUNT = [25, 30];
 export const MIN_LEN = 4;
 export const LONG = 8;
 // Row and column steps: E, S, SE, NE, W, N, NW, SW.
-export const DIRS = [[0, 1], [1, 0], [1, 1], [-1, 1], [0, -1], [-1, 0], [-1, -1], [1, -1]];
-// Filler letters, weighted roughly by English letter frequency.
-const FILL = "eeeeeeeeeeeettttttttaaaaaaaaoooooooiiiiiiinnnnnnnsssssshhhhhhrrrrrrddddllllcccuuummmwwffggyyppbbvkjxqz";
+export const DIRS = WS.DIRS;
+const FILL = WS.FILL;
 
 export function themes() {
   const text = fs.readFileSync(path.join(ROOT, "scripts/games/lexicon/wordsearch-themes.txt"), "utf8");
@@ -43,81 +45,20 @@ export function checkTheme(t, words) {
 
 // ---------- grid scanning ----------
 
-const at = (g, r, c) => (r >= 0 && r < SIZE && c >= 0 && c < SIZE ? g[r * SIZE + c] : null);
-// Every place a word occurs (any of 8 directions), as sets of cells; a palindrome read both
-// ways is one occurrence.
-export function occurrences(grid, word) {
-  const found = new Map();
-  for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
-    if (grid[r * SIZE + c] !== word[0]) continue;
-    for (const [dr, dc] of DIRS) {
-      let k = 0;
-      while (k < word.length && at(grid, r + dr * k, c + dc * k) === word[k]) k++;
-      if (k === word.length) {
-        const cells = [...Array(k).keys()].map(j => (r + dr * j) * SIZE + c + dc * j);
-        found.set(cells.slice().sort((a, b) => a - b).join(","), cells);
-      }
-    }
-  }
-  return [...found.values()];
-}
-// Every straight line of the grid as a string (rows, columns, both diagonals), both ways.
-export function lines(grid) {
-  const out = [];
-  for (const [dr, dc] of DIRS.slice(0, 4)) for (let r = 0; r < SIZE; r++) for (let c = 0; c < SIZE; c++) {
-    if (at(grid, r - dr, c - dc) !== null) continue; // start only at an edge
-    let s = "";
-    for (let k = 0; at(grid, r + dr * k, c + dc * k) !== null; k++) s += at(grid, r + dr * k, c + dc * k);
-    out.push(s, rev(s));
-  }
-  return out;
-}
+// The grid helpers, placement and checks are shared with the printables page:
+// src/assets/games/ws-core.js, here at SIZE.
+const at = (g, r, c) => WS.at(g, SIZE, r, c);
+export const occurrences = (grid, word) => WS.occurrences(grid, word, SIZE);
+export const lines = grid => WS.lines(grid, SIZE);
 // Blocklisted words of 3+ letters that can be read in the grid, other than inside one of the
 // placed theme words (COMPASS contains a short blocklisted word, and that's fine; the same
 // letters made by filler or across two words are not).
-export function offensive(grid, words, placed = []) {
-  const inside = placed.map(cells => new Set(cells));
-  const ls = lines(grid);
-  return words.blocked.filter(b => b.length >= 3 && ls.some(l => l.includes(b)))
-    .filter(b => occurrences(grid, b).some(occ => !inside.some(set => occ.every(i => set.has(i)))));
-}
-export const cellsOf = w => {
-  const [dr, dc] = DIRS[w.d];
-  return [...Array(w.w.replace(/ /g, "").length).keys()].map(k => (w.r + dr * k) * SIZE + w.c + dc * k);
-};
+export const offensive = (grid, words, placed = []) => WS.offensive(grid, words.blocked, placed, SIZE);
+export const cellsOf = w => WS.cellsOf(w, SIZE);
 
 // ---------- generation ----------
 
-function place(r, list) {
-  const g = Array(SIZE * SIZE).fill(null);
-  const placed = [], used = new Set();
-  for (const w of list) {
-    const opts = [];
-    for (let d = 0; d < 8; d++) {
-      const [dr, dc] = DIRS[d];
-      for (let row = 0; row < SIZE; row++) for (let col = 0; col < SIZE; col++) {
-        const er = row + dr * (w.letters.length - 1), ec = col + dc * (w.letters.length - 1);
-        if (er < 0 || er >= SIZE || ec < 0 || ec >= SIZE) continue;
-        let overlap = 0, ok = true;
-        for (let k = 0; k < w.letters.length && ok; k++) {
-          const cell = g[(row + dr * k) * SIZE + col + dc * k];
-          if (cell === null) continue;
-          if (cell === w.letters[k]) overlap++; else ok = false;
-        }
-        if (!ok || overlap === w.letters.length) continue;
-        opts.push({ row, col, d, score: overlap * 4 + (used.has(d) ? 0 : 6) + r() * 3 });
-      }
-    }
-    if (!opts.length) return null;
-    opts.sort((a, b) => b.score - a.score);
-    const o = opts[Math.floor(r() * Math.min(3, opts.length))];
-    const [dr, dc] = DIRS[o.d];
-    for (let k = 0; k < w.letters.length; k++) g[(o.row + dr * k) * SIZE + o.col + dc * k] = w.letters[k];
-    used.add(o.d);
-    placed.push({ w: w.display, r: o.row, c: o.col, d: o.d });
-  }
-  return { g, placed, dirs: used.size };
-}
+const place = (r, list) => WS.place(r, list, SIZE);
 
 function chooseWords(r, theme) {
   const u = shuffle(r, usable(theme));

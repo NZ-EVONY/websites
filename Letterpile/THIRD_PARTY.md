@@ -15,6 +15,8 @@ Licences below were read from the actual licence files (data) or the installed p
 | **Tesseract.js** 7.0.0 and **tesseract.js-core** 7.0.0 (Tesseract OCR engine compiled to WebAssembly, with Leptonica) | npm devDependencies (exact versions); the build copies `dist/tesseract.min.js`, `dist/worker.min.js` and the three `*-lstm.wasm.js` engine builds to `/vendor/tesseract-7.0.0/` | Apache-2.0, verified from the packages' `package.json` and `LICENSE` (`licenses/Tesseract-Apache-2.0.txt`) | About, footer, `/licenses/tesseract.txt`. Loaded only when someone uses "Scan tiles" |
 | **tessdata_fast** English model (`eng.traineddata`) | `vendor/tessdata/eng.traineddata.gz`, see `vendor/tessdata/SOURCE.md` (SHA-256 of the original file) | Apache-2.0 (the repository's LICENSE) | As above; served at `/vendor/tesseract-7.0.0/lang/` |
 
+| **jsPDF** 4.2.1 | npm devDependency (exact); the build copies `dist/jspdf.umd.min.js` to `/vendor/jspdf-4.2.1/` | MIT, verified from the package's `package.json` and `LICENSE` (`licenses/jsPDF-MIT.txt`) | About, footer, `/licenses/jspdf.txt`. Loaded only when someone downloads a printable PDF |
+
 ## Used by visitors' browsers on request only
 
 | What | Notes |

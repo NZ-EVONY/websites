@@ -564,3 +564,8 @@ dialog.scan h2 { margin: 0 0 10px; }
 .train-q { font-size: 1.2rem; } .train-word { font: 800 2rem var(--font-display); letter-spacing: .12em; }
 .train-rack { font: 800 1.8rem var(--font-display); letter-spacing: .1em; }
 .train-feedback { min-height: 1.6em; font-weight: 700; } .train-card { border: 2px solid var(--line); border-radius: 16px; padding: 16px; text-align: center; }
+.pz-grid { border-collapse: collapse; margin: 10px auto; font: 700 clamp(9px, 2.6vw, 15px)/1 var(--font-mono, monospace); text-transform: uppercase; }
+.pz-grid td { width: 1.6em; height: 1.6em; text-align: center; border: 1px solid var(--line); padding: 0; }
+.pz-10 { font-size: clamp(14px, 4vw, 20px); } .pz-20 { font-size: clamp(8px, 2.3vw, 14px); }
+.pz-sudoku { font-size: clamp(16px, 5vw, 24px); } .pz-sudoku td:nth-child(3n) { border-right: 2px solid var(--text); } .pz-sudoku tr:nth-child(3n) td { border-bottom: 2px solid var(--text); }
+.pz-ready { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 16px; } .pz-preview { overflow-x: auto; }

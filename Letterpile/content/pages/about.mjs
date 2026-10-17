@@ -21,6 +21,7 @@ export default ctx => ({
 <ul>
   <li>Definitions, when you ask for one, come from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</li>
   <li>The Rhyming Words Finder and Syllable Counter use the <b>CMU Pronouncing Dictionary</b>, Copyright © 1993-2015 Carnegie Mellon University, used under its BSD-style licence (<a href="/licenses/cmudict.txt">licence text</a>). Letterpile keeps only the first pronunciation of words that are also in the ENABLE list.</li>
+  <li>Printable PDFs are made in your browser with <b>jsPDF</b>, used under the MIT licence (<a href="/licenses/jspdf.txt">licence text</a>) and hosted on this site.</li>
   <li>“Scan tiles” uses <b>Tesseract.js</b> and the Tesseract OCR engine and English model, used under the Apache License 2.0 (<a href="/licenses/tesseract.txt">licence text</a>) and hosted on this site.</li>
   <li>Several solvers rank everyday words first using <b>SCOWL</b> (Spell Checker Oriented Word Lists) by Kevin Atkinson and others, sizes 10 to 35, used under its permissive licence (<a href="/licenses/scowl.txt">licence text</a>).</li>
   <li>Hosting is provided by Cloudflare.</li>

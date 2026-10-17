@@ -16,6 +16,7 @@ import { renderNode } from "../content/programmatic.mjs";
 import { proseText, wordCount, maxSimilarity } from "./similarity.mjs";
 import { buildGames } from "./games/publish.mjs";
 import { wordPages, wordPageWords } from "./wordpages.mjs";
+import { themes as wsThemes } from "./games/wordsearch.mjs";
 import { WordTools, commonWords, commonJs, rhymeData, pronunciations, rhymeTail, syllables } from "./tooldata.mjs";
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "..");
@@ -116,6 +117,18 @@ for (const f of fs.readdirSync(path.join(SRC, "og")).filter(f => f.endsWith(".pn
   write(`${base}/lang/eng.traineddata.gz`, fs.readFileSync(path.join(ROOT, "vendor/tessdata/eng.traineddata.gz")));
   assets["tesseract/tesseract.min.js"] = `${base}/tesseract.min.js`; // the other files sit beside it
 }
+// Printables: jsPDF (self-hosted, loaded when someone downloads a PDF) and the word search themes.
+{
+  const req = createRequire(import.meta.url);
+  const dir = path.dirname(req.resolve("jspdf/package.json"));
+  const v = JSON.parse(fs.readFileSync(path.join(dir, "package.json"), "utf8")).version;
+  assets["jspdf/jspdf.umd.min.js"] = `/vendor/jspdf-${v}/jspdf.umd.min.js`;
+  write(assets["jspdf/jspdf.umd.min.js"], fs.readFileSync(path.join(dir, "dist/jspdf.umd.min.js")));
+  const themesJson = JSON.stringify({ themes: wsThemes().map(t => ({ name: t.name, words: t.words.map(w => [w.display, w.letters]) })), blocked: data.blocked });
+  assets["games/ws-themes.json"] = `/data/ws-themes.${hash(themesJson)}.json`;
+  write(assets["games/ws-themes.json"], themesJson);
+}
+write("licenses/jspdf.txt", fs.readFileSync(path.join(ROOT, "licenses/jsPDF-MIT.txt")));
 write("licenses/tesseract.txt", fs.readFileSync(path.join(ROOT, "licenses/Tesseract-Apache-2.0.txt")));
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
 write("licenses/scowl.txt", fs.readFileSync(path.join(ROOT, "licenses/SCOWL-Copyright.txt")));
@@ -178,7 +191,7 @@ const finderForm = () => `<form class="tool-form" id="form" autocomplete="off">
 const sortWords = ws => ws.slice().sort((a, b) => b.length - a.length || a.localeCompare(b));
 const ctx = {
   site, nav, assets, games, esc, fmt, list, longDate, year: new Date().getUTCFullYear(),
-  total: data.words.length, byLength: data.byLength, blockedCount: data.blocked.length,
+  total: data.words.length, byLength: data.byLength, blockedCount: data.blocked.length, blocked: data.blocked,
   clean: data.clean, cleanSet: new Set(data.clean), Engine, code: asCode, today,
   WordTools, pron: pronunciations(), rhymeTail, syllables,
   WORDLIST_NOTE, TRADEMARKS, showAllToggle, finderForm, valuesTable, valueDiffTable, assertWords, assertNotWords,
@@ -294,7 +307,7 @@ const sims = maxSimilarity(simPages);
 const typeOf = new Map(simPages.map(p => [p.url, p.type]));
 const simFail = sims.filter(r => {
   const t = typeOf.get(r.page), other = typeOf.get(r.with);
-  const templated = x => x === "programmatic" || x === "affix" || x === "word";
+  const templated = x => x === "programmatic" || x === "affix" || x === "word" || x === "printable";
   const limit = templated(t) && templated(other) ? quality.similarity.maxJaccardGenerated : quality.similarity.maxJaccard;
   return r.max > limit;
 });

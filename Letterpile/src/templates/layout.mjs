@@ -36,6 +36,8 @@ export default function layout(page, ctx) {
     if (at < 0 || end < 0) throw new Error(`${page.path}: scan target ${page.scan} not found in the tool markup`);
     page.tool = `${page.tool.slice(0, end + 6)}\n          <div class="scan-row"><button type="button" class="btn secondary small scan-btn" aria-haspopup="dialog">Scan tiles</button></div>${page.tool.slice(end + 6)}`;
   }
+  // Scripts that need neither the word engine nor the games core (e.g. the printables).
+  if (page.plain) scripts.push(...page.plain.map(f => `<script src="${assets[`${f}.js`]}" defer></script>`));
   // "Scan tiles" button for the page's letter box (Tesseract.js, self-hosted, loaded on use).
   if (page.scan) scripts.push(`<script src="${assets["js/scan.js"]}" data-target="${page.scan}" data-reader="${assets["js/scan-read.js"]}" data-tesseract="${assets["tesseract/tesseract.min.js"].replace(/\/[^/]*$/, "")}" defer></script>`);
   // Daily games: the shared core, then each game script (src/assets/games/). The hub uses hub.js; the

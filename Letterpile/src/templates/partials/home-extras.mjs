@@ -26,6 +26,7 @@ const TOOL_BLURB = {
   "/rhyming-words": "Perfect and near rhymes by syllable",
   "/syllable-counter": "Syllables per word and per line",
   "/training": "Quizzes and drills to learn the key words",
+  "/printables": "Word searches and sudoku to print, with answers",
 };
 
 export default function homeExtras({ ctx, guides }) {

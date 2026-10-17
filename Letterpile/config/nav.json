@@ -132,6 +132,12 @@
       "label": "Word Game Training",
       "key": "training",
       "icon": "T"
+    },
+    {
+      "href": "/printables",
+      "label": "Printable Puzzles",
+      "key": "printables",
+      "icon": "P"
     }
   ],
   "legal": [

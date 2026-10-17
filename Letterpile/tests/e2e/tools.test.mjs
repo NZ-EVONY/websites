@@ -203,3 +203,38 @@ test("training: quiz answers update progress, the anagram drill checks words, fl
     await ctx.close();
   });
 });
+
+test("printables: word search and sudoku made in the browser, downloaded as a two-page PDF", { skip }, async () => {
+  const pages = buf => (buf.toString("latin1").match(/\/Type\s*\/Page\b/g) || []).length;
+  await withBrowser(async (browser, base) => {
+    const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 }, acceptDownloads: true });
+    const page = await ctx.newPage();
+    const errors = [];
+    page.on("pageerror", e => errors.push(e.message));
+    page.on("console", m => { if (m.type() === "error") errors.push(m.text()); });
+    await page.goto(base + "/printables");
+    await page.waitForSelector("#pzPreview table", { timeout: 30000 });
+    await page.selectOption("#pzLevel", "kids");
+    await page.click("#pzForm button[type=submit]");
+    await page.waitForFunction(() => document.querySelectorAll("#pzPreview td").length === 100);
+    const [dl] = await Promise.all([page.waitForEvent("download"), page.click("#pzDownload")]);
+    const file = await dl.path();
+    const fsm = await import("node:fs");
+    const buf = fsm.readFileSync(file);
+    assert.match(buf.slice(0, 5).toString(), /%PDF-/);
+    assert.equal(pages(buf), 2, "puzzle and answer key");
+    await page.check('[name="kind"][value="sudoku"]');
+    await page.selectOption("#pzDifficulty", "hard");
+    await page.click("#pzForm button[type=submit]");
+    await page.waitForFunction(() => /exactly one solution/.test(document.querySelector("#pzStatus").textContent), null, { timeout: 60000 });
+    const givens = await page.$$eval(".pz-sudoku td", tds => tds.map(t => t.textContent || "0").join(""));
+    const SD = (await import("node:module")).createRequire(import.meta.url)("../../src/assets/games/sd-core.js");
+    assert.equal(SD.countSolutions(givens).count, 1, "the sudoku shown has exactly one solution");
+    await page.goto(base + "/printables/animals");
+    const [dl2] = await Promise.all([page.waitForEvent("download"), page.click(".pz-ready [data-download] >> nth=0")]);
+    assert.equal(pages(fsm.readFileSync(await dl2.path())), 2);
+    await page.screenshot({ path: path.join(SHOTS, "printables-animals-1280.png") });
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
