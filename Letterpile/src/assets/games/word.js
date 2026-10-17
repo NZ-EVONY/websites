@@ -5,7 +5,7 @@
   const G = window.Games, $ = s => document.querySelector(s);
   const root = $(".word-game");
   if (!G || !root) return;
-  const board = $("#board"), keys = $("#keys"), msg = $("#wordMsg"), statsEl = $("#wordStats"), statsBtn = $("#statsBtn"), shareBtn = $("#shareBtn");
+  const board = $("#board"), keys = $("#keys"), msg = $("#wordMsg"), statsEl = $("#wordStats"), statsBtn = $("#statsBtn"), shareRow = statsEl.querySelector("[data-share]");
   const rows = [...board.children];
   const STATS = "lp-game:word:stats";
   const NAME = { g: "correct", y: "in the word, wrong spot", b: "not in the word" };
@@ -77,7 +77,7 @@
       bar.style.setProperty("--w", `${Math.max(8, Math.round(100 * n / top))}%`);
       bar.classList.toggle("now", st.done && st.won && st.guesses.length === i + 1);
     });
-    shareBtn.hidden = !st.done;
+    shareRow.hidden = !st.done;
     if (open != null) { statsEl.hidden = !open; statsBtn.setAttribute("aria-expanded", String(open)); }
   }
   statsBtn.addEventListener("click", () => showStats(statsEl.hidden));
@@ -86,7 +86,7 @@
     const grid = st.guesses.map(g => marks(g).map(m => ({ g: "🟩", y: "🟨", b: "⬜" })[m]).join("")).join("\n");
     return `Letterpile Daily Word #${number} ${st.won ? st.guesses.length : "X"}/6\n${grid}\nletterpile.app/games/word`;
   }
-  shareBtn.addEventListener("click", () => G.share(shareText()));
+  G.shareBar(shareRow, shareText, "/games/word");
 
   // ---------- input ----------
 

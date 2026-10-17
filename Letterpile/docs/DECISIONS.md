@@ -91,3 +91,6 @@
 - Crossword clues are all hand-written into `scripts/games/lexicon/crossword-clues.txt`; a date is published only when every entry has a clue. The same answer is used at most 3 times and never with the same clue within 35 days.
 - Archive: only the previous 7 days, linked from `/games` by script (static pages carry no query-string links).
 - The weekly supply check is a GitHub Action in the repository root (`.github/workflows/`), the only file of this work outside `Letterpile/`.
+- Game registry in `config/games.json`; the crossword is `optional` (card hidden on days without a puzzle, not counted by games:check) until it is restocked, at the owner's request.
+- Sharing: Web Share API plus "Copy result" and a Facebook share link (sharer.php with the game URL; the result text is copied first because Facebook ignores prefilled text). Static 1200x630 share images per game page.
+- Hint pages: one page per game (`/games/word/hints`) filled in by script from today's puzzle, rather than a static page per day, so no future answers are published.

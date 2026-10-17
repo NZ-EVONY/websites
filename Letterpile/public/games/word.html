@@ -11,12 +11,16 @@
 <meta property="og:title" content="Daily Word: Guess the Five-Letter Word | Letterpile">
 <meta property="og:description" content="A free daily word game: guess the five-letter word in six tries. New puzzle every day at midnight UTC, with streaks and a spoiler-free share.">
 <meta property="og:url" content="https://letterpile.app/games/word">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://letterpile.app/og/word.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily Word on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
 <link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
-<link rel="stylesheet" href="/assets/games/games.332a773ff1.css">
+<link rel="stylesheet" href="/assets/games/games.7bf6150dc1.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -24,8 +28,8 @@
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the word change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC, the same moment for everyone. The countdown above the board shows how long is left."}},{"@type":"Question","name":"Can I play yesterday's word?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Daily Games page links to the last seven days. Archive games don't change your streak."}},{"@type":"Question","name":"Why was my word rejected?","acceptedAnswer":{"@type":"Answer","text":"Guesses must be five-letter words from the word list the game uses. Names, abbreviations and some rude words aren't accepted."}},{"@type":"Question","name":"Is my progress saved?","acceptedAnswer":{"@type":"Answer","text":"Yes, in this browser's local storage, so a reload or a closed tab doesn't lose your guesses. Another device or browser starts fresh."}},{"@type":"Question","name":"Is this the same puzzle as other daily word games?","acceptedAnswer":{"@type":"Answer","text":"No. Letterpile's answers are chosen from its own list of everyday words, so the answer is different from other sites' puzzles."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Word","item":"https://letterpile.app/games/word"}]}]}</script>
 <script src="/assets/site.63601426ff.js" defer></script>
-<script src="/assets/games/core.8fffef66cb.js" defer></script>
-<script src="/assets/games/word.74300113df.js" defer></script>
+<script src="/assets/games/core.78150b8307.js" defer></script>
+<script src="/assets/games/word.38e77d7340.js" defer></script>
 </head>
 <body data-page="game-word">
 <a class="skip" href="#main">Skip to content</a>
@@ -80,7 +84,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
             <dl class="stat-row"><div><dt>Played</dt><dd data-stat="played">0</dd></div><div><dt>Win %</dt><dd data-stat="pct">0</dd></div><div><dt>Current streak</dt><dd data-stat="cur">0</dd></div><div><dt>Best streak</dt><dd data-stat="max">0</dd></div></dl>
             <h3>Guess distribution</h3>
             <ol class="dist" id="dist"><li><span class="n">1</span><span class="bar" data-dist="1">0</span></li><li><span class="n">2</span><span class="bar" data-dist="2">0</span></li><li><span class="n">3</span><span class="bar" data-dist="3">0</span></li><li><span class="n">4</span><span class="bar" data-dist="4">0</span></li><li><span class="n">5</span><span class="bar" data-dist="5">0</span></li><li><span class="n">6</span><span class="bar" data-dist="6">0</span></li></ol>
-            <div class="row"><button type="button" class="btn" id="shareBtn" hidden>Share result</button></div>
+            <div class="share-row" data-share hidden><button type="button" class="btn" data-share-native hidden>Share</button><button type="button" class="btn secondary small" data-share-copy>Copy result</button><button type="button" class="btn secondary small" data-share-fb>Share to Facebook</button></div>
           </section>
         </div>
       </div>
@@ -97,7 +101,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <p>A word can contain the same letter twice. If you guess a word with two E's and the answer has only one, one E is colored and the other is gray. A gray tile on a repeated letter tells you there are no more copies than the ones already shown.</p>
 <h2>Streaks and sharing</h2>
 <p>Win on consecutive days to build a streak. Your statistics (games played, win percentage, current and best streak, and how many guesses your wins took) are kept in this browser only. When you finish, <b>Share result</b> copies a grid of colored squares that shows how you did without giving the word away.</p>
-<p>Stuck partway? The <a href="/wordle-solver">Wordle Solver</a> lists every word that still fits your clues, and the guide to <a href="/guides/wordle-strategy">five-letter word strategy</a> explains which first guesses test the most common letters.</p>
+<p>Stuck partway? <a href="/games/word/hints">Today's hints</a> give away one clue at a time, and the <a href="/wordle-solver">Wordle Solver</a> lists every word that still fits your clues, and the guide to <a href="/guides/wordle-strategy">five-letter word strategy</a> explains which first guesses test the most common letters.</p>
         
       <section class="faq" aria-labelledby="faq-title">
         <h2 id="faq-title">Frequently asked questions</h2>
@@ -110,7 +114,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </section>
         <section class="related" aria-labelledby="related-title">
         <h2 id="related-title">Related tools and guides</h2>
-        <ul><li><a href="/games">All daily games</a></li><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/words-by-length/5-letter-words">5-letter words</a></li></ul>
+        <ul><li><a href="/games/word/hints">Today&#39;s hints (spoilers)</a></li><li><a href="/games">All daily games</a></li><li><a href="/wordle-solver">Wordle Solver</a></li><li><a href="/words-by-length/5-letter-words">5-letter words</a></li></ul>
       </section>
       </article>
   </main>

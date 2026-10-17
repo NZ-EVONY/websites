@@ -48,7 +48,10 @@ test("self-referencing canonical with the production URL in clean form", () => {
 test("Open Graph, Twitter card, theme-color, favicon", () => {
   for (const p of pages) {
     for (const prop of ["og:title", "og:description", "og:type", "og:url"]) assert.match(p.html, new RegExp(`<meta property="${prop}" content="[^"]+">`), `${p.file} ${prop}`);
-    assert.match(p.html, /<meta name="twitter:card" content="summary">/);
+    // Pages with a share image use the large card; the image must exist.
+    const img = p.html.match(/<meta property="og:image" content="https:\/\/letterpile\.app(\/og\/[a-z-]+\.png)">/);
+    assert.match(p.html, new RegExp(`<meta name="twitter:card" content="${img ? "summary_large_image" : "summary"}">`), p.file);
+    if (img) assert.ok(fs.existsSync(path.join(PUBLIC, img[1])), `${p.file} share image ${img[1]}`);
     assert.equal((p.html.match(/<meta name="theme-color"/g) || []).length, 1);
     assert.match(p.html, /<link rel="icon" href="\/favicon\.svg"/);
   }

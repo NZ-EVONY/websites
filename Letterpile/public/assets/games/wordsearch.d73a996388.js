@@ -130,7 +130,7 @@
     e.currentTarget.setAttribute("aria-pressed", String(on));
     e.currentTarget.textContent = on ? "Zoom out" : "Zoom in";
   });
-  $("#wsShare").addEventListener("click", () => G.share(`Letterpile Daily Word Search #${puzzle.number}: ${puzzle.theme}\nFound all ${puzzle.words.length} words in ${G.duration(st.t)}\nletterpile.app/games/wordsearch`));
+  G.shareBar($("#wsDone [data-share]"), () => (`Letterpile Daily Word Search #${puzzle.number}: ${puzzle.theme}\nFound all ${puzzle.words.length} words in ${G.duration(st.t)}\nletterpile.app/games/wordsearch`), "/games/wordsearch");
 
   G.open("wordsearch").then(res => {
     date = res.date;

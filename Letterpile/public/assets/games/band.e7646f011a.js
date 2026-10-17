@@ -11,6 +11,11 @@
     const k = !s ? null : s.done ? (s.won === false ? "lost" : "solved") : "playing";
     if (k) { card.dataset.state = k; card.querySelector("[data-status]").textContent = LABEL[k]; }
   });
+  // Optional games (hidden in the HTML) appear only when today's puzzle exists.
+  const optional = document.querySelectorAll("[data-game-card][data-optional]");
+  if (optional.length) fetch("/puzzles/manifest.json").then(r => r.json()).then(m => {
+    optional.forEach(card => { card.hidden = !(m.games?.[card.dataset.gameCard] || []).includes(t); });
+  }).catch(() => {});
   const els = document.querySelectorAll("[data-countdown]");
   const tick = () => {
     const s = Math.floor((86400000 - Date.now() % 86400000) / 1000);

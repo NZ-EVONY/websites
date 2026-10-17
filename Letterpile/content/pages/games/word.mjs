@@ -1,11 +1,12 @@
 // Daily Word (/games/word): guess the day's five-letter word in six tries. The board, the
 // on-screen keyboard and the statistics are filled in by src/assets/games/word.js.
+import { shareRow } from "../../../src/templates/partials/game-cards.mjs";
 export default ctx => {
   const { fmt } = ctx;
   const keys = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
   const guessCount = ctx.games.guessCount;
   return {
-    key: "game-word", section: "games", path: "/games/word", file: "games/word.html", type: "game", game: "word", games: ["word"],
+    key: "game-word", section: "games", path: "/games/word", file: "games/word.html", type: "game", game: "word", games: ["word"], og: "word",
     title: "Daily Word: Guess the Five-Letter Word | Letterpile",
     description: "A free daily word game: guess the five-letter word in six tries. New puzzle every day at midnight UTC, with streaks and a spoiler-free share.",
     h1: "Daily Word",
@@ -21,7 +22,7 @@ export default ctx => {
             <dl class="stat-row"><div><dt>Played</dt><dd data-stat="played">0</dd></div><div><dt>Win %</dt><dd data-stat="pct">0</dd></div><div><dt>Current streak</dt><dd data-stat="cur">0</dd></div><div><dt>Best streak</dt><dd data-stat="max">0</dd></div></dl>
             <h3>Guess distribution</h3>
             <ol class="dist" id="dist">${[1, 2, 3, 4, 5, 6].map(n => `<li><span class="n">${n}</span><span class="bar" data-dist="${n}">0</span></li>`).join("")}</ol>
-            <div class="row"><button type="button" class="btn" id="shareBtn" hidden>Share result</button></div>
+            ${shareRow({ hidden: true })}
           </section>
         </div>`,
     prose: `<h2>How to play</h2>
@@ -36,7 +37,7 @@ export default ctx => {
 <p>A word can contain the same letter twice. If you guess a word with two E's and the answer has only one, one E is colored and the other is gray. A gray tile on a repeated letter tells you there are no more copies than the ones already shown.</p>
 <h2>Streaks and sharing</h2>
 <p>Win on consecutive days to build a streak. Your statistics (games played, win percentage, current and best streak, and how many guesses your wins took) are kept in this browser only. When you finish, <b>Share result</b> copies a grid of colored squares that shows how you did without giving the word away.</p>
-<p>Stuck partway? The <a href="/wordle-solver">Wordle Solver</a> lists every word that still fits your clues, and the guide to <a href="/guides/wordle-strategy">five-letter word strategy</a> explains which first guesses test the most common letters.</p>`,
+<p>Stuck partway? <a href="/games/word/hints">Today's hints</a> give away one clue at a time, and the <a href="/wordle-solver">Wordle Solver</a> lists every word that still fits your clues, and the guide to <a href="/guides/wordle-strategy">five-letter word strategy</a> explains which first guesses test the most common letters.</p>`,
     faq: [
       { q: "When does the word change?", a: "Every day at 00:00 UTC, the same moment for everyone. The countdown above the board shows how long is left." },
       { q: "Can I play yesterday's word?", a: "Yes. The <a href=\"/games\">Daily Games</a> page links to the last seven days. Archive games don't change your streak." },
@@ -45,6 +46,7 @@ export default ctx => {
       { q: "Is this the same puzzle as other daily word games?", a: "No. Letterpile's answers are chosen from its own list of everyday words, so the answer is different from other sites' puzzles." },
     ],
     related: [
+      { href: "/games/word/hints", label: "Today's hints (spoilers)" },
       { href: "/games", label: "All daily games" },
       { href: "/wordle-solver", label: "Wordle Solver" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },

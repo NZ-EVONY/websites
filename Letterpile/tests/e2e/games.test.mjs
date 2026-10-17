@@ -47,7 +47,7 @@ test("Daily Word: reject a non-word, win, keep stats across a reload, share", { 
       assert.equal(await page.isVisible("#wordStats"), true);
       assert.equal(await page.textContent('[data-stat="played"]'), "1");
       await page.screenshot({ path: path.join(SHOTS, `word-${width}.png`), fullPage: false });
-      await page.click("#shareBtn");
+      await page.click("#wordStats [data-share-copy]");
       const copied = await page.evaluate(() => navigator.clipboard.readText());
       assert.match(copied, /^Letterpile Daily Word #\d+ 2\/6\n/);
       assert.ok(!copied.toLowerCase().includes(answer), "share text must not reveal the answer");
@@ -103,7 +103,7 @@ test("Daily Sudoku: notes, conflict highlight, undo, reload keeps progress, win"
       await page.waitForSelector("#sdDone:not([hidden])");
       assert.match(await page.textContent("#sdMsg"), /^Solved in \d+:\d\d\.$/);
       await page.screenshot({ path: path.join(SHOTS, `sudoku-${width}.png`) });
-      await page.click("#sdShare");
+      await page.click("#sdDone [data-share-copy]");
       assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Sudoku #\d+ \((Easy|Medium|Hard)\)\nSolved in /);
       assert.deepEqual(errors, []);
       await ctx.close();
@@ -150,7 +150,7 @@ test("Daily Word Search: drag, tap-tap and keyboard selection, reload keeps prog
       }
       await page.waitForSelector("#wsDone:not([hidden])");
       await page.screenshot({ path: path.join(SHOTS, `wordsearch-${width}.png`) });
-      await page.click("#wsShare");
+      await page.click("#wsDone [data-share-copy]");
       assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Word Search #\d+: .+\nFound all \d+ words in /);
       assert.deepEqual(errors, []);
       await ctx.close();
@@ -200,10 +200,49 @@ test("Daily Crossword: type, toggle direction, check, reveal, reload keeps progr
       await page.waitForSelector("#cwDone:not([hidden])");
       assert.match(await page.textContent("#cwMsg"), /^Solved in \d+:\d\d with 1 revealed square\.$/);
       await page.screenshot({ path: path.join(SHOTS, `crossword-${width}.png`) });
-      await page.click("#cwShare");
+      await page.click("#cwDone [data-share-copy]");
       assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Crossword #\d+\nSolved in .*\(1 squares revealed\)/);
       assert.deepEqual(errors, []);
       await ctx.close();
+    }
+  });
+});
+
+test("Daily Word hints: nothing shown until asked; the last button shows today's answer", { skip }, async () => {
+  const answer = decode(puzzle("word").a, `word:${today}`);
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await openPage(browser, base, "/games/word/hints", 390);
+    await page.waitForSelector("#game[data-ready]");
+    assert.ok(!(await page.innerText("main")).toUpperCase().includes(`IS ${answer.toUpperCase()}`), "answer hidden at first");
+    assert.equal(await page.locator(".hint-text:not([hidden])").count(), 0);
+    await page.click(".hint-list li:first-child button");
+    assert.equal(await page.locator(".hint-text:not([hidden])").count(), 1);
+    await page.click(".hint-list li:last-child button");
+    assert.match(await page.textContent(".hint-list li:last-child .hint-text"), new RegExp(answer, "i"));
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
+
+test("crossword card: shown when today has a crossword, hidden (on the hub and home page) when not", { skip }, async () => {
+  await withBrowser(async (browser, base) => {
+    for (const url of ["/games", "/"]) {
+      const { ctx, page, errors } = await openPage(browser, base, url, 1280);
+      await page.waitForFunction(() => !document.querySelector('[data-game-card="crossword"]').hidden);
+      await ctx.close();
+      // Same page with a manifest that has no crossword dates.
+      const c2 = await browser.newContext();
+      const p2 = await c2.newPage();
+      await p2.route("**/puzzles/manifest.json", async route => {
+        const r = await route.fetch(); const m = await r.json(); m.games.crossword = [];
+        await route.fulfill({ response: r, body: JSON.stringify(m) });
+      });
+      await p2.goto(base + url);
+      await p2.waitForTimeout(800);
+      assert.equal(await p2.locator('[data-game-card="crossword"]').isVisible(), false, `${url}: crossword card hidden`);
+      assert.equal(await p2.locator('[data-game-card="sudoku"]').isVisible(), true);
+      await c2.close();
+      assert.deepEqual(errors, []);
     }
   });
 });

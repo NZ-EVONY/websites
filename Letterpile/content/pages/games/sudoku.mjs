@@ -1,9 +1,10 @@
 // Daily Sudoku (/games/sudoku): one 9x9 puzzle a day, easiest on Monday and hardest on Saturday.
 // The grid and number pad are in the HTML; src/assets/games/sudoku.js adds the play.
+import { shareRow } from "../../../src/templates/partials/game-cards.mjs";
 export default ctx => {
   const cells = [...Array(9).keys()].map(r => `<div class="sd-row" role="row">${[...Array(9).keys()].map(c => `<button type="button" class="sd-cell" role="gridcell" data-i="${r * 9 + c}" tabindex="${r + c === 0 ? 0 : -1}" aria-label="Row ${r + 1}, column ${c + 1}, empty"></button>`).join("")}</div>`).join("");
   return {
-    key: "game-sudoku", section: "games", path: "/games/sudoku", file: "games/sudoku.html", type: "game", game: "sudoku", games: ["sudoku"],
+    key: "game-sudoku", section: "games", path: "/games/sudoku", file: "games/sudoku.html", type: "game", game: "sudoku", games: ["sudoku"], og: "sudoku",
     title: "Daily Sudoku: A New 9×9 Puzzle Every Day | Letterpile",
     description: "A free daily sudoku with exactly one solution. Easy on Monday, hard by Saturday, with pencil notes, conflict highlighting, undo and a timer.",
     h1: "Daily Sudoku",
@@ -17,7 +18,7 @@ export default ctx => {
             <button type="button" class="btn secondary small" id="sdErase">Erase</button>
             <button type="button" class="btn secondary small" id="sdUndo">Undo</button>
           </div>
-          <div class="game-done" id="sdDone" hidden><h2>Solved!</h2><p id="sdDoneText"></p><button type="button" class="btn" id="sdShare">Share result</button></div>
+          <div class="game-done" id="sdDone" hidden><h2>Solved!</h2><p id="sdDoneText"></p>${shareRow()}</div>
         </div>`,
     prose: `<h2>How to play</h2>
 <p>Fill the grid so that every row, every column and every 3×3 box contains the digits 1 to 9 exactly once. Some digits are given at the start and can't be changed. Select a square by tapping it or moving with the arrow keys, then type a digit or tap it on the number pad.</p>

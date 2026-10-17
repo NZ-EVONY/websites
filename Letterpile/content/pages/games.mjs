@@ -7,7 +7,7 @@ export default ctx => {
   const built = href => ctx.pages.some(p => p.path === href);
   const count = GAME_INFO.filter(g => built(g.href)).length;
   return {
-    key: "games", path: "/games", file: "games.html", type: "games", games: ["hub"],
+    key: "games", path: "/games", file: "games.html", type: "games", games: ["hub"], og: "games",
     title: "Daily Games: Word, Crossword, Search, Sudoku | Letterpile",
     description: "Four free puzzles that change every day at midnight UTC: a five-letter word game, a 15×15 crossword, a word search and a sudoku.",
     h1: "Daily Games",

@@ -11,8 +11,6 @@
 
   const DAY = 86400000;
   const ARCHIVE_DAYS = 7;
-  const GAMES = ["word", "crossword", "wordsearch", "sudoku"];
-  const NAMES = { word: "Daily Word", crossword: "Daily Crossword", wordsearch: "Daily Word Search", sudoku: "Daily Sudoku" };
 
   // ---------- dates (always UTC) ----------
 
@@ -79,6 +77,28 @@
       const ok = document.execCommand("copy"); ta.remove();
       toast(ok ? "Result copied" : "Couldn't copy"); return ok;
     } catch { toast("Couldn't copy"); return false; }
+  }
+
+  // Share buttons ([data-share], from shareRow in game-cards.mjs): the native share sheet where
+  // the browser has one; "Copy result"; and "Share to Facebook", which copies the text (Facebook
+  // doesn't accept prefilled text) and opens its share page for the game's address.
+  function shareBar(row, getText, path) {
+    if (!row) return;
+    const url = "https://letterpile.app" + path;
+    const native = row.querySelector("[data-share-native]");
+    if (native && navigator.share) {
+      native.hidden = false;
+      native.addEventListener("click", async () => {
+        try { await navigator.share({ text: getText(), url }); } catch (e) { if (e?.name !== "AbortError") share(getText()); }
+      });
+    }
+    row.querySelector("[data-share-copy]")?.addEventListener("click", () => share(getText()));
+    row.querySelector("[data-share-fb]")?.addEventListener("click", async () => {
+      // Open the window first (inside the click), so popup blockers allow it.
+      const w = window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "_blank", "noopener,width=600,height=500");
+      try { await navigator.clipboard.writeText(getText()); toast("Result copied — paste it into your post"); } catch { toast("Paste your result into the post"); }
+      if (!w) toast("Allow pop-ups to open Facebook");
+    });
   }
 
   // Manifest of available dates; its Date header also corrects a wrong device clock.
@@ -154,6 +174,6 @@
   // Last ARCHIVE_DAYS dates that have a puzzle, newest first.
   const archiveDates = (dates, ms = now()) => { const t = today(ms); return dates.filter(d => d < t && d >= addDays(t, -ARCHIVE_DAYS)).sort().reverse(); };
 
-  return { GAMES, NAMES, ARCHIVE_DAYS, today, addDays, msToMidnight, pickDate, setServerTime, isIso, longDate, clock, duration, decode,
-    key, load, save, state, status, share, manifest, countdown, timer, open, comeBackSoon, archiveDates, now };
+  return { ARCHIVE_DAYS, today, addDays, msToMidnight, pickDate, setServerTime, isIso, longDate, clock, duration, decode,
+    key, load, save, state, status, share, shareBar, manifest, countdown, timer, open, comeBackSoon, archiveDates, now };
 });

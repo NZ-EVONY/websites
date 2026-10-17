@@ -11,18 +11,20 @@
     const t = G.today();
     document.querySelectorAll("[data-game-card]").forEach(card => {
       const game = card.dataset.gameCard;
-      const s = (m.games?.[game] || []).includes(t) ? G.status(game, t) : "none";
+      const has = (m.games?.[game] || []).includes(t);
+      if (card.hasAttribute("data-optional")) card.hidden = !has; // e.g. the crossword while it's restocked
+      const s = has ? G.status(game, t) : "none";
       card.dataset.state = s;
       const el = card.querySelector("[data-status]");
       if (el) el.textContent = LABEL[s];
     });
     const arch = document.querySelector("[data-archive]");
     if (!arch) return;
-    const cards = [...document.querySelectorAll("[data-game-card]")].map(c => c.dataset.gameCard);
+    const cards = [...document.querySelectorAll("[data-game-card]")].filter(c => !c.hidden || (m.games?.[c.dataset.gameCard] || []).length).map(c => c.dataset.gameCard);
     arch.innerHTML = cards.map(game => {
-      const card = document.querySelector(`[data-game-card="${game}"] a`);
+      const card = document.querySelector(`[data-game-card="${game}"] a`); // its text is the game's name
       const dates = G.archiveDates(m.games?.[game] || []);
-      return `<section><h3>${G.NAMES[game]}</h3>${dates.length ? `<ul>${dates.map(d => `<li><a href="${card.getAttribute("href")}?date=${d}">${G.longDate(d)}</a> <span class="hint">${SHORT[G.status(game, d)]}</span></li>`).join("")}</ul>` : `<p class="hint">No earlier puzzles yet.</p>`}</section>`;
+      return `<section><h3>${card.textContent}</h3>${dates.length ? `<ul>${dates.map(d => `<li><a href="${card.getAttribute("href")}?date=${d}">${G.longDate(d)}</a> <span class="hint">${SHORT[G.status(game, d)]}</span></li>`).join("")}</ul>` : `<p class="hint">No earlier puzzles yet.</p>`}</section>`;
     }).join("");
   });
 })();

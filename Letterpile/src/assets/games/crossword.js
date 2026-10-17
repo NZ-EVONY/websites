@@ -194,7 +194,7 @@
   input.addEventListener("focus", () => gridEl.classList.add("focus"));
   input.addEventListener("blur", () => gridEl.classList.remove("focus"));
 
-  $("#cwShare").addEventListener("click", () => G.share(`Letterpile Daily Crossword #${puzzle.number}\nSolved in ${G.duration(st.t)}${st.rev.length ? ` (${st.rev.length} squares revealed)` : ""}\nletterpile.app/games/crossword`));
+  G.shareBar($("#cwDone [data-share]"), () => (`Letterpile Daily Crossword #${puzzle.number}\nSolved in ${G.duration(st.t)}${st.rev.length ? ` (${st.rev.length} squares revealed)` : ""}\nletterpile.app/games/crossword`), "/games/crossword");
 
   G.open("crossword").then(res => {
     date = res.date;

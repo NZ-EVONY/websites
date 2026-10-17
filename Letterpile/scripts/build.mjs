@@ -88,6 +88,8 @@ write("favicon.svg", `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32
 const games = buildGames({ root: ROOT, write, hash, words: data });
 assets["games/guesses.json"] = games.guessesName;
 
+// Share (Open Graph) images, made by scripts/og-images.mjs and committed in src/assets/og/.
+for (const f of fs.readdirSync(path.join(SRC, "og")).filter(f => f.endsWith(".png"))) write(`og/${f}`, fs.readFileSync(path.join(SRC, "og", f)));
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
 
 // ---------- page context ----------

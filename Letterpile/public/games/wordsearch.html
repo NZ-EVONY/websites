@@ -11,12 +11,16 @@
 <meta property="og:title" content="Daily Word Search: A New Theme Every Day | Letterpile">
 <meta property="og:description" content="A free daily word search: find 25 to 30 themed words hidden in a 20×20 grid, across, down, diagonally and backwards. New theme every day.">
 <meta property="og:url" content="https://letterpile.app/games/wordsearch">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://letterpile.app/og/wordsearch.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily Word Search on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
 <link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
-<link rel="stylesheet" href="/assets/games/games.332a773ff1.css">
+<link rel="stylesheet" href="/assets/games/games.7bf6150dc1.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -24,8 +28,8 @@
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the puzzle change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC, with a new theme. The countdown above the grid shows how long is left."}},{"@type":"Question","name":"Do words go backwards?","acceptedAnswer":{"@type":"Answer","text":"Yes. Words can run in all eight directions, including right to left, bottom to top and diagonally backwards."}},{"@type":"Question","name":"Can a word be hidden twice?","acceptedAnswer":{"@type":"Answer","text":"No. Each puzzle is checked so that every word on the list appears exactly once."}},{"@type":"Question","name":"The letters are small on my phone. What can I do?","acceptedAnswer":{"@type":"Answer","text":"Use Zoom in above the grid. The letters get larger and the grid scrolls; tap the first and last letters of a word to select it."}},{"@type":"Question","name":"Can I play an earlier puzzle?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Daily Games page links to the last seven days' puzzles."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Word Search","item":"https://letterpile.app/games/wordsearch"}]}]}</script>
 <script src="/assets/site.63601426ff.js" defer></script>
-<script src="/assets/games/core.8fffef66cb.js" defer></script>
-<script src="/assets/games/wordsearch.81fdc2aeff.js" defer></script>
+<script src="/assets/games/core.78150b8307.js" defer></script>
+<script src="/assets/games/wordsearch.d73a996388.js" defer></script>
 </head>
 <body data-page="game-wordsearch">
 <a class="skip" href="#main">Skip to content</a>
@@ -75,7 +79,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
           </div>
           <h2 class="ws-list-title">Words to find</h2>
           <ul class="ws-words" id="wsWords"></ul>
-          <div class="game-done" id="wsDone" hidden><h2>All found!</h2><p id="wsDoneText"></p><button type="button" class="btn" id="wsShare">Share result</button></div>
+          <div class="game-done" id="wsDone" hidden><h2>All found!</h2><p id="wsDoneText"></p><div class="share-row" data-share><button type="button" class="btn" data-share-native hidden>Share</button><button type="button" class="btn secondary small" data-share-copy>Copy result</button><button type="button" class="btn secondary small" data-share-fb>Share to Facebook</button></div></div>
         </div>
       </div>
       <article class="prose">

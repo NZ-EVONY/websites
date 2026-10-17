@@ -4,7 +4,8 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 
 export const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")), "../..");
-export const GAMES = ["word", "crossword", "wordsearch", "sudoku"];
+// Game keys in display order, from the registry in config/games.json.
+export const GAMES = JSON.parse(fs.readFileSync(path.join(ROOT, "config/games.json"), "utf8")).games.map(g => g.key);
 // Puzzle numbers count from the first day of the games (Daily Word #1).
 export const EPOCH = "2026-10-16";
 

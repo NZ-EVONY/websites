@@ -11,12 +11,16 @@
 <meta property="og:title" content="Daily Sudoku: A New 9×9 Puzzle Every Day | Letterpile">
 <meta property="og:description" content="A free daily sudoku with exactly one solution. Easy on Monday, hard by Saturday, with pencil notes, conflict highlighting, undo and a timer.">
 <meta property="og:url" content="https://letterpile.app/games/sudoku">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://letterpile.app/og/sudoku.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily Sudoku on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
 <link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
-<link rel="stylesheet" href="/assets/games/games.332a773ff1.css">
+<link rel="stylesheet" href="/assets/games/games.7bf6150dc1.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -24,8 +28,8 @@
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the puzzle change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC. The countdown above the grid shows how long is left."}},{"@type":"Question","name":"Does every puzzle have only one solution?","acceptedAnswer":{"@type":"Answer","text":"Yes. Each one is checked by a solver that counts solutions before it goes on the site, and it can be solved without guessing."}},{"@type":"Question","name":"Can I play an earlier puzzle?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Daily Games page links to the last seven days' puzzles."}},{"@type":"Question","name":"Why is a digit red?","acceptedAnswer":{"@type":"Answer","text":"The same digit appears twice in its row, column or box. Red marks a rule conflict, not a comparison with the solution."}},{"@type":"Question","name":"Can I play with a keyboard?","acceptedAnswer":{"@type":"Answer","text":"Yes. Arrow keys move, 1 to 9 place a digit, Backspace erases, N switches notes on and off, and Ctrl+Z undoes."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Sudoku","item":"https://letterpile.app/games/sudoku"}]}]}</script>
 <script src="/assets/site.63601426ff.js" defer></script>
-<script src="/assets/games/core.8fffef66cb.js" defer></script>
-<script src="/assets/games/sudoku.9386be0890.js" defer></script>
+<script src="/assets/games/core.78150b8307.js" defer></script>
+<script src="/assets/games/sudoku.e6bd9655b1.js" defer></script>
 </head>
 <body data-page="game-sudoku">
 <a class="skip" href="#main">Skip to content</a>
@@ -76,7 +80,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
             <button type="button" class="btn secondary small" id="sdErase">Erase</button>
             <button type="button" class="btn secondary small" id="sdUndo">Undo</button>
           </div>
-          <div class="game-done" id="sdDone" hidden><h2>Solved!</h2><p id="sdDoneText"></p><button type="button" class="btn" id="sdShare">Share result</button></div>
+          <div class="game-done" id="sdDone" hidden><h2>Solved!</h2><p id="sdDoneText"></p><div class="share-row" data-share><button type="button" class="btn" data-share-native hidden>Share</button><button type="button" class="btn secondary small" data-share-copy>Copy result</button><button type="button" class="btn secondary small" data-share-fb>Share to Facebook</button></div></div>
         </div>
       </div>
       <article class="prose">

@@ -5,9 +5,10 @@
   <url><loc>https://letterpile.app/contact</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/crossword-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/games/crossword</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://letterpile.app/games/sudoku</loc><lastmod>2026-10-16</lastmod></url>
-  <url><loc>https://letterpile.app/games/word</loc><lastmod>2026-10-16</lastmod></url>
-  <url><loc>https://letterpile.app/games/wordsearch</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://letterpile.app/games/sudoku</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/word/hints</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/word</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/wordsearch</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/guides/anagram-basics</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/high-value-letters-j-q-x-z</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/how-word-unscramblers-work</loc><lastmod>2026-10-01</lastmod></url>
@@ -723,7 +724,7 @@
   <url><loc>https://letterpile.app/words-ending-in/ment</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-ending-in/ous</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-ending-in/ish</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://letterpile.app/games</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://letterpile.app/games</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/guides/hooks-prefixes-and-suffixes</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/sitemap</loc><lastmod>2026-10-01</lastmod></url>

@@ -1,7 +1,8 @@
 // Daily Crossword (/games/crossword): a 15x15 crossword with original clues, new every day.
 // The grid, clue lists and controls are drawn by src/assets/games/crossword.js.
+import { shareRow } from "../../../src/templates/partials/game-cards.mjs";
 export default () => ({
-  key: "game-crossword", section: "games", path: "/games/crossword", file: "games/crossword.html", type: "game", game: "crossword", games: ["crossword"],
+  key: "game-crossword", section: "games", path: "/games/crossword", file: "games/crossword.html", type: "game", game: "crossword", games: ["crossword"], og: "crossword",
   title: "Daily Crossword: A Free 15×15 Puzzle Every Day | Letterpile",
   description: "A free daily 15×15 crossword with original clues. Check or reveal a letter, word or the whole grid, with a timer and progress saved in your browser.",
   h1: "Daily Crossword",
@@ -21,7 +22,7 @@ export default () => ({
               <section><h2>Down</h2><ol class="cw-clues" id="cwDown"></ol></section>
             </div>
           </div>
-          <div class="game-done" id="cwDone" hidden><h2>Solved!</h2><p id="cwDoneText"></p><button type="button" class="btn" id="cwShare">Share result</button></div>
+          <div class="game-done" id="cwDone" hidden><h2>Solved!</h2><p id="cwDoneText"></p>${shareRow()}</div>
         </div>`,
   prose: `<h2>How to play</h2>
 <p>Fill the white squares with letters so that every across and down entry answers its clue. Tap or click a square to select it; tap it again to switch between across and down. The highlighted squares show the current entry, and its clue appears in the bar under the grid and is highlighted in the clue lists. Tap any clue to jump to its entry.</p>

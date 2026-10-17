@@ -14,14 +14,15 @@
     "js/twist.js": "/assets/js/twist.de5008a5f6.js",
     "js/unscramble.js": "/assets/js/unscramble.e8343c87c0.js",
     "js/wordle.js": "/assets/js/wordle.02e2e3a30a.js",
-    "games/band.js": "/assets/games/band.8169a35a26.js",
-    "games/core.js": "/assets/games/core.8fffef66cb.js",
-    "games/crossword.js": "/assets/games/crossword.929e2e1671.js",
-    "games/games.css": "/assets/games/games.332a773ff1.css",
-    "games/hub.js": "/assets/games/hub.7b438a5154.js",
-    "games/sudoku.js": "/assets/games/sudoku.9386be0890.js",
-    "games/word.js": "/assets/games/word.74300113df.js",
-    "games/wordsearch.js": "/assets/games/wordsearch.81fdc2aeff.js",
+    "games/band.js": "/assets/games/band.e7646f011a.js",
+    "games/core.js": "/assets/games/core.78150b8307.js",
+    "games/crossword.js": "/assets/games/crossword.5c5cddf18b.js",
+    "games/games.css": "/assets/games/games.7bf6150dc1.css",
+    "games/hints.js": "/assets/games/hints.995c6d67dc.js",
+    "games/hub.js": "/assets/games/hub.c396ef8bc8.js",
+    "games/sudoku.js": "/assets/games/sudoku.e6bd9655b1.js",
+    "games/word.js": "/assets/games/word.38e77d7340.js",
+    "games/wordsearch.js": "/assets/games/wordsearch.d73a996388.js",
     "games/guesses.json": "/data/guesses.8f53d846dc.json"
   },
   "pages": [
@@ -71,21 +72,28 @@
       "path": "/games/sudoku",
       "file": "games/sudoku.html",
       "type": "game",
-      "updated": "2026-10-16",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/games/word/hints",
+      "file": "games/word/hints.html",
+      "type": "game",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
       "path": "/games/word",
       "file": "games/word.html",
       "type": "game",
-      "updated": "2026-10-16",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
       "path": "/games/wordsearch",
       "file": "games/wordsearch.html",
       "type": "game",
-      "updated": "2026-10-16",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -5791,7 +5799,7 @@
       "path": "/games",
       "file": "games.html",
       "type": "games",
-      "updated": "2026-10-16",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {

@@ -1,0 +1,38 @@
+{
+  "_comment": "The daily games, in display order. Used by the build (cards, hub, home band), the generators (scripts/games) and the tests. A game appears on the site once its page module content/pages/games/<key>.mjs exists. og is the share image in src/assets/og/. optional: the game's card is hidden on any day it has no puzzle, and games:check doesn't count it.",
+  "games": [
+    {
+      "key": "word",
+      "href": "/games/word",
+      "name": "Daily Word",
+      "icon": "W",
+      "color": "c-mint",
+      "blurb": "Guess the five-letter word in six tries."
+    },
+    {
+      "key": "crossword",
+      "href": "/games/crossword",
+      "name": "Daily Crossword",
+      "icon": "X",
+      "color": "c-sun",
+      "blurb": "A full 15×15 crossword with fresh clues every day.",
+      "optional": true
+    },
+    {
+      "key": "wordsearch",
+      "href": "/games/wordsearch",
+      "name": "Daily Word Search",
+      "icon": "S",
+      "color": "c-coral",
+      "blurb": "Find 25 or more themed words in a 20×20 grid."
+    },
+    {
+      "key": "sudoku",
+      "href": "/games/sudoku",
+      "name": "Daily Sudoku",
+      "icon": "9",
+      "color": "c-violet",
+      "blurb": "One 9×9 puzzle, easy on Monday, hardest on Saturday."
+    }
+  ]
+}

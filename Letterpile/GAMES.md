@@ -5,6 +5,14 @@ Four daily puzzles at `/games`: **Daily Word** (`/games/word`), **Daily Crosswor
 (`/games/sudoku`). They change at **00:00 UTC** with no server work: every puzzle is generated
 ahead of time, validated, committed, and deployed with the site.
 
+## Registry
+
+`config/games.json` lists the games (key, link, name, tile icon and colour, one-line blurb).
+The build, the generators, `games:check` and the tests all read it. A game marked
+`"optional": true` (currently the crossword, until it is restocked) has its card hidden on the
+hub and home page on any day without a puzzle, and `games:check` reports it without counting
+it. Its own page still says "Come back soon" on such days.
+
 ## How the daily swap works
 
 1. Puzzles live in `content/games/<game>/<YYYY-MM-DD>.json`, one file per game per date.
@@ -21,6 +29,15 @@ ahead of time, validated, committed, and deployed with the site.
 6. `?date=YYYY-MM-DD` plays one of the previous 7 days (the archive on `/games`); anything
    else falls back to today. Archive games don't count towards Daily Word statistics.
 
+Finished games show share buttons (`shareRow` in `src/templates/partials/game-cards.mjs`,
+`Games.shareBar` in `core.js`): the phone's own share sheet (Web Share API) where available,
+"Copy result", and "Share to Facebook", which copies the result text (Facebook doesn't accept
+prefilled text) and opens Facebook's share page for the game's address. No SDK or app ID.
+Share images for the game pages are in `src/assets/og/`, made by `node scripts/og-images.mjs`.
+
+`/games/word/hints` shows graduated hints for today's word (vowels, repeats, first and last
+letter, then the answer), each behind its own button, built in the browser from today's file.
+
 Progress is saved per game per day in `localStorage` (`lp-game:<game>:<date>`), plus
 `lp-game:word:stats` for Daily Word statistics. Every storage call is wrapped in try/catch.
 The Privacy Policy lists these keys.
@@ -30,7 +47,8 @@ The Privacy Policy lists these keys.
 ```
 cd Letterpile
 npm run games:check                     # days left per game; fails under 7
-npm run games:generate -- --days 30     # adds 30 days after the last existing date
+npm run games:generate -- --days 30     # adds 30 days after the last existing date (all games;
+                                        # or --game word|crossword|wordsearch|sudoku|all)
 ```
 
 Word, word search and sudoku are generated, validated and written straight away (a few

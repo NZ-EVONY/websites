@@ -75,7 +75,7 @@
   $("#sdUndo").addEventListener("click", () => { const u = undo.pop(); if (!u || st.done) return; st.v = u.v; st.n = u.n; after(); });
   const toggleNotes = () => { notes = !notes; notesBtn.setAttribute("aria-pressed", String(notes)); notesBtn.textContent = `Notes: ${notes ? "on" : "off"}`; };
   notesBtn.addEventListener("click", toggleNotes);
-  $("#sdShare").addEventListener("click", () => G.share(`Letterpile Daily Sudoku #${puzzle.number} (${puzzle.difficulty})\nSolved in ${G.duration(st.t)}\nletterpile.app/games/sudoku`));
+  G.shareBar($("#sdDone [data-share]"), () => (`Letterpile Daily Sudoku #${puzzle.number} (${puzzle.difficulty})\nSolved in ${G.duration(st.t)}\nletterpile.app/games/sudoku`), "/games/sudoku");
 
   grid.addEventListener("keydown", e => {
     const k = e.key;

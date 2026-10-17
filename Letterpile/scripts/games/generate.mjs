@@ -1,6 +1,6 @@
 // Adds days of puzzles after the last existing date (or from today if there are none, or if
 // the supply has already run out). Every puzzle is validated before it is written.
-//   npm run games:generate -- --days 30            all four games
+//   npm run games:generate -- --days 30            all games (or --game all)
 //   npm run games:generate -- --days 7 --game crossword
 //   npm run games:generate -- --game crossword --redo 2026-10-20   rebuild one crossword
 // Crosswords are filled first and saved as drafts; a date is only published once every entry
@@ -18,7 +18,7 @@ const days = +arg("--days", 35);
 // every run, before the new days.
 const pendingDrafts = () => fs.existsSync(path.join(ROOT, "scripts/games/crossword-drafts"))
   ? fs.readdirSync(path.join(ROOT, "scripts/games/crossword-drafts")).map(f => f.slice(0, 10)).filter(d => d >= addDays(todayUTC(), -7)).sort() : [];
-const only = arg("--game", null);
+const only = [null, "all"].includes(arg("--game", null)) ? null : arg("--game", null);
 const redo = arg("--redo", null);
 if (!(days >= 0 && days <= 400)) throw new Error("--days must be between 0 and 400");
 if (only && !GAMES.includes(only)) throw new Error(`--game must be one of ${GAMES.join(", ")}`);

@@ -11,12 +11,16 @@
 <meta property="og:title" content="Daily Crossword: A Free 15×15 Puzzle Every Day | Letterpile">
 <meta property="og:description" content="A free daily 15×15 crossword with original clues. Check or reveal a letter, word or the whole grid, with a timer and progress saved in your browser.">
 <meta property="og:url" content="https://letterpile.app/games/crossword">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://letterpile.app/og/crossword.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Daily Crossword on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
 <link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
-<link rel="stylesheet" href="/assets/games/games.332a773ff1.css">
+<link rel="stylesheet" href="/assets/games/games.7bf6150dc1.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -24,8 +28,8 @@
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the crossword change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC. The countdown above the grid shows how long is left."}},{"@type":"Question","name":"How do I switch between across and down?","acceptedAnswer":{"@type":"Answer","text":"Tap the selected square again, press Space, or tap a clue in the other list."}},{"@type":"Question","name":"What do Check and Reveal do?","acceptedAnswer":{"@type":"Answer","text":"Check marks wrong letters in red without fixing them. Reveal fills in the correct letters and marks them as revealed."}},{"@type":"Question","name":"Can I play an earlier crossword?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Daily Games page links to the last seven days' puzzles."}},{"@type":"Question","name":"Who writes the clues?","acceptedAnswer":{"@type":"Answer","text":"The clues are written for this site and checked by hand before each puzzle is published. If you spot a mistake, please let us know."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Crossword","item":"https://letterpile.app/games/crossword"}]}]}</script>
 <script src="/assets/site.63601426ff.js" defer></script>
-<script src="/assets/games/core.8fffef66cb.js" defer></script>
-<script src="/assets/games/crossword.929e2e1671.js" defer></script>
+<script src="/assets/games/core.78150b8307.js" defer></script>
+<script src="/assets/games/crossword.5c5cddf18b.js" defer></script>
 </head>
 <body data-page="game-crossword">
 <a class="skip" href="#main">Skip to content</a>
@@ -82,7 +86,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
               <section><h2>Down</h2><ol class="cw-clues" id="cwDown"></ol></section>
             </div>
           </div>
-          <div class="game-done" id="cwDone" hidden><h2>Solved!</h2><p id="cwDoneText"></p><button type="button" class="btn" id="cwShare">Share result</button></div>
+          <div class="game-done" id="cwDone" hidden><h2>Solved!</h2><p id="cwDoneText"></p><div class="share-row" data-share><button type="button" class="btn" data-share-native hidden>Share</button><button type="button" class="btn secondary small" data-share-copy>Copy result</button><button type="button" class="btn secondary small" data-share-fb>Share to Facebook</button></div></div>
         </div>
       </div>
       <article class="prose">

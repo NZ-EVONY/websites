@@ -1,6 +1,8 @@
 // Reports how many days of puzzles are left for each daily game, counting from today (UTC),
 // and validates every puzzle. Exits with an error if any game has fewer than MIN_DAYS left
 // (or a gap, or an invalid puzzle). Usage: npm run games:check [-- --min 7]
+import fs from "node:fs";
+import path from "node:path";
 import { wordData } from "../wordstats.mjs";
 import { validateGame } from "./lib.mjs";
 import { ROOT, GAMES, addDays, todayUTC } from "./util.mjs";
@@ -11,8 +13,16 @@ const today = todayUTC();
 const words = wordData();
 let failed = false;
 console.log(`Daily games supply on ${today} (UTC). Minimum: ${MIN_DAYS} days.\n`);
+const optional = new Set(JSON.parse(fs.readFileSync(path.join(ROOT, "config/games.json"), "utf8")).games.filter(g => g.optional).map(g => g.key));
 for (const game of GAMES) {
   const { dates, errors } = validateGame(ROOT, game, words);
+  if (optional.has(game)) {
+    // Optional games (config/games.json) are reported but never fail the check; invalid puzzles still do.
+    let n = 0; while (dates.includes(addDays(today, n))) n++;
+    if (errors.length) failed = true;
+    console.log(`${errors.length ? "FAIL" : "--  "} ${game.padEnd(11)} ${String(n).padStart(3)} day(s) left (optional: hidden on days without a puzzle, not counted)${errors.length ? `, ${errors.length} invalid` : ""}`);
+    continue;
+  }
   const have = new Set(dates);
   // Days covered without a gap, starting today.
   let left = 0;

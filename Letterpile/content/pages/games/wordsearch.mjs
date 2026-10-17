@@ -1,7 +1,8 @@
 // Daily Word Search (/games/wordsearch): a 20x20 themed grid with 25-30 words in all eight
 // directions. The grid and word list are drawn by src/assets/games/wordsearch.js.
+import { shareRow } from "../../../src/templates/partials/game-cards.mjs";
 export default () => ({
-  key: "game-wordsearch", section: "games", path: "/games/wordsearch", file: "games/wordsearch.html", type: "game", game: "wordsearch", games: ["wordsearch"],
+  key: "game-wordsearch", section: "games", path: "/games/wordsearch", file: "games/wordsearch.html", type: "game", game: "wordsearch", games: ["wordsearch"], og: "wordsearch",
   title: "Daily Word Search: A New Theme Every Day | Letterpile",
   description: "A free daily word search: find 25 to 30 themed words hidden in a 20×20 grid, across, down, diagonally and backwards. New theme every day.",
   h1: "Daily Word Search",
@@ -14,7 +15,7 @@ export default () => ({
           </div>
           <h2 class="ws-list-title">Words to find</h2>
           <ul class="ws-words" id="wsWords"></ul>
-          <div class="game-done" id="wsDone" hidden><h2>All found!</h2><p id="wsDoneText"></p><button type="button" class="btn" id="wsShare">Share result</button></div>
+          <div class="game-done" id="wsDone" hidden><h2>All found!</h2><p id="wsDoneText"></p>${shareRow()}</div>
         </div>`,
   prose: `<h2>How to play</h2>
 <p>Every day brings a new theme and a 20×20 grid of letters with 25 to 30 words from that theme hidden in it. Words run in straight lines in any of the eight directions: left to right, right to left, up, down and along both diagonals, forwards or backwards. Words often cross and share letters.</p>
