@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letterpile Guide: Rules, Strategy and Tips | Letterpile</title>
+<meta name="description" content="How to play Letterpile, our daily pile-of-letters puzzle: the rules, how falling tiles change the board, and strategy for clearing the pile in fewer words.">
+<link rel="canonical" href="https://letterpile.app/guides/letterpile">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Letterpile Guide: Rules, Strategy and Tips | Letterpile">
+<meta property="og:description" content="How to play Letterpile, our daily pile-of-letters puzzle: the rules, how falling tiles change the board, and strategy for clearing the pile in fewer words.">
+<meta property="og:url" content="https://letterpile.app/guides/letterpile">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.af0b10d80d.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Letterpile: Rules and Strategy","description":"How to play Letterpile, our daily pile-of-letters puzzle: the rules, how falling tiles change the board, and strategy for clearing the pile in fewer words.","datePublished":"2026-10-17","dateModified":"2026-10-17","author":{"@type":"Organization","name":"Letterpile"},"publisher":{"@type":"Organization","name":"Letterpile"},"mainEntityOfPage":"https://letterpile.app/guides/letterpile"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a word turn corners?","acceptedAnswer":{"@type":"Answer","text":"Yes. A word can change direction at every letter, as long as each tile touches the one before it, including diagonally."}},{"@type":"Question","name":"Can I use the same tile twice in one word?","acceptedAnswer":{"@type":"Answer","text":"No. Each tile can be used once per word. After the word is played, the tile is gone."}},{"@type":"Question","name":"Is the daily pile always clearable?","acceptedAnswer":{"@type":"Answer","text":"Yes. It's built backwards from real words, so at least one way to clear it exists."}},{"@type":"Question","name":"Why did my game end with tiles left?","acceptedAnswer":{"@type":"Answer","text":"No word of three or more letters could be traced through the tiles that remained. Undo a few words and try a different order."}},{"@type":"Question","name":"Do plurals and verb forms count?","acceptedAnswer":{"@type":"Answer","text":"Yes, if they are in the ENABLE word list, which includes most plurals and verb endings."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Letterpile: Rules and Strategy","item":"https://letterpile.app/guides/letterpile"}]}]}</script>
+<script src="/assets/site.63601426ff.js" defer></script>
+</head>
+<body data-page="guide-letterpile">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="layout wrap">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Letterpile: Rules and Strategy</span></li></ol></nav>
+    <article class="panel prose doc">
+        <h1 class="page-title">Letterpile: Rules and Strategy</h1>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+        <p><a href="/games/letterpile">Letterpile</a> is the daily word puzzle we made for this site. It looks like a word search at first, but it plays more like a game of falling blocks: every word you take out of the pile changes the shape of what's left. This guide explains the rules, works through a small example, and collects the strategy that helps most when you're trying to match or beat par.</p>
+<h2>The rules</h2>
+<ul>
+<li>The pile is a 5×5 grid of letter tiles. Each tile shows its letter and a point value.</li>
+<li>Trace a word through tiles that touch, side to side, up and down or diagonally. Each tile can be used once per word. Words need at least three letters and must be in the word list (ENABLE, without a short list of rude words).</li>
+<li>When you play a word, its tiles are removed. Tiles above a gap fall straight down within their column. No new tiles are added in the daily game.</li>
+<li>Clear the whole pile in as few words as possible. If no word can be made from the tiles left, the game ends and the leftover tiles count against you.</li>
+<li>Undo and restart are unlimited, and you get up to three hints a day. The timer is optional.</li>
+</ul>
+
+<h2>A worked example</h2>
+<p>Here is a small pile, three tiles wide and three high, shown top row first:</p>
+<table class="lp-example"><tr><td>P</td><td>E</td><td>N</td></tr><tr><td>T</td><td>T</td><td>E</td></tr><tr><td>M</td><td>U</td><td>Y</td></tr></table>
+<p>At the start, <code>MEN</code> and <code>PUT</code> can't be traced: the letters are there, but not next to each other. <code>YET</code> can, using the Y in the bottom corner, the E above it and the T beside that. Play it, and the tiles above the gaps fall:</p>
+<table class="lp-example"><tr><td>P</td><td>·</td><td>·</td></tr><tr><td>T</td><td>E</td><td>·</td></tr><tr><td>M</td><td>U</td><td>N</td></tr></table>
+<p>Now the N has dropped to the bottom row, next to the E that sits beside the M, and <code>MEN</code> fits. Play that, and the P falls next to the U and T:</p>
+<table class="lp-example"><tr><td>P</td><td>·</td><td>·</td></tr><tr><td>T</td><td>U</td><td>·</td></tr></table>
+<p>The last three tiles spell <code>PUT</code>, and the pile is clear in three words. Play <code>MEN</code> or <code>PUT</code> too early and they simply aren't there; play the words in a different order and the letters you need can end up apart. Every word changes which letters are neighbors, so thinking a move or two ahead is the heart of the game.</p>
+<h2>Strategy</h2>
+<h3>Start at the bottom</h3>
+<p>Letters in the bottom row have nowhere to fall. If an awkward letter like Q, V, X or J is down there, it can only leave the pile as part of a word you trace through it, and as the pile thins it may lose the neighbors it needs. Plan early for the hardest letters, especially low ones.</p>
+<h3>Long words aren't always better</h3>
+<p>A seven-letter word clears more than a quarter of the pile, but if it leaves a cluster of consonants behind, you may need three short words to tidy up. Before you play a long word, look at what falls into the gaps. Sometimes a short word that drops a vowel into a crowded column is the better move.</p>
+<h3>Keep vowels spread out</h3>
+<p>Most words need a vowel every two or three letters. If every vowel ends up in one column, the other columns become islands of consonants. Words that take a vowel from a column rich in them, and leave the lonelier vowels where they are, keep your options open.</p>
+<h3>Count the tiles</h3>
+<p>Par tells you the average word length you need. On a par-5 day, the 25 tiles go in five words, so you need about five letters a word. On a par-8 day the words are shorter, and the challenge is finding an order where every short word still fits. The word list has 972 three-letter words, which is why short words are so often the way out of a tight spot.</p>
+<h3>Use the undo button</h3>
+<p>Undo is free. Try a word, look at the pile it leaves, and take it back if the result looks stuck. Many players find their best solution by playing the first few words two or three different ways.</p>
+<h2>Hints</h2>
+<p>Each hint lights up the first tile of a word from a known solution that still fits the board in front of you. You get three a day. Hints are shown in your result, so if you're comparing scores with friends, a solution without hints counts for a little more. If you've gone a long way from the known solution, no hint may fit; undoing a word or two usually brings one back.</p>
+<h2>How the piles are made</h2>
+<p>Every daily pile is built backwards. We start with an empty grid and add common words one at a time along paths of touching cells, pushing the tiles already there upward, the opposite of falling. Played in reverse order, those words clear the pile exactly, so every pile can be cleared. Par is the fewest words we know works: the words the pile was built from, unless a search using common words finds a shorter route. Piles get a little harder through the week, from par 5 early in the week to par 8 on Saturdays.</p>
+<h2>Practice and Arcade</h2>
+<p><a href="/games/letterpile/practice">Practice</a> deals unlimited new piles from the same generator, with par shown, and saves nothing. <a href="/games/letterpile/arcade">Arcade</a> is different: a 6×6 pile, eight words, and points that grow quickly with word length. In Arcade, cleared tiles are replaced by new letters falling from the top, so it rewards spotting long words rather than clearing the pile.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>Can a word turn corners?</summary><div class="faq-a">Yes. A word can change direction at every letter, as long as each tile touches the one before it, including diagonally.</div></details>
+        <details class="faq-item"><summary>Can I use the same tile twice in one word?</summary><div class="faq-a">No. Each tile can be used once per word. After the word is played, the tile is gone.</div></details>
+        <details class="faq-item"><summary>Is the daily pile always clearable?</summary><div class="faq-a">Yes. It's built backwards from real words, so at least one way to clear it exists.</div></details>
+        <details class="faq-item"><summary>Why did my game end with tiles left?</summary><div class="faq-a">No word of three or more letters could be traced through the tiles that remained. Undo a few words and try a different order.</div></details>
+        <details class="faq-item"><summary>Do plurals and verb forms count?</summary><div class="faq-a">Yes, if they are in the ENABLE word list, which includes most plurals and verb endings.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/games/letterpile">Play today&#39;s Letterpile</a></li><li><a href="/games/letterpile/practice">Letterpile Practice</a></li><li><a href="/guides/rack-balance">Rack Balance: Vowels and Consonants</a></li></ul>
+      </section>
+      </article>
+  </main>
+  <aside class="sidebar" id="sidebar">
+  <section class="panel">
+    <h2>Word tools</h2>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/wordle-solver"><span class="ico c-coral" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-sun" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-blue" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-mint" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-violet" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li></ul>
+  </section>
+  
+</aside>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

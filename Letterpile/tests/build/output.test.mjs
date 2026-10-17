@@ -247,7 +247,7 @@ test("no file or folder in public/ uses a reserved Windows name; renamed pages r
   assert.ok(lines.some(l => l.startsWith("/words-starting-with/con ")), "the CON page redirect is missing");
 });
 
-test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 KB", async () => {
+test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 KB (20 KB on game pages)", async () => {
   const { gzipSync } = await import("node:zlib");
   const gz = f => gzipSync(fs.readFileSync(path.join(PUBLIC, f)), { level: 9 }).length;
   const m = manifest();
@@ -260,7 +260,9 @@ test("performance budget per page (gzip): HTML <= 60 KB, CSS <= 12 KB, JS <= 15 
     if (/data-worker="([^"]+)"/.test(p.html)) scripts.push(p.html.match(/data-worker="([^"]+)"/)[1].slice(1));
     const js = scripts.reduce((s, f) => s + gz(f), 0);
     assert.ok(html <= 60 * 1024, `${p.file}: HTML ${html} bytes`);
-    assert.ok(js <= 15 * 1024, `${p.file}: JS ${js} bytes`);
+    // Game pages are interactive apps: 20 KB (see docs/DECISIONS.md); every other page 15 KB.
+    const isGame = /data-game="/.test(p.html);
+    assert.ok(js <= (isGame ? 20 : 15) * 1024, `${p.file}: JS ${js} bytes`);
     worst = { html: Math.max(worst.html, html), js: Math.max(worst.js, js) };
   }
   console.log(`# budget: CSS ${css} B, worst HTML ${worst.html} B, worst JS ${worst.js} B (gzip -9; word list excluded)`);

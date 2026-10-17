@@ -4,7 +4,7 @@ const GROUPS = [
   ["How the tools work", ["/guides/how-word-unscramblers-work", "/guides/anagram-basics", "/guides/word-lists-explained"]],
   ["Tile games", ["/guides/letter-values-and-tile-counts", "/guides/rack-balance", "/guides/high-value-letters-j-q-x-z", "/guides/hooks-prefixes-and-suffixes"]],
   ["Word lists to learn", ["/guides/two-letter-words", "/guides/words-with-q-without-u", "/guides/words-without-vowels"]],
-  ["Daily word puzzles", ["/guides/wordle-strategy", "/guides/solve-daily-word-puzzles"]],
+  ["Daily word puzzles", ["/guides/wordle-strategy", "/guides/solve-daily-word-puzzles", "/guides/letterpile"]],
 ];
 const BLURB = {
   "/guides/how-word-unscramblers-work": "Letter counts, blank tiles and sorted-letter signatures: the simple ideas that make an unscrambler fast.",
@@ -18,6 +18,7 @@ const BLURB = {
   "/guides/words-with-q-without-u": "The complete, short list of words with a Q and no U, what they mean and where they come from.",
   "/guides/words-without-vowels": "Words with no A, E, I, O or U, the even shorter list without Y, and why such words exist.",
   "/guides/wordle-strategy": "Letter frequencies in five-letter words, position patterns, repeated letters and a worked example.",
+  "/guides/letterpile": "The rules of our daily pile-of-letters game, a worked example of falling tiles, and strategy for clearing the pile in fewer words.",
   "/guides/solve-daily-word-puzzles": "A step-by-step method: turn feedback into rules, track eliminated letters, and know when to probe.",
 };
 export default ctx => {

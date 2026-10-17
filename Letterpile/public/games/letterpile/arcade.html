@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Letterpile Arcade: Score Big in Eight Words | Letterpile</title>
+<meta name="description" content="A 6×6 pile, eight words, as many points as you can. New letters tumble in from the top, and long words score far more. Beat your own high score.">
+<link rel="canonical" href="https://letterpile.app/games/letterpile/arcade">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Letterpile Arcade: Score Big in Eight Words | Letterpile">
+<meta property="og:description" content="A 6×6 pile, eight words, as many points as you can. New letters tumble in from the top, and long words score far more. Beat your own high score.">
+<meta property="og:url" content="https://letterpile.app/games/letterpile/arcade">
+<meta property="og:image" content="https://letterpile.app/og/letterpile.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Letterpile Arcade on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.af0b10d80d.css">
+<link rel="stylesheet" href="/assets/games/games.e6fbdf7b2e.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Letterpile","item":"https://letterpile.app/games/letterpile"},{"@type":"ListItem","position":4,"name":"Arcade","item":"https://letterpile.app/games/letterpile/arcade"}]}]}</script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/games/core.78150b8307.js" defer></script>
+<script src="/assets/games/lp-engine.8b474724f5.js" defer></script>
+<script src="/assets/games/letterpile.bb52d881a5.js" defer></script>
+</head>
+<body data-page="game-letterpile-arcade">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games" aria-current="page">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="wrap game-layout">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/games">Daily Games</a></li><li><a href="/games/letterpile">Letterpile</a></li><li><span aria-current="page">Arcade</span></li></ol></nav>
+    <div class="panel game-card" id="game" data-game="letterpile">
+        <div class="game-head">
+          <h1 class="page-title">Letterpile Arcade</h1>
+          <p class="game-meta"><span data-game-date>Today's puzzle</span><span class="sep" aria-hidden="true">·</span><span>Next puzzle in <time data-countdown>--:--:--</time></span></p>
+        </div>
+        <div class="game-banner" data-rollover role="status" hidden><span>New puzzles are available.</span> <button type="button" class="btn small" data-refresh>Refresh</button></div>
+        <div class="lp-game" data-mode="arcade" data-wordlist="/data/words.54646e019a.js">
+          <div class="game-bar"><span class="game-msg" id="lpMsg" role="status" aria-live="polite">Loading…</span><span class="game-tools"><span class="pill" id="lpScore"></span><span class="game-timer" id="lpTimer" aria-label="Time" hidden>0:00</span>
+            <button type="button" class="btn secondary small" id="lpHowBtn" aria-haspopup="dialog">How to play</button>
+            </span></div>
+          <div class="lp-wrap"><div class="lp-board" id="lpBoard" role="group" aria-label="Letter pile. Drag or tap through neighboring tiles to spell a word, or type its letters."></div></div>
+          <div class="lp-current" aria-live="polite"><span class="lp-word" id="lpWord"></span></div>
+          <div class="lp-actions">
+            <button type="button" class="btn" id="lpSubmit" disabled>Play word</button>
+            <button type="button" class="btn secondary small" id="lpClear">Clear</button>
+            
+            
+            
+            <button type="button" class="btn secondary small" id="lpNew">New board</button>
+          </div>
+          <ol class="lp-played" id="lpPlayed" aria-label="Words played"></ol>
+          <div class="game-done" id="lpDone" hidden>
+            <h2 id="lpDoneTitle">Cleared!</h2>
+            <p id="lpDoneText"></p>
+            
+          </div>
+          <dialog class="lp-how" id="lpHow" aria-labelledby="lpHowTitle">
+            <h2 id="lpHowTitle">How to play</h2>
+            <ol class="lp-how-steps">
+              <li><span class="lp-demo lp-demo1" aria-hidden="true"><i>C</i><i>A</i><i>T</i></span><span><b>Trace a word</b> through neighboring tiles, including diagonals. Drag, tap tile by tile, or type the letters. Words need 3 or more letters.</span></li>
+              <li><span class="lp-demo lp-demo2" aria-hidden="true"><i>D</i><i>O</i><i>G</i></span><span><b>Play it</b> and its tiles vanish. The tiles above fall down to fill the gaps.</span></li>
+              <li><span class="lp-demo lp-demo3" aria-hidden="true"><i>★</i></span><span><b>Score big</b> in 8 words. New tiles drop in from the top; long words score far more.</span></li>
+            </ol>
+            <button type="button" class="btn" id="lpHowClose">Let's play</button>
+          </dialog>
+        </div>
+      </div>
+      <article class="prose">
+        <h2>How Arcade scoring works</h2>
+<p>Arcade turns <a href="/games/letterpile">Letterpile</a> into a race for points. You get a 6×6 pile and eight words. Every tile you clear is replaced by a new letter falling in from the top, chosen at random but weighted towards common letters, so the pile never runs out. Long words are worth far more than short ones:</p>
+<table><tr><th>Word length</th><th>Points</th></tr><tr><td>3 letters</td><td>10</td></tr><tr><td>4 letters</td><td>20</td></tr><tr><td>5 letters</td><td>40</td></tr><tr><td>6 letters</td><td>70</td></tr><tr><td>7 letters</td><td>110</td></tr><tr><td>8 letters</td><td>160</td></tr><tr><td>Each letter after 8</td><td>+60</td></tr></table>
+<p>Your best score is kept in this browser. Arcade words can't be undone, so look before you leap: a short word that drops good letters into place can set up a long one.</p>
+        
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/games/letterpile">Daily Letterpile</a></li><li><a href="/games/letterpile/practice">Letterpile Practice</a></li><li><a href="/guides/letterpile">Letterpile guide</a></li></ul>
+      </section>
+      </article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

@@ -15,8 +15,8 @@
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
-<link rel="stylesheet" href="/assets/games/games.7bf6150dc1.css">
+<link rel="stylesheet" href="/assets/style.af0b10d80d.css">
+<link rel="stylesheet" href="/assets/games/games.e6fbdf7b2e.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -95,8 +95,12 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
     </section>
     <section class="section home-games" aria-labelledby="games-h">
       <h2 id="games-h">Today's puzzles</h2>
-      <p class="section-lede">Four free daily games, new at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
-      <ul class="game-cards"><li class="game-tile c-mint" data-game-card="word">
+      <p class="section-lede">Free daily games, including Letterpile, our own pile-of-letters puzzle. New at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
+      <ul class="game-cards"><li class="game-tile c-blue" data-game-card="letterpile">
+        <div class="top"><span class="tile md c-blue" aria-hidden="true">L</span><h3><a href="/games/letterpile">Daily Letterpile</a></h3></div>
+        <p>Clear the pile of letters in as few words as you can.</p>
+        <p class="game-status" data-status>Today's puzzle is ready</p>
+      </li><li class="game-tile c-mint" data-game-card="word">
         <div class="top"><span class="tile md c-mint" aria-hidden="true">W</span><h3><a href="/games/word">Daily Word</a></h3></div>
         <p>Guess the five-letter word in six tries.</p>
         <p class="game-status" data-status>Today's puzzle is ready</p>
@@ -202,7 +206,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <h2 id="related-title">Related tools and guides</h2>
         <ul><li><a href="/anagram-solver">Anagram Solver</a> <span class="hint">every-letter rearrangements, including two-word ones</span></li><li><a href="/scrabble-word-finder">Tile Game Word Finder</a> <span class="hint">plays ranked by letter score</span></li><li><a href="/guides/how-word-unscramblers-work">How Word Unscramblers Work</a></li><li><a href="/guides/two-letter-words">Two-Letter Words</a></li></ul>
       </section>
-        <p class="updated">Last updated: <time datetime="2026-10-16">October 16, 2026</time></p>
+        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
       </article>
       <div class="home-aside" id="sidebar"><section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section></div>
     </div>

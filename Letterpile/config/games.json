@@ -2,6 +2,14 @@
   "_comment": "The daily games, in display order. Used by the build (cards, hub, home band), the generators (scripts/games) and the tests. A game appears on the site once its page module content/pages/games/<key>.mjs exists. og is the share image in src/assets/og/. optional: the game's card is hidden on any day it has no puzzle, and games:check doesn't count it.",
   "games": [
     {
+      "key": "letterpile",
+      "href": "/games/letterpile",
+      "name": "Daily Letterpile",
+      "icon": "L",
+      "color": "c-blue",
+      "blurb": "Clear the pile of letters in as few words as you can."
+    },
+    {
       "key": "word",
       "href": "/games/word",
       "name": "Daily Word",

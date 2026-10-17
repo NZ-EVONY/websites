@@ -94,3 +94,5 @@
 - Game registry in `config/games.json`; the crossword is `optional` (card hidden on days without a puzzle, not counted by games:check) until it is restocked, at the owner's request.
 - Sharing: Web Share API plus "Copy result" and a Facebook share link (sharer.php with the game URL; the result text is copied first because Facebook ignores prefilled text). Static 1200x630 share images per game page.
 - Hint pages: one page per game (`/games/word/hints`) filled in by script from today's puzzle, rather than a static page per day, so no future answers are published.
+- Letterpile par uses common words (SCOWL <= 35) in the solver, so par reflects routes a player could realistically find; any ENABLE word may be played. Puzzle numbers count from 17 October 2026 (Letterpile #1).
+- JS budget on game pages raised from 15 KB to 20 KB (gzip) in the build test: the games are interactive apps. The Letterpile generator/solver (lp-gen.js) and Practice word list still load only on the Practice page.

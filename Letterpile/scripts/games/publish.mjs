@@ -2,6 +2,7 @@
 // copies them to public/puzzles/<game>/<date>.json and writes public/puzzles/manifest.json.
 // The build fails on any invalid puzzle, so a bad file can never be published.
 import { GAMES, validateGame, guessWords } from "./lib.mjs";
+import { lists as letterpileLists } from "./letterpile.mjs";
 
 export function buildGames({ root, write, hash, words }) {
   const manifest = { games: {} };
@@ -17,5 +18,9 @@ export function buildGames({ root, write, hash, words }) {
   const guesses = JSON.stringify(list);
   const guessesName = `/data/guesses.${hash(guesses)}.json`;
   write(guessesName, guesses);
-  return { manifest, guessesName, guessCount: list.length };
+  // Letterpile Practice: the generator's common words by length, loaded only on that page.
+  const lpw = JSON.stringify(letterpileLists(words).byLen);
+  const lpWordsName = `/data/lp-words.${hash(lpw)}.json`;
+  write(lpWordsName, lpw);
+  return { manifest, guessesName, guessCount: list.length, lpWordsName };
 }

@@ -1,7 +1,7 @@
 {
   "assets": {
     "words.js": "/data/words.54646e019a.js",
-    "style.css": "/assets/style.c1ee2439e5.css",
+    "style.css": "/assets/style.af0b10d80d.css",
     "engine.js": "/assets/engine.7fe4595c1f.js",
     "site.js": "/assets/site.63601426ff.js",
     "worker.js": "/assets/worker.fc5fafd163.js",
@@ -17,13 +17,17 @@
     "games/band.js": "/assets/games/band.e7646f011a.js",
     "games/core.js": "/assets/games/core.78150b8307.js",
     "games/crossword.js": "/assets/games/crossword.5c5cddf18b.js",
-    "games/games.css": "/assets/games/games.7bf6150dc1.css",
+    "games/games.css": "/assets/games/games.e6fbdf7b2e.css",
     "games/hints.js": "/assets/games/hints.995c6d67dc.js",
     "games/hub.js": "/assets/games/hub.c396ef8bc8.js",
+    "games/letterpile.js": "/assets/games/letterpile.bb52d881a5.js",
+    "games/lp-engine.js": "/assets/games/lp-engine.8b474724f5.js",
+    "games/lp-gen.js": "/assets/games/lp-gen.b03a9352ff.js",
     "games/sudoku.js": "/assets/games/sudoku.e6bd9655b1.js",
     "games/word.js": "/assets/games/word.38e77d7340.js",
     "games/wordsearch.js": "/assets/games/wordsearch.d73a996388.js",
-    "games/guesses.json": "/data/guesses.8f53d846dc.json"
+    "games/guesses.json": "/data/guesses.8f53d846dc.json",
+    "games/lp-words.json": "/data/lp-words.cd12891e2b.json"
   },
   "pages": [
     {
@@ -64,6 +68,27 @@
     {
       "path": "/games/crossword",
       "file": "games/crossword.html",
+      "type": "game",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/games/letterpile/arcade",
+      "file": "games/letterpile/arcade.html",
+      "type": "game",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/games/letterpile/practice",
+      "file": "games/letterpile/practice.html",
+      "type": "game",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/games/letterpile",
+      "file": "games/letterpile.html",
       "type": "game",
       "updated": "2026-10-17",
       "noindex": false
@@ -125,6 +150,13 @@
       "noindex": false
     },
     {
+      "path": "/guides/letterpile",
+      "file": "guides/letterpile.html",
+      "type": "guide",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
       "path": "/guides/rack-balance",
       "file": "guides/rack-balance.html",
       "type": "guide",
@@ -177,7 +209,7 @@
       "path": "/",
       "file": "index.html",
       "type": "tool",
-      "updated": "2026-10-16",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -5813,7 +5845,7 @@
       "path": "/guides",
       "file": "guides.html",
       "type": "hub",
-      "updated": "2026-10-01",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {

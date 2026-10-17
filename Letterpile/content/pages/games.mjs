@@ -8,10 +8,10 @@ export default ctx => {
   const count = GAME_INFO.filter(g => built(g.href)).length;
   return {
     key: "games", path: "/games", file: "games.html", type: "games", games: ["hub"], og: "games",
-    title: "Daily Games: Word, Crossword, Search, Sudoku | Letterpile",
-    description: "Four free puzzles that change every day at midnight UTC: a five-letter word game, a 15×15 crossword, a word search and a sudoku.",
+    title: "Daily Games: Letterpile, Word, Search, Sudoku | Letterpile",
+    description: "Free puzzles that change every day at midnight UTC: Letterpile, our own pile-of-letters game, plus a five-letter word game, a word search and a sudoku.",
     h1: "Daily Games",
-    prose: `<p>${["No", "One", "Two", "Three", "Four"][count]} free puzzle${count === 1 ? "" : "s"}, new every day at 00:00 UTC. Your progress is saved in this browser, so you can stop and come back later. Next puzzles in <time data-countdown>--:--:--</time>.</p>
+    prose: `<p>${["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven"][count] || count} free puzzle${count === 1 ? "" : "s"}, new every day at 00:00 UTC. Your progress is saved in this browser, so you can stop and come back later. Next puzzles in <time data-countdown>--:--:--</time>.</p>
 ${gameCards({ built, heading: "h2" })}
 <h2>Missed a day?</h2>
 <p>You can play the last ${7} days' puzzles from the archive. Archive games don't count towards your Daily Word streak.</p>

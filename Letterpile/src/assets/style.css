@@ -502,3 +502,5 @@ dialog.define::backdrop { background: rgb(5 8 28 / .7); }
 @media (max-width: 420px) {
   .row > .btn { flex: 1 1 100%; }
 }
+.lp-example { border-collapse: separate; border-spacing: 4px; margin: 8px 0 14px; }
+.lp-example td { width: 40px; height: 40px; text-align: center; font: 800 1.2rem var(--font-display); background: var(--wood); color: var(--tile-ink); border-radius: 8px; border: 0; }

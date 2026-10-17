@@ -246,3 +246,93 @@ test("crossword card: shown when today has a crossword, hidden (on the hub and h
     }
   });
 });
+
+test("Letterpile: drag, tap and type words, undo, hint, reload keeps progress, clear the pile, share", { skip }, async () => {
+  const p = puzzle("letterpile");
+  const sol = JSON.parse(decode(p.s, `letterpile:${today}`));
+  await withBrowser(async (browser, base) => {
+    for (const width of WIDTHS) {
+      const { ctx, page, errors } = await openPage(browser, base, "/games/letterpile", width);
+      await page.waitForSelector("#game[data-ready]");
+      if (await page.isVisible("#lpHow")) await page.click("#lpHowClose");
+      await page.waitForFunction(() => window.WORD_DATA, null, { timeout: 30000 });
+      const tile = (c, r) => page.locator(`.lp-tile[data-c="${c}"][data-r="${r}"]:not(.gone)`);
+      const center = async ([c, r]) => { const b = await tile(c, r).boundingBox(); return [b.x + b.width / 2, b.y + b.height / 2]; };
+      const settle = () => page.waitForTimeout(450); // tiles falling
+      assert.equal(await page.locator(".lp-tile").count(), 25);
+      // Keyboard: a letter that appears once on the board selects that tile; Escape clears.
+      const letters = p.board.replace(/\//g, "");
+      const once = [...letters].find(ch => letters.split(ch).length === 2);
+      if (once) {
+        await page.keyboard.press(once);
+        assert.equal((await page.textContent("#lpWord")).toLowerCase(), once);
+        await page.keyboard.press("Escape");
+        assert.equal(await page.textContent("#lpWord"), "");
+      }
+      for (const [n, m] of sol.entries()) {
+        if (n === 0) {
+          // Drag through the first word (plays on release).
+          await page.evaluate(() => document.getElementById("lpBoard").scrollIntoView({ block: "center" }));
+          const pts = []; for (const cell of m.path) pts.push(await center(cell));
+          await page.mouse.move(...pts[0]); await page.mouse.down();
+          for (const pt of pts.slice(1)) await page.mouse.move(...pt, { steps: 4 });
+          await page.mouse.up();
+          await settle();
+          // Undo it, use a hint, then play it again by tapping.
+          await page.click("#lpUndo"); await settle();
+          await page.click("#lpHint");
+          assert.equal(await page.locator(".lp-tile.hint").count(), 1, "hint lights one tile");
+        }
+        if (n === 1) {
+          await page.reload();
+          await page.waitForSelector("#game[data-ready]");
+          await page.waitForFunction(() => window.WORD_DATA, null, { timeout: 30000 });
+          assert.equal(await page.locator(".lp-tile").count(), 25 - sol[0].word.length, "first word survives a reload");
+        }
+        for (const cell of m.path) await tile(...cell).click();
+        assert.equal((await page.textContent("#lpWord")).toLowerCase(), m.word);
+        await page.click("#lpSubmit");
+        await settle();
+      }
+      await page.waitForSelector("#lpDone:not([hidden])");
+      assert.match(await page.textContent("#lpDoneText"), new RegExp(`cleared the pile in ${sol.length} words`));
+      await page.screenshot({ path: path.join(SHOTS, `letterpile-${width}.png`) });
+      await page.click("#lpDone [data-share-copy]");
+      const text = await page.evaluate(() => navigator.clipboard.readText());
+      assert.match(text, new RegExp(`^Letterpile #${p.number} — cleared in ${sol.length} words \\(par ${p.par}\\) · 1 hint\\n[🟨🟩🟦🟪]{${sol.length}}\\nletterpile\\.app/games/letterpile$`, "u"));
+      assert.equal(await page.textContent('[data-stat="played"]'), "1");
+      assert.deepEqual(errors, []);
+      await ctx.close();
+    }
+  });
+});
+
+test("Letterpile Practice and Arcade: boards deal, a word plays, Arcade refills and scores", { skip }, async () => {
+  const { createRequire } = await import("node:module");
+  const LP = createRequire(import.meta.url)("../../src/assets/games/lp-engine.js");
+  const { wordData } = await import("../../scripts/wordstats.mjs");
+  const dict = LP.dictionary(wordData().clean.filter(w => w.length >= 3));
+  await withBrowser(async (browser, base) => {
+    for (const [url, n] of [["/games/letterpile/practice", 25], ["/games/letterpile/arcade", 36]]) {
+      const { ctx, page, errors } = await openPage(browser, base, url, 390);
+      await page.waitForSelector("#game[data-ready]");
+      if (await page.isVisible("#lpHow")) await page.click("#lpHowClose");
+      await page.waitForFunction(() => window.WORD_DATA, null, { timeout: 30000 });
+      await page.waitForTimeout(500);
+      assert.equal(await page.locator(".lp-tile:not(.gone)").count(), n);
+      const cols = await page.evaluate(N => { const c = Array.from({ length: N }, () => []); document.querySelectorAll(".lp-tile:not(.gone)").forEach(t => { c[+t.dataset.c][+t.dataset.r] = t.firstChild.textContent; }); return c; }, Math.sqrt(n));
+      const m = LP.findWords(cols, dict).sort((a, b) => b.word.length - a.word.length)[0];
+      for (const [c, r] of m.path) await page.locator(`.lp-tile[data-c="${c}"][data-r="${r}"]:not(.gone)`).click();
+      await page.click("#lpSubmit");
+      await page.waitForTimeout(600);
+      assert.equal(await page.locator(".lp-played li").count(), 1, `${url}: word played`);
+      if (n === 36) {
+        assert.equal(await page.locator(".lp-tile:not(.gone)").count(), 36, "arcade refills");
+        assert.match(await page.textContent("#lpScore"), /Score \d+ · 7 words left/);
+      }
+      await page.screenshot({ path: path.join(SHOTS, `letterpile-${n === 36 ? "arcade" : "practice"}-390.png`) });
+      assert.deepEqual(errors, []);
+      await ctx.close();
+    }
+  });
+});

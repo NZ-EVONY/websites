@@ -5,6 +5,29 @@ Four daily puzzles at `/games`: **Daily Word** (`/games/word`), **Daily Crosswor
 (`/games/sudoku`). They change at **00:00 UTC** with no server work: every puzzle is generated
 ahead of time, validated, committed, and deployed with the site.
 
+## Letterpile (the site's own game)
+
+`/games/letterpile`, plus `/games/letterpile/practice` and `/games/letterpile/arcade`; rules and
+strategy in the guide at `/guides/letterpile`.
+
+- Engine: `src/assets/games/lp-engine.js` (board rules, tracing, gravity) and `lp-gen.js`
+  (backwards generator, solution replay, beam-search solver). Both run in Node and the browser;
+  `lp-gen.js` loads only on the Practice page.
+- Daily piles (`scripts/games/letterpile.mjs`): built backwards from very common words (SCOWL
+  level 20 and below), so replaying the stored solution always clears the pile. Par is the
+  fewer of the solution's word count and what the solver finds in 3 seconds using common words
+  (SCOWL 35 and below); players may use any ENABLE word not on the blocklist. Target par by
+  weekday: Mon/Tue 5, Wed/Thu 6, Fri 7, Sat 8, Sun 7.
+- Validated: the stored solution traces and clears the board, par equals its length and fits the
+  weekday (target or one less), every solution word is allowed, and no blocklisted word reads
+  in a straight line (rows, columns, diagonals, both ways).
+- Player: drag or tap through neighbors (diagonals included), or type letters where only one
+  tile fits; Enter plays, Backspace steps back (or undoes a word), Escape clears. Unlimited
+  undo/restart, up to 3 hints (first tile of a solution word that still fits), optional timer,
+  stats (`lp-game:letterpile:stats`), share text with one square per word colored by length.
+- Practice: unlimited boards from the same generator (par = its word count). Arcade: 6x6, 8
+  words, refills weighted by letter frequency, points by length, local best score.
+
 ## Registry
 
 `config/games.json` lists the games (key, link, name, tile icon and colour, one-line blurb).

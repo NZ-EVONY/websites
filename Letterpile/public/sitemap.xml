@@ -5,6 +5,9 @@
   <url><loc>https://letterpile.app/contact</loc><lastmod>2026-10-02</lastmod></url>
   <url><loc>https://letterpile.app/crossword-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/games/crossword</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/letterpile/arcade</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/letterpile/practice</loc><lastmod>2026-10-17</lastmod></url>
+  <url><loc>https://letterpile.app/games/letterpile</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/sudoku</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/word/hints</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/games/word</loc><lastmod>2026-10-17</lastmod></url>
@@ -13,6 +16,7 @@
   <url><loc>https://letterpile.app/guides/high-value-letters-j-q-x-z</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/how-word-unscramblers-work</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/letter-values-and-tile-counts</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/guides/letterpile</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/guides/rack-balance</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/solve-daily-word-puzzles</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/two-letter-words</loc><lastmod>2026-10-01</lastmod></url>
@@ -20,7 +24,7 @@
   <url><loc>https://letterpile.app/guides/wordle-strategy</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-with-q-without-u</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/guides/words-without-vowels</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://letterpile.app/</loc><lastmod>2026-10-16</lastmod></url>
+  <url><loc>https://letterpile.app/</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/jumble-solver</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/privacy-policy</loc><lastmod>2026-10-16</lastmod></url>
   <url><loc>https://letterpile.app/scrabble-word-finder</loc><lastmod>2026-10-01</lastmod></url>
@@ -726,7 +730,7 @@
   <url><loc>https://letterpile.app/words-ending-in/ish</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/games</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/guides/hooks-prefixes-and-suffixes</loc><lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://letterpile.app/guides</loc><lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://letterpile.app/guides</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://letterpile.app/sitemap</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-by-length</loc><lastmod>2026-10-01</lastmod></url>
   <url><loc>https://letterpile.app/words-ending-in</loc><lastmod>2026-10-01</lastmod></url>

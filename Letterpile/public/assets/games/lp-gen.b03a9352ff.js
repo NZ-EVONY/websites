@@ -1,0 +1,144 @@
+/* Letterpile generation and solving, added to the engine (lp-engine.js must load first): builds
+   boards backwards so every one can be cleared, replays solutions, and searches for fewer-word
+   clears. Used by the daily generator (Node) and loaded on demand by Practice mode. */
+(function (root, factory) {
+  const LP = typeof module === "object" && module.exports ? require("./lp-engine.js") : root.LP;
+  const api = factory(LP);
+  if (typeof module === "object" && module.exports) module.exports = Object.assign({}, LP, api);
+  else Object.assign(root.LP, api);
+})(typeof self !== "undefined" ? self : this, function (LP) {
+  "use strict";
+  const { at, count, clone, word, canTrace, remove, findWords } = LP;
+
+  // ---------- generation (backwards, so every board can be cleared) ----------
+
+  // Inserts a word into the board along a random path of cells in the *new* board: chosen cells
+  // push the tiles above them upward (reverse gravity). Removing that path afterwards gives back
+  // the previous board, so replaying the words in reverse order clears the pile.
+  function insert(cols, w, rng, size) {
+    for (let tries = 0; tries < 300; tries++) {
+      const path = [];
+      const used = new Set();
+      let ok = true;
+      for (let i = 0; i < w.length && ok; i++) {
+        const opts = [];
+        if (!i) for (let c = 0; c < size; c++) for (let r = 0; r < size; r++) opts.push([c, r]);
+        else { const l = path[i - 1]; for (let dc = -1; dc <= 1; dc++) for (let dr = -1; dr <= 1; dr++) if (dc || dr) opts.push([l[0] + dc, l[1] + dr]); }
+        const good = opts.filter(([c, r]) => c >= 0 && c < size && r >= 0 && r < size && !used.has(c * 64 + r));
+        if (!good.length) { ok = false; break; }
+        const p = good[Math.floor(rng() * good.length)];
+        used.add(p[0] * 64 + p[1]); path.push(p);
+      }
+      if (!ok) continue;
+      // Each column must stay gap-free and within size: rows chosen must be below the new height.
+      const k = {};
+      for (const [c] of path) k[c] = (k[c] || 0) + 1;
+      if (Object.keys(k).some(c => cols[c].length + k[c] > size || path.some(([pc, r]) => pc == c && r >= cols[c].length + k[c]))) continue;
+      const out = clone(cols);
+      for (const c in k) {
+        const newLen = cols[c].length + k[c];
+        const col = Array(newLen).fill(null);
+        path.forEach(([pc, r], i) => { if (pc == c) col[r] = w[i]; });
+        const rest = cols[c].slice();
+        for (let r = 0; r < newLen; r++) if (col[r] == null) col[r] = rest.shift();
+        out[c] = col;
+      }
+      return { cols: out, path };
+    }
+    return null;
+  }
+
+  // Lengths of n words that add up to total, each between min and max, random.
+  function splitLengths(rng, total, n, min = 3, max = 8) {
+    for (let t = 0; t < 1000; t++) {
+      const ls = Array(n).fill(min);
+      let left = total - n * min;
+      while (left > 0) { const i = Math.floor(rng() * n); if (ls[i] < max) { ls[i]++; left--; } }
+      if (left === 0) return ls;
+    }
+    return null;
+  }
+
+  // Builds a full board from n words drawn from byLen (length -> words). Returns the board and
+  // the solution in play order: [{ word, path }] where each path is on the board at that move.
+  function generate(rng, byLen, n, size = 5) {
+    const lengths = splitLengths(rng, size * size, n, 3, Math.min(8, size + 3));
+    if (!lengths) return null;
+    let cols = Array.from({ length: size }, () => []);
+    const placed = [];
+    const usedWords = new Set();
+    for (const len of lengths) {
+      const pool = byLen[len] || [];
+      let done = false;
+      for (let t = 0; t < 40 && !done; t++) {
+        const w = pool[Math.floor(rng() * pool.length)];
+        if (!w || usedWords.has(w)) continue;
+        const res = insert(cols, w, rng, size);
+        if (res) { cols = res.cols; placed.push({ word: w, path: res.path }); usedWords.add(w); done = true; }
+      }
+      if (!done) return null;
+    }
+    return { cols, solution: placed.reverse() };
+  }
+
+  // Replays a solution from a board; returns the final board or null if a move doesn't trace.
+  function replay(cols, moves) {
+    let b = cols;
+    for (const m of moves) {
+      if (!canTrace(b, m.path) || word(b, m.path) !== m.word) return null;
+      b = remove(b, m.path);
+    }
+    return b;
+  }
+
+  // ---------- fewest-words solver (beam search) ----------
+
+  // Searches for a clear in fewer than `max` words; returns the best list of moves found, or
+  // null. Beam search, preferring boards with fewer tiles left; stops at the time limit.
+  function solve(cols, dict, { max = 10, beam = 60, timeMs = 4000 } = {}) {
+    const t0 = Date.now();
+    let layer = [{ b: cols, moves: [] }];
+    for (let depth = 1; depth < max; depth++) {
+      const next = [];
+      for (const s of layer) {
+        if (Date.now() - t0 > timeMs) return null;
+        for (const m of findWords(s.b, dict)) {
+          const b = remove(s.b, m.path);
+          const moves = [...s.moves, m];
+          if (!count(b)) return moves;
+          next.push({ b, moves, left: count(b) });
+        }
+      }
+      if (!next.length) return null;
+      // Keep the most promising boards (fewest tiles left), dropping duplicates.
+      next.sort((a, b) => a.left - b.left);
+      const seen = new Set();
+      layer = [];
+      for (const s of next) {
+        const key = s.b.map(c => c.join("")).join("|");
+        if (seen.has(key)) continue;
+        seen.add(key);
+        layer.push(s);
+        if (layer.length >= beam) break;
+      }
+    }
+    return null;
+  }
+
+  // Straight lines of the board (rows, columns, diagonals), both directions, for the
+  // offensive-word check.
+  function lines(cols, size = 5) {
+    const g = (c, r) => at(cols, [c, r]) || "";
+    const out = [];
+    const dirs = [[1, 0], [0, 1], [1, 1], [1, -1]];
+    for (const [dc, dr] of dirs) for (let c = 0; c < size; c++) for (let r = 0; r < size; r++) {
+      if (g(c - dc, r - dr)) continue;
+      let s = "";
+      for (let k = 0; g(c + dc * k, r + dr * k); k++) s += g(c + dc * k, r + dr * k);
+      if (s.length > 1) out.push(s, [...s].reverse().join(""));
+    }
+    return out;
+  }
+
+  return { insert, splitLengths, generate, replay, solve, lines };
+});

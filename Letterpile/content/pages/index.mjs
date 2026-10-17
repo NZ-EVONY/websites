@@ -106,7 +106,7 @@ export default ctx => {
     games: ["band"],
     extras: `<section class="section home-games" aria-labelledby="games-h">
       <h2 id="games-h">Today's puzzles</h2>
-      <p class="section-lede">Four free daily games, new at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
+      <p class="section-lede">Free daily games, including Letterpile, our own pile-of-letters puzzle. New at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
       ${gameCards()}
     </section>
     ` + homeExtras({ ctx, guides: [guideUnscramblers, guideWordle, guideQ].map(g => g(ctx)) }),
