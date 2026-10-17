@@ -14,17 +14,19 @@
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.a8da11a50a.css">
+<link rel="stylesheet" href="/assets/style.6a81e1927d.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Multi-Board Word Solver","url":"https://letterpile.app/multi-board-solver","description":"Track four or eight five-letter word boards at once. Enter each guess once, set every board's colors, and see the words left on each board.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to type each guess on every board?","acceptedAnswer":{"@type":"Answer","text":"No. Type it once; it appears on all the boards. You only set the colors on each board."}},{"@type":"Question","name":"How is the suggested guess chosen?","acceptedAnswer":{"@type":"Answer","text":"It's the top-ranked word for the unsolved board with the fewest words left. If that board has only one word, the suggestion is that word."}},{"@type":"Question","name":"What happens when a board is solved?","acceptedAnswer":{"@type":"Answer","text":"When a row on a board is all green, the board is marked solved and no longer affects the suggestion."}},{"@type":"Question","name":"Can I use it for 16 boards?","acceptedAnswer":{"@type":"Answer","text":"Not yet. It supports 4 and 8 boards, the two most common versions."}},{"@type":"Question","name":"It says no words fit a board. Why?","acceptedAnswer":{"@type":"Answer","text":"Usually one tile's color on that board doesn't match the game. Check repeated letters especially."}},{"@type":"Question","name":"Does it know the answers?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to any game; it only lists words that fit the colors you enter."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Multi-Board Word Solver","item":"https://letterpile.app/multi-board-solver"}]}]}</script>
-<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
-<script src="/assets/site.3c7f46ce8f.js" defer></script>
-<script src="/assets/js/multi.3b32e82ca7.js" defer></script>
+<script src="/assets/engine.ed557a7f92.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.e14a89eab6.js" defer></script>
+<script src="/assets/site.bc6e8b8c1b.js" defer></script>
+<script src="/assets/js/multi.05866642f2.js" defer></script>
 </head>
 <body data-page="multi">
 <a class="skip" href="#main">Skip to content</a>
@@ -171,5 +173,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   </div>
 </dialog>
 <div class="toast" id="toast" role="status" hidden></div>
+<div class="install-bar" id="installBar" role="region" aria-label="Install Letterpile" hidden><span>Install Letterpile for quick access and offline play.</span><button type="button" class="btn small" id="installYes">Install</button><button type="button" class="install-x" id="installNo" aria-label="No thanks">×</button></div>
 </body>
 </html>

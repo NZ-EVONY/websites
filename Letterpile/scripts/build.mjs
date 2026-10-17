@@ -88,8 +88,12 @@ WordTools.use(data.clean, WordTools.commonMap(`${common.very.join(" ")}|${common
 const SRC = path.join(ROOT, "src/assets");
 const assetFiles = ["style.css", "engine.js", "site.js", "worker.js", ...fs.readdirSync(path.join(SRC, "js")).filter(f => f.endsWith(".js")).map(f => `js/${f}`),
   ...fs.readdirSync(path.join(SRC, "games")).filter(f => /\.(js|css)$/.test(f)).map(f => `games/${f}`)];
+// Published scripts drop whole-line // comments and their opening /* */ header (the sources in
+// src/assets keep them); nothing else changes.
+const slimJs = s => s.replace(/^\/\*[\s\S]*?\*\/\n/, "").split("\n").filter(l => !/^\s*\/\/ /.test(l)).join("\n");
 for (const rel of assetFiles) {
-  const buf = fs.readFileSync(path.join(SRC, rel));
+  const raw = fs.readFileSync(path.join(SRC, rel));
+  const buf = rel.endsWith(".js") ? Buffer.from(slimJs(raw.toString("utf8"))) : raw;
   const ext = path.extname(rel);
   const name = `/assets/${rel.slice(0, -ext.length)}.${hash(buf)}${ext}`;
   write(name, buf);
@@ -334,6 +338,30 @@ ${maps.map(([f, list]) => `  <sitemap><loc>${site.siteUrl}/${f}</loc><lastmod>${
 `);
 write("ads.txt", `# ads.txt for letterpile.app. Placeholder until an AdSense account exists.\n# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0  (replace pub id after AdSense account is created, uncomment)\n`);
 
+// ---------- installable app: manifest, icons, service worker (see docs/DECISIONS.md) ----------
+
+for (const f of fs.readdirSync(path.join(SRC, "icons"))) write(`icons/${f}`, fs.readFileSync(path.join(SRC, "icons", f)));
+write("manifest.webmanifest", JSON.stringify({
+  name: site.brand, short_name: site.brand, description: "Free word-game tools and daily puzzles.", lang: "en-US",
+  start_url: "/", scope: "/", display: "standalone", background_color: "#0A1030", theme_color: site.themeColorDark,
+  icons: [
+    { src: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+    { src: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    { src: "/icons/icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+  ],
+  shortcuts: [{ name: "Daily Games", url: "/games" }, { name: "Word Unscrambler", url: "/" }, { name: "Word of the Day", url: "/word-of-the-day" }],
+}, null, 2));
+{
+  // Precached on install: the shell (styles, scripts, word lists), the tool and game pages, and the
+  // offline page. Daily puzzles for the next week are fetched by the worker after it activates.
+  const shellPages = ["/", "/offline", "/games", ...nav.main.map(n => n.href), ...nav.more.map(n => n.href), ...pages.filter(p => p.type === "game").map(p => p.path)];
+  const shellAssets = Object.entries(assets).filter(([k, v]) => typeof v === "string" && v.startsWith("/") && !v.startsWith("/vendor/") && k !== "rhymes.json").map(([, v]) => v);
+  const shell = [...new Set([...shellPages, ...shellAssets, "/manifest.webmanifest", "/icons/icon-192.png", "/favicon.svg"])];
+  const swSrc = fs.readFileSync(path.join(SRC, "sw.js"), "utf8");
+  const version = hash(JSON.stringify(shell) + swSrc + pages.filter(p => shellPages.includes(p.path)).map(p => p.html).join(""));
+  write("sw.js", `const VERSION = "${version}";\nconst SHELL = ${JSON.stringify(shell)};\n${swSrc}`);
+}
+
 // ---------- headers (security + caching) ----------
 
 const scriptHash = createHash("sha256").update(HEAD_SCRIPT).digest("base64");
@@ -382,6 +410,12 @@ write("_headers", `# Cloudflare static-asset headers (max 100 rules, 2,000 chara
 
 /puzzles/*
   Cache-Control: public, max-age=300
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json
 `);
 
 // Redirects from natural URLs that had to be renamed for Windows (e.g. /words-starting-with/con).

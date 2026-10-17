@@ -7,7 +7,7 @@ Live static site https://letterpile.app: in-browser word-game tools (the list is
 unscrambler, scrambler, combiner, finders, Wordle, anagram, jumble, crossword, Text Twist, and the
 Phase 4 solvers: letter hive, word grid, letter box, multi-board, ladder, hangman, cryptogram,
 rhymes, syllables) and daily games (`GAMES.md`),
-being upgraded for AdSense readiness. Owner: Bee (New Zealand). American English.
+being upgraded for AdSense readiness. Owner in New Zealand. American English.
 
 ## Stack
 - Hand-written HTML/CSS/JS, no framework, no bundler. Node build script renders pages into `public/`.

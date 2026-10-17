@@ -14,18 +14,20 @@
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.a8da11a50a.css">
+<link rel="stylesheet" href="/assets/style.6a81e1927d.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Letter Hive Solver","url":"https://letterpile.app/letter-hive-solver","description":"Enter the seven letters of a honeycomb word puzzle and the required center letter to list every word, with pangrams highlighted.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a pangram?","acceptedAnswer":{"@type":"Answer","text":"A word that uses every one of the seven letters at least once. Some puzzles call a pangram that uses each letter exactly once a perfect pangram."}},{"@type":"Question","name":"Why does the solver list words my puzzle rejects?","acceptedAnswer":{"@type":"Answer","text":"Puzzles use their own edited answer lists. This solver uses the open ENABLE list, which includes many rare words. Tick “Everyday words only” to hide most of them."}},{"@type":"Question","name":"Can letters be used more than once?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every result may reuse any letter as many times as it likes, which is the standard rule for honeycomb puzzles."}},{"@type":"Question","name":"Do I have to enter exactly six outer letters?","acceptedAnswer":{"@type":"Answer","text":"No. The solver uses whatever letters you type, so it works for variants with more or fewer letters too. The center letter is always required."}},{"@type":"Question","name":"Does it know today's answers?","acceptedAnswer":{"@type":"Answer","text":"No. It has no connection to any puzzle and doesn't know which words a puzzle will accept. It only lists words that follow the rules."}},{"@type":"Question","name":"Can I find words of three letters?","acceptedAnswer":{"@type":"Answer","text":"Yes. Change “Shortest word” to 3 letters."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Letter Hive Solver","item":"https://letterpile.app/letter-hive-solver"}]}]}</script>
-<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
-<script src="/assets/site.3c7f46ce8f.js" defer></script>
-<script src="/assets/js/wt-client.cd3b29cc6a.js" data-core="/assets/js/wordtools.b6d05d61ce.js" data-worker="/assets/js/tools-worker.c3dbcd03cc.js" data-common="/data/common.3c8018bf5c.js" defer></script>
-<script src="/assets/js/hive.caf6b64638.js" defer></script>
+<script src="/assets/engine.ed557a7f92.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.e14a89eab6.js" defer></script>
+<script src="/assets/site.bc6e8b8c1b.js" defer></script>
+<script src="/assets/js/wt-client.c7d6bad137.js" data-core="/assets/js/wordtools.b02ed09734.js" data-worker="/assets/js/tools-worker.a4d2456c0a.js" data-common="/data/common.3c8018bf5c.js" defer></script>
+<script src="/assets/js/hive.6202284c3f.js" defer></script>
 </head>
 <body data-page="hive">
 <a class="skip" href="#main">Skip to content</a>
@@ -177,5 +179,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   </div>
 </dialog>
 <div class="toast" id="toast" role="status" hidden></div>
+<div class="install-bar" id="installBar" role="region" aria-label="Install Letterpile" hidden><span>Install Letterpile for quick access and offline play.</span><button type="button" class="btn small" id="installYes">Install</button><button type="button" class="install-x" id="installNo" aria-label="No thanks">×</button></div>
 </body>
 </html>

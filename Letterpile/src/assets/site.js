@@ -347,5 +347,29 @@
     if (w) define(w.dataset.word, w.dataset.scheme);
   });
 
+  // ---------- installable app ----------
+
+  // The service worker (/sw.js) keeps the tools, games and the next week's puzzles available
+  // offline. Registered after load so it never competes with the page itself.
+  if ("serviceWorker" in navigator) addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").then(reg => { reg.active?.postMessage("prefetch"); }).catch(() => {});
+  });
+  // A small, dismissible install offer where the browser supports it; "no thanks" is remembered.
+  const bar = $("#installBar");
+  let offer = null;
+  addEventListener("beforeinstallprompt", e => {
+    e.preventDefault();
+    try { if (localStorage.getItem("lp-install") === "no") return; } catch {}
+    offer = e;
+    if (bar) bar.hidden = false;
+  });
+  bar?.addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    bar.hidden = true;
+    if (b.id === "installYes") offer?.prompt();
+    else try { localStorage.setItem("lp-install", "no"); } catch {}
+  });
+
   window.UI = { $, esc, chip, plainWord, renderGroups, withWords, compute, isReady, getParams, setParams, toast, define, letterInput, onWordsFilter };
 })();

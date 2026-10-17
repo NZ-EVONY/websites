@@ -14,19 +14,21 @@
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.a8da11a50a.css">
+<link rel="stylesheet" href="/assets/style.6a81e1927d.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Board Solver","url":"https://letterpile.app/board-solver","description":"Copy your tile-game board and rack into a 15x15 grid to see the highest-scoring plays, with bonus squares, crossing words and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I enter a blank tile that's already on the board?","acceptedAnswer":{"@type":"Answer","text":"Type its letter, keep that square selected, and press “Mark tile as blank”. It's shown in a different style and scores zero."}},{"@type":"Question","name":"Which board layout does it use?","acceptedAnswer":{"@type":"Answer","text":"The standard 15 × 15 layout of the classic tile game. Open “Bonus squares” to edit any square for a different board."}},{"@type":"Question","name":"Why isn't the top play always the best move?","acceptedAnswer":{"@type":"Answer","text":"The solver only maximizes this turn's score. Rack balance and the squares you open for your opponent matter too."}},{"@type":"Question","name":"Does it know which words my game accepts?","acceptedAnswer":{"@type":"Answer","text":"No. It uses the open ENABLE word list. Games use their own dictionaries, so check unusual words."}},{"@type":"Question","name":"What does “Put this play on the board” do?","acceptedAnswer":{"@type":"Answer","text":"It places the shown play's tiles on the board and removes them from your rack, so you can type your new tiles and plan the next turn."}},{"@type":"Question","name":"Can it read my rack from a photo?","acceptedAnswer":{"@type":"Answer","text":"Yes. Press “Scan tiles” and take or choose a photo. The letters are read on your device and shown for you to check before they're used."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Board Solver","item":"https://letterpile.app/board-solver"}]}]}</script>
-<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
-<script src="/assets/site.3c7f46ce8f.js" defer></script>
-<script src="/assets/js/wt-client.cd3b29cc6a.js" data-core="/assets/js/wordtools.b6d05d61ce.js" data-worker="/assets/js/tools-worker.c3dbcd03cc.js" data-common="/data/common.3c8018bf5c.js" defer></script>
-<script src="/assets/js/board.4996f21267.js" defer></script>
-<script src="/assets/js/scan.122977ec90.js" data-target="#rack" data-reader="/assets/js/scan-read.ef6e7b897c.js" data-tesseract="/vendor/tesseract-7.0.0" defer></script>
+<script src="/assets/engine.ed557a7f92.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.e14a89eab6.js" defer></script>
+<script src="/assets/site.bc6e8b8c1b.js" defer></script>
+<script src="/assets/js/wt-client.c7d6bad137.js" data-core="/assets/js/wordtools.b02ed09734.js" data-worker="/assets/js/tools-worker.a4d2456c0a.js" data-common="/data/common.3c8018bf5c.js" defer></script>
+<script src="/assets/js/board.8127135921.js" defer></script>
+<script src="/assets/js/scan.6c7c32d49f.js" data-target="#rack" data-reader="/assets/js/scan-read.40b964b012.js" data-tesseract="/vendor/tesseract-7.0.0" defer></script>
 </head>
 <body data-page="board">
 <a class="skip" href="#main">Skip to content</a>
@@ -185,5 +187,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   </div>
 </dialog>
 <div class="toast" id="toast" role="status" hidden></div>
+<div class="install-bar" id="installBar" role="region" aria-label="Install Letterpile" hidden><span>Install Letterpile for quick access and offline play.</span><button type="button" class="btn small" id="installYes">Install</button><button type="button" class="install-x" id="installNo" aria-label="No thanks">×</button></div>
 </body>
 </html>

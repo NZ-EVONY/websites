@@ -159,7 +159,7 @@ test("internal links: root-relative clean URLs that exist; no orphans", () => {
       if (known.has(clean) && clean !== p.url) inbound.set(clean, inbound.get(clean) + 1);
     }
   }
-  for (const [url, n] of inbound) if (url !== "/" && url !== "/404") assert.ok(n > 0, `orphan page ${url}`);
+  for (const [url, n] of inbound) if (url !== "/" && url !== "/404" && url !== "/offline") assert.ok(n > 0, `orphan page ${url}`); // /offline is opened by the service worker
 });
 
 test("no ad code anywhere; every ad slot has a label and a reserved height", () => {

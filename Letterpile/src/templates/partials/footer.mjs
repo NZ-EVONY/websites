@@ -34,5 +34,6 @@ export default function footer({ nav, site, year }) {
     </div>
   </div>
 </dialog>
-<div class="toast" id="toast" role="status" hidden></div>`;
+<div class="toast" id="toast" role="status" hidden></div>
+<div class="install-bar" id="installBar" role="region" aria-label="Install Letterpile" hidden><span>Install Letterpile for quick access and offline play.</span><button type="button" class="btn small" id="installYes">Install</button><button type="button" class="install-x" id="installNo" aria-label="No thanks">×</button></div>`;
 }

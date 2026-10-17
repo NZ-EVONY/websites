@@ -30,3 +30,9 @@
 
 /puzzles/*
   Cache-Control: public, max-age=300
+
+/sw.js
+  Cache-Control: no-cache
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json

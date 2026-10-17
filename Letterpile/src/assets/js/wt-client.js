@@ -1,6 +1,4 @@
-/* Word tools client: runs js/wordtools.js searches in js/tools-worker.js, so long searches never
-   freeze the page. If workers are unavailable, it loads wordtools.js here and runs them on the
-   page instead. WordTools.run() shows a loading message the first time. */
+/* Word tools client: runs js/wordtools.js searches in js/tools-worker.js (or on the page). */
 (function (root) {
   "use strict";
   const doc = root.document, me = doc.currentScript;

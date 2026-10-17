@@ -14,18 +14,20 @@
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.a8da11a50a.css">
+<link rel="stylesheet" href="/assets/style.6a81e1927d.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Text Twist and Wordscapes Solver","url":"https://letterpile.app/text-twist-solver","description":"Find every 3+ letter word in your letter wheel, with slot patterns for partly solved answers.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which games does it work for?","acceptedAnswer":{"@type":"Answer","text":"Any game where you make words from a fixed set of letters without reusing them, such as letter wheels, word cookies and Text Twist-style rounds."}},{"@type":"Question","name":"What is a slot pattern?","acceptedAnswer":{"@type":"Answer","text":"A pattern for one answer, with known letters in place and ? for unknown squares, like ?A?? for a four-letter word with A second."}},{"@type":"Question","name":"Why does it list words my game won't accept?","acceptedAnswer":{"@type":"Answer","text":"It uses the open ENABLE word list, which is larger than most games' lists. Prefer common words when you're unsure."}},{"@type":"Question","name":"Can I change the minimum word length?","acceptedAnswer":{"@type":"Answer","text":"Yes, from 3 to 6 letters, with the Minimum length menu."}},{"@type":"Question","name":"What does the Twist button do?","acceptedAnswer":{"@type":"Answer","text":"It shuffles the letters in the box, to help you spot words yourself. It doesn't change the results."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Text Twist and Wordscapes Solver","item":"https://letterpile.app/text-twist-solver"}]}]}</script>
-<script src="/assets/engine.7fe4595c1f.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.fc5fafd163.js" defer></script>
-<script src="/assets/site.3c7f46ce8f.js" defer></script>
-<script src="/assets/js/twist.de5008a5f6.js" defer></script>
-<script src="/assets/js/scan.122977ec90.js" data-target="#letters" data-reader="/assets/js/scan-read.ef6e7b897c.js" data-tesseract="/vendor/tesseract-7.0.0" defer></script>
+<script src="/assets/engine.ed557a7f92.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.e14a89eab6.js" defer></script>
+<script src="/assets/site.bc6e8b8c1b.js" defer></script>
+<script src="/assets/js/twist.491be3f1f8.js" defer></script>
+<script src="/assets/js/scan.6c7c32d49f.js" data-target="#letters" data-reader="/assets/js/scan-read.40b964b012.js" data-tesseract="/vendor/tesseract-7.0.0" defer></script>
 </head>
 <body data-page="twist">
 <a class="skip" href="#main">Skip to content</a>
@@ -183,5 +185,6 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   </div>
 </dialog>
 <div class="toast" id="toast" role="status" hidden></div>
+<div class="install-bar" id="installBar" role="region" aria-label="Install Letterpile" hidden><span>Install Letterpile for quick access and offline play.</span><button type="button" class="btn small" id="installYes">Install</button><button type="button" class="install-x" id="installNo" aria-label="No thanks">×</button></div>
 </body>
 </html>

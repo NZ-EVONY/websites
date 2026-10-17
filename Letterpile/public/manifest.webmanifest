@@ -1,0 +1,43 @@
+{
+  "name": "Letterpile",
+  "short_name": "Letterpile",
+  "description": "Free word-game tools and daily puzzles.",
+  "lang": "en-US",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0A1030",
+  "theme_color": "#0A1030",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Daily Games",
+      "url": "/games"
+    },
+    {
+      "name": "Word Unscrambler",
+      "url": "/"
+    },
+    {
+      "name": "Word of the Day",
+      "url": "/word-of-the-day"
+    }
+  ]
+}

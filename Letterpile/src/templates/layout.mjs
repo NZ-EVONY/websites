@@ -140,6 +140,8 @@ ${page.noindex ? `<meta name="robots" content="noindex, follow">\n` : ""}<meta p
 ${page.og ? `<meta property="og:image" content="${site.siteUrl}/og/${page.og}.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="${esc(page.h1)} on Letterpile">\n` : ""}<meta name="twitter:card" content="${page.og ? "summary_large_image" : "summary"}">
 <meta name="theme-color" content="${site.themeColorDark}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
 <script>${HEAD_SCRIPT}</script>
 <link rel="stylesheet" href="${assets["style.css"]}">
 ${page.games?.length ? `<link rel="stylesheet" href="${assets["games/games.css"]}">\n` : ""}${cmpSlot()}
