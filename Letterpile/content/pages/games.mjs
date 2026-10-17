@@ -5,14 +5,16 @@ import { gameCards, GAME_INFO } from "../../src/templates/partials/game-cards.mj
 export const late = true;
 export default ctx => {
   const built = href => ctx.pages.some(p => p.path === href);
-  const count = GAME_INFO.filter(g => built(g.href)).length;
+  const count = GAME_INFO.filter(g => !g.feature && built(g.href)).length;
   return {
     key: "games", path: "/games", file: "games.html", type: "games", games: ["hub"], og: "games",
     title: "Daily Games: Letterpile, Word, Search, Sudoku | Letterpile",
     description: "Free puzzles that change every day at midnight UTC: Letterpile, our own pile-of-letters game, plus a five-letter word game, a word search and a sudoku.",
     h1: "Daily Games",
     prose: `<p>${["No", "One", "Two", "Three", "Four", "Five", "Six", "Seven"][count] || count} free puzzle${count === 1 ? "" : "s"}, new every day at 00:00 UTC. Your progress is saved in this browser, so you can stop and come back later. Next puzzles in <time data-countdown>--:--:--</time>.</p>
+<div class="all-games" data-all-games><p><b>Today:</b> <span data-done>0</span> of <span data-total>${count}</span> games finished</p><div class="meter" aria-hidden="true"><span data-meter></span></div><p>All-games streak: <b data-streak>0</b> day<span data-streak-s>s</span> in a row with every game finished · best <b data-best>0</b></p></div>
 ${gameCards({ built, heading: "h2" })}
+<p>Also new every day: the <a href="/word-of-the-day">Word of the Day</a>, an everyday word with its meaning and a fact for word games.</p>
 <h2>Missed a day?</h2>
 <p>You can play the last ${7} days' puzzles from the archive. Archive games don't count towards your Daily Word streak.</p>
 <div class="game-archive" data-archive><p class="hint">The archive needs JavaScript.</p></div>

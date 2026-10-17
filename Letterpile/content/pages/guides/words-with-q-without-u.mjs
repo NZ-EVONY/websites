@@ -25,6 +25,7 @@ export default ctx => {
     description: "Every word in the open ENABLE list that has a Q but no U, with notes on how to use them.",
     h1: "Words With Q and No U",
     prose: `<p class="summary">In English, Q is almost always followed by U. Of the ${fmt(qAll.length)} words with a Q in the open ENABLE word list that Letterpile shows, ${fmt(qu.length)} contain the pair QU. Only <b>${fmt(q.length)}</b> words have a Q and no U at all, and most of them are borrowings from Arabic, Hebrew, Albanian and other languages written in a different alphabet. Here is the complete list, with what each one means and how it can help in a word game. ${ctx.WORDLIST_NOTE}</p>
+<p>To memorize them, use the <a href="/training">Q-without-U flashcards</a>, which show each word's letters shuffled and track the ones you know.</p>
 <!--@slot after-intro-->
 <h2>The complete list</h2>
 <p>Related forms (plurals and variants) are shown next to their base word.</p>

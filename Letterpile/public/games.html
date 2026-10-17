@@ -19,8 +19,8 @@
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
-<link rel="stylesheet" href="/assets/style.2a093670fb.css">
-<link rel="stylesheet" href="/assets/games/games.578f5e01c1.css">
+<link rel="stylesheet" href="/assets/style.a7498fcf63.css">
+<link rel="stylesheet" href="/assets/games/games.0f1dac0775.css">
 <!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
 <!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
@@ -29,7 +29,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"}]}]}</script>
 <script src="/assets/site.3c7f46ce8f.js" defer></script>
 <script src="/assets/games/core.78150b8307.js" defer></script>
-<script src="/assets/games/hub.c396ef8bc8.js" defer></script>
+<script src="/assets/games/hub.0a0c7f776a.js" defer></script>
 </head>
 <body data-page="games">
 <a class="skip" href="#main">Skip to content</a>
@@ -64,6 +64,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
           <li><a href="/cryptogram-solver">Cryptogram Solver</a></li>
           <li><a href="/rhyming-words">Rhyming Words Finder</a></li>
           <li><a href="/syllable-counter">Syllable Counter</a></li>
+          <li><a href="/training">Word Game Training</a></li>
         </ul>
       </details>
     </li>
@@ -79,6 +80,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <h1 class="page-title">Daily Games</h1>
         <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
         <p>Five free puzzles, new every day at 00:00 UTC. Your progress is saved in this browser, so you can stop and come back later. Next puzzles in <time data-countdown>--:--:--</time>.</p>
+<div class="all-games" data-all-games><p><b>Today:</b> <span data-done>0</span> of <span data-total>5</span> games finished</p><div class="meter" aria-hidden="true"><span data-meter></span></div><p>All-games streak: <b data-streak>0</b> day<span data-streak-s>s</span> in a row with every game finished · best <b data-best>0</b></p></div>
 <ul class="game-cards"><li class="game-tile c-blue" data-game-card="letterpile">
         <div class="top"><span class="tile md c-blue" aria-hidden="true">L</span><h2><a href="/games/letterpile">Daily Letterpile</a></h2></div>
         <p>Clear the pile of letters in as few words as you can.</p>
@@ -100,6 +102,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
         <p>One 9×9 puzzle, easy on Monday, hardest on Saturday.</p>
         <p class="game-status" data-status>Today's puzzle is ready</p>
       </li></ul>
+<p>Also new every day: the <a href="/word-of-the-day">Word of the Day</a>, an everyday word with its meaning and a fact for word games.</p>
 <h2>Missed a day?</h2>
 <p>You can play the last 7 days' puzzles from the archive. Archive games don't count towards your Daily Word streak.</p>
 <div class="game-archive" data-archive><p class="hint">The archive needs JavaScript.</p></div>
@@ -116,7 +119,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <aside class="sidebar" id="sidebar">
   <section class="panel">
     <h2>Word tools</h2>
-    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/board-solver"><span class="ico c-coral" aria-hidden="true">#</span>Board Solver</a></li><li><a href="/wordle-solver"><span class="ico c-sun" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-blue" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-mint" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-violet" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-coral" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-sun" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-blue" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-mint" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-violet" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-coral" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-sun" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-blue" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-mint" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-violet" aria-hidden="true">3</span>Syllable Counter</a></li></ul>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/board-solver"><span class="ico c-coral" aria-hidden="true">#</span>Board Solver</a></li><li><a href="/wordle-solver"><span class="ico c-sun" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-blue" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-mint" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-violet" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-coral" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-sun" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-blue" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-mint" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-violet" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-coral" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-sun" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-blue" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-mint" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-violet" aria-hidden="true">3</span>Syllable Counter</a></li><li><a href="/training"><span class="ico c-coral" aria-hidden="true">T</span>Word Game Training</a></li></ul>
   </section>
   
 </aside>
@@ -125,7 +128,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
     <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
-    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/board-solver">Board Solver</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a></div></nav>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/board-solver">Board Solver</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a><a href="/training">Word Game Training</a></div></nav>
     <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/lists">Curated Lists</a><a href="/word">Word Pages</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>

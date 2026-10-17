@@ -1,5 +1,5 @@
 {
-  "_comment": "The daily games, in display order. Used by the build (cards, hub, home band), the generators (scripts/games) and the tests. A game appears on the site once its page module content/pages/games/<key>.mjs exists. og is the share image in src/assets/og/. optional: the game's card is hidden on any day it has no puzzle, and games:check doesn't count it.",
+  "_comment": "The daily games, in display order. Used by the build (cards, hub, home band), the generators (scripts/games) and the tests. A game appears on the site once its page module content/pages/games/<key>.mjs exists. og is the share image in src/assets/og/. optional: the game's card is hidden on any day it has no puzzle, and games:check doesn't count it. feature: a daily item that isn't a game (the Word of the Day): published and checked like the games, but it has no game card and doesn't count towards the all-games streak.",
   "games": [
     {
       "key": "letterpile",
@@ -41,6 +41,16 @@
       "icon": "9",
       "color": "c-violet",
       "blurb": "One 9×9 puzzle, easy on Monday, hardest on Saturday."
+    },
+    {
+      "key": "wotd",
+      "href": "/word-of-the-day",
+      "name": "Word of the Day",
+      "icon": "A",
+      "color": "c-sun",
+      "blurb": "One everyday word a day, with its meaning and a fact for word games.",
+      "optional": true,
+      "feature": true
     }
   ]
 }

@@ -6,10 +6,11 @@ import * as sudoku from "./sudoku.mjs";
 import * as wordsearch from "./wordsearch.mjs";
 import * as crossword from "./crossword.mjs";
 import * as letterpile from "./letterpile.mjs";
+import * as wotd from "./wotd.mjs";
 import { GAMES, puzzleDates, readPuzzle } from "./util.mjs";
 
 export { GAMES, puzzleDates, readPuzzle };
-export const MODULES = { letterpile, word, sudoku, wordsearch, crossword };
+export const MODULES = { letterpile, word, sudoku, wordsearch, crossword, wotd };
 
 export function validatePuzzle(game, p, ctx) {
   const m = MODULES[game];

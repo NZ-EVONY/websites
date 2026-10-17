@@ -108,6 +108,7 @@ export default ctx => {
       <h2 id="games-h">Today's puzzles</h2>
       <p class="section-lede">Free daily games, including Letterpile, our own pile-of-letters puzzle. New at midnight UTC. Next puzzles in <time data-countdown>--:--:--</time>. <a href="/games">All daily games</a></p>
       ${gameCards()}
+      ${ctx.games.manifest.games.wotd?.length ? `<p class="wotd-band"><b>Word of the Day:</b> <a href="/word-of-the-day">today's word, its meaning and a word-game fact</a></p>` : ""}
     </section>
     ` + homeExtras({ ctx, guides: [guideUnscramblers, guideWordle, guideQ].map(g => g(ctx)) }),
     sidebar: `<section class="panel tip"><h2>Tip</h2><p>Stuck on a seven-letter rack? Check the 7-letter group first: many tile games give a bonus for using all your tiles.</p></section>`,

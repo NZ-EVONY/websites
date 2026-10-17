@@ -3,7 +3,7 @@
     "words.js": "/data/words.54646e019a.js",
     "common.js": "/data/common.3c8018bf5c.js",
     "rhymes.json": "/data/rhymes.18196072e8.json",
-    "style.css": "/assets/style.2a093670fb.css",
+    "style.css": "/assets/style.a7498fcf63.css",
     "engine.js": "/assets/engine.7fe4595c1f.js",
     "site.js": "/assets/site.3c7f46ce8f.js",
     "worker.js": "/assets/worker.fc5fafd163.js",
@@ -26,6 +26,7 @@
     "js/scrambler.js": "/assets/js/scrambler.0627d06ff4.js",
     "js/syllables.js": "/assets/js/syllables.b357cdee27.js",
     "js/tools-worker.js": "/assets/js/tools-worker.c3dbcd03cc.js",
+    "js/training.js": "/assets/js/training.6051a5f589.js",
     "js/twist.js": "/assets/js/twist.de5008a5f6.js",
     "js/unscramble.js": "/assets/js/unscramble.e8343c87c0.js",
     "js/word.js": "/assets/js/word.dfd030ddf9.js",
@@ -35,15 +36,16 @@
     "games/band.js": "/assets/games/band.e7646f011a.js",
     "games/core.js": "/assets/games/core.78150b8307.js",
     "games/crossword.js": "/assets/games/crossword.5c5cddf18b.js",
-    "games/games.css": "/assets/games/games.578f5e01c1.css",
+    "games/games.css": "/assets/games/games.0f1dac0775.css",
     "games/hints.js": "/assets/games/hints.995c6d67dc.js",
-    "games/hub.js": "/assets/games/hub.c396ef8bc8.js",
+    "games/hub.js": "/assets/games/hub.0a0c7f776a.js",
     "games/letterpile.js": "/assets/games/letterpile.21fc296e42.js",
     "games/lp-engine.js": "/assets/games/lp-engine.04185961d9.js",
     "games/lp-gen.js": "/assets/games/lp-gen.258ee7f3bf.js",
     "games/sudoku.js": "/assets/games/sudoku.e6bd9655b1.js",
     "games/word.js": "/assets/games/word.38e77d7340.js",
     "games/wordsearch.js": "/assets/games/wordsearch.d73a996388.js",
+    "games/wotd.js": "/assets/games/wotd.3a5ba56bb3.js",
     "games/guesses.json": "/data/guesses.8f53d846dc.json",
     "games/lp-words.json": "/data/lp-words.cd12891e2b.json",
     "tesseract/tesseract.min.js": "/vendor/tesseract-7.0.0/tesseract.min.js"
@@ -158,7 +160,7 @@
       "path": "/guides/anagram-basics",
       "file": "guides/anagram-basics.html",
       "type": "guide",
-      "updated": "2026-10-01",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -207,7 +209,7 @@
       "path": "/guides/two-letter-words",
       "file": "guides/two-letter-words.html",
       "type": "guide",
-      "updated": "2026-10-01",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -228,7 +230,7 @@
       "path": "/guides/words-with-q-without-u",
       "file": "guides/words-with-q-without-u.html",
       "type": "guide",
-      "updated": "2026-10-01",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {
@@ -381,6 +383,13 @@
     {
       "path": "/text-twist-solver",
       "file": "text-twist-solver.html",
+      "type": "tool",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/training",
+      "file": "training.html",
       "type": "tool",
       "updated": "2026-10-17",
       "noindex": false
@@ -27641,6 +27650,13 @@
       "path": "/sitemap",
       "file": "sitemap.html",
       "type": "utility",
+      "updated": "2026-10-17",
+      "noindex": false
+    },
+    {
+      "path": "/word-of-the-day",
+      "file": "word-of-the-day.html",
+      "type": "game",
       "updated": "2026-10-17",
       "noindex": false
     },

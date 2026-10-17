@@ -24,6 +24,7 @@ export default ctx => {
     description: "What anagrams are, perfect versus partial anagrams, real examples, and quick tricks for spotting them.",
     h1: "What Is an Anagram?",
     prose: `<p class="summary">An anagram is a word or phrase made by rearranging all the letters of another, using each letter exactly once. ${code("listen")} and ${code("silent")} are anagrams; so are ${code("dormitory")} and ${code("dirty room")}. This guide explains the different kinds, shows real examples checked against Letterpile's word list, and gives a few tricks for finding anagrams in your head.</p>
+<p>For practice against the clock, the <a href="/training">anagram drill</a> gives you seven letters and 60 seconds, then shows the longest words you missed.</p>
 <!--@slot after-intro-->
 <h2>The rule: same letters, same counts</h2>
 <p>Two words are anagrams when they have exactly the same letters the same number of times. Order doesn't matter, and in phrase anagrams spaces and punctuation are ignored. A quick test is to write both words' letters in alphabetical order: if the results match, they are anagrams. ${code("earth")} and ${code("heart")} both sort to ${code(sig("earth"))}.</p>

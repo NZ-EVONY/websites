@@ -12,7 +12,7 @@ const pageExists = href => fs.existsSync(new URL(`../../../content/pages${href}.
 export const GAME_INFO = JSON.parse(fs.readFileSync(new URL("../../../config/games.json", import.meta.url), "utf8")).games;
 
 export function gameCards({ built = pageExists, heading = "h3" } = {}) {
-  return `<ul class="game-cards">${GAME_INFO.filter(g => built(g.href)).map(g => `<li class="game-tile ${g.color}" data-game-card="${g.key}"${g.optional ? " data-optional hidden" : ""}>
+  return `<ul class="game-cards">${GAME_INFO.filter(g => !g.feature && built(g.href)).map(g => `<li class="game-tile ${g.color}" data-game-card="${g.key}"${g.optional ? " data-optional hidden" : ""}>
         <div class="top">${tile(g.icon, { color: g.color, size: "md" })}<${heading}><a href="${g.href}">${esc(g.name)}</a></${heading}></div>
         <p>${esc(g.blurb)}</p>
         <p class="game-status" data-status>Today's puzzle is ready</p>

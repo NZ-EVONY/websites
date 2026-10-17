@@ -52,6 +52,7 @@ export default ctx => {
     description: "Every two-letter word in the open ENABLE word list, with short meanings, and why games accept different lists.",
     h1: "Two-Letter Words: The Full List",
     prose: `<p class="summary">The open ENABLE word list that Letterpile uses has <b>${fmt(two.length)}</b> two-letter words. They are listed below by first letter, each with a short note on what it means. Different games accept different two-letter words, so treat this as the list for this site, not a rule for every game. ${ctx.WORDLIST_NOTE}</p>
+<p>To learn them, try the <a href="/training">two-letter word quiz</a>: it keeps asking about the words you haven't mastered yet and saves your progress in your browser.</p>
 <!--@slot after-intro-->
 <h2>Why two-letter words matter</h2>
 <p>In crossword-style tile games, long words get the attention, but two-letter words do much of the work. They let you place a word alongside another one, forming several short words at once, and they let a single high-value tile touch a bonus square without needing a long word around it. Because there are only ${fmt(two.length)} of them here, learning them is one of the quickest ways to find more places to play.</p>

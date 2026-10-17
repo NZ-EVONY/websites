@@ -560,3 +560,7 @@ dialog.scan h2 { margin: 0 0 10px; }
 .bs-play small { flex-basis: 100%; color: var(--muted); }
 .bs-play[aria-pressed="true"] { border-color: var(--focus); }
 .bs-bonus { margin: 10px 0; }
+.train-tabs { margin-bottom: 12px; } .train-tabs [aria-selected="true"] { background: var(--violet); color: var(--tile-ink); }
+.train-q { font-size: 1.2rem; } .train-word { font: 800 2rem var(--font-display); letter-spacing: .12em; }
+.train-rack { font: 800 1.8rem var(--font-display); letter-spacing: .1em; }
+.train-feedback { min-height: 1.6em; font-weight: 700; } .train-card { border: 2px solid var(--line); border-radius: 16px; padding: 16px; text-align: center; }

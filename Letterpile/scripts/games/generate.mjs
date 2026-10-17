@@ -11,6 +11,7 @@ import { wordData } from "../wordstats.mjs";
 import { MODULES, validatePuzzle } from "./lib.mjs";
 import { ROOT, GAMES, puzzleDates, readPuzzle, writePuzzle, gameDir, addDays, todayUTC } from "./util.mjs";
 import { NeedsClues, writeReview } from "./crossword.mjs";
+import { writeReview as writeWotdReview } from "./wotd.mjs";
 
 const arg = (n, d) => { const i = process.argv.indexOf(n); return i > 0 ? process.argv[i + 1] : d; };
 const days = +arg("--days", 35);
@@ -51,6 +52,8 @@ for (const game of only ? [only] : GAMES) {
     } catch (e) {
       // A crossword waiting for clues: keep going so every missing word is listed at once.
       if (e instanceof NeedsClues) { missing.push({ date, words: e.words }); console.log(`crossword ${date}: drafted, waiting for clues (${e.words.length} words)`); continue; }
+      // A Word of the Day without an approved note: listed in the review file.
+      if (e.pending) { missing.push(e); console.log(e.message); continue; }
       throw e;
     }
     const errors = [...validatePuzzle(game, p, { date, words }), ...(m.validateSet ? m.validateSet([...history.filter(h => h.date !== date), p]) : [])];
@@ -60,10 +63,11 @@ for (const game of only ? [only] : GAMES) {
     made.push(p);
   }
   if (game === "crossword") writeReview(ROOT, { missing });
+  if (game === "wotd") writeWotdReview(missing);
   if (made.length) console.log(`${game}: wrote ${made.length} puzzle(s), ${made[0].date} to ${made.at(-1).date} (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
   if (missing.length) {
     failed = true;
-    console.log(`${game}: ${missing.length} date(s) need clues before they can be published; see scripts/games/crossword-review.md`);
+    console.log(game === "wotd" ? `wotd: ${missing.length} date(s) need an approved note; see scripts/games/wotd-review.md` : `${game}: ${missing.length} date(s) need clues before they can be published; see scripts/games/crossword-review.md`);
   }
 }
 if (failed) process.exitCode = 1;

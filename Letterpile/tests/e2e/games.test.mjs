@@ -371,3 +371,47 @@ test("Letterpile Practice and Arcade: boards deal, a word plays, Arcade refills 
     }
   });
 });
+
+test("Word of the Day: today's word, its notes and the link to its word page (served in place of today's file)", { skip }, async () => {
+  const { wordData } = await import("../../scripts/wordstats.mjs");
+  const { fact } = await import("../../scripts/games/wotd.mjs");
+  const words = wordData();
+  const p = { v: 1, game: "wotd", date: today, number: 1, word: "queue", meaning: "A line of people or things waiting their turn.", usage: "Your document is third in the print queue.", fact: fact("queue", words), points: 14, wwf: 12 };
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await openPage(browser, base, "/about", 390);
+    const real = JSON.parse(fs.readFileSync(path.join(PUBLIC, "puzzles/manifest.json"), "utf8"));
+    real.games.wotd = [today];
+    await page.route("**/puzzles/manifest.json", r => r.fulfill({ contentType: "application/json", body: JSON.stringify(real) }));
+    await page.route(`**/puzzles/wotd/${today}.json`, r => r.fulfill({ contentType: "application/json", body: JSON.stringify(p) }));
+    await page.goto(base + "/word-of-the-day");
+    await page.waitForSelector("#game[data-ready]");
+    assert.equal(await page.textContent("#wdWord"), "QUEUE");
+    assert.match(await page.textContent("#wdFact"), /Four of the five letters in QUEUE are vowels/);
+    assert.equal(await page.getAttribute("#wdPage", "href"), "/word/queue");
+    await page.screenshot({ path: path.join(SHOTS, "wotd-390.png") });
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});
+
+test("Games hub: all games today and the all-games streak, from saved progress", { skip }, async () => {
+  const m = JSON.parse(fs.readFileSync(path.join(PUBLIC, "puzzles/manifest.json"), "utf8"));
+  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+  const games = ["letterpile", "word", "wordsearch", "sudoku", "crossword"];
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await openPage(browser, base, "/games", 1280);
+    await page.evaluate(({ games, m, today, yesterday }) => {
+      for (const g of games) for (const d of [today, yesterday]) if ((m.games[g] || []).includes(d)) localStorage.setItem(`lp-game:${g}:${d}`, JSON.stringify({ done: true, won: true }));
+      localStorage.removeItem(`lp-game:sudoku:${today}`); // one game still to play today
+    }, { games, m, today, yesterday });
+    await page.reload();
+    await page.waitForFunction(() => document.querySelector("[data-total]").textContent !== "0");
+    const due = games.filter(g => (m.games[g] || []).includes(today)).length;
+    assert.equal(await page.textContent("[data-done]"), String(due - 1));
+    assert.equal(await page.textContent("[data-total]"), String(due));
+    const yDue = games.some(g => (m.games[g] || []).includes(yesterday));
+    assert.equal(await page.textContent("[data-streak]"), yDue ? "1" : "0", "yesterday counts; unfinished today doesn't break it");
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});

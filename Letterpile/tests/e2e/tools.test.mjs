@@ -176,3 +176,30 @@ test("word lookup: any word is filled in; a word with a page goes to it; the wor
     await ctx.close();
   });
 });
+
+test("training: quiz answers update progress, the anagram drill checks words, flashcards flip", { skip }, async () => {
+  const { createRequire } = await import("node:module");
+  const E = createRequire(import.meta.url)("../../src/assets/engine.js");
+  const fsm = await import("node:fs");
+  E.init(fsm.readFileSync(path.join(ROOT, "data/enable1.txt"), "utf8").split(/\r?\n/).filter(Boolean));
+  await withBrowser(async (browser, base) => {
+    const { ctx, page, errors } = await open(browser, base, "/training");
+    await page.click('#t-two [data-answer="yes"]');
+    assert.match(await page.textContent("#t-two [data-feedback]"), /^(Right|Not quite)/);
+    await page.click("#tab-anagram");
+    await page.click("#anStart");
+    const rack = (await page.textContent("#anRack")).replace(/\s/g, "").toLowerCase();
+    const word = E.unscramble(rack).map(x => x.word).find(w => w.length >= 3);
+    await page.fill("#anInput", word); await page.press("#anInput", "Enter");
+    await page.waitForFunction(() => /1 word/.test(document.querySelector("#anScore").textContent), null, { timeout: 30000 });
+    await page.fill("#anInput", "zzq"); await page.press("#anInput", "Enter");
+    assert.match(await page.textContent("#anFeedback"), /aren't in the rack|isn't in the word list/);
+    await page.click("#tab-q");
+    await page.click("#qFlip");
+    await page.click("#qKnew");
+    assert.match(await page.textContent("#qProgress"), /Known 1 of/);
+    assert.ok((await page.evaluate(() => localStorage.getItem("lp-train"))).includes('"q"'));
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+});

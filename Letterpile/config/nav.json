@@ -126,6 +126,12 @@
       "label": "Syllable Counter",
       "key": "syllables",
       "icon": "3"
+    },
+    {
+      "href": "/training",
+      "label": "Word Game Training",
+      "key": "training",
+      "icon": "T"
     }
   ],
   "legal": [

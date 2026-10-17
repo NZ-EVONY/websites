@@ -145,3 +145,25 @@ repeat a clue within 35 days. Clues must not contain the answer.
   sudoku uniqueness check) and every published puzzle.
 - `tests/e2e/games.test.mjs`: each game played to a win in Chromium at 390px and 1280px, with a
   reload in the middle; screenshots in `reports/games/`.
+
+## Word of the Day
+
+`/word-of-the-day`, linked from the games page and (once a day is published) the home page.
+Published through the daily engine as game `wotd` (`config/games.json`, marked `feature` and
+`optional`: no game card, not part of the all-games streak, not counted by `games:check`).
+
+- Notes: `scripts/games/wotd-notes.txt`, one line per date: `date | word | meaning | usage | status`.
+  Meanings and usage notes are written for the site; a date is published only when its status is
+  `ok`. The word must have a word page. The fact for word games is computed from the list when the
+  day is published (anagram, then vowels, then hooks, then points), so it is never hand-written.
+- Review: `npm run games:generate -- --game wotd --days 35` writes `scripts/games/wotd-review.md`
+  with every draft in full and a suggested word for each date that has no note yet. After
+  proofreading, change `draft` to `ok`, rerun with `--days 0`, then `npm run build`.
+- Validation: word has a page, meaning and usage are 20-320 characters with none of the banned
+  wording, the stored fact and points match a fresh computation, and no word repeats.
+
+## All-games streak
+
+On `/games` (games/hub.js): today's finished count and a streak of days on which every game that
+had a puzzle was finished (solved or played to the end). An unfinished today doesn't break the
+streak. Computed from the saved progress keys; nothing new is stored.
