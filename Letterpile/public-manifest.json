@@ -16,7 +16,8 @@
     "js/wordle.js": "/assets/js/wordle.02e2e3a30a.js",
     "games/band.js": "/assets/games/band.8169a35a26.js",
     "games/core.js": "/assets/games/core.8fffef66cb.js",
-    "games/games.css": "/assets/games/games.3c9a53998f.css",
+    "games/crossword.js": "/assets/games/crossword.929e2e1671.js",
+    "games/games.css": "/assets/games/games.332a773ff1.css",
     "games/hub.js": "/assets/games/hub.7b438a5154.js",
     "games/sudoku.js": "/assets/games/sudoku.9386be0890.js",
     "games/word.js": "/assets/games/word.74300113df.js",
@@ -57,6 +58,13 @@
       "file": "crossword-solver.html",
       "type": "tool",
       "updated": "2026-10-01",
+      "noindex": false
+    },
+    {
+      "path": "/games/crossword",
+      "file": "games/crossword.html",
+      "type": "game",
+      "updated": "2026-10-17",
       "noindex": false
     },
     {

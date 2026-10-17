@@ -1,0 +1,56 @@
+# Weekly reminder for the Letterpile daily games: checks how many days of puzzles are left and
+# opens an issue when any game has fewer than 10 days. It only reads the repository and opens
+# an issue; it never generates puzzles or deploys anything.
+#
+# GitHub runs scheduled workflows from the default branch only, so this file takes effect once
+# it is on the default branch. It checks the branch named in the repository variable
+# LETTERPILE_BRANCH (Settings > Secrets and variables > Actions > Variables), or
+# claude/letterpile-refresh if that isn't set. Run it by hand from the Actions tab at any time.
+name: Letterpile games supply check
+
+on:
+  schedule:
+    - cron: "17 20 * * 1" # Mondays 20:17 UTC (Tuesday morning in New Zealand)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ vars.LETTERPILE_BRANCH || 'claude/letterpile-refresh' }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Count remaining puzzles
+        id: check
+        working-directory: Letterpile
+        run: |
+          set +e
+          node scripts/games/check.mjs --min 10 | tee check.txt
+          echo "status=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+      - name: Open a reminder issue
+        if: steps.check.outputs.status != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: "Letterpile daily games: puzzles running low"
+        working-directory: Letterpile
+        run: |
+          if [ -n "$(gh issue list --state open --search "in:title \"$TITLE\"" --json number --jq '.[].number')" ]; then
+            echo "A reminder issue is already open."; exit 0
+          fi
+          {
+            echo "The weekly check found a daily game with fewer than 10 days of puzzles left (or an invalid puzzle)."
+            echo
+            echo '```'
+            cat check.txt
+            echo '```'
+            echo
+            echo "To top up, in Letterpile/: npm run games:generate -- --days 30, add clues for any crossword words listed in scripts/games/crossword-review.md, proofread it, run npm test, commit and deploy. See Letterpile/GAMES.md."
+          } > body.md
+          gh issue create --title "$TITLE" --body-file body.md

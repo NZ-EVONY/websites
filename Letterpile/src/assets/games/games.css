@@ -130,3 +130,47 @@
 .ws-list-title { font-size: 1.1rem; margin: 18px 0 8px; }
 .ws-words { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px 14px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); font: 700 .95rem/1.4 var(--font-display); }
 .ws-words li.found { text-decoration: line-through; text-decoration-thickness: 2px; color: var(--muted); }
+
+/* ---------- Daily Crossword ---------- */
+.cw-main { display: grid; gap: 18px; }
+@media (min-width: 900px) { .cw-main { grid-template-columns: minmax(0, 540px) minmax(0, 1fr); align-items: start; } }
+.cw-board { position: relative; }
+/* Paper colours in both themes: white squares light, black squares navy. */
+.cw-grid { display: grid; grid-template-rows: repeat(15, 1fr); aspect-ratio: 1; width: 100%; border: 3px solid #0A1030; background: #0A1030; gap: 1px; user-select: none; -webkit-user-select: none; }
+.cw-row { display: grid; grid-template-columns: repeat(15, 1fr); gap: 1px; }
+.cw-cell { position: relative; display: grid; place-items: center; background: #FAFBFF; cursor: pointer; min-width: 0; }
+.cw-cell.blk { background: #0A1030; cursor: default; }
+.cw-cell .n { position: absolute; left: 2px; top: 1px; font: 600 clamp(.42rem, 1.7vw, .62rem)/1 var(--font-body); color: #4A557F; }
+.cw-cell .l { font: 700 clamp(.85rem, 4vw, 1.35rem)/1 var(--font-display); text-transform: uppercase; color: #0A1030; margin-top: 3px; }
+.cw-cell.inword { background: #D4E3FF; }
+.cw-cell.sel { background: var(--sun); }
+.cw-cell.sel .l, .cw-cell.sel .n { color: var(--tile-ink); }
+.cw-cell.bad .l { color: #B3261E; }
+.cw-cell.bad::after { content: ""; position: absolute; inset: auto 15% 8% 15%; height: 2px; background: #B3261E; }
+.cw-cell.rev::before { content: ""; position: absolute; right: 0; top: 0; border: 5px solid transparent; border-top-color: var(--coral); border-right-color: var(--coral); }
+.cw-grid.solved .cw-cell:not(.blk) .l { color: #1E7A45; }
+.cw-grid.solved .cw-cell.sel .l { color: var(--tile-ink); }
+.cw-bar { display: flex; align-items: center; gap: 6px; margin-top: 10px; padding: 8px; border-radius: 14px; background: var(--surface-2); border: 2px solid var(--line); min-height: 64px; }
+.cw-bar p { flex: 1; margin: 0; font-size: 1rem; line-height: 1.35; }
+.cw-step { flex: none; width: 44px; height: 44px; border-radius: 12px; border: 2px solid var(--outline); background: transparent; color: var(--text); font: 800 1.4rem/1 var(--font-display); cursor: pointer; }
+/* The input that receives typing (and opens the phone keyboard) sits under the grid, invisible. */
+.cw-input { position: absolute; left: 0; bottom: 0; width: 1px; height: 1px; opacity: 0; border: 0; padding: 0; font-size: 16px; }
+.cw-lists { display: grid; gap: 14px; }
+@media (min-width: 600px) { .cw-lists { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { .cw-lists { max-height: 600px; overflow: auto; } }
+.cw-lists h2 { font-size: 1.05rem; margin: 0 0 6px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-family: var(--font-body); }
+.cw-clues { list-style: none; margin: 0; padding: 0; font-size: .95rem; }
+.cw-clues li { display: flex; gap: 8px; padding: 5px 8px; border-radius: 8px; cursor: pointer; border-left: 4px solid transparent; }
+.cw-clues li b { min-width: 2ch; text-align: right; }
+.cw-clues li.on { background: rgb(77 141 255 / .28); border-left-color: var(--blue); }
+.cw-clues li.cross { background: var(--surface-2); }
+.cw-menu { position: relative; }
+.cw-menu summary { list-style: none; }
+.cw-menu summary::-webkit-details-marker { display: none; }
+.cw-menu > div { position: absolute; right: 0; top: calc(100% + 6px); z-index: 20; display: grid; min-width: 140px; padding: 6px; border-radius: 14px; background: var(--surface); border: 2px solid var(--line); box-shadow: var(--shadow); }
+.cw-menu > div button { min-height: 44px; padding: 8px 12px; border: 0; border-radius: 10px; background: transparent; color: var(--text); text-align: left; font: 700 .95rem var(--font-body); cursor: pointer; }
+.cw-menu > div button:hover { background: var(--surface-2); }
+/* Phones: the clue bar sticks to the bottom of the screen, just above the keyboard. */
+@media (max-width: 899px) {
+  .cw-bar { position: sticky; bottom: 0; z-index: 10; box-shadow: 0 -8px 16px -8px rgb(0 0 0 / .35); }
+}

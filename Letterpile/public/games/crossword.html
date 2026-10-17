@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Crossword: A Free 15×15 Puzzle Every Day | Letterpile</title>
+<meta name="description" content="A free daily 15×15 crossword with original clues. Check or reveal a letter, word or the whole grid, with a timer and progress saved in your browser.">
+<link rel="canonical" href="https://letterpile.app/games/crossword">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Letterpile">
+<meta property="og:title" content="Daily Crossword: A Free 15×15 Puzzle Every Day | Letterpile">
+<meta property="og:description" content="A free daily 15×15 crossword with original clues. Check or reveal a letter, word or the whole grid, with a timer and progress saved in your browser.">
+<meta property="og:url" content="https://letterpile.app/games/crossword">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0A1030">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<script>(function(d){try{var t=localStorage.getItem("theme");if(t)d.dataset.theme=t}catch(e){}if(location.search){d.classList.add("has-query");var m=document.createElement("meta");m.name="robots";m.content="noindex, follow";document.head.appendChild(m)}})(document.documentElement);</script>
+<link rel="stylesheet" href="/assets/style.c1ee2439e5.css">
+<link rel="stylesheet" href="/assets/games/games.332a773ff1.css">
+<!-- ==== CMP INTEGRATION POINT (TCF v2.3, Google-certified CMP). Paste the CMP snippet here. Must load BEFORE the AdSense script. See docs/BEE-TODO.md ==== -->
+<!-- ==== ADSENSE INTEGRATION POINT. After AdSense approval paste here, exactly as the AdSense account shows them:
+  1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
+  2. the AdSense loader script snippet.
+Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the crossword change?","acceptedAnswer":{"@type":"Answer","text":"Every day at 00:00 UTC. The countdown above the grid shows how long is left."}},{"@type":"Question","name":"How do I switch between across and down?","acceptedAnswer":{"@type":"Answer","text":"Tap the selected square again, press Space, or tap a clue in the other list."}},{"@type":"Question","name":"What do Check and Reveal do?","acceptedAnswer":{"@type":"Answer","text":"Check marks wrong letters in red without fixing them. Reveal fills in the correct letters and marks them as revealed."}},{"@type":"Question","name":"Can I play an earlier crossword?","acceptedAnswer":{"@type":"Answer","text":"Yes, the Daily Games page links to the last seven days' puzzles."}},{"@type":"Question","name":"Who writes the clues?","acceptedAnswer":{"@type":"Answer","text":"The clues are written for this site and checked by hand before each puzzle is published. If you spot a mistake, please let us know."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Daily Games","item":"https://letterpile.app/games"},{"@type":"ListItem","position":3,"name":"Daily Crossword","item":"https://letterpile.app/games/crossword"}]}]}</script>
+<script src="/assets/site.63601426ff.js" defer></script>
+<script src="/assets/games/core.8fffef66cb.js" defer></script>
+<script src="/assets/games/crossword.929e2e1671.js" defer></script>
+</head>
+<body data-page="game-crossword">
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <button class="icon-btn menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navbar"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 22 22"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
+    <nav class="navbar" id="navbar" aria-label="Word tools">
+  <ul class="nav-main">
+    <li><a class="nav-games" href="/games" aria-current="page">Daily Games</a></li>
+    <li><a href="/">Word Unscrambler</a></li>
+    <li><a href="/word-scrambler">Word Scrambler</a></li>
+    <li><a href="/word-combiner">Word Combiner</a></li>
+    <li class="has-dropdown">
+      <details id="moreMenu">
+        <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
+        <ul class="dropdown">
+          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends">Words With Friends Finder</a></li>
+          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/anagram-solver">Anagram Solver</a></li>
+          <li><a href="/jumble-solver">Jumble Solver</a></li>
+          <li><a href="/crossword-solver">Crossword Solver</a></li>
+          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+        </ul>
+      </details>
+    </li>
+  </ul>
+</nav>
+    <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Dark mode" aria-pressed="false"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 2a8 8 0 0 1 0 16z" fill="currentColor"/></svg></button>
+  </div>
+</header>
+<div class="wrap game-layout">
+  <main class="content" id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/games">Daily Games</a></li><li><span aria-current="page">Daily Crossword</span></li></ol></nav>
+    <div class="panel game-card" id="game" data-game="crossword">
+        <div class="game-head">
+          <h1 class="page-title">Daily Crossword</h1>
+          <p class="game-meta"><span data-game-date>Today's puzzle</span><span class="sep" aria-hidden="true">·</span><span>Next puzzle in <time data-countdown>--:--:--</time></span></p>
+        </div>
+        <div class="game-banner" data-rollover role="status" hidden><span>New puzzles are available.</span> <button type="button" class="btn small" data-refresh>Refresh</button></div>
+        <div class="cw-game">
+          <div class="game-bar"><span class="game-msg" id="cwMsg" role="status" aria-live="polite">Loading today's puzzle…</span><span class="game-tools"><span class="game-timer" id="cwTimer" aria-label="Time">0:00</span>
+            <details class="cw-menu"><summary class="btn secondary small">Check</summary><div><button type="button" data-act="check-cell">Letter</button><button type="button" data-act="check-word">Word</button><button type="button" data-act="check-all">Puzzle</button></div></details>
+            <details class="cw-menu"><summary class="btn secondary small">Reveal</summary><div><button type="button" data-act="reveal-cell">Letter</button><button type="button" data-act="reveal-word">Word</button><button type="button" data-act="reveal-all">Puzzle</button></div></details></span></div>
+          <div class="cw-main">
+            <div class="cw-board">
+              <div class="cw-grid" id="cwGrid" role="grid" aria-label="Crossword grid"></div>
+              <div class="cw-bar" id="cwBar" aria-live="polite"><button type="button" class="cw-step" id="cwPrev" aria-label="Previous clue">‹</button><p id="cwClue"><b></b> <span></span></p><button type="button" class="cw-step" id="cwNext" aria-label="Next clue">›</button></div>
+              <input class="cw-input" id="cwInput" type="text" inputmode="text" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" aria-label="Type a letter">
+            </div>
+            <div class="cw-lists" tabindex="0" role="region" aria-label="Clues">
+              <section><h2>Across</h2><ol class="cw-clues" id="cwAcross"></ol></section>
+              <section><h2>Down</h2><ol class="cw-clues" id="cwDown"></ol></section>
+            </div>
+          </div>
+          <div class="game-done" id="cwDone" hidden><h2>Solved!</h2><p id="cwDoneText"></p><button type="button" class="btn" id="cwShare">Share result</button></div>
+        </div>
+      </div>
+      <article class="prose">
+        <h2>How to play</h2>
+<p>Fill the white squares with letters so that every across and down entry answers its clue. Tap or click a square to select it; tap it again to switch between across and down. The highlighted squares show the current entry, and its clue appears in the bar under the grid and is highlighted in the clue lists. Tap any clue to jump to its entry.</p>
+<ul>
+<li><b>Typing</b> fills the square and moves to the next one. <kbd>Backspace</kbd> clears and steps back, the arrow keys move around the grid, <kbd>Space</kbd> switches direction, and <kbd>Tab</kbd> jumps to the next clue.</li>
+<li><b>Check</b> marks wrong letters in red, for the current letter, the current word or the whole puzzle.</li>
+<li><b>Reveal</b> fills in the right letter, word or the whole grid. Revealed squares are marked with a small triangle.</li>
+</ul>
+<p>On a phone, the on-screen keyboard opens when you select a square, and the clue bar sits just above it so you can always see the clue you're answering.</p>
+<h2>About the puzzles</h2>
+<p>Each puzzle uses the standard daily layout: a 15×15 grid whose black squares look the same when the grid is turned upside down, 70 to 78 entries, no entry shorter than three letters, and every letter part of both an across and a down word. Clues are written for Letterpile and checked before publishing; the same answer doesn't get the same clue twice within five weeks.</p>
+<p>Your letters, checks, reveals and time are saved in this browser, so you can stop and come back later. The timer pauses while the page is hidden. When you finish, <b>Share result</b> copies your time without spoiling any answers.</p>
+        
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Frequently asked questions</h2>
+        
+        <details class="faq-item"><summary>When does the crossword change?</summary><div class="faq-a">Every day at 00:00 UTC. The countdown above the grid shows how long is left.</div></details>
+        <details class="faq-item"><summary>How do I switch between across and down?</summary><div class="faq-a">Tap the selected square again, press Space, or tap a clue in the other list.</div></details>
+        <details class="faq-item"><summary>What do Check and Reveal do?</summary><div class="faq-a">Check marks wrong letters in red without fixing them. Reveal fills in the correct letters and marks them as revealed.</div></details>
+        <details class="faq-item"><summary>Can I play an earlier crossword?</summary><div class="faq-a">Yes, the <a href="/games">Daily Games</a> page links to the last seven days' puzzles.</div></details>
+        <details class="faq-item"><summary>Who writes the clues?</summary><div class="faq-a">The clues are written for this site and checked by hand before each puzzle is published. If you spot a mistake, please <a href="/contact">let us know</a>.</div></details>
+      </section>
+        <section class="related" aria-labelledby="related-title">
+        <h2 id="related-title">Related tools and guides</h2>
+        <ul><li><a href="/games">All daily games</a></li><li><a href="/crossword-solver">Crossword Solver</a></li><li><a href="/games/word">Daily Word</a></li></ul>
+      </section>
+      </article>
+  </main>
+</div>
+<footer class="footer">
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
+    <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></div></nav>
+    <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
+      <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
+      <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>
+    <p>Questions or a missing word? Email <a class="mail" href="mailto:nz@letterpile.app">nz@letterpile.app</a>.</p>
+    <p>Words come from the open ENABLE word list. Different games use different dictionaries, so always check the rules of your game. The ENABLE list was compiled by M. Cooper and Alan Beale and released into the public domain (<a href="/licenses/enable.txt">ENABLE licence</a>). Definitions on request from the <a href="https://dictionaryapi.dev/" rel="noopener">Free Dictionary API</a>.</p>
+    <p class="fine">Scrabble® is a registered trademark of Hasbro, Inc. in the United States and Canada and of Mattel, Inc. elsewhere. Wordle™ is a trademark of The New York Times Company. Words With Friends is a trademark of Zynga Inc. Letterpile is an independent site and is not affiliated with, endorsed by or sponsored by any of them. Game names are used only to describe the kinds of games these tools can help with.</p>
+    <p class="fine">© 2026 Letterpile. Site code, design and text © Letterpile; the ENABLE word list is public domain and free to redistribute.</p>
+  </div>
+</footer>
+<dialog class="define" id="defineDialog" aria-labelledby="defineWord">
+  <header><h2 id="defineWord"></h2><span class="pts" id="definePts"></span><button type="button" id="defineClose" aria-label="Close">×</button></header>
+  <div class="body">
+    <p class="hint">In the ENABLE word list. Definitions come from the Free Dictionary API; looking one up sends the word and your IP address to that service.</p>
+    <button type="button" class="btn small" id="defineLookup">Look up definition</button>
+    <div id="defineResult" aria-live="polite"></div>
+    <div class="links">
+      <a id="defineWiktionary" href="https://en.wiktionary.org/" target="_blank" rel="noopener">Wiktionary ↗</a>
+      <a id="defineMW" href="https://www.merriam-webster.com/" target="_blank" rel="noopener">Merriam-Webster ↗</a>
+      <button type="button" class="btn secondary small" id="copyWord">Copy word</button>
+    </div>
+  </div>
+</dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+</body>
+</html>

@@ -16,6 +16,12 @@ Licences below were read from the actual licence files (data) or the installed p
 | Free Dictionary API (`api.dictionaryapi.dev`) | Called from the visitor's browser only when they press "Look up definition". No key. Disclosed in the Privacy Policy and allowed in the CSP `connect-src`. Its terms were not reviewed for this upgrade (see `docs/UNVERIFIED.md`). |
 | Wiktionary, Merriam-Webster | Plain links only. |
 
+## Used by the puzzle generators only (never copied into `public/`)
+
+| What | Version / retrieved | Licence (verified from) | Notes |
+|---|---|---|---|
+| **SCOWL** word lists (Spell Checker Oriented Word Lists) by Kevin Atkinson and others | `wordlist-english` npm package 1.2.1 (MIT packaging), English and American lists, size levels 10 to 60, retrieved October 2026 | Permissive notice: use, copy, modify, distribute and sell permitted provided the copyright and permission notice appear in copies and supporting documentation. Full text: `licenses/SCOWL-Copyright.txt` (the package's `Copyright` file) | Only used to rank how common a word is. `scripts/games/lexicon/crossword-fill.txt` keeps the SCOWL words that are also in ENABLE and not on the blocklist, grouped by level, for the crossword grid filler. Clues are written for this site; none come from SCOWL. |
+
 ## Development tools (devDependencies; never copied into `public/`)
 
 | Package | Version | Licence (from the installed package) |

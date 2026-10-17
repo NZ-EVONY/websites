@@ -157,3 +157,53 @@ test("Daily Word Search: drag, tap-tap and keyboard selection, reload keeps prog
     }
   });
 });
+
+test("Daily Crossword: type, toggle direction, check, reveal, reload keeps progress, win", { skip }, async () => {
+  const p = puzzle("crossword");
+  const sol = decode(p.s, `crossword:${today}`);
+  await withBrowser(async (browser, base) => {
+    for (const width of WIDTHS) {
+      const { ctx, page, errors } = await openPage(browser, base, "/games/crossword", width);
+      await page.waitForSelector("#game[data-ready]");
+      const a1 = p.across[0], d1 = p.down[0];
+      const cellOf = i => page.locator(`.cw-cell[data-i="${i}"]`);
+      // Type 1-Across with one deliberate mistake, then Check the word.
+      await page.click(`.cw-clues li[data-k="A${a1.n}"]`);
+      const ans = [...Array(a1.len).keys()].map(k => sol[a1.r * 15 + a1.c + k]);
+      const wrong = ans.map((ch, k) => (k === 0 ? (ch === "z" ? "y" : "z") : ch)).join("");
+      await page.keyboard.type(wrong);
+      await page.click(".cw-menu:nth-of-type(1) summary");
+      await page.click('[data-act="check-word"]');
+      assert.equal(await cellOf(a1.r * 15 + a1.c).evaluate(el => el.classList.contains("bad")), true, "wrong letter marked");
+      // Fix it; clicking the same square again switches to Down.
+      await cellOf(a1.r * 15 + a1.c).click();
+      await cellOf(a1.r * 15 + a1.c).click();
+      assert.match(await page.textContent("#cwClue b"), /Down|Across/);
+      await page.keyboard.press("Backspace");
+      await page.keyboard.type(ans[0]);
+      // Reveal one letter of 1-Down's last square.
+      const last = (d1.r + d1.len - 1) * 15 + d1.c;
+      await cellOf(last).click();
+      await page.click(".cw-menu:nth-of-type(2) summary");
+      await page.click('[data-act="reveal-cell"]');
+      assert.equal(await cellOf(last).evaluate(el => el.classList.contains("rev")), true);
+      await page.reload();
+      await page.waitForSelector("#game[data-ready]");
+      assert.equal((await cellOf(a1.r * 15 + a1.c + 1).textContent()).slice(-1).toLowerCase(), ans[1], "letters survive a reload");
+      // Fill every across entry by clicking its clue and typing the answer.
+      for (const e of p.across) {
+        await page.click(`.cw-clues li[data-k="A${e.n}"]`);
+        await page.click(`.cw-cell[data-i="${e.r * 15 + e.c}"]`);
+        if ((await page.textContent("#cwClue b")).includes("Down")) await page.keyboard.press(" ");
+        await page.keyboard.type([...Array(e.len).keys()].map(k => sol[e.r * 15 + e.c + k]).join(""));
+      }
+      await page.waitForSelector("#cwDone:not([hidden])");
+      assert.match(await page.textContent("#cwMsg"), /^Solved in \d+:\d\d with 1 revealed square\.$/);
+      await page.screenshot({ path: path.join(SHOTS, `crossword-${width}.png`) });
+      await page.click("#cwShare");
+      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Crossword #\d+\nSolved in .*\(1 squares revealed\)/);
+      assert.deepEqual(errors, []);
+      await ctx.close();
+    }
+  });
+});

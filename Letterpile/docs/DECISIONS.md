@@ -76,3 +76,18 @@
 - `CLAUDE.md` and `docs/AUDIT.md` no longer name the sibling project folder (the brief asked that the other site's name not appear in `Letterpile/`); the hard rule now says "never touch the sibling project folders".
 
 - 2026-10-03: Dark is the default theme for everyone (no system-theme following). Light stays available via the header toggle (data-theme=light, saved in localStorage). theme-color meta is a single dark value.
+
+## Daily games (October 2026)
+
+- Daily puzzles are static JSON files chosen in the browser by the UTC date; no Worker code, no cron. Published under `/puzzles/` (5-minute cache) rather than `/data/` (cached as immutable for a year). See `GAMES.md`.
+- Header: "Daily Games" is a mint pill before the tool links. To keep the header on one line at 1120px+, "Tile Game Word Finder" moved from the main nav to the top of the "More Word Games" menu; every list that uses main + more (tool grid, sidebar, footer) keeps the same order.
+- Home: a "Today's puzzles" band (four game cards) sits above the category cards; its small script (`games/band.js`) doesn't load the games core, to stay within the home page's 15 KB JS budget.
+- Game pages use a new page type `game` (full-width board, no sidebar, no ad slots); the hub uses type `games`. Both have `enabled: false` in `config/ads.json`.
+- Game styles are in a separate `games.css` (loaded on the games pages and the home page) so `style.css` stays under its 12 KB budget.
+- Daily Word: answers from a hand-picked list (881 words), none ending in a plural S; guesses accept every five-letter ENABLE word not hidden by the blocklist. No answer repeats within 365 days. Statistics count only today's puzzle, not archive games.
+- Sudoku difficulty by weekday: Mon and Tue Easy, Wed, Thu and Sun Medium, Fri and Sat Hard (Saturday has fewer givens). Every puzzle can be solved without guessing.
+- Word search: words of 4+ letters only (three-letter words turn up by chance in a 20×20 grid, breaking "exactly once"); phrases are hidden without spaces. A blocklisted word inside a theme word (COMPASS) is allowed; the same letters made by filler or across two words are not.
+- Crossword fill: entries limited to 3-10 letters (the daily rules allow up to 15; long stacks need a much larger word list). Commonness from SCOWL levels (vendored as `scripts/games/lexicon/crossword-fill.txt`, licence in `licenses/SCOWL-Copyright.txt`); grids are filled from ENABLE and then repaired until every entry is common or clued.
+- Crossword clues are all hand-written into `scripts/games/lexicon/crossword-clues.txt`; a date is published only when every entry has a clue. The same answer is used at most 3 times and never with the same clue within 35 days.
+- Archive: only the previous 7 days, linked from `/games` by script (static pages carry no query-string links).
+- The weekly supply check is a GitHub Action in the repository root (`.github/workflows/`), the only file of this work outside `Letterpile/`.
