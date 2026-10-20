@@ -1223,3 +1223,573 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **58.** African antelope — GNU
 - **59.** Let out, as grievances — AIR
 - **60.** Mother — MOM
+
+## 2026-11-01 (#17)
+
+**Across**
+
+- **1.** Concealed — HID
+- **4.** Tulip starts — BULBS
+- **9.** Defeat — LOSS
+- **13.** Opinion piece — EDITORIAL
+- **15.** Data entry — INPUT
+- **17.** Botch — MISHANDLE
+- **18.** Spook — SCARE
+- **19.** Musical work — OPUS
+- **20.** Reading stands — LECTERNS
+- **22.** Earring — STUD
+- **23.** Sculpture — STATUE
+- **25.** Tattletale — RAT
+- **26.** First-aid ___ — KIT
+- **27.** Served a winner — ACED
+- **28.** Earnings — INCOME
+- **30.** Frozen water — ICE
+- **31.** Cooks in the oven — ROASTS
+- **33.** Wonderstruck — AWED
+- **34.** Big flightless birds — EMUS
+- **35.** Hilarious person — RIOT
+- **37.** Enclosure — CAGE
+- **40.** Jog the memory of — REMIND
+- **42.** Annoy — BUG
+- **45.** Not digital — ANALOG
+- **47.** Imitated — APED
+- **48.** Age — ERA
+- **49.** Brim — RIM
+- **50.** Negligent — REMISS
+- **52.** Limbs — LEGS
+- **53.** Set in — EMBEDDED
+- **55.** Folder — FILE
+- **56.** Ointment — SALVE
+- **57.** Numbing — DEADENING
+- **61.** Young bull — STEER
+- **62.** Sloth — INDOLENCE
+- **63.** Slips up — ERRS
+- **64.** Valuable item — ASSET
+- **65.** Look over — EYE
+
+**Down**
+
+- **1.** Border — HEM
+- **2.** Foolish — IDIOTIC
+- **3.** Contest — DISPUTE
+- **4.** Big constrictors — BOAS
+- **5.** Tea dispenser — URN
+- **6.** Cover — LID
+- **7.** Story songs — BALLADS
+- **8.** Icy rain — SLEET
+- **9.** Pay attention — LISTEN
+- **10.** One time — ONCE
+- **11.** Small brown bird — SPARROW
+- **12.** Family name — SURNAME
+- **14.** Dull thump — THUD
+- **16.** Tried — TESTED
+- **21.** Styles of cooking — CUISINES
+- **22.** Slope gear — SKI
+- **23.** Whipped — SCOURGED
+- **24.** Kid — TEASE
+- **27.** Sleeve filler — ARM
+- **29.** Kitty — CAT
+- **32.** Stumbles — TRIPS
+- **34.** Slippery fish — EEL
+- **36.** Strange — ODD
+- **37.** Stroke lovingly — CARESS
+- **38.** Bring to life — ANIMATE
+- **39.** Bettor — GAMBLER
+- **41.** Overs with no runs, in cricket — MAIDENS
+- **42.** Direct path — BEELINE
+- **43.** Haste — URGENCY
+- **44.** Fuel — GAS
+- **46.** Purchases — ORDERS
+- **51.** Press — MEDIA
+- **52.** Queue — LINE
+- **54.** At any time — EVER
+- **55.** Touched — FELT
+- **58.** Billboard messages — ADS
+- **59.** Fawn's mother — DOE
+- **60.** "Wow!" — GEE
+
+## 2026-11-02 (#18)
+
+**Across**
+
+- **1.** Requests — ASKS
+- **5.** Flower boxes — PLANTERS
+- **13.** Jargon — CANT
+- **14.** Revive — RESURRECT
+- **16.** Proportion — RATIO
+- **17.** Beatles ballad — YESTERDAY
+- **18.** Publisher's staffer — EDITOR
+- **20.** Rank — RATE
+- **21.** Sort — ILK
+- **22.** A head — PER
+- **23.** Golf standard — PAR
+- **25.** Nevertheless — YET
+- **26.** Tint — DYE
+- **27.** Release — EMISSION
+- **30.** Speck — DOT
+- **32.** Lean — LIST
+- **33.** Idle — LOAF
+- **35.** Soda — POP
+- **37.** Satisfy fully — SATE
+- **38.** Moves — STIRS
+- **40.** Slope — RAMP
+- **43.** Noticed — SAW
+- **45.** Small error — SLIP
+- **46.** Threesome — TRIO
+- **47.** Spoil — MAR
+- **49.** Army NCO — SERGEANT
+- **51.** Sack — BAG
+- **54.** Barbecue cut — RIB
+- **56.** Knight's title — SIR
+- **57.** Cave flier — BAT
+- **58.** Painting medium — OIL
+- **59.** Wade across — FORD
+- **61.** Aplenty — GALORE
+- **63.** Devoted love — ADORATION
+- **66.** Lighter in colour — PALER
+- **67.** Awe — REVERENCE
+- **68.** Give off — EMIT
+- **69.** Harshest — SEVEREST
+- **70.** Cysts — SACS
+
+**Down**
+
+- **1.** Ivory tower — ACADEMIA
+- **2.** Mockers — SATIRISTS
+- **3.** Make a jumper — KNIT
+- **4.** Bends down — STOOPS
+- **5.** Lever open — PRY
+- **6.** Ogle — LEER
+- **7.** Test, as ore — ASSAY
+- **8.** Headbutted, informally — NUTTED
+- **9.** Canopy — TREETOP
+- **10.** Goof — ERR
+- **11.** Did over — REDID
+- **12.** Reptilian — SCALY
+- **15.** Little kid — TYKE
+- **16.** Wards off — REPELS
+- **19.** Railroads — RAILS
+- **24.** Plant bases — ROOTS
+- **28.** Vapour — STEAM
+- **29.** Fingernails — NAILS
+- **31.** Sachertorte, e.g. — TORTE
+- **34.** Cooks in oil — FRIES
+- **36.** Shaped like a dish — PARABOLIC
+- **39.** Small twig — SPRIG
+- **41.** Mosque towers — MINARETS
+- **42.** Ceramic artist — POTTER
+- **44.** Hostilities — WARFARE
+- **48.** Street brawler — RIOTER
+- **50.** Wine sources — GRAPES
+- **51.** Male hog — BOAR
+- **52.** Helpers on staff — AIDES
+- **53.** Hand warmer — GLOVE
+- **55.** Salt water — BRINE
+- **60.** Physicians, informally — DOCS
+- **62.** Buddhist teacher — LAMA
+- **64.** Speed up, as an engine — REV
+- **65.** Catch — NET
+
+## 2026-11-03 (#19)
+
+**Across**
+
+- **1.** Victory — WIN
+- **4.** Every bit — ALL
+- **7.** Strong wind — GALE
+- **11.** Weed — HOE
+- **12.** Comforts — REASSURES
+- **15.** Eye part — LENS
+- **16.** Flowering trees of the South — MAGNOLIAS
+- **17.** Snitch — RAT
+- **18.** Grabbed — TOOK
+- **20.** Woolly Andean animal — ALPACA
+- **21.** Narrow-minded — INSULAR
+- **23.** Expert — PRO
+- **24.** Bashful — SHY
+- **25.** Ceramicists — POTTERS
+- **26.** Untruths — LIES
+- **28.** Garden beds — PLOTS
+- **29.** Hindrance — HANDICAP
+- **33.** Row — LINE
+- **34.** Jargon — SLANG
+- **36.** Pink shade — ROSE
+- **37.** Powers — ENERGIES
+- **39.** Thick — DENSE
+- **40.** Male children — SONS
+- **41.** Agonising — PAINFUL
+- **43.** Ocean — SEA
+- **46.** Yet — BUT
+- **47.** Lithe — LISSOME
+- **48.** Solar ___ — PANELS
+- **50.** Existed — WERE
+- **51.** Ruby color — RED
+- **52.** Wronged — AGGRIEVED
+- **54.** Weapons — ARMS
+- **56.** Purifying — CLEANSING
+- **57.** File a claim — SUE
+- **58.** Wrigglers — EELS
+- **59.** Dined — ATE
+- **60.** Goal — END
+
+**Down**
+
+- **1.** Knife grinder — WHETSTONE
+- **2.** Atom with a charge — ION
+- **3.** Settles in — NESTLES
+- **4.** Protective suits, in the US — ARMORS
+- **5.** Escape — LEAK
+- **6.** Delay — LAG
+- **7.** Swallow — GULP
+- **8.** Songs for divas — ARIAS
+- **9.** Drain away — LEACH
+- **10.** Attempt — ESSAY
+- **13.** Catching — SNARING
+- **14.** Flew alone — SOLOED
+- **15.** Moisturiser ingredient — LANOLIN
+- **17.** Small wave — RIPPLE
+- **19.** Rowing blade — OAR
+- **22.** Voices — UTTERS
+- **23.** Scheme — PLAN
+- **27.** Mythic singers — SIRENS
+- **29.** Possesses — HAS
+- **30.** Complied — CONFORMED
+- **31.** Takes on — ASSUMES
+- **32.** Pared — PEELED
+- **34.** Head spaces that clog — SINUSES
+- **35.** In case — LEST
+- **38.** Mischievous sprite — GOBLIN
+- **39.** Illness — DISEASE
+- **41.** Vow — PLEDGE
+- **42.** Melody — AIR
+- **43.** Cosmos — SPACE
+- **44.** Bald ___ — EAGLE
+- **45.** Darling — ANGEL
+- **49.** Epochs — ERAS
+- **50.** Departed — WENT
+- **53.** By way of — VIA
+- **55.** Jog — RUN
+
+## 2026-11-04 (#20)
+
+**Across**
+
+- **1.** Notebooks — PADS
+- **5.** Sailor, informally — SALT
+- **9.** Experts — PROS
+- **13.** Send out — EMIT
+- **14.** Place — LIEU
+- **15.** Trailer — PROMO
+- **16.** Domed church end — APSE
+- **17.** Explained further — ELABORATED
+- **19.** Told an untruth — LIED
+- **21.** Blaze fighters — FIREMEN
+- **22.** Beside — ALONG
+- **24.** Fastens — BINDS
+- **25.** Sunbeam — RAY
+- **26.** Juice fruits — ORANGES
+- **28.** Law passed by a legislature — ACT
+- **31.** Egg shape — OVAL
+- **33.** Breakfast item — EGG
+- **34.** "Is that so?" — REALLY
+- **36.** Environments — MILIEUS
+- **38.** Guest — VISITOR
+- **39.** Toward the back of a boat — ASTERN
+- **40.** Writing tool — PEN
+- **41.** Opera star — DIVA
+- **42.** Timid — SHY
+- **43.** Broadcasts — AIRINGS
+- **46.** Guys — MEN
+- **47.** Bear — STAND
+- **48.** Open — OVERT
+- **50.** Beg — BESEECH
+- **53.** Aid and ___ — ABET
+- **54.** Pastimes — DIVERSIONS
+- **56.** Ruby shades — REDS
+- **59.** Assumed name — ALIAS
+- **60.** Swill — SLOP
+- **61.** Grasp — GRIP
+- **62.** Doorbell — BELL
+- **63.** Cat sounds — MEWS
+- **64.** Spot — ESPY
+
+**Down**
+
+- **1.** Pod vegetable — PEA
+- **2.** Ampere, for short — AMP
+- **3.** Betrayal — DISLOYALTY
+- **4.** Tankard — STEIN
+- **5.** Toboggan — SLED
+- **6.** Be unwell — AIL
+- **7.** Sprouting foliage — LEAFING
+- **8.** River floating — TUBING
+- **9.** Stroller — PRAM
+- **10.** Routine — ROTE
+- **11.** Portent — OMEN
+- **12.** Turf — SOD
+- **15.** Irons — PRESSES
+- **18.** Commanding — ORDERING
+- **20.** Self-esteem — EGO
+- **22.** Fragrances — AROMAS
+- **23.** Extravagant — LAVISH
+- **24.** Catches — BAGS
+- **27.** Reconciles — REUNITES
+- **28.** Height gauges in cockpits — ALTIMETERS
+- **29.** Lucky leaf plant — CLOVER
+- **30.** Despot — TYRANT
+- **32.** Recline — LIE
+- **35.** Lend a hand — AID
+- **37.** Rubbers — ERASERS
+- **38.** Machine verb — VEND
+- **40.** ___ camera — PINHOLE
+- **44.** Prejudice by race — RACISM
+- **45.** Wail — SOB
+- **49.** Grass strip by a road — VERGE
+- **50.** Bitterness — BILE
+- **51.** Villainy — EVIL
+- **52.** Stamp — SEAL
+- **53.** Small snakes — ASPS
+- **54.** Daub — DAB
+- **55.** At present — NOW
+- **57.** Swim — DIP
+- **58.** Mole — SPY
+
+## 2026-11-05 (#21)
+
+**Across**
+
+- **1.** Say — STATE
+- **6.** Living in trees — ARBOREAL
+- **14.** Raptor's grips — TALONS
+- **16.** Prize winner — LAUREATE
+- **17.** Most skilled — ABLEST
+- **18.** Signer-up for service — ENLISTEE
+- **19.** Shutdowns — CLOSURES
+- **21.** Understood — GOT
+- **22.** Musical scale — KEY
+- **23.** Sprint — RUN
+- **24.** Bow-wielding string player — CELLIST
+- **28.** Sink down — SETTLE
+- **30.** Spooky — EERIE
+- **31.** Heritage — RACE
+- **34.** Melbourne's rail cars — TRAMS
+- **36.** Gratify completely — SATE
+- **37.** Middle Eastern leader — EMIR
+- **38.** Devoured — EATEN
+- **39.** Plant part — STEM
+- **40.** Bee home — HIVE
+- **41.** "Me too" — DITTO
+- **42.** Fewer — LESS
+- **43.** Getting older, in the US — AGING
+- **45.** Slack — LEEWAY
+- **47.** Ravel's dance pieces — BOLEROS
+- **49.** Strong current — RIP
+- **50.** Archer's weapon — BOW
+- **53.** Short sleep — NAP
+- **54.** Telescope lens — EYEPIECE
+- **56.** Lack of danger — SAFENESS
+- **60.** Calm — SEDATE
+- **61.** Small runway — AIRSTRIP
+- **62.** Chatted — TALKED
+- **63.** Word list at the back — GLOSSARY
+- **64.** Pauses — RESTS
+
+**Down**
+
+- **1.** Pile — STACK
+- **2.** Furniture with legs — TABLE
+- **3.** Metal blend — ALLOY
+- **4.** Tiptoes — TOES
+- **5.** Make certain — ENSURE
+- **6.** Pub pints — ALES
+- **7.** Jogged — RAN
+- **8.** Protrude — BULGE
+- **9.** Songbird — ORIOLE
+- **10.** Fidgetily — RESTLESSLY
+- **11.** Chow down — EAT
+- **12.** Polished off — ATE
+- **13.** Side away from the wind — LEE
+- **15.** Paraded — STRUTTED
+- **20.** Guts — ENTRAILS
+- **24.** Burial ground — CEMETERY
+- **25.** Furious — IRATE
+- **26.** Websites — SITES
+- **27.** Pours with rain — TEEMS
+- **28.** Tranquillity — SERENENESS
+- **29.** Milky coffee — LATTE
+- **31.** Recovery programme — REHAB
+- **32.** Friend, in Spanish — AMIGO
+- **33.** Polite — CIVIL
+- **35.** Whitest with flakes — SNOWIEST
+- **44.** Allows — GRANTS
+- **46.** Show up — APPEAR
+- **48.** Musical drama — OPERA
+- **50.** Bills — BEAKS
+- **51.** Group of eight — OCTET
+- **52.** Hoes, in a way — WEEDS
+- **54.** Catch sight of — ESPY
+- **55.** Inactive — IDLE
+- **56.** Droop — SAG
+- **57.** Feel poorly — AIL
+- **58.** To and ___ — FRO
+- **59.** Mister — SIR
+
+## 2026-11-06 (#22)
+
+**Across**
+
+- **1.** Trudge — PLOD
+- **5.** Spoiled — OFF
+- **8.** Circle spokes — RADII
+- **13.** Dwell — LIVE
+- **14.** Grief — WOE
+- **15.** Return to a former state — REVERT
+- **16.** Utilizes — USES
+- **17.** Hands over to another country — EXTRADITES
+- **19.** Peel off — STRIP
+- **21.** Straight — LINEAR
+- **22.** Dodge a question — HEDGE
+- **23.** Pinching — POCKETING
+- **26.** Like Teflon pans — NONSTICK
+- **28.** Engine — MOTOR
+- **29.** Follows creepily — STALKS
+- **30.** Mystic symbol — RUNE
+- **31.** Tavern — PUB
+- **34.** Pampering place — SPA
+- **35.** Very warm — HOT
+- **38.** Stitch — SEW
+- **39.** Mimics — APES
+- **41.** Climbed — SCALED
+- **44.** Mail — POSTS
+- **46.** Cheaper-looking — TAWDRIER
+- **49.** Long-snouted insect eaters — ANTEATERS
+- **51.** Creep — SNEAK
+- **53.** Write down — RECORD
+- **54.** Unsettling — EERIE
+- **55.** Predicts — PROPHESIES
+- **59.** Ebb or flow — TIDE
+- **60.** Lots — OODLES
+- **61.** Before now — AGO
+- **62.** Adolescent — TEEN
+- **63.** Short social post — TWEET
+- **64.** Cape ___ — COD
+- **65.** Makes mistakes — ERRS
+
+**Down**
+
+- **1.** Luxurious — PLUSH
+- **2.** Hear out — LISTEN
+- **3.** Exaggerate — OVERDO
+- **4.** Plans — DESIGNS
+- **5.** Be in debt — OWE
+- **6.** Bushy-tailed animal — FOX
+- **7.** Joint above a hoof — FETLOCK
+- **8.** Save — REDEEM
+- **9.** Flier — AVIATOR
+- **10.** Debris — DETRITUS
+- **11.** Fury — IRE
+- **12.** Belonging to it — ITS
+- **15.** Position — RANK
+- **18.** Two-wheeled carts — RICKSHAWS
+- **20.** Nuisances — PESTS
+- **23.** Decorative columns — PILASTERS
+- **24.** Zero — NONE
+- **25.** Got bigger — GREW
+- **27.** Faucet — TAP
+- **31.** Dad — PAPA
+- **32.** "Once ___ a time" — UPON
+- **33.** Sat astride — BESTRODE
+- **36.** Aged — OLD
+- **37.** Brief — TERSE
+- **40.** Tower top — STEEPLE
+- **42.** Of the heart — CARDIAC
+- **43.** Small dining area — DINETTE
+- **45.** Small packet — SACHET
+- **47.** Spookier — EERIER
+- **48.** Attacker — RAIDER
+- **50.** Feet digits — TOES
+- **52.** Laments — KEENS
+- **55.** Jackpot — POT
+- **56.** Tier of seats — ROW
+- **57.** Pride — EGO
+- **58.** Grass layer — SOD
+
+## 2026-11-07 (#23)
+
+**Across**
+
+- **1.** Travel permit — VISA
+- **5.** Salad cheese — FETA
+- **9.** Clock front — FACE
+- **13.** Shy — INHIBITED
+- **15.** Hooded snake — COBRA
+- **16.** Tolerated — STOMACHED
+- **17.** Opera solos — ARIAS
+- **18.** Golf peg — TEE
+- **19.** "Let ___ eat cake" — THEM
+- **20.** Scoop from a riverbed — DREDGE
+- **21.** Branch of an organization — ARM
+- **22.** Not him — HER
+- **23.** Bits — PIECES
+- **24.** Snooze — NAP
+- **26.** Lodging — HOTEL
+- **27.** Pedal pusher's ride — BIKE
+- **28.** Possessive mark — APOSTROPHE
+- **33.** Customer — USER
+- **34.** Brief star appearance — CAMEO
+- **35.** Bathe long — SOAK
+- **36.** Rigour — STRICTNESS
+- **38.** Besides — ELSE
+- **39.** Photos — SHOTS
+- **40.** Period — DOT
+- **41.** Parish priests — VICARS
+- **43.** Clumsy one — OAF
+- **46.** Zero — NIL
+- **48.** High male voices — TENORS
+- **49.** Length times width — AREA
+- **50.** Even one — ANY
+- **51.** Clumsy — INEPT
+- **52.** Stiffer — STARCHIER
+- **54.** Remedies — CURES
+- **55.** Good manners — POLITESSE
+- **56.** Puts — SETS
+- **57.** Church recess — APSE
+- **58.** Dining hall — MESS
+
+**Down**
+
+- **1.** View — VISTA
+- **2.** Physician of internal medicine — INTERNIST
+- **3.** Cobbler — SHOEMAKER
+- **4.** Goal — AIM
+- **5.** Library film sheet — FICHE
+- **6.** Upper air — ETHER
+- **7.** Abound — TEEM
+- **8.** Tack on — ADD
+- **9.** Repossessed, as a home — FORECLOSED
+- **10.** Tolerate — ABIDE
+- **11.** Rocky outcrops — CRAGS
+- **12.** Facility — EASE
+- **14.** Soak in a tub — BATH
+- **15.** Profession — CAREER
+- **20.** Echoes — DITTOS
+- **23.** Stances — POSES
+- **25.** Submarine viewers — PERISCOPES
+- **26.** Dwellings — HOMES
+- **27.** School transport — BUS
+- **28.** Performers — ACTORS
+- **29.** Gasps — PANTS
+- **30.** Stately Polish dance — POLONAISE
+- **31.** Rashness — HASTINESS
+- **32.** Stretch, with "out" — EKE
+- **37.** Maps for sailors — CHARTS
+- **41.** Location — VENUE
+- **42.** Motionless — INERT
+- **43.** Verbal tests — ORALS
+- **44.** Eagle's nest — AERIE
+- **45.** Truth — FACT
+- **47.** Ancient harps — LYRES
+- **48.** Twitches — TICS
+- **49.** On the summit of — ATOP
+- **52.** Health resort — SPA
+- **53.** Edge — HEM

@@ -3954,7 +3954,7 @@ internist: Physician of internal medicine | Doctor for adults
 lyres: Ancient harps | Stringed instruments of Greece
 oaf: Clod | Lout | Clumsy one
 pants: Trousers | Gasps
-periscopes: Submarine viewers | Up-periscope tools
+periscopes: Submarine viewers | Subs' lookout tubes
 pieces: Bits | Chess men
 politesse: Formal courtesy | Good manners
 polonaise: Stately Polish dance | Chopin composition
@@ -3965,3 +3965,93 @@ strictness: Severity | Rigour
 venue: Location | Concert site
 vicars: Parish priests | Rectors
 vista: View | Panorama
+sate: Quench, as thirst | Gratify completely
+# Extra clues for answers that recur often
+pet: Stroke, as a cat | Teacher's favourite
+rag: Duster
+doe: Bambi's mother | Female rabbit
+she: Ship pronoun
+red: Ruby colour | Cabernet, e.g.
+yet: However
+err: Go astray
+ale: Brewery output | Bitter, e.g.
+mum: Mother, in NZ
+par: Normal level
+nil: Nothing, in a score
+sly: Foxy
+pot: Kettle's critic | Poker kitty
+use: Utility
+net: Goal mesh | Earn after tax
+ads: Billboards
+sat: Posed for a portrait
+ape: Gorilla
+tot: Add (up)
+lap: Circuit | Drink like a cat
+tin: Metal in bronze
+sap: Drain, as energy
+eve: Night before | Garden of Eden woman
+tee: Casual top
+spy: Catch sight of
+eel: Slippery swimmer | Conger
+woe: Misery
+ice: Drink cooler
+wed: Tie the knot
+dye: Hair colour
+were: "If I ___ you..."
+her: That woman's
+eves: Nights before holidays | Christmas and New Year's ___
+chi: Tai ___
+pea: Pod veggie | Mushy ___
+pen: Ballpoint | Enclosure
+ode: Keats poem
+owe: Be in the red
+spa: Mineral springs
+sea: Tasman, e.g.
+tag: Playground chase game
+now: This instant
+ago: Back in time | Earlier
+rev: Gun the engine | Minister, briefly
+ore: Mined mineral
+sir: Teacher, to pupils
+egg: Omelette ingredient | Urge (on)
+per: Apiece
+ego: Sense of self
+row: Argument
+sue: Litigate
+ten: Number of fingers
+amp: Speaker booster | Electrical unit
+men: Gents
+for: In favour of
+the: "___ End"
+cot: Baby's bed
+old: Former
+hem: Skirt edge | Stitch the edge
+dot: Point | Full stop
+sod: Grassy patch
+sleet: Freezing rain | Hail's cousin
+terse: Concise | Clipped
+lilac: Mauve | Spring bloom
+slate: List of candidates | Pan, as a critic
+tasty: Flavourful | Moreish
+redeem: Exchange for a prize | Atone for
+overt: Unconcealed | Public
+mere: Simple | Small lake
+reset: Reboot | Fresh start
+torte: Viennese cake | Rich dessert
+peeve: Annoyance | Bugbear
+once: In the past | As soon as
+aerie: Hawk's home | Cliff nest
+apple: Pie fruit | Granny Smith
+aim: Target | Purpose
+scare: Startle | Panic
+asks: Enquires | Begs
+essay: Assignment | Try
+coral: Sea rock formation | Pink shade
+error: Blunder | Misprint
+shots: Snaps | Goes
+aromas: Scents | Smells of coffee and bread
+peso: Latin American currency
+paler: Whiter | More pallid
+listen: Lend an ear | Eavesdrop
+arias: Puccini pieces | Solo songs
+apse: Altar alcove | Cathedral end
