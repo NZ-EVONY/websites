@@ -196,7 +196,7 @@ export function repairGrid(ctx, g, r = rng(`${keyFor("crossword", ctx.date)}:rep
 
 // Tries patterns 0, 1, 2, ... on worker threads (one per CPU, up to 4) and returns the
 // lowest-numbered clean fill, so the result doesn't depend on timing.
-export async function fillGrid(date, { history = [], words, maxPatterns = 400, log = () => {} } = {}) {
+export async function fillGrid(date, { history = [], words, maxPatterns = 1500, log = () => {} } = {}) {
   const { Worker } = await import("node:worker_threads");
   const os = await import("node:os");
   const threads = Math.max(1, Math.min(8, (os.availableParallelism?.() || os.cpus().length)));

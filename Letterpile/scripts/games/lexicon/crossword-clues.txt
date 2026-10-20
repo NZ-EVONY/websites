@@ -3853,3 +3853,79 @@ visitor: Guest | Caller
 warfare: Combat | Hostilities
 whetstone: Sharpening stone | Knife grinder
 yesterday: The day before | Beatles ballad
+# Clues for drafted dates 5-6 Nov 2026
+ablest: Most capable | Most skilled
+aging: Getting older, in the US | Maturing, as cheese
+airstrip: Small runway | Landing field
+alloy: Metal blend | Bronze, e.g.
+amigo: Friend, in Spanish | Pal south of the border
+anteaters: Long-snouted insect eaters | Termite hunters
+arboreal: Tree-dwelling | Living in trees
+aviator: Pilot | Flier
+beaks: Bills | Hooked noses
+bestrode: Straddled | Sat astride
+boleros: Short jackets | Ravel's dance pieces
+bulge: Swelling | Protrude
+cardiac: Of the heart | ___ arrest
+cellist: Bow-wielding string player | Yo-Yo Ma, e.g.
+cemetery: Graveyard | Burial ground
+civil: Polite | Non-military
+closures: Shutdowns | Fasteners
+designs: Patterns | Plans
+detritus: Debris | Leftover fragments
+dinette: Small dining area | Kitchen nook
+ditto: Same again | "Me too"
+eerier: Spookier | More unsettling
+enlistee: New recruit | Signer-up for service
+ensure: Guarantee | Make certain
+entrails: Innards | Guts
+extradites: Hands over to another country | Sends back for trial
+eyepiece: Telescope lens | Microscope part
+fetlock: Joint above a hoof | Horse's ankle
+glossary: Word list at the back | Mini dictionary
+grants: Awards | Allows
+hedge: Shrubby boundary | Dodge a question | Protect against loss
+hive: Bee home | Busy place | Swarm
+keens: Wails | Laments
+latte: Milky coffee | Barista's order
+laureate: Prize winner | Poet ___
+leeway: Room to manoeuvre | Slack
+linear: In a line | Straight
+motor: Engine | Car, informally
+nonstick: Like Teflon pans | Easy to clean, as a pan
+octet: Group of eight | Eight singers
+oodles: Lots | Heaps
+overdo: Exaggerate | Go too far
+papa: Dad | Pop | Letter after Oscar
+pests: Nuisances | Garden bugs
+pilasters: Flat wall columns | Decorative columns
+plod: Trudge | Slog
+plush: Luxurious | Velvety fabric
+pocketing: Pinching | Taking home, as winnings
+posts: Mail | Pickets | Online messages
+prophesies: Foretells | Predicts
+raider: Attacker | Plunderer
+record: Vinyl disc | Best ever | Write down
+rehab: Recovery programme | Physio, for short
+restlessly: Fidgetily | Without settling
+revert: Go back | Return to a former state
+rickshaws: Pedal taxis | Two-wheeled carts
+sachet: Small packet | Scented bag
+safeness: Security | Lack of danger
+scaled: Climbed | Weighed
+sedate: Calm | Tranquillise
+sereneness: Calmness | Tranquillity
+settle: Resolve | Sink down
+sneak: Creep | Snitch
+snowiest: Most wintry | Whitest with flakes
+stalks: Stems | Follows creepily
+steeple: Church spire | Tower top
+strutted: Swaggered | Paraded
+table: Furniture with legs | Chart | Postpone
+talked: Chatted | Spoke
+talons: Eagle's claws | Raptor's grips
+tawdrier: Cheaper-looking | Tackier
+teems: Swarms | Pours with rain
+tide: Ebb or flow | Sea's rise and fall | Trend
+trams: Streetcars | Wellington cable cars' cousins
+tweet: Bird's chirp | Short social post
