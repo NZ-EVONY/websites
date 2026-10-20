@@ -24,7 +24,6 @@ export default ctx => ({
   <li>Printable PDFs are made in your browser with <b>jsPDF</b>, used under the MIT licence (<a href="/licenses/jspdf.txt">licence text</a>) and hosted on this site.</li>
   <li>“Scan tiles” uses <b>Tesseract.js</b> and the Tesseract OCR engine and English model, used under the Apache License 2.0 (<a href="/licenses/tesseract.txt">licence text</a>) and hosted on this site.</li>
   <li>Several solvers rank everyday words first using <b>SCOWL</b> (Spell Checker Oriented Word Lists) by Kevin Atkinson and others, sizes 10 to 35, used under its permissive licence (<a href="/licenses/scowl.txt">licence text</a>).</li>
-  <li>Some Daily Crossword clues are adapted from <b>WordNet 3.0</b>, © 2006 Princeton University, used under the WordNet licence (<a href="/licenses/wordnet.txt">licence text</a>). Princeton does not endorse this site.</li>
   <li>Hosting is provided by Cloudflare.</li>
 </ul>
 

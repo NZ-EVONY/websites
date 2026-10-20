@@ -100,7 +100,7 @@ test("automatic clue gate rejects answers, stems, long or rude clues", () => {
   assert.equal(cw.autoClueOk("glide", `Big ${rude}`, { words }), false, "blocklisted word");
 });
 
-test("automatic clue file: every clue passes the gate; no banned, blocklisted or hand-clued answer", () => {
+test("automatic hint file (writing aid only): every hint passes the gate; no banned, blocklisted or hand-clued answer", () => {
   const auto = cw.autoBook(), book = cw.clueBook(), ban = cw.banned();
   assert.ok(auto.size > 20000, `${auto.size} words`);
   for (const [answer, clues] of auto) {
@@ -121,10 +121,12 @@ test("cluesOf puts hand-written clues before automatic ones", () => {
   assert.equal(cw.isAutoClue(b, clues[0]), true);
 });
 
-test("validator: a clue in neither clue file is rejected", { skip: dates.length ? false : "no crosswords published yet" }, () => {
+test("validator: a clue that isn't hand-written (even an automatic hint) is rejected", { skip: dates.length ? false : "no crosswords published yet" }, () => {
   const p = readPuzzle(ROOT, "crossword", dates.at(-1));
   const bad = { ...p, across: p.across.map((e, i) => (i ? e : { ...e, clue: "Zzzz made up clue" })) };
-  assert.match(cw.validate(bad, { date: p.date, words }).join(), /not in either clue file/);
+  assert.match(cw.validate(bad, { date: p.date, words }).join(), /not a hand-written clue/);
+  const e0 = cw.entries(p)[0], hint = cw.autoBook().get(e0.answer)?.[0];
+  if (hint) assert.match(cw.validate({ ...p, across: p.across.map((e, i) => (i ? e : { ...e, clue: hint })) }, { date: p.date, words }).join(), /not a hand-written clue/);
 });
 
 test("60-day rules: a long answer or a repeated clue within 60 days is rejected (from the generator start date)", { skip: dates.length ? false : "no crosswords published yet" }, () => {

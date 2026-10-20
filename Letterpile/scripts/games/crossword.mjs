@@ -56,8 +56,8 @@ export function clueBook() {
   }
   return m;
 }
-// Automatic clues (crossword-clues-auto.txt, derived from WordNet by vendor-wordnet-clues.mjs),
-// used only for answers without enough hand-written clues. Same format as the clue file.
+// Automatic clues (crossword-clues-auto.txt, derived from WordNet by vendor-wordnet-clues.mjs):
+// private hints for whoever writes clues (crossword-missing.mjs shows them). Never published. Same format as the clue file.
 let autoCache = null;
 export function autoBook() {
   if (autoCache) return autoCache;
@@ -272,12 +272,11 @@ export async function generate(date, { history = [], log = () => {} } = {}) {
   const r = rng(`${keyFor("crossword", date)}:clues`);
   const missing = [];
   const pick = answer => {
-    // Hand-written clues first; automatic ones only when no hand-written clue is free.
-    const hand = book.get(answer)?.clues || [], extra = auto.get(answer) || [];
-    if (!hand.length && !extra.length) { missing.push(answer); return ""; }
-    const unused = c => !usedClues.get(answer)?.has(c);
-    const fresh = hand.filter(unused).length ? hand.filter(unused) : extra.filter(unused);
-    if (!fresh.length) { missing.push(`${answer} (all ${hand.length + extra.length} clues used in the last ${LONG_REPEAT_DAYS} days)`); return ""; }
+    // Published clues are hand-written only (owner's rule). Automatic clues are writing hints.
+    const hand = book.get(answer)?.clues || [];
+    if (!hand.length) { missing.push(answer); return ""; }
+    const fresh = hand.filter(c => !usedClues.get(answer)?.has(c));
+    if (!fresh.length) { missing.push(`${answer} (all ${hand.length} clues used in the last ${LONG_REPEAT_DAYS} days)`); return ""; }
     return fresh[Math.floor(r() * fresh.length)];
   };
   const entry = s => ({ n: s.n, r: s.r, c: s.c, len: s.len, clue: pick(s.cells.map(i => grid[i]).join("")) });
@@ -321,11 +320,8 @@ export function validate(p, { date, words, book = clueBook(), fill = fillList(),
     else {
       if (e.clue.length > 120) errors.push(`${where} clue is over 120 characters`);
       if (new RegExp(`\\b${e.answer}\\b`, "i").test(e.clue)) errors.push(`${where} clue contains its answer`);
-      // A clue that isn't hand-written must be one of the answer's automatic clues and pass the gate.
-      if (isAutoClue(e.answer, e.clue, book)) {
-        if (!(autoBook().get(e.answer) || []).includes(e.clue)) errors.push(`${where} clue is not in either clue file`);
-        else if (!autoClueOk(e.answer, e.clue, { words })) errors.push(`${where} automatic clue fails the quality gate`);
-      }
+      // Every published clue must be hand-written (in crossword-clues.txt).
+      if (isAutoClue(e.answer, e.clue, book)) errors.push(`${where} clue is not a hand-written clue from crossword-clues.txt`);
     }
   }
   return errors;
@@ -363,7 +359,7 @@ export function writeReview(root = ROOT, { missing = [] } = {}) {
   for (const d of dates) {
     const p = readPuzzle(root, "crossword", d);
     const es = entries(p);
-    const show = e => `- **${e.n}.** ${e.clue} — ${(book.get(e.answer)?.display || e.answer.toUpperCase())}${isAutoClue(e.answer, e.clue, book) ? " _(auto)_" : ""}`;
+    const show = e => `- **${e.n}.** ${e.clue} — ${(book.get(e.answer)?.display || e.answer.toUpperCase())}`;
     md += `\n## ${d} (#${p.number})\n\n**Across**\n\n${es.filter(e => e.dir === "A").map(show).join("\n")}\n\n**Down**\n\n${es.filter(e => e.dir === "D").map(show).join("\n")}\n`;
   }
   fs.writeFileSync(path.join(root, "scripts/games/crossword-review.md"), md);
