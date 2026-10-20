@@ -3219,3 +3219,28 @@ lofted: Hit high | Lobbed
 macerated: Soaked to soften | Steeped
 otter: River swimmer | Playful water mammal
 wresting: Seizing by force | Wrenching away
+allowance: Pocket money | Baggage limit
+analgesia: Pain relief | Numbness to pain
+balsa: Light wood for models | Raft timber
+caste: Social class | Rigid rank
+coma: Deep unconsciousness | Long sleep in hospital
+cores: Apple centres | Central parts
+drawer: Desk compartment | Sketch artist
+flares: Emergency lights | Widens at the bottom
+glass: Window pane | Tumbler
+granite: Hard grey rock | Kitchen worktop stone
+horse: Stallion or mare | Gymnastics apparatus
+lawful: Legal | Permitted
+lemur: Madagascan primate | Ring-tailed animal
+lesser: Smaller | Minor
+lessons: Classes | Morals of stories
+novellas: Short novels | Long stories
+operetta: Light opera | Gilbert and Sullivan show
+orate: Make a speech | Hold forth
+paler: More washed out | Lighter in colour
+riots: Uprisings | Hilarious people
+sonata: Piano piece in movements | Classical composition
+spoiled: Pampered | Gone bad
+teaser: Trailer | Brain puzzle
+therein: In that place | In there
+tubular: Pipe-shaped | Cylindrical
