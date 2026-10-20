@@ -86,3 +86,62 @@ test("clue file: every answer has 2+ clues, none repeated, none containing the a
     assert.ok(!cw.banned().has(answer), `${answer} is both clued and banned`);
   }
 });
+
+// ---------- generator: automatic clues, quality gate and 60-day rules ----------
+
+test("automatic clue gate rejects answers, stems, long or rude clues", () => {
+  assert.equal(cw.autoClueOk("glide", "Soar", { words }), true);
+  assert.equal(cw.autoClueOk("glide", "Glide along", { words }), false, "contains the answer");
+  assert.equal(cw.autoClueOk("running", "Run", { words }), false, "the answer's stem");
+  assert.equal(cw.autoClueOk("walked", "Walking about", { base: "walk", words }), false, "the base word");
+  assert.equal(cw.autoClueOk("glide", "A very long clue that goes on and on and on", { words }), false, "over 7 words");
+  assert.equal(cw.autoClueOk("glide", "soar", { words }), false, "must start with a capital");
+  const rude = [...words.blockedSet].find(w => /^[a-z]{4,}$/.test(w));
+  assert.equal(cw.autoClueOk("glide", `Big ${rude}`, { words }), false, "blocklisted word");
+});
+
+test("automatic clue file: every clue passes the gate; no banned, blocklisted or hand-clued answer", () => {
+  const auto = cw.autoBook(), book = cw.clueBook(), ban = cw.banned();
+  assert.ok(auto.size > 20000, `${auto.size} words`);
+  for (const [answer, clues] of auto) {
+    assert.ok(/^[a-z]+$/.test(answer), answer);
+    assert.ok(!ban.has(answer) && !words.blockedSet.has(answer), `${answer} is banned or blocklisted`);
+    assert.ok(clues.length >= 1 && new Set(clues).size === clues.length, `${answer} clues`);
+    for (const c of clues) assert.ok(cw.autoClueOk(answer, c, { words }), `${answer}: "${c}" fails the gate`);
+  }
+  // Hand-written clues take priority, so the auto file never repeats a hand-clued answer.
+  for (const a of book.keys()) assert.ok(!auto.has(a) || !book.get(a).clues.length, `${a} is in both files`);
+});
+
+test("cluesOf puts hand-written clues before automatic ones", () => {
+  const [a] = [...cw.clueBook().keys()];
+  assert.deepEqual(cw.cluesOf(a).slice(0, cw.clueBook().get(a).clues.length), cw.clueBook().get(a).clues);
+  const [b, clues] = [...cw.autoBook()][0];
+  assert.deepEqual(cw.cluesOf(b), clues);
+  assert.equal(cw.isAutoClue(b, clues[0]), true);
+});
+
+test("validator: a clue in neither clue file is rejected", { skip: dates.length ? false : "no crosswords published yet" }, () => {
+  const p = readPuzzle(ROOT, "crossword", dates.at(-1));
+  const bad = { ...p, across: p.across.map((e, i) => (i ? e : { ...e, clue: "Zzzz made up clue" })) };
+  assert.match(cw.validate(bad, { date: p.date, words }).join(), /not in either clue file/);
+});
+
+test("60-day rules: a long answer or a repeated clue within 60 days is rejected (from the generator start date)", { skip: dates.length ? false : "no crosswords published yet" }, () => {
+  const p = readPuzzle(ROOT, "crossword", dates[0]);
+  const at = d => ({ ...p, date: d, s: encode(cw.solutionOf(p), `crossword:${d}`) });
+  // 50 days apart: past the 35-day window, inside the 60-day one.
+  const errs = cw.validateSet([at("2099-01-01"), at("2099-02-20")]).join("\n");
+  assert.match(errs, /repeats the clue .* within 60 days/);
+  if (cw.entries(p).some(e => e.answer.length >= cw.LONG_LEN)) assert.match(errs, /letters\) used again within 60 days/);
+  // 61 days apart: fine.
+  assert.deepEqual(cw.validateSet([at("2099-01-01"), at("2099-03-03")]), []);
+  assert.ok(cw.LONG_RULES_FROM <= "2026-10-24");
+});
+
+test("generation is deterministic: the same date and pattern number give the same grid", () => {
+  const ctx = cw.fillContext("2099-06-01", { words, uses: Object.assign(new Map(), { long: new Map() }) });
+  const a = makePattern(rng("crossword:2099-06-01:0")), b = makePattern(rng("crossword:2099-06-01:0"));
+  assert.equal(a, b);
+  assert.ok(ctx.goodSet.size > 10000);
+});

@@ -136,6 +136,7 @@ write("licenses/jspdf.txt", fs.readFileSync(path.join(ROOT, "licenses/jsPDF-MIT.
 write("licenses/tesseract.txt", fs.readFileSync(path.join(ROOT, "licenses/Tesseract-Apache-2.0.txt")));
 write("licenses/enable.txt", fs.readFileSync(path.join(ROOT, "licenses/ENABLE-README.txt")));
 write("licenses/scowl.txt", fs.readFileSync(path.join(ROOT, "licenses/SCOWL-Copyright.txt")));
+write("licenses/wordnet.txt", fs.readFileSync(path.join(ROOT, "licenses/WordNet-LICENSE.txt")));
 write("licenses/cmudict.txt", fs.readFileSync(path.join(ROOT, "licenses/CMUdict-LICENSE.txt")));
 
 // ---------- page context ----------

@@ -95,6 +95,20 @@ seconds). The crossword takes longer (a minute or two per day) and has one manua
    To change a clue, edit it in `crossword-clues.txt` and run
    `npm run games:generate -- --game crossword --redo <date>`.
 
+Since 2026-10-20 most entries are clued automatically, so step 3 is usually short:
+
+- Hand-written clues (`crossword-clues.txt`) are always used first. Answers without one fall back
+  to `lexicon/crossword-clues-auto.txt`: short synonyms and definitions derived from WordNet 3.0
+  (licence in `licenses/WordNet-LICENSE.txt`) by `scripts/games/vendor-wordnet-clues.mjs`, plus
+  regular inflections of single-word clues (walk "Stroll" gives walked "Strolled"). Regenerate it
+  after changing the clue or banned files (see the script's header). Don't edit it by hand.
+- Every automatic clue passes a quality gate (`autoClueOk` in `crossword.mjs`): 3-60 characters,
+  at most 7 words, plain letters, no blocklisted word, and it never contains the answer, its stem
+  or its base word. Words with any WordNet sense marked vulgar, offensive, slang and so on get no
+  automatic clues. The review file marks automatic clues _(auto)_.
+- `node scripts/games/crossword-missing.mjs` lists draft answers that still have no clue at all.
+- Generation uses up to 8 threads and takes about 5-10 minutes a day of puzzles on the box.
+
 Then `npm test`, commit (including `public/`) and deploy.
 
 A GitHub Action (`.github/workflows/letterpile-games-check.yml`, in the repository root) runs
@@ -113,7 +127,7 @@ for checks across dates; `lib.mjs` registers them for the build, `games:generate
 | Game | Source lists | Validated |
 |---|---|---|
 | Daily Word (`word.mjs`) | `lexicon/word-answers.txt`: hand-picked everyday five-letter words. Guesses: every five-letter ENABLE word not hidden by the blocklist, plus the answers (`/data/guesses.*.json`) | answer in the list, in ENABLE, not blocklisted, not a plural; no answer repeats within 365 days. The answer is stored lightly encoded (XOR + base64), not in plain sight |
-| Daily Crossword (`crossword.mjs`, `crossword-grid.mjs`) | fill: `lexicon/crossword-fill.txt` (SCOWL levels 10-60 ∩ ENABLE, for ranking commonness) and ENABLE; clues: `lexicon/crossword-clues.txt`; never: `lexicon/crossword-banned.txt` | 15×15, rotationally symmetric, 70-78 entries, none under 3 letters, every square checked, all squares connected; numbering and clue count match the pattern; every answer a common word (see `isGood`) or a clued entry, not banned or blocklisted, not repeated in the grid; every clue present, under 120 characters and not containing its answer; an answer appears at most 3 times and never with the same clue within 35 days |
+| Daily Crossword (`crossword.mjs`, `crossword-grid.mjs`) | fill: `lexicon/crossword-fill.txt` (SCOWL levels 10-60 ∩ ENABLE, for ranking commonness) and ENABLE; clues: `lexicon/crossword-clues.txt`; never: `lexicon/crossword-banned.txt` | 15×15, rotationally symmetric, 70-78 entries, none under 3 letters, every square checked, all squares connected; numbering and clue count match the pattern; every answer a common word (see `isGood`) or a clued entry, not banned or blocklisted, not repeated in the grid; every clue present, under 120 characters and not containing its answer; an answer appears at most 3 times within 35 days; from 2026-10-24 an answer never gets the same clue, and an answer of 7+ letters is never reused, within 60 days; automatic clues must be in the auto file and pass the gate |
 | Daily Word Search (`wordsearch.mjs`) | `lexicon/wordsearch-themes.txt`: 43 hand-written themes | 20×20, 25-30 words incl. 3+ of 8+ letters, words in all 8 directions, every word exactly once, no blocklisted word readable anywhere outside the theme words, no theme repeated within 35 days |
 | Daily Sudoku (`sudoku.mjs`) | generated | exactly one solution (exact solver counting to 2), solvable by logic alone, rotationally symmetric givens; difficulty by weekday: Mon/Tue Easy, Wed/Thu/Sun Medium, Fri/Sat Hard (grader levels: singles; pointing pairs and box/line; pairs and triples) |
 

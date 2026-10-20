@@ -16,6 +16,12 @@ import { N, LIMITS, slots, checkPattern, makePattern, indexWords, fillAC } from 
 
 export const REPEAT_DAYS = 35;
 export const MAX_USES = 3; // the same answer at most this often in any REPEAT_DAYS window
+// Stricter rules over a longer window: an answer never gets the same clue, and a long answer
+// (LONG_LEN+ letters) is never used twice, within LONG_REPEAT_DAYS days.
+export const LONG_REPEAT_DAYS = 60;
+export const LONG_LEN = 7;
+// The 60-day rules apply from the first generated date (puzzles before it were already live).
+export const LONG_RULES_FROM = "2026-10-24";
 const LEX = path.join(ROOT, "scripts/games/lexicon");
 const DRAFTS = path.join(ROOT, "scripts/games/crossword-drafts");
 export const REVIEW = path.join(ROOT, "scripts/games/crossword-review.md");
@@ -50,6 +56,40 @@ export function clueBook() {
   }
   return m;
 }
+// Automatic clues (crossword-clues-auto.txt, derived from WordNet by vendor-wordnet-clues.mjs),
+// used only for answers without enough hand-written clues. Same format as the clue file.
+let autoCache = null;
+export function autoBook() {
+  if (autoCache) return autoCache;
+  const m = new Map();
+  for (const l of lines("crossword-clues-auto.txt")) {
+    if (!l.trim() || l.startsWith("#")) continue;
+    const i = l.indexOf(":");
+    if (i < 0) continue;
+    m.set(l.slice(0, i).trim(), l.slice(i + 1).split("|").map(x => x.trim()).filter(Boolean));
+  }
+  return (autoCache = m);
+}
+// Every clue an answer may get: hand-written ones first, then automatic ones.
+export function cluesOf(answer, book = clueBook(), auto = autoBook()) {
+  return [...(book.get(answer)?.clues || []), ...(auto.get(answer) || [])];
+}
+export const isAutoClue = (answer, clue, book = clueBook()) => !(book.get(answer)?.clues || []).includes(clue);
+// Quality gate for an automatic clue: short, plain, family-friendly, and not giving the answer
+// (or its stem or base word) away.
+export function autoClueOk(answer, clue, { base = null, words = null } = {}) {
+  if (typeof clue !== "string" || clue.length < 3 || clue.length > 60) return false;
+  if (!/^[A-Z][A-Za-z ,'-]*$/.test(clue)) return false;
+  if (clue.split(" ").length > 7) return false;
+  const low = clue.toLowerCase();
+  const toks = low.split(/[^a-z]+/).filter(Boolean);
+  const stem = answer.slice(0, Math.max(4, answer.length - 3));
+  for (const t of toks) {
+    if (t === answer || (t.length >= 3 && (answer.startsWith(t) || t.startsWith(answer))) || (base && t.startsWith(base)) || (answer.length >= 4 && t.length >= 4 && (t.startsWith(stem) || answer.startsWith(t.slice(0, Math.max(4, t.length - 3)))))) return false;
+    if (words?.blockedSet.has(t)) return false;
+  }
+  return true;
+}
 // Banned words, plus the simple inflections of those of 4+ letters (sperm -> sperms).
 export const banned = () => {
   const base = lines("crossword-banned.txt").filter(l => l.trim() && !l.startsWith("#")).flatMap(l => l.trim().split(/\s+/));
@@ -77,7 +117,18 @@ export function readDraft(date) { return fs.existsSync(draftFile(date)) ? JSON.p
 function recentUses(date, history) {
   const uses = new Map(), seen = new Set();
   // Puzzles within REPEAT_DAYS on either side count (dates can be published out of order).
-  const add = (d, answers) => { if (d === date || Math.abs(daysBetween(d, date)) >= REPEAT_DAYS || seen.has(d)) return; seen.add(d); for (const a of answers) uses.set(a, (uses.get(a) || 0) + 1); };
+  const long = new Map();
+  uses.long = long;
+  const add = (d, answers) => {
+    if (d === date || seen.has(d)) return;
+    const gap = Math.abs(daysBetween(d, date));
+    if (gap >= LONG_REPEAT_DAYS) return;
+    seen.add(d);
+    for (const a of answers) {
+      if (a.length >= LONG_LEN) long.set(a, (long.get(a) || 0) + 1);
+      if (gap < REPEAT_DAYS) uses.set(a, (uses.get(a) || 0) + 1);
+    }
+  };
   for (const p of history) add(p.date, entries(p).map(e => e.answer));
   // Unpublished drafts count too, so a batch doesn't repeat its own answers.
   if (fs.existsSync(DRAFTS)) for (const f of fs.readdirSync(DRAFTS)) {
@@ -105,24 +156,28 @@ export function fillContext(date, { history = [], words, uses = recentUses(date,
   const fill = fillList(), book = clueBook(), ban = banned();
   const allowed = w => w.length >= 3 && w.length <= LIMITS.maxLen && !ban.has(w) && (uses.get(w) || 0) < MAX_USES;
   const big = [...new Set([...(words ? words.clean : fill.keys()), ...book.keys()])].filter(allowed);
-  const good = big.filter(w => isGood(w, { fill, book }));
-  return { date, fill, book, uses, bigIx: indexWords(big), goodIx: indexWords(good), goodSet: new Set(good) };
+  const auto = autoBook();
+  const longUses = uses.long || new Map();
+  // Long answers used in the last LONG_REPEAT_DAYS days are left out; words with clues are
+  // preferred by the scores below (hand-written most), so few entries end up needing new clues.
+  const good = big.filter(w => isGood(w, { fill, book }) && !(w.length >= LONG_LEN && longUses.get(w)));
+  return { date, fill, book, auto, uses, bigIx: indexWords(big), goodIx: indexWords(good), goodSet: new Set(good) };
 }
 // Tries pattern number n for the date; returns the clean grid or null.
 export function fillPattern(ctx, n) {
-  const { date, fill, book, uses, bigIx } = ctx;
+  const { date, fill, book, auto, uses, bigIx } = ctx;
   const r = rng(`${keyFor("crossword", date)}:${n}`);
   const pattern = makePattern(r);
   if (!pattern) return { grid: null, note: "no pattern" };
-  const score = w => (book.has(w) ? 4 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
+  const score = w => (book.has(w) ? 4 : auto.has(w) ? 2 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
   const g = fillAC(pattern, bigIx, { score, maxSteps: 400, weight: 3 });
   if (!g) return { grid: null, note: "no first fill" };
   return repairGrid(ctx, g, r);
 }
 // Clears the squares of every entry that isn't a good word and refills them from good words.
 export function repairGrid(ctx, g, r = rng(`${keyFor("crossword", ctx.date)}:repair`)) {
-  const { fill, book, uses, goodIx, goodSet } = ctx;
-  const score = w => (book.has(w) ? 4 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
+  const { fill, book, auto, uses, goodIx, goodSet } = ctx;
+  const score = w => (book.has(w) ? 4 : auto.has(w) ? 2 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
   const pattern = g.replace(/[a-z]/g, ".");
   const S = slots(pattern);
   const bad = grid => S.filter(s => !goodSet.has(s.cells.map(i => grid[i]).join("")));
@@ -144,8 +199,9 @@ export function repairGrid(ctx, g, r = rng(`${keyFor("crossword", ctx.date)}:rep
 export async function fillGrid(date, { history = [], words, maxPatterns = 400, log = () => {} } = {}) {
   const { Worker } = await import("node:worker_threads");
   const os = await import("node:os");
-  const threads = Math.max(1, Math.min(4, (os.availableParallelism?.() || os.cpus().length)));
-  const uses = [...recentUses(date, history)];
+  const threads = Math.max(1, Math.min(8, (os.availableParallelism?.() || os.cpus().length)));
+  const ru = recentUses(date, history);
+  const uses = [...ru], long = [...ru.long];
   const results = new Map();
   let next = 0, best = Infinity;
   return new Promise((resolve, reject) => {
@@ -161,7 +217,7 @@ export async function fillGrid(date, { history = [], words, maxPatterns = 400, l
       return false;
     };
     for (let t = 0; t < threads; t++) {
-      const w = new Worker(new URL("./crossword-worker.mjs", import.meta.url), { workerData: { date, uses } });
+      const w = new Worker(new URL("./crossword-worker.mjs", import.meta.url), { workerData: { date, uses, long } });
       workers.push(w);
       const feed = () => { if (next < maxPatterns && next < best) w.postMessage(next++); };
       w.on("message", m => {
@@ -203,23 +259,25 @@ export async function generate(date, { history = [], log = () => {} } = {}) {
     fs.mkdirSync(DRAFTS, { recursive: true });
     fs.writeFileSync(draftFile(date), JSON.stringify(draft) + "\n");
   }
-  const book = clueBook();
+  const book = clueBook(), auto = autoBook();
   const grid = draft.grid;
   const pattern = grid.replace(/[a-z]/g, ".");
   const S = slots(pattern);
   // Clues this answer was given within REPEAT_DAYS days either side.
   const usedClues = new Map();
-  for (const p of history) if (p.date !== date && Math.abs(daysBetween(p.date, date)) < REPEAT_DAYS) for (const e of entries(p)) {
+  for (const p of history) if (p.date !== date && Math.abs(daysBetween(p.date, date)) < LONG_REPEAT_DAYS) for (const e of entries(p)) {
     if (!usedClues.has(e.answer)) usedClues.set(e.answer, new Set());
     usedClues.get(e.answer).add(e.clue);
   }
   const r = rng(`${keyFor("crossword", date)}:clues`);
   const missing = [];
   const pick = answer => {
-    const all = book.get(answer)?.clues || [];
-    if (!all.length) { missing.push(answer); return ""; }
-    const fresh = all.filter(c => !usedClues.get(answer)?.has(c));
-    if (!fresh.length) { missing.push(`${answer} (all ${all.length} clues used in the last ${REPEAT_DAYS} days)`); return ""; }
+    // Hand-written clues first; automatic ones only when no hand-written clue is free.
+    const hand = book.get(answer)?.clues || [], extra = auto.get(answer) || [];
+    if (!hand.length && !extra.length) { missing.push(answer); return ""; }
+    const unused = c => !usedClues.get(answer)?.has(c);
+    const fresh = hand.filter(unused).length ? hand.filter(unused) : extra.filter(unused);
+    if (!fresh.length) { missing.push(`${answer} (all ${hand.length + extra.length} clues used in the last ${LONG_REPEAT_DAYS} days)`); return ""; }
     return fresh[Math.floor(r() * fresh.length)];
   };
   const entry = s => ({ n: s.n, r: s.r, c: s.c, len: s.len, clue: pick(s.cells.map(i => grid[i]).join("")) });
@@ -263,6 +321,11 @@ export function validate(p, { date, words, book = clueBook(), fill = fillList(),
     else {
       if (e.clue.length > 120) errors.push(`${where} clue is over 120 characters`);
       if (new RegExp(`\\b${e.answer}\\b`, "i").test(e.clue)) errors.push(`${where} clue contains its answer`);
+      // A clue that isn't hand-written must be one of the answer's automatic clues and pass the gate.
+      if (isAutoClue(e.answer, e.clue, book)) {
+        if (!(autoBook().get(e.answer) || []).includes(e.clue)) errors.push(`${where} clue is not in either clue file`);
+        else if (!autoClueOk(e.answer, e.clue, { words })) errors.push(`${where} automatic clue fails the quality gate`);
+      }
     }
   }
   return errors;
@@ -272,13 +335,17 @@ export function validateSet(puzzles) {
   const errors = [];
   const sorted = puzzles.slice().sort((a, b) => a.date.localeCompare(b.date));
   sorted.forEach((p, i) => {
-    const window = sorted.slice(0, i).filter(q => daysBetween(q.date, p.date) < REPEAT_DAYS);
-    const prior = new Map();
-    for (const q of window) for (const e of entries(q)) { if (!prior.has(e.answer)) prior.set(e.answer, []); prior.get(e.answer).push(e.clue); }
+    const collect = days => {
+      const m = new Map();
+      for (const q of sorted.slice(0, i).filter(q => daysBetween(q.date, p.date) < days)) for (const e of entries(q)) { if (!m.has(e.answer)) m.set(e.answer, []); m.get(e.answer).push(e.clue); }
+      return m;
+    };
+    const prior = collect(REPEAT_DAYS), longPrior = collect(LONG_REPEAT_DAYS);
     for (const e of entries(p)) {
-      const before = prior.get(e.answer) || [];
+      const before = prior.get(e.answer) || [], longBefore = longPrior.get(e.answer) || [];
       if (before.length + 1 > MAX_USES) errors.push(`${p.date}: ${e.answer.toUpperCase()} used ${before.length + 1} times within ${REPEAT_DAYS} days`);
-      if (before.includes(e.clue)) errors.push(`${p.date}: ${e.answer.toUpperCase()} repeats the clue "${e.clue}" within ${REPEAT_DAYS} days`);
+      if ((p.date >= LONG_RULES_FROM ? longBefore : before).includes(e.clue)) errors.push(`${p.date}: ${e.answer.toUpperCase()} repeats the clue "${e.clue}" within ${LONG_REPEAT_DAYS} days`);
+      if (p.date >= LONG_RULES_FROM && e.answer.length >= LONG_LEN && longBefore.length) errors.push(`${p.date}: ${e.answer.toUpperCase()} (${e.answer.length} letters) used again within ${LONG_REPEAT_DAYS} days`);
     }
   });
   return errors;
@@ -296,7 +363,7 @@ export function writeReview(root = ROOT, { missing = [] } = {}) {
   for (const d of dates) {
     const p = readPuzzle(root, "crossword", d);
     const es = entries(p);
-    const show = e => `- **${e.n}.** ${e.clue} — ${(book.get(e.answer)?.display || e.answer.toUpperCase())}`;
+    const show = e => `- **${e.n}.** ${e.clue} — ${(book.get(e.answer)?.display || e.answer.toUpperCase())}${isAutoClue(e.answer, e.clue, book) ? " _(auto)_" : ""}`;
     md += `\n## ${d} (#${p.number})\n\n**Across**\n\n${es.filter(e => e.dir === "A").map(show).join("\n")}\n\n**Down**\n\n${es.filter(e => e.dir === "D").map(show).join("\n")}\n`;
   }
   fs.writeFileSync(path.join(root, "scripts/games/crossword-review.md"), md);

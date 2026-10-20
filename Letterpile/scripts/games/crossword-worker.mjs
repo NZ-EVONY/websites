@@ -4,7 +4,7 @@ import { parentPort, workerData } from "node:worker_threads";
 import { wordData } from "../wordstats.mjs";
 import { fillContext, fillPattern } from "./crossword.mjs";
 
-const ctx = fillContext(workerData.date, { words: wordData(), uses: new Map(workerData.uses) });
+const ctx = fillContext(workerData.date, { words: wordData(), uses: Object.assign(new Map(workerData.uses), { long: new Map(workerData.long) }) });
 parentPort.on("message", n => {
   const t0 = Date.now();
   const { grid, note } = fillPattern(ctx, n);
