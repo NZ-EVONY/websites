@@ -203,7 +203,9 @@
 
   // key: { cipherLetter: plainLetter } set by the solver's user. Returns each cipher word's
   // candidates, and a suggested full key: the one that turns the most words into real words.
-  function cryptogram(text, key = {}, { limit = 200, timeMs = 1500 } = {}) {
+  // timeMs: the search budget. It runs in the Web Worker (UI.compute), so a long budget doesn't block
+  // the page; 6 s lets slower phones and laptops finish a full proverb instead of stopping part-way.
+  function cryptogram(text, key = {}, { limit = 200, timeMs = 6000 } = {}) {
     const fixed = {}, usedFixed = {};
     for (const [c, p] of Object.entries(key)) if (/^[a-z]$/.test(c) && /^[a-z]$/.test(p)) { fixed[c] = p; usedFixed[p] = c; }
     const ws = cipherWords(text);

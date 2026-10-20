@@ -9,7 +9,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node scripts/build.mjs && node --test \"tests/unit/*.test.mjs\" \"tests/build/*.test.mjs\"",
-    "test:e2e": "node --test \"tests/e2e/*.test.mjs\"",
+    "test:e2e": "node --test --test-concurrency=1 \"tests/e2e/*.test.mjs\"",
     "regression": "node scripts/build.mjs && node --test \"tests/baseline/*.test.mjs\"",
     "serve": "node scripts/serve.mjs public 8788",
     "lighthouse": "node scripts/build.mjs && node scripts/lighthouse.mjs",

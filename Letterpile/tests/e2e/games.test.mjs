@@ -15,6 +15,10 @@ const today = new Date().toISOString().slice(0, 10);
 const puzzle = game => JSON.parse(fs.readFileSync(path.join(PUBLIC, `puzzles/${game}/${today}.json`), "utf8"));
 const WIDTHS = [390, 1280];
 
+// Read what a share button copied. The Windows system clipboard turns "\n" into "\r\n", so
+// normalize line endings; the share text itself uses "\n".
+const copiedText = async page => (await page.evaluate(() => navigator.clipboard.readText())).replace(/\r\n/g, "\n");
+
 async function openPage(browser, base, url, width) {
   const ctx = await browser.newContext({ viewport: { width, height: width < 600 ? 844 : 900 }, hasTouch: width < 600 });
   await ctx.grantPermissions(["clipboard-read", "clipboard-write"]);
@@ -48,7 +52,7 @@ test("Daily Word: reject a non-word, win, keep stats across a reload, share", { 
       assert.equal(await page.textContent('[data-stat="played"]'), "1");
       await page.screenshot({ path: path.join(SHOTS, `word-${width}.png`), fullPage: false });
       await page.click("#wordStats [data-share-copy]");
-      const copied = await page.evaluate(() => navigator.clipboard.readText());
+      const copied = await copiedText(page);
       assert.match(copied, /^Letterpile Daily Word #\d+ 2\/6\n/);
       assert.ok(!copied.toLowerCase().includes(answer), "share text must not reveal the answer");
       await page.reload();
@@ -104,7 +108,7 @@ test("Daily Sudoku: notes, conflict highlight, undo, reload keeps progress, win"
       assert.match(await page.textContent("#sdMsg"), /^Solved in \d+:\d\d\.$/);
       await page.screenshot({ path: path.join(SHOTS, `sudoku-${width}.png`) });
       await page.click("#sdDone [data-share-copy]");
-      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Sudoku #\d+ \((Easy|Medium|Hard)\)\nSolved in /);
+      assert.match(await copiedText(page), /^Letterpile Daily Sudoku #\d+ \((Easy|Medium|Hard)\)\nSolved in /);
       assert.deepEqual(errors, []);
       await ctx.close();
     }
@@ -151,7 +155,7 @@ test("Daily Word Search: drag, tap-tap and keyboard selection, reload keeps prog
       await page.waitForSelector("#wsDone:not([hidden])");
       await page.screenshot({ path: path.join(SHOTS, `wordsearch-${width}.png`) });
       await page.click("#wsDone [data-share-copy]");
-      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Word Search #\d+: .+\nFound all \d+ words in /);
+      assert.match(await copiedText(page), /^Letterpile Daily Word Search #\d+: .+\nFound all \d+ words in /);
       assert.deepEqual(errors, []);
       await ctx.close();
     }
@@ -201,7 +205,7 @@ test("Daily Crossword: type, toggle direction, check, reveal, reload keeps progr
       assert.match(await page.textContent("#cwMsg"), /^Solved in \d+:\d\d with 1 revealed square\.$/);
       await page.screenshot({ path: path.join(SHOTS, `crossword-${width}.png`) });
       await page.click("#cwDone [data-share-copy]");
-      assert.match(await page.evaluate(() => navigator.clipboard.readText()), /^Letterpile Daily Crossword #\d+\nSolved in .*\(1 squares revealed\)/);
+      assert.match(await copiedText(page), /^Letterpile Daily Crossword #\d+\nSolved in .*\(1 squares revealed\)/);
       assert.deepEqual(errors, []);
       await ctx.close();
     }
@@ -304,7 +308,7 @@ test("Letterpile: drag, tap and type words, undo, hint, reload keeps progress, c
       assert.match(await page.textContent("#lpDoneText"), new RegExp(`cleared the pile in ${sol.length} words`));
       await page.screenshot({ path: path.join(SHOTS, `letterpile-${width}.png`) });
       await page.click("#lpDone [data-share-copy]");
-      const text = await page.evaluate(() => navigator.clipboard.readText());
+      const text = await copiedText(page);
       assert.match(text, new RegExp(`^Letterpile #${p.number} — cleared in ${sol.length} words \\(par ${p.par}\\) · 1 hint\\n[🟨🟩🟦🟪]{${sol.length}}\\nletterpile\\.app/games/letterpile$`, "u"));
       assert.equal(await page.textContent('[data-stat="played"]'), "1");
       assert.deepEqual(errors, []);

@@ -22,9 +22,23 @@
     withWords(out, async current => {
       const found = await compute("unscrambleGrouped", letters, opts);
       if (!current()) return;
-      out.innerHTML = found.total
-        ? `<p class="summary">${found.total.toLocaleString()} words from <code>${esc(shown)}</code></p>` + renderGroups(found)
-        : `<p class="empty">No words found. Try fewer letters, removing a filter, or adding a <kbd>?</kbd> blank. Check the spelling of your letters too.</p>`;
+      if (!found.total) {
+        out.innerHTML = `<p class="empty">No words found. Try fewer letters, removing a filter, or adding a <kbd>?</kbd> blank. Check the spelling of your letters too.</p>`;
+        return;
+      }
+      // Big results (blanks can give thousands of words) go in a group or two (up to 200 chips) at a time,
+      // yielding between batches, so building and laying them out is never one long main-thread task.
+      out.innerHTML = `<p class="summary">${found.total.toLocaleString()} words from <code>${esc(shown)}</code></p>`;
+      let batch = [], chips = 0;
+      for (const g of found.groups) {
+        batch.push(g); chips += g.items.length;
+        if (chips < 150) continue;
+        out.insertAdjacentHTML("beforeend", renderGroups({ groups: batch }));
+        batch = []; chips = 0;
+        await new Promise(r => setTimeout(r, 0));
+        if (!current()) return;
+      }
+      if (batch.length) out.insertAdjacentHTML("beforeend", renderGroups({ groups: batch }));
     });
   }
 

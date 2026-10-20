@@ -12,13 +12,20 @@ async function longTasks(page, url) {
     new PerformanceObserver(l => { for (const e of l.getEntries()) window.__long.push(e.duration); }).observe({ type: "longtask", buffered: true });
   });
   await page.goto(url);
-  await page.waitForFunction(() => { const r = document.querySelector("#results"); return r && !r.querySelector(".loading") && /\d/.test(r.innerText); }, null, { timeout: 60000 });
+  // textContent, not innerText: the check polls every frame, and innerText forces a layout of
+  // thousands of result chips each time, which is itself a long task the page never causes.
+  await page.waitForFunction(() => { const r = document.querySelector("#results"); return r && !r.querySelector(".loading") && /\d/.test(r.textContent); }, null, { timeout: 60000 });
   await page.waitForTimeout(300);
   return page.evaluate(() => window.__long);
 }
 
 test("no main-thread long task over 200 ms during 15-letter searches", { skip }, async () => {
   await withBrowser(async (browser, base) => {
+    // Warm up first: the first page in a fresh browser can spend 200+ ms starting up on a slower
+    // machine before any search runs. That's browser start-up, not the search being measured.
+    const warm = await browser.newContext();
+    await (await warm.newPage()).goto(base + "/");
+    await warm.close();
     for (const u of HEAVY) {
       const ctx = await browser.newContext();
       const long = await longTasks(await ctx.newPage(), base + u);
