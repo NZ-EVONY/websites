@@ -48,7 +48,7 @@ export default ctx => {
     related: [
       { href: "/games/word/hints", label: "Today's hints (spoilers)" },
       { href: "/games", label: "All daily games" },
-      { href: "/wordle-solver", label: "Wordle Solver" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },
     ],
   };

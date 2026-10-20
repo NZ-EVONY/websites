@@ -125,7 +125,7 @@ test("sitemap index: its sitemaps list exactly the indexable canonical URLs, eac
   const index = readPublic("sitemap.xml");
   assert.match(index, /<sitemapindex /);
   const files = [...index.matchAll(/<loc>https:\/\/letterpile\.app\/([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.deepEqual(files, ["sitemap-pages.xml", "sitemap-words.xml"]);
+  assert.deepEqual(files, ["sitemap-pages.xml"]); // word pages are noindex, so no word sitemap
   const xml = files.map(readPublic).join("\n");
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
   assert.deepEqual(locs.slice().sort(), indexable.map(p => site.siteUrl + p.url).sort());
@@ -181,7 +181,15 @@ test("_headers: rule count, line length, CSP hash matches the inline script, cac
   const all = Object.fromEntries(rules.find(r => r.pattern === "/*").headers);
   const hash = createHash("sha256").update(HEAD_SCRIPT).digest("base64");
   assert.ok(all["Content-Security-Policy"].includes(`'sha256-${hash}'`));
-  assert.match(all["Content-Security-Policy"], /connect-src 'self' https:\/\/api\.dictionaryapi\.dev/);
+  const csp = all["Content-Security-Policy"];
+  assert.match(csp, /connect-src 'self' https:\/\/api\.dictionaryapi\.dev/);
+  // AdSense, Funding Choices (consent) and Cloudflare Web Analytics hosts are allowed.
+  for (const h of ["https://pagead2.googlesyndication.com", "https://adservice.google.com", "https://www.googletagservices.com", "https://fundingchoicesmessages.google.com", "https://static.cloudflareinsights.com"]) assert.match(csp.match(/script-src [^;]+/)[0], new RegExp(h.replace(/[./]/g, "\\$&")), `script-src ${h}`);
+  for (const h of ["https://googleads.g.doubleclick.net", "https://tpc.googlesyndication.com", "https://*.google.com"]) assert.ok(csp.match(/frame-src [^;]+/)[0].includes(h), `frame-src ${h}`);
+  assert.ok(csp.match(/connect-src [^;]+/)[0].includes("https://cloudflareinsights.com"));
+  assert.ok(csp.match(/img-src [^;]+/)[0].includes("https://*.googlesyndication.com"));
+  assert.doesNotMatch(csp, /'unsafe-eval'|script-src[^;]*'unsafe-inline'|\shttps:(\s|;|$)|\*\s/, "no blanket script/source wildcards");
+  assert.match(csp, /frame-ancestors 'none'/);
   for (const h of ["X-Content-Type-Options", "Referrer-Policy", "Permissions-Policy", "Strict-Transport-Security"]) assert.ok(all[h], h);
   for (const p of ["/assets/*", "/data/*", "/vendor/*"]) assert.equal(Object.fromEntries(rules.find(r => r.pattern === p).headers)["Cache-Control"], "public, max-age=31536000, immutable");
 });
@@ -243,10 +251,16 @@ test("no file or folder in public/ uses a reserved Windows name; renamed pages r
   const reserved = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])$/i;
   for (const f of publicFiles()) for (const seg of f.split("/")) assert.doesNotMatch(seg.replace(/\..*$/, ""), reserved, f);
   const lines = readPublic("_redirects").split("\n").filter(l => l.trim() && !l.startsWith("#"));
+  const RENAMED = { "/scrabble-word-finder": "/tile-word-finder" };
+  const SLASH = ["/:a/ /:a 301", "/:a/:b/ /:a/:b 301", "/:a/:b/:c/ /:a/:b/:c 301"];
+  for (const s of SLASH) assert.ok(lines.includes(s), `trailing-slash rule ${s}`);
+  for (const p of manifest().pages) assert.ok(p.path.split("/").length <= 4, `${p.path} is deeper than the trailing-slash rules cover`);
   for (const l of lines) {
+    if (SLASH.includes(l)) continue;
     const [from, to, status] = l.split(/\s+/);
     assert.equal(status, "301", l);
-    assert.ok(from.split("/").some(seg => reserved.test(seg)), `${from} needs no redirect`);
+    if (RENAMED[from]) { assert.equal(to, RENAMED[from]); assert.ok(!fs.existsSync(path.join(PUBLIC, from.slice(1) + ".html")), `${from} still built`); }
+    else assert.ok(from.split("/").some(seg => reserved.test(seg)), `${from} needs no redirect`);
     assert.ok(fs.existsSync(path.join(PUBLIC, to.slice(1) + ".html")), `${to} is not a built page`);
   }
   assert.ok(lines.some(l => l.startsWith("/words-starting-with/con ")), "the CON page redirect is missing");

@@ -8,7 +8,7 @@ const TOOL_BLURB = {
   "/": "Find every word hiding in your letters",
   "/word-scrambler": "Scramble words, sentences or paragraphs",
   "/word-combiner": "Blend two to four words into one",
-  "/scrabble-word-finder": "Playable words ranked by letter score",
+  "/tile-word-finder": "Playable words ranked by letter score",
   "/words-with-friends": "High-scoring plays for your tiles",
   "/wordle-solver": "Which five-letter words still fit",
   "/anagram-solver": "Single and two-word anagrams",

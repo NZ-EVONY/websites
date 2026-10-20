@@ -26,8 +26,12 @@ p{font-size:40px;color:#D3DBFF;margin:0 0 48px;max-width:960px}
 const { chromium } = await import("playwright-core");
 const browser = await chromium.launch({ executablePath: findChrome() });
 const tab = await browser.newPage({ viewport: { width: 1200, height: 630 } });
-const all = [...games, { key: "games", name: "Daily Games", icon: "★", color: "c-blue", blurb: "A word game, crossword, word search and sudoku. Free, new every day." }];
-for (const g of all) {
+const all = [...games, { key: "games", name: "Daily Games", icon: "★", color: "c-blue", blurb: "A word game, crossword, word search and sudoku. Free, new every day." },
+  // Site-wide default share image for pages without their own.
+  { key: "default", name: "Word Tools", icon: "W", color: "c-mint", blurb: "Unscramblers, solvers, word lists and daily puzzles. Free, in your browser." }];
+// Optional: node scripts/og-images.mjs default  (render only the named keys)
+const only = process.argv.slice(2);
+for (const g of all.filter(g => !only.length || only.includes(g.key))) {
   await tab.setContent(page(g));
   await tab.screenshot({ path: path.join(ROOT, "src/assets/og", `${g.key}.png`) });
   console.log(`src/assets/og/${g.key}.png`);

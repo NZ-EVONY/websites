@@ -1,7 +1,7 @@
 // Terms of Use. Good-faith template, not legal advice.
 export default ctx => ({
   key: "terms", path: "/terms", file: "terms.html", type: "trust",
-  title: "Terms of Use | Letterpile",
+  title: "Terms of Use for Letterpile's Free Word Tools",
   description: "The terms for using Letterpile, including disclaimers, trademark notices and limits of liability.",
   h1: "Terms of Use",
   prose: `<p>These terms apply to your use of Letterpile (<a href="/">letterpile.app</a>), a free website of word-game helper tools run by ${ctx.site.operatorName} in ${ctx.site.country}. By using the site you agree to them. If you don't agree, please don't use the site.</p>

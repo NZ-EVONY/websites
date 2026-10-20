@@ -146,7 +146,7 @@ test("scan tiles: a photo of a rack is read in the browser and checked before us
     await shot.setContent(`<body style="margin:0;background:#3b6e4a;display:flex;gap:14px;padding:40px">${[..."RETAINS"].map(c => `<div style="width:90px;height:90px;background:#f3dfb4;border-radius:8px;display:grid;place-items:center;font:800 60px Arial;color:#222;position:relative">${c}<sub style="position:absolute;right:8px;bottom:6px;font:700 18px Arial">1</sub></div>`).join("")}</body>`);
     const png = path.join(SHOTS, "scan-input.png");
     await shot.screenshot({ path: png });
-    const { ctx, page, errors } = await open(browser, base, "/scrabble-word-finder");
+    const { ctx, page, errors } = await open(browser, base, "/tile-word-finder");
     const [chooser] = await Promise.all([page.waitForEvent("filechooser"), page.click(".scan-btn")]);
     await chooser.setFiles(png);
     await page.waitForFunction(() => /Found|No letters|instead/.test(document.querySelector(".scan-status").textContent), null, { timeout: 90000 });

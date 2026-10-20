@@ -28,7 +28,7 @@ export default ctx => {
   return {
     key: "hub-guides", path: "/guides", file: "guides.html", type: "hub",
     title: "Word Game Guides and Word List Explainers | Letterpile",
-    description: "Plain-English guides to anagrams, two-letter words, letter values, rack balance, Wordle logic and how word lists work.",
+    description: "Plain-English guides to anagrams, two-letter words, letter values, rack balance, five-letter puzzle logic and how word lists work.",
     h1: "Guides",
     prose: `<p>These guides explain the ideas behind Letterpile's tools and the word games they help with. Each one is written for this site, uses examples checked against the word list the tools use, and links to the tools it discusses. Numbers in the guides, such as how many two-letter words there are, are counted from that list when the site is built, so they always match what the tools show. ${ctx.WORDLIST_NOTE}</p>
 <!--@slot after-intro-->
@@ -40,7 +40,7 @@ ${GROUPS.map(([name, paths]) => `<h2>${name}</h2>
 <p>Where a guide gives advice about play, it is offered as a rule of thumb, not a guarantee. Where it gives a fact about words, the fact comes from the ENABLE word list, not from any game's own dictionary. Letter values and bonuses are the commonly used ones, and games can differ. If you spot something wrong, please <a href="/contact">let us know</a>.</p>`,
     related: [
       { href: "/", label: "Word Unscrambler" },
-      { href: "/wordle-solver", label: "Wordle Solver" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
       { href: "/words-by-length", label: "Words by Length" },
       { href: "/sitemap", label: "Site map" },
     ],

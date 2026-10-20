@@ -54,14 +54,14 @@ ${info.map(i => `<h3>With ${i.l.toUpperCase()} <span class="count">${i.three.len
 </ul>
 <h2>Holding or playing: a simple test</h2>
 <p>When you have one of these letters and no strong play, ask two questions. First, is there a vowel-rich spot on the board where a short word with the letter could touch a bonus square next turn? If so, holding it for one turn can pay. Second, how many of your other tiles would you have to keep alongside it? If holding the letter means also keeping awkward tiles, the cost grows quickly, and a lower-scoring play that uses it now is often the better choice. These are rules of thumb; the board in front of you decides.</p>
-<p>The <a href="/scrabble-word-finder">tile game word finder</a> helps with the first question: add a board letter, and it shows only words that pass through it.</p>
+<p>The <a href="/tile-word-finder">tile game word finder</a> helps with the first question: add a board letter, and it shows only words that pass through it.</p>
 <h2>Values differ by game</h2>
 <p>The values above are the ones commonly used in Scrabble-style games. Words With Friends is commonly reported to value J at 10, Q at 10, X at 8 and Z at 10. See <a href="/guides/letter-values-and-tile-counts">Letter Values and Tile Counts</a> for both tables.</p>`,
     related: [
       { href: "/guides/words-with-q-without-u", label: "Words With Q and No U" },
       { href: "/guides/letter-values-and-tile-counts", label: "Letter Values and Tile Counts" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
     ],
   };
 };

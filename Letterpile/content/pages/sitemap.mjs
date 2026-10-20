@@ -9,7 +9,7 @@ export default ctx => {
   const lists = [["/words-by-length/", "Words by length"], ["/words-starting-with/", "Words starting with"], ["/words-ending-in/", "Words ending in"]];
   return {
     key: "sitemap", path: "/sitemap", file: "sitemap.html", type: "utility", showUpdated: false,
-    title: "Site Map | Letterpile",
+    title: "Site Map: Every Letterpile Tool, Game and Guide",
     description: "Every page on Letterpile: word tools, guides, word list pages and site information, in one place.",
     h1: "Site map",
     prose: `<p>Every page on Letterpile, grouped by section. The word list pages are long, so they are grouped by type; each group starts with its overview page.</p>

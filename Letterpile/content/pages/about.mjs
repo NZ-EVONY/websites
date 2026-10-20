@@ -1,7 +1,7 @@
 // About. Truthful only: no invented team, address, story or credentials.
 export default ctx => ({
   key: "about", path: "/about", file: "about.html", type: "trust",
-  title: "About Letterpile | Letterpile",
+  title: "About Letterpile: Who Runs It and How It Works",
   description: "What Letterpile is, how the tools work, which open word list powers them, credits, and how to report a problem.",
   h1: "About Letterpile",
   prose: `<p>Letterpile is a small, independent website of free word-game helper tools, run by ${ctx.site.operatorName} in ${ctx.site.country}. It has ${[...ctx.nav.main, ...ctx.nav.more].length} tools, from a word unscrambler and word finders for tile games to solvers for Wordle-style, honeycomb, letter-grid, letter-box, word-ladder, hangman and cryptogram puzzles, plus a rhyme finder and a syllable counter, and a set of daily puzzle games.</p>

@@ -83,7 +83,7 @@ ${Object.keys(byFirst).sort().map(l => `<h3>Starting with ${l.toUpperCase()} <sp
       { href: "/words-by-length/2-letter-words", label: "2-letter words (word list page)" },
       { href: "/guides/high-value-letters-j-q-x-z", label: "Using J, Q, X and Z" },
       { href: "/guides/hooks-prefixes-and-suffixes", label: "Hooks, Prefixes and Suffixes" },
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
     ],
   };
 };

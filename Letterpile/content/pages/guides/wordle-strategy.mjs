@@ -31,9 +31,9 @@ export default ctx => {
   return {
     key: "guide-wordle", path: "/guides/wordle-strategy", file: "guides/wordle-strategy.html", type: "guide",
     published: "2026-10-01",
-    title: "Wordle Strategy and Letter Logic | Letterpile",
+    title: "Five-Letter Puzzle Strategy and Letter Logic | Letterpile",
     description: "Practical ways to narrow a five-letter puzzle: letter frequency in a real word list, opening patterns and common traps.",
-    h1: "Wordle Strategy and Letter Logic",
+    h1: "Five-Letter Puzzle Strategy and Letter Logic",
     prose: `<p class="summary">Daily five-letter puzzles reward a simple habit: use each guess to learn as much as possible, then use what you learned. This guide shows which letters are most common in five-letter words, how the colors work with repeated letters, and a worked example of a puzzle narrowing down. The numbers come from the ${fmt(five.length)} five-letter words in the open ENABLE list that Letterpile uses, not from the game's own answer list, which is smaller and mostly made of everyday words.</p>
 <!--@slot after-intro-->
 <h2>Which letters are most common</h2>
@@ -79,7 +79,7 @@ ${posTop.map((t, i) => `<tr><td>${i + 1}</td><td>${t.map(([c, n]) => `${c.toUppe
 <h2>About this list and the game</h2>
 <p>Wordle™ is a trademark of The New York Times Company; Letterpile is not affiliated with it. The game uses its own word lists, which are not the ENABLE list. The solver on this site can suggest words the game will never use as answers, and it may miss words the game accepts as guesses. ${ctx.WORDLIST_NOTE}</p>`,
     related: [
-      { href: "/wordle-solver", label: "Wordle Solver" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
       { href: "/guides/solve-daily-word-puzzles", label: "Solving Daily Word Puzzles" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },
       { href: "/crossword-solver", label: "Crossword Solver (pattern search)" },

@@ -12,11 +12,15 @@ const baseline = readJson("tests/baseline/live-urls.json");
 // Old element IDs that the build now renders differently (header/menu are static
 // HTML, the More menu is a <details>, definition popup is restructured).
 const MOVED_IDS = { defineBody: "defineResult" };
+// Live URLs deliberately renamed (approved by the owner, 2026-10-20): old path -> new path.
+// The old path must 301 to the new one; the page itself is checked at its new path.
+const RENAMED = { "/scrabble-word-finder": "/tile-word-finder" };
+const now = p => RENAMED[p] || p;
 
 test("the ten live URLs exist in public/ as clean-URL pages with title, h1 and description", () => {
   assert.equal(baseline.pages.length, 10);
   for (const p of baseline.pages) {
-    const file = p.path === "/" ? "index.html" : p.path.slice(1) + ".html";
+    const file = p.path === "/" ? "index.html" : now(p.path).slice(1) + ".html";
     assert.ok(fs.existsSync(path.join(PUBLIC, file)), `${p.path} -> ${file}`);
     const html = readPublic(file);
     assert.match(html, /<title>[^<]+<\/title>/);
@@ -35,7 +39,11 @@ test("no live URL became a redirect, and nothing that shouldn't be public is", (
   const redirFile = path.join(PUBLIC, "_redirects");
   if (fs.existsSync(redirFile)) {
     const froms = fs.readFileSync(redirFile, "utf8").split("\n").filter(l => l.trim() && !l.startsWith("#")).map(l => l.split(/\s+/)[0]);
-    for (const p of baseline.pages) assert.ok(!froms.includes(p.path), `${p.path} is redirected`);
+    const lines = fs.readFileSync(redirFile, "utf8").split("\n").filter(l => l.trim() && !l.startsWith("#")).map(l => l.split(/\s+/));
+    for (const p of baseline.pages) {
+      if (RENAMED[p.path]) assert.ok(lines.some(([a, b, c]) => a === p.path && b === RENAMED[p.path] && c === "301"), `${p.path} must 301 to ${RENAMED[p.path]}`);
+      else assert.ok(!froms.includes(p.path), `${p.path} is redirected`);
+    }
   }
   for (const f of publicFiles()) assert.doesNotMatch(f, /(^|\/)(\.git|\.backup|\.wrangler|node_modules|docs|tests|scripts)(\/|$)|\.md$|enable1\.txt$|wrangler\.jsonc$|\.dev\.vars$/);
 });
@@ -54,7 +62,7 @@ test("old deep links still prefill and run (Chromium)", { skip: chrome ? false :
     const cases = [
       ["/?letters=tacre", "#letters", "tacre", /words from TACRE/],
       ["/?letters=retinas&starts=s&len=7", "#starts", "s", /words from RETINAS/],
-      ["/scrabble-word-finder?rack=retains&board=e", "#rack", "retains", /words/],
+      ["/tile-word-finder?rack=retains&board=e", "#rack", "retains", /words/],
       ["/words-with-friends?rack=qat%3F", "#rack", "qat?", /words/],
       ["/anagram-solver?q=listen", "#q", "listen", /SILENT/],
       ["/jumble-solver?w=elbat,odrw&final=tsaeb", "#final", "tsaeb", /TABLE/],

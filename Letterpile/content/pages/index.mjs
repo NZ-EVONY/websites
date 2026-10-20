@@ -94,7 +94,7 @@ export default ctx => {
     ],
     related: [
       { href: "/anagram-solver", label: "Anagram Solver", note: "every-letter rearrangements, including two-word ones" },
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder", note: "plays ranked by letter score" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder", note: "plays ranked by letter score" },
       { href: "/guides/how-word-unscramblers-work", label: "How Word Unscramblers Work" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
     ],

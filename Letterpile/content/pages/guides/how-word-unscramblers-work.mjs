@@ -44,7 +44,7 @@ ${listenFamily.map(w => `<tr><td>${code(w)}</td><td>${code(sig(w))}</td></tr>`).
 <h2>What an unscrambler can't tell you</h2>
 <ul>
 <li><b>Whether your game accepts a word.</b> The tool only knows its own list. ${ctx.WORDLIST_NOTE}</li>
-<li><b>Which word is best on a board.</b> Bonus squares, crossing words and what you keep on your rack matter as much as the word itself. The <a href="/scrabble-word-finder">tile game word finder</a> adds letter scores and board letters, but not bonus squares.</li>
+<li><b>Which word is best on a board.</b> Bonus squares, crossing words and what you keep on your rack matter as much as the word itself. The <a href="/tile-word-finder">tile game word finder</a> adds letter scores and board letters, but not bonus squares.</li>
 <li><b>Meanings.</b> A list of words is not a dictionary. Letterpile can look up a definition when you ask, from a separate service.</li>
 </ul>
 <h2>Summary</h2>

@@ -165,7 +165,7 @@ ${wordsHtml}
   const desc = clip(`All ${n0(s.count)} ${stripTags(what)} in the open ENABLE word list${isOverview ? ", split into smaller lists" : ""}, with the longest, top-scoring and pattern facts.`, 155);
   return {
     key: `wl-${fam}-${K}`, path: node.path, file: node.path.slice(1) + ".html", type: node.curated ? "affix" : "programmatic", template: !node.curated,
-    title: `${titleBase} | Letterpile`, description: desc, h1, prose, kind: fam,
+    title: `${titleBase} | Letterpile`.length < 30 ? `${titleBase}: Full Word List and Facts | Letterpile` : `${titleBase} | Letterpile`, description: desc, h1, prose, kind: fam,
     crumbs: crumbsFor(node, tree),
     wordsListed: isOverview ? [...node.folded] : [...node.words],
   };

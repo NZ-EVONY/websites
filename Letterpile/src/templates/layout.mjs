@@ -137,7 +137,7 @@ ${page.noindex ? `<meta name="robots" content="noindex, follow">\n` : ""}<meta p
 <meta property="og:title" content="${esc(page.title)}">
 <meta property="og:description" content="${esc(page.description)}">
 <meta property="og:url" content="${canonical}">
-${page.og ? `<meta property="og:image" content="${site.siteUrl}/og/${page.og}.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="${esc(page.h1)} on Letterpile">\n` : ""}<meta name="twitter:card" content="${page.og ? "summary_large_image" : "summary"}">
+<meta property="og:image" content="${site.siteUrl}/og/${page.og || "default"}.png">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n<meta property="og:image:alt" content="${esc(page.h1)} on Letterpile">\n<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="${site.themeColorDark}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.webmanifest">

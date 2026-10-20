@@ -9,9 +9,9 @@ export default ctx => {
   ctx.assertWords([h, "jab", "lull"]);
   return {
     key: "wwf", path: "/words-with-friends", file: "words-with-friends.html", type: "tool", script: "finder", scan: "#rack", scheme: "wwf",
-    title: "Words With Friends Finder: High-Scoring Plays | Letterpile",
-    description: "Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.",
-    h1: "Words With Friends Word Finder",
+    title: "Alternate Values Word Finder: Top Plays | Letterpile",
+    description: "Find high-scoring plays for your tiles using an alternate set of commonly used letter values and the all-tiles bonus.",
+    h1: "Alternate Tile Values Word Finder",
     lede: "The same idea as the tile game word finder, scored with commonly used Words With Friends letter values and a 35-point bonus for playing all seven tiles.",
     tool: ctx.finderForm(),
     prose: `<p>Words With Friends looks like other crossword-style tile games, but it prices several letters differently, so the best-scoring word for a rack can change. This finder lists every word your tiles can make from Letterpile's word list and ranks them with the letter values commonly reported for Words With Friends, plus a 35-point bonus for using all seven tiles. Add board letters to build through them. Scores are base values only; the board's bonus squares are up to you.</p>
@@ -40,7 +40,7 @@ ${ctx.valueDiffTable()}
 </ul>
 <h2>Common mistakes</h2>
 <ul>
-<li><b>Using the other finder by habit.</b> The <a href="/scrabble-word-finder">tile game word finder</a> ranks with different values; pick the one that matches your game.</li>
+<li><b>Using the other finder by habit.</b> The <a href="/tile-word-finder">tile game word finder</a> ranks with different values; pick the one that matches your game.</li>
 <li><b>Ignoring the board.</b> Premium squares can be worth far more than the difference between two words in this list.</li>
 </ul>
 <h2>Limits and accuracy</h2>
@@ -56,7 +56,7 @@ ${ctx.valueDiffTable()}
       { q: "Can I search for words that use a letter on the board?", a: "Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown." },
     ],
     related: [
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
       { href: "/guides/letter-values-and-tile-counts", label: "Letter Values and Tile Counts" },
       { href: "/guides/rack-balance", label: "Rack Balance Explained" },
       { href: "/guides/hooks-prefixes-and-suffixes", label: "Hooks, Prefixes and Suffixes" },

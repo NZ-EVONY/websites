@@ -26,14 +26,14 @@
   ],
   "more": [
     {
-      "href": "/scrabble-word-finder",
+      "href": "/tile-word-finder",
       "label": "Tile Game Word Finder",
       "key": "scrabble",
       "icon": "Q"
     },
     {
       "href": "/words-with-friends",
-      "label": "Words With Friends Finder",
+      "label": "Alternate Values Finder",
       "key": "wwf",
       "icon": "W"
     },
@@ -45,7 +45,7 @@
     },
     {
       "href": "/wordle-solver",
-      "label": "Wordle Solver",
+      "label": "Five-Letter Solver",
       "key": "wordle",
       "icon": "5"
     },
@@ -69,7 +69,7 @@
     },
     {
       "href": "/text-twist-solver",
-      "label": "Text Twist & Wordscapes",
+      "label": "Letter Wheel Solver",
       "key": "twist",
       "icon": "T"
     },

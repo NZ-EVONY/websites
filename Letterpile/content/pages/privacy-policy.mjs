@@ -2,7 +2,7 @@
 // Good-faith template, not legal advice (see README). TODO-BEE markers are listed in docs/BEE-TODO.md.
 export default ctx => ({
   key: "privacy", path: "/privacy-policy", file: "privacy-policy.html", type: "trust",
-  title: "Privacy Policy | Letterpile",
+  title: "Privacy Policy: Cookies, Ads and Your Data | Letterpile",
   description: "How Letterpile handles data, cookies and advertising, and your choices under GDPR, UK GDPR and US state privacy laws.",
   h1: "Privacy Policy",
   prose: `<p>This policy explains what happens to information when you use Letterpile (<a href="/">letterpile.app</a>). The short version: the word tools run in your browser, the site has no accounts, no database and no server code of its own, and it does not sell your data.</p>

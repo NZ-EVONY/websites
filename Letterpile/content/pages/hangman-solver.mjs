@@ -57,7 +57,7 @@ export default ctx => {
     ],
     related: [
       { href: "/crossword-solver", label: "Crossword Solver" },
-      { href: "/wordle-solver", label: "Wordle Solver" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
       { href: "/cryptogram-solver", label: "Cryptogram Solver" },
       { href: "/words-by-length", label: "Words by length" },
     ],

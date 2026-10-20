@@ -66,7 +66,7 @@ ${show}
     ],
     related: [
       { href: "/letter-hive-solver", label: "Letter Hive Solver" },
-      { href: "/text-twist-solver", label: "Text Twist & Wordscapes Solver" },
+      { href: "/text-twist-solver", label: "Letter Wheel Solver" },
       { href: "/games/letterpile", label: "Play Letterpile, our daily grid game" },
       { href: "/anagram-solver", label: "Anagram Solver" },
     ],

@@ -62,9 +62,9 @@ ${Object.keys(dist).map(Number).sort((a, b) => a - b).map(v => `<tr><td>${v}</td
 <h2>A quick checklist before you play</h2>
 <p>Before committing to a word, run through three questions: how many vowels will I keep, will I keep two of the same letter, and am I giving away an S or a blank for only a few points? If two of the answers are bad, look for an alternative play that scores slightly less but leaves a better rack.</p>
 <h2>Where tools help, and where they don't</h2>
-<p>A word finder shows what you can play now, ranked by letter score. It doesn't know the board's bonus squares or how good your leave will be. Use the <a href="/scrabble-word-finder">tile game word finder</a> to see your options, then use the ideas here to choose between them. And as always: ${ctx.WORDLIST_NOTE.charAt(0).toLowerCase() + ctx.WORDLIST_NOTE.slice(1)}</p>`,
+<p>A word finder shows what you can play now, ranked by letter score. It doesn't know the board's bonus squares or how good your leave will be. Use the <a href="/tile-word-finder">tile game word finder</a> to see your options, then use the ideas here to choose between them. And as always: ${ctx.WORDLIST_NOTE.charAt(0).toLowerCase() + ctx.WORDLIST_NOTE.slice(1)}</p>`,
     related: [
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
       { href: "/guides/letter-values-and-tile-counts", label: "Letter Values and Tile Counts" },
       { href: "/guides/words-with-q-without-u", label: "Words With Q and No U" },
       { href: "/words-by-length/7-letter-words", label: "7-letter words" },

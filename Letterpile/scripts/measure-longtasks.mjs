@@ -13,7 +13,7 @@ export async function measure({ slowdown = 1, runs = 3 } = {}) {
     ["Unscrambler, 15 letters + 2 blanks", "/?letters=retainsdolphicm%3F%3F"],
     ["Unscrambler, 15 letters + 3 blanks", "/?letters=retainsdolphicm%3F%3F%3F"],
     ["Anagram, 15 letters with two-word phrases", "/anagram-solver?q=retainsdolphicm"],
-    ["Rack finder, 7 + 2 blanks with board letters", "/scrabble-word-finder?rack=retain%3F%3F&board=ing"],
+    ["Rack finder, 7 + 2 blanks with board letters", "/tile-word-finder?rack=retain%3F%3F&board=ing"],
     ["Crossword, 7 open squares", "/crossword-solver?p=%3F%3F%3F%3F%3F%3F%3F"],
   ];
   const out = [];

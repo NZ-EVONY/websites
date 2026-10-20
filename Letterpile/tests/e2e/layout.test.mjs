@@ -19,7 +19,7 @@ test("CLS stays at or below 0.02 on load and after a search (360px and 1280px, a
     const bad = [];
     for (const width of [360, 1280]) {
       const ctx = await browser.newContext({ viewport: { width, height: 800 } });
-      for (const u of ["/", "/wordle-solver", "/guides/two-letter-words", "/words-ending-in/ness", "/about", "/?letters=listen", "/scrabble-word-finder?rack=retains"]) {
+      for (const u of ["/", "/wordle-solver", "/guides/two-letter-words", "/words-ending-in/ness", "/about", "/?letters=listen", "/tile-word-finder?rack=retains"]) {
         const page = await ctx.newPage();
         await page.addInitScript(clsInit);
         await page.goto(base + u, { waitUntil: "load" });

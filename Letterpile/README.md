@@ -11,7 +11,7 @@ Letterpile (https://letterpile.app) is a static word-tools site: word tools, dai
 | Word Unscrambler | `/` | Every word in your letters, grouped by length. `?` blanks; starts-with, ends-with, contains, length and use-every-letter filters |
 | Word Scrambler | `/word-scrambler` | Scrambles text five ways, with up to 10 versions at once, plus an unscramble challenge game with hints and a streak counter |
 | Word Combiner | `/word-combiner` | Blends 2–4 words into portmanteaus (breakfast + lunch → brunch), with blends that are real words listed first |
-| Tile Game Word Finder | `/scrabble-word-finder` | Plays for your rack ranked by commonly used tile values: blanks score 0, all-tiles bonus, board letters to build through |
+| Tile Game Word Finder | `/tile-word-finder` | Plays for your rack ranked by commonly used tile values: blanks score 0, all-tiles bonus, board letters to build through |
 | More ▸ Words With Friends Finder | `/words-with-friends` | The same finder with commonly used Words With Friends values and its all-tiles bonus |
 | More ▸ Wordle Solver | `/wordle-solver` | Tap tiles to set colors; handles repeated letters correctly, ranks the next guess, supports 4–8 letter variants |
 | More ▸ Anagram Solver | `/anagram-solver` | Single-word and two-word anagrams (dormitory → dirty room) |

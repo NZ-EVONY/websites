@@ -10,7 +10,7 @@ const dir = process.argv[2] || "public";
 const out = path.join("reports", "screens");
 fs.mkdirSync(out, { recursive: true });
 const PAGES = [
-  ["home", "/"], ["unscramble-results", "/?letters=listen"], ["wordle", "/wordle-solver"], ["finder-results", "/scrabble-word-finder?rack=retains"],
+  ["home", "/"], ["unscramble-results", "/?letters=listen"], ["wordle", "/wordle-solver"], ["finder-results", "/tile-word-finder?rack=retains"],
   ["guide-two-letter", "/guides/two-letter-words"], ["hub-length", "/words-by-length"], ["list-5", "/words-by-length/5-letter-words"],
   ["affix-ness", "/words-ending-in/ness"], ["privacy", "/privacy-policy"], ["404", "/xyz"],
 ];

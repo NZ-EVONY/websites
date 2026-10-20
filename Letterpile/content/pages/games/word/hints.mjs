@@ -22,7 +22,7 @@ export default () => ({
   ],
   related: [
     { href: "/games/word", label: "Daily Word" },
-    { href: "/wordle-solver", label: "Wordle Solver" },
+    { href: "/wordle-solver", label: "Five-Letter Solver" },
     { href: "/games", label: "All daily games" },
   ],
 });

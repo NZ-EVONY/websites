@@ -76,8 +76,8 @@ export default ctx => {
       { q: "Can it read my rack from a photo?", a: "Yes. Press “Scan tiles” and take or choose a photo. The letters are read on your device and shown for you to check before they're used." },
     ],
     related: [
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
-      { href: "/words-with-friends", label: "Words With Friends Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
+      { href: "/words-with-friends", label: "Alternate Values Finder" },
       { href: "/guides/letter-values-and-tile-counts", label: "Letter Values and Tile Counts" },
       { href: "/guides/hooks-prefixes-and-suffixes", label: "Hooks, Prefixes and Suffixes" },
     ],

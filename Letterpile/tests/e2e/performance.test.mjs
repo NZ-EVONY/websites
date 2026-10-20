@@ -4,7 +4,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { withBrowser, skip } from "./helpers-browser.mjs";
 
-const HEAVY = ["/?letters=retainsdolphicm%3F%3F%3F", "/anagram-solver?q=retainsdolphicm", "/scrabble-word-finder?rack=retain%3F%3F&board=ing"];
+const HEAVY = ["/?letters=retainsdolphicm%3F%3F%3F", "/anagram-solver?q=retainsdolphicm", "/tile-word-finder?rack=retain%3F%3F&board=ing"];
 
 async function longTasks(page, url) {
   await page.addInitScript(() => {

@@ -31,7 +31,7 @@ export default ctx => {
     prose: `<p class="summary">English tile games usually give common letters low points and rare letters high points, and they include more tiles of the common letters. This guide sets out the values and the 100-tile set most commonly used in Scrabble-style games, compares them with how often each letter actually appears in a word list, and explains what that means when you choose a play. Games differ, so check the rules and the tile set of the game you play.</p>
 <!--@slot after-intro-->
 <h2>Commonly used letter values</h2>
-<p>These are the values Letterpile's <a href="/scrabble-word-finder">tile game word finder</a> uses. They are widely used in English crossword-style tile games, but they are not universal.</p>
+<p>These are the values Letterpile's <a href="/tile-word-finder">tile game word finder</a> uses. They are widely used in English crossword-style tile games, but they are not universal.</p>
 <table>
 <tr><th>Points</th><th>Letters</th></tr>
 ${Object.keys(byValue).map(Number).sort((a, b) => a - b).map(v => `<tr><td>${v}</td><td>${byValue[v].join(", ")}</td></tr>`).join("")}
@@ -63,8 +63,8 @@ ${letters.map(l => `<tr><td>${l.toUpperCase()}</td><td>${dist.tiles[l]}</td><td>
 <h2>A note on bonuses</h2>
 <p>Many tile games give an extra bonus for using all seven tiles in one turn. It is commonly reported as 50 points in Scrabble-style games and 35 in Words With Friends. Letterpile adds those amounts in its finders, but you should check the rules of your own game.</p>`,
     related: [
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
-      { href: "/words-with-friends", label: "Words With Friends Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
+      { href: "/words-with-friends", label: "Alternate Values Finder" },
       { href: "/guides/high-value-letters-j-q-x-z", label: "Using J, Q, X and Z" },
       { href: "/guides/rack-balance", label: "Rack Balance Explained" },
     ],

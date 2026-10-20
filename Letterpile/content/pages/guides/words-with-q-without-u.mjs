@@ -53,7 +53,7 @@ ${strays.map(w => `<tr><td>${code(w)}</td><td>–</td><td>${GLOSS[w] || "see a d
 <li><b>Learn the short ones first.</b> Three- and four-letter Q words without a U are the most likely to fit on a board. Check that your game's dictionary has them before relying on them.</li>
 <li><b>Plurals add options.</b> Several of these words have S forms in the list, so a Q word can sometimes be extended later.</li>
 <li><b>Don't hold Q forever.</b> Q is worth many points in most tile games, but a Q you can't play costs you turns. If none of these words fits and you have no U, swapping it may be the better choice.</li>
-<li><b>Look for a U on the board.</b> Many more words open up if there is a U in a usable spot. The <a href="/scrabble-word-finder">tile game word finder</a> lets you add board letters to your rack search.</li>
+<li><b>Look for a U on the board.</b> Many more words open up if there is a U in a usable spot. The <a href="/tile-word-finder">tile game word finder</a> lets you add board letters to your rack search.</li>
 </ul>
 <h2>How to remember them</h2>
 <p>A short list like this is easiest to learn by grouping. Start with the base words, ignoring plurals: there are only ${fmt(groups.length)} of them. Then sort them by where they come from or what they name: currencies (${code("qindar")}, ${code("qintar")}, ${code("sheqel")}), people and titles (${code("qaid")}, ${code("faqir")}), things and places (${code("qanat")}, ${code("qat")}), a letter (${code("qoph")}), and two modern words (${code("qwerty")}, ${code("tranq")}). Once the bases are familiar, the plural forms follow, and the table above shows which plurals the list accepts.</p>
@@ -64,7 +64,7 @@ ${strays.map(w => `<tr><td>${code(w)}</td><td>–</td><td>${GLOSS[w] || "see a d
       { href: "/guides/high-value-letters-j-q-x-z", label: "Using J, Q, X and Z" },
       { href: "/words-starting-with/q", label: "Words starting with Q" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
     ],
   };
 };

@@ -27,6 +27,6 @@ ${groups.map(g => `<h2>Five-letter words with ${g.C} <span class="count">${fmt(g
       { q: "Can a word appear in more than one group?", a: "Yes. Any word containing two of the pairs, like CHEEK, is listed under both." },
       { q: "Where are the other five-letter words?", a: "The full list is on the 5-letter words page, linked below." },
     ],
-    related: [{ href: "/words-by-length/5-letter-words", label: "All 5-letter words" }, { href: "/wordle-solver", label: "Wordle Solver" }, { href: "/multi-board-solver", label: "Multi-Board Word Solver" }, { href: "/guides/wordle-strategy", label: "Wordle strategy" }],
+    related: [{ href: "/words-by-length/5-letter-words", label: "All 5-letter words" }, { href: "/wordle-solver", label: "Five-Letter Solver" }, { href: "/multi-board-solver", label: "Multi-Board Word Solver" }, { href: "/guides/wordle-strategy", label: "Wordle strategy" }],
   };
 };

@@ -72,7 +72,7 @@ test("generated pages: no FAQPage schema, breadcrumb present", () => {
 });
 
 const coverage = JSON.parse(fs.readFileSync(path.join(ROOT, "reports/coverage.json"), "utf8"));
-test("coverage: every visible word is listed on at least one indexable page", () => {
+test("coverage: every visible word is listed on at least one list page (indexed or not)", () => {
   const seen = new Set();
   for (const p of coverage.pages) for (const w of p.words) seen.add(w);
   const missing = visible.filter(w => !seen.has(w));

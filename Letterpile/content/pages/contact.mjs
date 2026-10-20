@@ -1,7 +1,7 @@
 // Contact. No form (avoids collecting personal data); email only.
 export default ctx => ({
   key: "contact", path: "/contact", file: "contact.html", type: "trust",
-  title: "Contact Letterpile",
+  title: "Contact Letterpile: Questions, Feedback and Corrections",
   description: "How to contact the person who runs Letterpile for corrections, questions or privacy requests.",
   h1: "Contact",
   prose: `<p>Letterpile is run by ${ctx.site.operatorName} in ${ctx.site.country}. The best way to get in touch is by email:</p>

@@ -84,7 +84,7 @@ ${suffixes.map(a => affixRow(a, "ends")).join("")}
       { href: "/words-starting-with", label: "Words Starting With" },
       { href: "/words-ending-in", label: "Words Ending In" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
-      { href: "/scrabble-word-finder", label: "Tile Game Word Finder" },
+      { href: "/tile-word-finder", label: "Tile Game Word Finder" },
     ],
   };
 };

@@ -1,4 +1,4 @@
-// Tile game word finder (/scrabble-word-finder). Live URL kept; "Scrabble" removed from
+// Tile game word finder (/tile-word-finder). Live URL kept; "Scrabble" removed from
 // the title, H1 and description (docs/DECISIONS.md). Copy reused, corrected and expanded.
 export default ctx => {
   const { code, fmt, Engine } = ctx;
@@ -12,7 +12,7 @@ export default ctx => {
   const board = Engine.findPlays("rtnae", { scheme: "scrabble", board: "ing" }).slice(0, 3);
   const blankRack = Engine.findPlays("quiz?", { scheme: "scrabble" }).slice(0, 3);
   return {
-    key: "scrabble", path: "/scrabble-word-finder", file: "scrabble-word-finder.html", type: "tool", script: "finder", scan: "#rack", scheme: "scrabble",
+    key: "scrabble", path: "/tile-word-finder", file: "tile-word-finder.html", type: "tool", script: "finder", scan: "#rack", scheme: "scrabble",
     appName: "Word Finder for Tile Games",
     title: "Tile Game Word Finder: Best Plays for Your Rack | Letterpile",
     description: "Enter your rack and board letters to see playable words ranked by letter score, with blank tiles and all-tiles bonuses.",
@@ -65,7 +65,7 @@ export default ctx => {
       { q: "Is this site connected to the makers of Scrabble?", a: "No. Letterpile is independent and is not affiliated with, endorsed by or sponsored by Hasbro, Mattel or any game publisher." },
     ],
     related: [
-      { href: "/words-with-friends", label: "Words With Friends Finder" },
+      { href: "/words-with-friends", label: "Alternate Values Finder" },
       { href: "/guides/letter-values-and-tile-counts", label: "Letter Values and Tile Counts" },
       { href: "/guides/two-letter-words", label: "Two-Letter Words" },
       { href: "/guides/high-value-letters-j-q-x-z", label: "Using J, Q, X and Z" },

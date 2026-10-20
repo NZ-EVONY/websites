@@ -66,8 +66,8 @@ export default ctx => {
       { q: "Does it know the answers?", a: "No. It has no connection to any game; it only lists words that fit the colors you enter." },
     ],
     related: [
-      { href: "/wordle-solver", label: "Wordle Solver" },
-      { href: "/guides/wordle-strategy", label: "Wordle Strategy and Letter Logic" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
+      { href: "/guides/wordle-strategy", label: "Five-Letter Puzzle Strategy" },
       { href: "/games/word", label: "Daily Word" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },
     ],

@@ -18,9 +18,9 @@ export default ctx => {
   const start = Engine.wordleCandidates([]).slice(0, 5).map(x => x.word);
   return {
     key: "wordle", path: "/wordle-solver", file: "wordle-solver.html", type: "tool", script: "wordle",
-    title: "Wordle Solver: Words That Fit Your Guesses | Letterpile",
+    title: "Five-Letter Word Solver: Fit Your Guesses | Letterpile",
     description: "Enter your guesses and colors to see which five-letter words still fit, plus a suggested next guess. No spoilers.",
-    h1: "Wordle Solver",
+    h1: "Five-Letter Word Solver",
     lede: "Type each guess, then tap its tiles until the colors match your game. The list of possible words updates as you go.",
     tool: `<form class="row end" id="addForm" autocomplete="off" data-warm>
           <label class="field grow"><span>Add a guess</span><input class="big-input" id="guess" type="text" maxlength="8" placeholder="e.g. CRANE"></label>
@@ -75,7 +75,7 @@ export default ctx => {
       { q: "Can I use it for 6-letter or 4-letter puzzles?", a: "Yes. Choose the word length before adding guesses. Lengths from 4 to 8 are supported." },
     ],
     related: [
-      { href: "/guides/wordle-strategy", label: "Wordle Strategy and Letter Logic" },
+      { href: "/guides/wordle-strategy", label: "Five-Letter Puzzle Strategy" },
       { href: "/guides/solve-daily-word-puzzles", label: "Solving Daily Word Puzzles" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },
       { href: "/crossword-solver", label: "Crossword Solver" },

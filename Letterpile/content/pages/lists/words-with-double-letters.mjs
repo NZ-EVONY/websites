@@ -29,6 +29,6 @@ ${groups.map(([m, ws]) => `<h2>Double ${m.toUpperCase()} <span class="count">${f
       { q: "Do any words triple a letter?", a: triple.length ? `A few: ${triple.slice(0, 5).map(w => w.toUpperCase()).join(", ")}.` : "None in our list." },
       { q: "How do double letters affect daily puzzles?", a: "A gray tile on a repeated letter only rules out extra copies. If you're stuck, try a guess that repeats a likely letter." },
     ],
-    related: [{ href: "/lists/five-letter-word-patterns", label: "Five-letter words by letter pair" }, { href: "/wordle-solver", label: "Wordle Solver" }, { href: "/guides/wordle-strategy", label: "Wordle strategy" }, { href: "/words-by-length", label: "Words by length" }],
+    related: [{ href: "/lists/five-letter-word-patterns", label: "Five-letter words by letter pair" }, { href: "/wordle-solver", label: "Five-Letter Solver" }, { href: "/guides/wordle-strategy", label: "Wordle strategy" }, { href: "/words-by-length", label: "Words by length" }],
   };
 };

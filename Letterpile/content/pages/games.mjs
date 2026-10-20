@@ -22,7 +22,7 @@ ${gameCards({ built, heading: "h2" })}
 <p>Every puzzle is made ahead of time and checked before it goes on the site: each sudoku is confirmed to have exactly one solution, every word in the word search appears exactly once, and every crossword entry crosses another word. The day changes at midnight UTC for everyone, wherever you are, so friends in different time zones play the same puzzles. That is around midday in New Zealand, and the afternoon or evening before in the Americas. If you leave a game open across midnight UTC, a banner tells you new puzzles are ready.</p>
 <p>Nothing you type is sent anywhere. Your progress, times and Daily Word statistics stay in this browser's local storage; clearing your browsing data resets them. The <a href="/privacy-policy">Privacy Policy</a> lists exactly what is stored.</p>`,
     related: [
-      { href: "/wordle-solver", label: "Wordle Solver" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
       { href: "/crossword-solver", label: "Crossword Solver" },
       { href: "/guides/solve-daily-word-puzzles", label: "Solving Daily Word Puzzles" },
     ],

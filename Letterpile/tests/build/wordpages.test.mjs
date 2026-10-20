@@ -2,7 +2,7 @@
 // independently of the build's code, and the page set stays within the plan.
 import test from "node:test";
 import assert from "node:assert/strict";
-import { manifest, readPublic, enableWords } from "../helpers.mjs";
+import { manifest, readPublic, enableWords, publicFiles } from "../helpers.mjs";
 
 const m = manifest();
 const wordPages = m.pages.filter(p => p.type === "word");
@@ -12,14 +12,16 @@ const visible = enableWords().filter(w => !hidden.has(w));
 const set = new Set(visible);
 const key = w => [...w].sort().join("");
 
-test("word pages: about 3,000 common words, none hidden, all in the sitemap index", () => {
+test("word pages: about 3,000 common words, none hidden, noindex and out of the sitemap", () => {
   assert.ok(wordPages.length >= 2900 && wordPages.length <= 3200, `${wordPages.length} word pages`);
   for (const p of wordPages) {
     const w = p.path.slice("/word/".length);
     assert.ok(set.has(w), `${w} is visible`);
     assert.ok(w.length >= 3 && w.length <= 8);
   }
-  assert.match(readPublic("sitemap-words.xml"), /<loc>https:\/\/letterpile\.app\/word\/planet<\/loc>/);
+  assert.ok(!publicFiles().includes("sitemap-words.xml"), "no word sitemap");
+  assert.doesNotMatch(readPublic("sitemap-pages.xml"), /letterpile\.app\/word\//);
+  assert.match(readPublic("word/planet.html"), /<meta name="robots" content="noindex, follow">/);
   assert.ok(m.pages.length <= 5000);
 });
 

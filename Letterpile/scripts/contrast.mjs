@@ -9,7 +9,7 @@ import { createServer } from "./serve.mjs";
 import { findChrome } from "./chrome.mjs";
 
 const dir = process.argv[2] || "public";
-const URLS = ["/", "/?letters=tacre%3F", "/scrabble-word-finder?rack=retains", "/wordle-solver", "/anagram-solver",
+const URLS = ["/", "/?letters=tacre%3F", "/tile-word-finder?rack=retains", "/wordle-solver", "/anagram-solver",
   "/guides/two-letter-words", "/words-by-length", "/words-by-length/5-letter-words", "/words-ending-in/ness", "/contact", "/xyz"];
 const server = createServer(dir).listen(0);
 const base = `http://localhost:${server.address().port}`;

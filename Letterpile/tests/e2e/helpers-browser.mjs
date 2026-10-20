@@ -16,7 +16,7 @@ export async function withBrowser(fn, { root = PUBLIC } = {}) {
 
 // Pages that cover every template.
 export const TEMPLATE_PAGES = [
-  "/", "/word-scrambler", "/word-combiner", "/scrabble-word-finder", "/words-with-friends", "/wordle-solver",
+  "/", "/word-scrambler", "/word-combiner", "/tile-word-finder", "/words-with-friends", "/wordle-solver",
   "/anagram-solver", "/jumble-solver", "/crossword-solver", "/text-twist-solver",
   "/guides", "/guides/two-letter-words", "/guides/wordle-strategy",
   "/words-by-length", "/words-starting-with", "/words-ending-in",

@@ -64,8 +64,8 @@ ${rows.map(r => `<tr><td>${code(r.g)}</td><td>${name(r.marks)}</td><td>${fmt(r.l
 <h2>Using a solver without spoiling the fun</h2>
 <p>A solver can apply the rules for you and list what's left. Some people use one only after they've finished, to see how many words were possible at each step; others use it when they're stuck. Letterpile's solver never knows the day's answer, so it can't spoil it. Its list is a general word list, not the puzzle's own, so check its suggestions against what feels like a likely answer. ${ctx.WORDLIST_NOTE}</p>`,
     related: [
-      { href: "/wordle-solver", label: "Wordle Solver" },
-      { href: "/guides/wordle-strategy", label: "Wordle Strategy and Letter Logic" },
+      { href: "/wordle-solver", label: "Five-Letter Solver" },
+      { href: "/guides/wordle-strategy", label: "Five-Letter Puzzle Strategy" },
       { href: "/crossword-solver", label: "Crossword Solver" },
       { href: "/words-by-length/5-letter-words", label: "5-letter words" },
     ],

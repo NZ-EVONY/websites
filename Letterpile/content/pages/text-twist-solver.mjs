@@ -10,9 +10,9 @@ export default ctx => {
   const min5 = Engine.unscramble(wheel, { min: 5 }).map(x => x.word);
   return {
     key: "twist", path: "/text-twist-solver", file: "text-twist-solver.html", type: "tool", script: "twist", scan: "#letters",
-    title: "Text Twist and Wordscapes Solver | Letterpile",
+    title: "Letter Wheel Solver: Every Word in Your Wheel | Letterpile",
     description: "Find every 3+ letter word in your letter wheel, with slot patterns for partly solved answers.",
-    h1: "Text Twist and Wordscapes Solver",
+    h1: "Letter Wheel Solver",
     lede: "Enter the letters on your wheel or rack to see every word of three or more letters. Have some squares already? Add a slot pattern like <code>?A??</code>.",
     tool: `<form class="tool-form" id="form" autocomplete="off">
           <div class="row">
