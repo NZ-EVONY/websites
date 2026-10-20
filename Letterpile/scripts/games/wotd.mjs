@@ -51,8 +51,9 @@ export function fact(w, words) {
   return `${W} scores ${pts} points with common tile values, ${values[top]} of them from the ${top.toUpperCase()}.`;
 }
 
-export function generate(date, { history = [], words }) {
-  const n = notes().get(date);
+// noteMap: the notes to use (tests pass their own); defaults to wotd-notes.txt.
+export function generate(date, { history = [], words, noteMap = notes() }) {
+  const n = noteMap.get(date);
   if (!n || n.status !== "ok") throw new NeedsNote(date, n ? "draft" : "missing", n ? n.word : suggest(date, history, words));
   const { Engine } = words;
   return {

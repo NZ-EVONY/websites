@@ -27,7 +27,8 @@ test("facts are computed from the list: anagram first, then vowels, hooks, point
 });
 
 test("a draft isn't published; an approved one validates, and a tampered fact doesn't", () => {
-  assert.throws(() => wotd.generate("2026-10-17", { words }), e => e.pending && e.state === "draft");
+  const drafts = new Map([["2026-10-17", { date: "2026-10-17", word: "bizarre", meaning: "m", usage: "u", status: "draft" }]]);
+  assert.throws(() => wotd.generate("2026-10-17", { words, noteMap: drafts }), e => e.pending && e.state === "draft");
   assert.throws(() => wotd.generate("2099-01-01", { words }), e => e.pending && e.state === "missing" && typeof e.suggestion === "string");
   const p = { v: 1, game: "wotd", date: "2026-10-18", number: 2, word: "queue", meaning: "A line of people waiting their turn.", usage: "Your document is third in the print queue.", fact: wotd.fact("queue", words), points: words.Engine.score("queue", "scrabble"), wwf: 0 };
   assert.deepEqual(wotd.validate(p, { date: "2026-10-18", words }), []);
