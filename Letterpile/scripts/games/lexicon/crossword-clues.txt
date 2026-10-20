@@ -3763,7 +3763,7 @@ erasers: Rubbers | Pencil ends
 felt: Hat fabric | Sensed | Touched
 firemen: Blaze fighters | Hose handlers
 ford: River crossing | Wade across | Car maker
-fries: Chips, in the US | Cooks in oil
+fries: What Americans call chips | Cooks in oil
 galore: Aplenty | In abundance
 gambler: Bettor | Punter
 glove: Hand warmer | Boxing ___
