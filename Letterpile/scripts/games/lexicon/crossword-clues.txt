@@ -3929,3 +3929,39 @@ teems: Swarms | Pours with rain
 tide: Ebb or flow | Sea's rise and fall | Trend
 trams: Streetcars | Melbourne's rail cars
 tweet: Bird's chirp | Short social post
+# Clues for drafted date 7 Nov 2026
+abide: Tolerate | Stay | Comply (by)
+actors: Performers | Cast members
+apostrophe: Possessive mark | Punctuation in "it's"
+bike: Two-wheeler | Cycle | Pedal pusher's ride
+cameo: Brief star appearance | Carved brooch
+career: Profession | Rush headlong
+charts: Maps for sailors | Hit lists
+cobra: Hooded snake | King ___
+crags: Rocky outcrops | Cliffs
+cures: Remedies | Heals
+dittos: Same marks | Echoes
+dredge: Scoop from a riverbed | Dig (up) old news
+ether: Old anaesthetic | Upper air
+face: Visage | Confront | Clock front
+fiche: Micro ___ (film card) | Library film sheet
+foreclosed: Repossessed, as a home | Shut out
+hastiness: Rashness | Hurry
+homes: Houses | Dwellings
+inept: Clumsy | Incompetent
+inhibited: Shy | Restrained
+internist: Physician of internal medicine | Doctor for adults
+lyres: Ancient harps | Stringed instruments of Greece
+oaf: Clod | Lout | Clumsy one
+pants: Trousers | Gasps
+periscopes: Submarine viewers | Up-periscope tools
+pieces: Bits | Chess men
+politesse: Formal courtesy | Good manners
+polonaise: Stately Polish dance | Chopin composition
+shoemaker: Cobbler | Boot maker
+starchier: Stiffer | More formal
+stomached: Put up with | Tolerated
+strictness: Severity | Rigour
+venue: Location | Concert site
+vicars: Parish priests | Rectors
+vista: View | Panorama
