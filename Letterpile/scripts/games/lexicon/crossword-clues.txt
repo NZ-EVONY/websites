@@ -3676,3 +3676,44 @@ tinier: Smaller | More minute
 unbearable: Intolerable | Too much to take
 very: Extremely | The ___ same
 weeds: Garden pests | Hoes, in a way
+aerated: Fizzy | Full of air bubbles
+aerie: Eagle's nest | Lofty perch
+aim: Goal | Point at a target
+antedating: Coming before | Predating
+chop: Lamb cut | Hack
+consortia: Business partnerships | Joint ventures
+credited: Acknowledged | Paid into an account
+critter: Creature, informally | Varmint
+defile: Narrow pass | Desecrate
+diplomata: Old plural for official charters | Formal documents, in Latin style
+disorderly: Unruly | Messy
+doles: Hands (out) | Benefit payments, once
+eddied: Swirled | Whirled like water
+faintest: Palest | "Haven't the ___ idea"
+feeding: Mealtime | Nourishing
+gangs: Mobs | Crews
+garage: Car shelter | Rock music style
+headset: Earphones with a mic | Gamer's gear
+impolitic: Unwise | Tactless
+incipient: Just beginning | Emerging
+lost: Missing | Beaten
+malts: Whisky types | Thick shakes
+mania: Craze | Obsession
+mire: Bog | Swamp
+odor: Smell, in the US | Whiff
+omega: Last Greek letter | The end
+omitted: Left out | Skipped
+once: Formerly | One time
+parson: Vicar | Clergyman
+retrofits: Upgrades | Adds new parts to old
+ridge: Mountain crest | Roof line
+rids: Clears | Frees
+road: Street | Highway
+rustles: Crinkles | Steals cattle
+sag: Droop | Sink
+sate: Satisfy fully | Fill up
+scam: Swindle | Con
+scare: Fright | Spook
+sedates: Calms with drugs | Tranquillises
+shatter: Smash | Break into pieces
+using: Employing | Applying
