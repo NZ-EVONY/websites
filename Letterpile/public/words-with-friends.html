@@ -3,15 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Words With Friends Finder: High-Scoring Plays | Letterpile</title>
-<meta name="description" content="Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.">
+<title>Alternate Values Word Finder: Top Plays | Letterpile</title>
+<meta name="description" content="Find high-scoring plays for your tiles using an alternate set of commonly used letter values and the all-tiles bonus.">
 <link rel="canonical" href="https://letterpile.app/words-with-friends">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Letterpile">
-<meta property="og:title" content="Words With Friends Finder: High-Scoring Plays | Letterpile">
-<meta property="og:description" content="Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.">
+<meta property="og:title" content="Alternate Values Word Finder: Top Plays | Letterpile">
+<meta property="og:description" content="Find high-scoring plays for your tiles using an alternate set of commonly used letter values and the all-tiles bonus.">
 <meta property="og:url" content="https://letterpile.app/words-with-friends">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://letterpile.app/og/default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Alternate Tile Values Word Finder on Letterpile">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0A1030">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="manifest" href="/manifest.webmanifest">
@@ -23,10 +27,10 @@
   1. the <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> verification tag (placeholder id shown; never guess the real one)
   2. the AdSense loader script snippet.
 Then add the CSP origins listed in public/_headers and update public/ads.txt. Must load AFTER the CMP snippet above. See docs/BEE-TODO.md ==== -->
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Words With Friends Word Finder","url":"https://letterpile.app/words-with-friends","description":"Find high-scoring plays for your tiles using commonly used Words With Friends letter values and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do these letter values come from?","acceptedAnswer":{"@type":"Answer","text":"They are the values commonly reported for the game, not taken from an official source. Check the values shown in your game, as they may change."}},{"@type":"Question","name":"Why is the all-tiles bonus 35 and not 50?","acceptedAnswer":{"@type":"Answer","text":"35 points is the bonus commonly reported for Words With Friends. Other tile games commonly use 50. Check your game's rules."}},{"@type":"Question","name":"Will the game accept every word listed?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The game has its own dictionary, and Letterpile uses the open ENABLE word list. Use the results as suggestions and let the game confirm them."}},{"@type":"Question","name":"Do the scores include double and triple squares?","acceptedAnswer":{"@type":"Answer","text":"No. The finder can't see your board, so scores are base tile values plus the all-tiles bonus."}},{"@type":"Question","name":"Can I search for words that use a letter on the board?","acceptedAnswer":{"@type":"Answer","text":"Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Words With Friends Word Finder","item":"https://letterpile.app/words-with-friends"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Alternate Tile Values Word Finder","url":"https://letterpile.app/words-with-friends","description":"Find high-scoring plays for your tiles using an alternate set of commonly used letter values and the all-tiles bonus.","applicationCategory":"GameApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where do these letter values come from?","acceptedAnswer":{"@type":"Answer","text":"They are the values commonly reported for the game, not taken from an official source. Check the values shown in your game, as they may change."}},{"@type":"Question","name":"Why is the all-tiles bonus 35 and not 50?","acceptedAnswer":{"@type":"Answer","text":"35 points is the bonus commonly reported for Words With Friends. Other tile games commonly use 50. Check your game's rules."}},{"@type":"Question","name":"Will the game accept every word listed?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. The game has its own dictionary, and Letterpile uses the open ENABLE word list. Use the results as suggestions and let the game confirm them."}},{"@type":"Question","name":"Do the scores include double and triple squares?","acceptedAnswer":{"@type":"Answer","text":"No. The finder can't see your board, so scores are base tile values plus the all-tiles bonus."}},{"@type":"Question","name":"Can I search for words that use a letter on the board?","acceptedAnswer":{"@type":"Answer","text":"Yes. Type the board letters, in order, in the board box. Only words that pass through them are shown."}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://letterpile.app/"},{"@type":"ListItem","position":2,"name":"Alternate Tile Values Word Finder","item":"https://letterpile.app/words-with-friends"}]}]}</script>
 <script src="/assets/engine.dcd8f86c27.js" data-words="/data/words.54646e019a.js" data-worker="/assets/worker.3d6414c67f.js" defer></script>
 <script src="/assets/site.44a2558618.js" defer></script>
-<script src="/assets/js/finder.b399da8e2c.js" defer></script>
+<script src="/assets/js/finder.9835d46c5c.js" defer></script>
 <script src="/assets/js/scan.b042fcb84f.js" data-target="#rack" data-reader="/assets/js/scan-read.824eda5983.js" data-tesseract="/vendor/tesseract-7.0.0" defer></script>
 </head>
 <body data-page="wwf" data-scheme="wwf">
@@ -45,14 +49,14 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       <details id="moreMenu" class="active">
         <summary>More Word Games<span class="caret" aria-hidden="true"></span></summary>
         <ul class="dropdown">
-          <li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li>
-          <li><a href="/words-with-friends" aria-current="page">Words With Friends Finder</a></li>
+          <li><a href="/tile-word-finder">Tile Game Word Finder</a></li>
+          <li><a href="/words-with-friends" aria-current="page">Alternate Values Finder</a></li>
           <li><a href="/board-solver">Board Solver</a></li>
-          <li><a href="/wordle-solver">Wordle Solver</a></li>
+          <li><a href="/wordle-solver">Five-Letter Solver</a></li>
           <li><a href="/anagram-solver">Anagram Solver</a></li>
           <li><a href="/jumble-solver">Jumble Solver</a></li>
           <li><a href="/crossword-solver">Crossword Solver</a></li>
-          <li><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a></li>
+          <li><a href="/text-twist-solver">Letter Wheel Solver</a></li>
           <li><a href="/letter-hive-solver">Letter Hive Solver</a></li>
           <li><a href="/word-grid-solver">Word Grid Solver</a></li>
           <li><a href="/letter-box-solver">Letter Box Solver</a></li>
@@ -74,9 +78,9 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </header>
 <div class="layout wrap">
   <main class="content" id="main">
-    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Words With Friends Word Finder</span></li></ol></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Alternate Tile Values Word Finder</span></li></ol></nav>
     <div class="panel tool-card">
-        <h1 class="page-title">Words With Friends Word Finder</h1>
+        <h1 class="page-title">Alternate Tile Values Word Finder</h1>
         <p class="lede">The same idea as the tile game word finder, scored with commonly used Words With Friends letter values and a 35-point bonus for playing all seven tiles.</p>
         <form class="tool-form" id="form" autocomplete="off">
           <div class="row">
@@ -134,7 +138,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
 </ul>
 <h2>Common mistakes</h2>
 <ul>
-<li><b>Using the other finder by habit.</b> The <a href="/scrabble-word-finder">tile game word finder</a> ranks with different values; pick the one that matches your game.</li>
+<li><b>Using the other finder by habit.</b> The <a href="/tile-word-finder">tile game word finder</a> ranks with different values; pick the one that matches your game.</li>
 <li><b>Ignoring the board.</b> Premium squares can be worth far more than the difference between two words in this list.</li>
 </ul>
 <h2>Limits and accuracy</h2>
@@ -154,15 +158,15 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
       </section>
         <section class="related" aria-labelledby="related-title">
         <h2 id="related-title">Related tools and guides</h2>
-        <ul><li><a href="/scrabble-word-finder">Tile Game Word Finder</a></li><li><a href="/guides/letter-values-and-tile-counts">Letter Values and Tile Counts</a></li><li><a href="/guides/rack-balance">Rack Balance Explained</a></li><li><a href="/guides/hooks-prefixes-and-suffixes">Hooks, Prefixes and Suffixes</a></li></ul>
+        <ul><li><a href="/tile-word-finder">Tile Game Word Finder</a></li><li><a href="/guides/letter-values-and-tile-counts">Letter Values and Tile Counts</a></li><li><a href="/guides/rack-balance">Rack Balance Explained</a></li><li><a href="/guides/hooks-prefixes-and-suffixes">Hooks, Prefixes and Suffixes</a></li></ul>
       </section>
-        <p class="updated">Last updated: <time datetime="2026-10-17">October 17, 2026</time></p>
+        <p class="updated">Last updated: <time datetime="2026-10-20">October 20, 2026</time></p>
       </article>
   </main>
   <aside class="sidebar" id="sidebar">
   <section class="panel">
     <h2>Word tools</h2>
-    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/scrabble-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends" aria-current="page"><span class="ico c-violet" aria-hidden="true">W</span>Words With Friends Finder</a></li><li><a href="/board-solver"><span class="ico c-coral" aria-hidden="true">#</span>Board Solver</a></li><li><a href="/wordle-solver"><span class="ico c-sun" aria-hidden="true">5</span>Wordle Solver</a></li><li><a href="/anagram-solver"><span class="ico c-blue" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-mint" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-violet" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-coral" aria-hidden="true">T</span>Text Twist &amp; Wordscapes</a></li><li><a href="/letter-hive-solver"><span class="ico c-sun" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-blue" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-mint" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-violet" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-coral" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-sun" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-blue" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-mint" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-violet" aria-hidden="true">3</span>Syllable Counter</a></li><li><a href="/training"><span class="ico c-coral" aria-hidden="true">T</span>Word Game Training</a></li><li><a href="/printables"><span class="ico c-sun" aria-hidden="true">P</span>Printable Puzzles</a></li></ul>
+    <ul><li><a href="/"><span class="ico c-coral" aria-hidden="true">U</span>Word Unscrambler</a></li><li><a href="/word-scrambler"><span class="ico c-sun" aria-hidden="true">S</span>Word Scrambler</a></li><li><a href="/word-combiner"><span class="ico c-blue" aria-hidden="true">+</span>Word Combiner</a></li><li><a href="/tile-word-finder"><span class="ico c-mint" aria-hidden="true">Q</span>Tile Game Word Finder</a></li><li><a href="/words-with-friends" aria-current="page"><span class="ico c-violet" aria-hidden="true">W</span>Alternate Values Finder</a></li><li><a href="/board-solver"><span class="ico c-coral" aria-hidden="true">#</span>Board Solver</a></li><li><a href="/wordle-solver"><span class="ico c-sun" aria-hidden="true">5</span>Five-Letter Solver</a></li><li><a href="/anagram-solver"><span class="ico c-blue" aria-hidden="true">A</span>Anagram Solver</a></li><li><a href="/jumble-solver"><span class="ico c-mint" aria-hidden="true">J</span>Jumble Solver</a></li><li><a href="/crossword-solver"><span class="ico c-violet" aria-hidden="true">?</span>Crossword Solver</a></li><li><a href="/text-twist-solver"><span class="ico c-coral" aria-hidden="true">T</span>Letter Wheel Solver</a></li><li><a href="/letter-hive-solver"><span class="ico c-sun" aria-hidden="true">H</span>Letter Hive Solver</a></li><li><a href="/word-grid-solver"><span class="ico c-blue" aria-hidden="true">G</span>Word Grid Solver</a></li><li><a href="/letter-box-solver"><span class="ico c-mint" aria-hidden="true">B</span>Letter Box Solver</a></li><li><a href="/multi-board-solver"><span class="ico c-violet" aria-hidden="true">4</span>Multi-Board Word Solver</a></li><li><a href="/word-ladder-solver"><span class="ico c-coral" aria-hidden="true">L</span>Word Ladder Solver</a></li><li><a href="/hangman-solver"><span class="ico c-sun" aria-hidden="true">_</span>Hangman Solver</a></li><li><a href="/cryptogram-solver"><span class="ico c-blue" aria-hidden="true">C</span>Cryptogram Solver</a></li><li><a href="/rhyming-words"><span class="ico c-mint" aria-hidden="true">R</span>Rhyming Words Finder</a></li><li><a href="/syllable-counter"><span class="ico c-violet" aria-hidden="true">3</span>Syllable Counter</a></li><li><a href="/training"><span class="ico c-coral" aria-hidden="true">T</span>Word Game Training</a></li><li><a href="/printables"><span class="ico c-sun" aria-hidden="true">P</span>Printable Puzzles</a></li></ul>
   </section>
   <section class="panel"><h2>Words With Friends values</h2><div class="values"><span>a<b>1</b></span><span>b<b>4</b></span><span>c<b>4</b></span><span>d<b>2</b></span><span>e<b>1</b></span><span>f<b>4</b></span><span>g<b>3</b></span><span>h<b>3</b></span><span>i<b>1</b></span><span>j<b>10</b></span><span>k<b>5</b></span><span>l<b>2</b></span><span>m<b>4</b></span><span>n<b>2</b></span><span>o<b>1</b></span><span>p<b>4</b></span><span>q<b>10</b></span><span>r<b>1</b></span><span>s<b>1</b></span><span>t<b>1</b></span><span>u<b>2</b></span><span>v<b>5</b></span><span>w<b>4</b></span><span>x<b>8</b></span><span>y<b>3</b></span><span>z<b>10</b></span></div></section>
       <section class="panel tip"><h2>Tip</h2><p>L, N and U are worth 2 here. A word packed with them scores better than you'd guess from other tile games.</p></section>
@@ -172,7 +176,7 @@ Then add the CSP origins listed in public/_headers and update public/ads.txt. Mu
   <div class="wrap">
     <a class="brand" href="/"><span class="brand-tiles" aria-hidden="true"><span class="tile c-coral">L</span><span class="tile c-sun">P</span><span class="tile c-blue">!</span></span>Letterpile</a>
     <p class="tagline">Free word-game helpers, from an independent publisher in New Zealand.</p>
-    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/scrabble-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Words With Friends Finder</a><a href="/board-solver">Board Solver</a><a href="/wordle-solver">Wordle Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Text Twist &amp; Wordscapes</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a><a href="/training">Word Game Training</a><a href="/printables">Printable Puzzles</a></div></nav>
+    <nav aria-label="All word tools"><div class="cols"><a href="/games">Daily Games</a><a href="/">Word Unscrambler</a><a href="/word-scrambler">Word Scrambler</a><a href="/word-combiner">Word Combiner</a><a href="/tile-word-finder">Tile Game Word Finder</a><a href="/words-with-friends">Alternate Values Finder</a><a href="/board-solver">Board Solver</a><a href="/wordle-solver">Five-Letter Solver</a><a href="/anagram-solver">Anagram Solver</a><a href="/jumble-solver">Jumble Solver</a><a href="/crossword-solver">Crossword Solver</a><a href="/text-twist-solver">Letter Wheel Solver</a><a href="/letter-hive-solver">Letter Hive Solver</a><a href="/word-grid-solver">Word Grid Solver</a><a href="/letter-box-solver">Letter Box Solver</a><a href="/multi-board-solver">Multi-Board Word Solver</a><a href="/word-ladder-solver">Word Ladder Solver</a><a href="/hangman-solver">Hangman Solver</a><a href="/cryptogram-solver">Cryptogram Solver</a><a href="/rhyming-words">Rhyming Words Finder</a><a href="/syllable-counter">Syllable Counter</a><a href="/training">Word Game Training</a><a href="/printables">Printable Puzzles</a></div></nav>
     <nav aria-label="About this site"><div class="cols legal"><a href="/guides">Guides</a><a href="/words-by-length">Word Lists</a><a href="/lists">Curated Lists</a><a href="/word">Word Pages</a><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms of Use</a><a href="/sitemap">Site Map</a>
       <!-- CMP: the consent platform re-opens its dialog from this link. Unhide it (remove "hidden") when the CMP is wired in. See docs/BEE-TODO.md -->
       <a href="#" id="privacy-settings-link" hidden>Privacy settings</a></div></nav>

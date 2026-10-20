@@ -1,4 +1,4 @@
-/* Rack word finder: /scrabble-word-finder (data-scheme="scrabble") and /words-with-friends
+/* Rack word finder: /tile-word-finder (data-scheme="scrabble") and /words-with-friends
    (data-scheme="wwf"). Extracted from the two live pages' identical inline scripts. */
 (function () {
   "use strict";
