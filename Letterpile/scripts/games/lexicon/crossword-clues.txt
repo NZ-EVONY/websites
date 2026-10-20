@@ -3718,3 +3718,138 @@ sedates: Calms with drugs | Tranquillises
 shatter: Smash | Break into pieces
 using: Employing | Applying
 psst: "Over here!" in a whisper | Sound to get someone's attention
+# Clues for drafted dates 1-4 Nov 2026
+academia: University world | Ivory tower
+adoration: Worship | Devoted love
+aggrieved: Wronged | Resentful
+aides: Assistants | Helpers on staff
+airings: Broadcasts | Times on the washing line
+alpaca: Woolly Andean animal | Llama cousin
+altimeters: Height gauges in cockpits | Pilots' instruments
+analog: Not digital | Like a clock with hands
+angel: Heavenly being | Darling
+animate: Bring to life | Lively
+arias: Opera solos | Songs for divas
+armors: Protective suits, in the US | Knights' coverings
+arms: Limbs with elbows | Weapons | Coat of ___
+assay: Test, as ore | Analyse
+assumes: Takes for granted | Takes on
+astern: Toward the back of a boat | Aft
+awed: Amazed | Wonderstruck
+ballads: Love songs | Story songs
+beeline: Straight route | Direct path
+bell: Ringer | Doorbell | Church sound
+beseech: Implore | Beg
+boar: Wild pig | Male hog
+brine: Salt water | Pickling liquid
+bug: Insect | Glitch | Annoy
+cant: Jargon | Hypocritical talk
+caress: Stroke lovingly | Gentle touch
+cleansing: Purifying | Face-washing
+clover: Lucky leaf plant | Bee's favourite
+conformed: Fitted in | Complied
+cuisines: Styles of cooking | Thai and Italian, e.g.
+disease: Illness | Ailment
+disloyalty: Betrayal | Treachery
+dispute: Argument | Contest
+diva: Opera star | Prima donna | Demanding star
+diversions: Detours | Pastimes
+docs: Physicians, informally | Files, briefly
+editorial: Opinion piece | Leader column
+embedded: Fixed firmly | Set in
+emission: Exhaust discharge | Release
+energies: Powers | Vitalities
+erasers: Rubbers | Pencil ends
+felt: Hat fabric | Sensed | Touched
+firemen: Blaze fighters | Hose handlers
+ford: River crossing | Wade across | Car maker
+fries: Chips, in the US | Cooks in oil
+galore: Aplenty | In abundance
+gambler: Bettor | Punter
+glove: Hand warmer | Boxing ___
+goblin: Mischievous sprite | Gremlin
+grapes: Vineyard fruit | Wine sources
+gulp: Swallow | Big swig
+handicap: Golf advantage | Hindrance
+idiotic: Foolish | Senseless
+ilk: Kind | Sort | Type
+income: Earnings | Pay
+indolence: Laziness | Sloth
+input: Data entry | Contribution
+insular: Narrow-minded | Island-like
+knit: Make a jumper | Purl's partner | Join, as bones
+lama: Tibetan monk | Buddhist teacher
+lanolin: Wool fat | Moisturiser ingredient
+lavish: Extravagant | Shower (on)
+leafing: Flipping (through) | Sprouting foliage
+lecterns: Reading stands | Speakers' stands
+leer: Ogle | Sly grin | Creepy look
+lieu: Place | In ___ of
+lissome: Lithe | Supple
+listen: Pay attention | Hear out
+loss: Defeat | Shortfall
+magnolias: Flowering trees of the South | Big-bloomed trees
+maidens: Young women of old | Overs with no runs, in cricket
+milieus: Settings | Environments
+minarets: Mosque towers | Prayer towers
+mishandle: Botch | Fumble
+nutted: Headbutted, informally | Worked (out), informally
+orders: Commands | Purchases
+oval: Egg shape | Elliptical | Cricket ground
+pads: Cushions | Notebooks | Flats, informally
+painful: Sore | Agonising
+panels: Discussion groups | Solar ___
+parabolic: Shaped like a dish | U-curved
+peeled: Pared | Skinned, as a spud
+pinhole: Tiny opening | ___ camera
+plan: Scheme | Blueprint | Arrange
+planters: Flower boxes | Farmers
+potters: Ceramicists | Dawdles
+pram: Baby carriage | Pushchair | Stroller
+presses: Irons | Printing machines
+pry: Snoop | Lever open | Nose about
+racism: Prejudice by race | Discrimination
+ramp: Slope | Incline | Skate park feature
+really: Truly | "Is that so?"
+reassures: Comforts | Puts at ease
+redid: Did over | Remade
+remind: Prompt | Jog the memory of
+remiss: Negligent | Careless
+resurrect: Revive | Bring back
+reunites: Brings back together | Reconciles
+reverence: Deep respect | Awe
+rioter: Unruly protester | Street brawler
+ripple: Small wave | Ruffle
+roasts: Sunday dinners | Cooks in the oven
+rote: By ___ (from memory) | Routine | Mechanical repetition
+sacs: Pouches | Cysts
+salve: Ointment | Soothe
+satirists: Mockers | Swift and Twain, e.g.
+scourged: Whipped | Afflicted
+sergeant: Police rank | Army NCO
+severest: Harshest | Sternest
+sinuses: Nasal cavities | Head spaces that clog
+sirens: Alarms | Mythic singers
+slop: Swill | Spill
+snaring: Trapping | Catching
+soloed: Flew alone | Played alone
+space: Room | Cosmos | Keyboard bar
+sparrow: House bird | Small brown bird
+sprig: Small twig | Parsley piece
+stand: Rise | Kiosk | Bear
+statue: Monument | Sculpture
+steer: Guide | Young bull
+stoops: Bends down | Porches
+surname: Family name | Last name
+tease: Kid | Rib | Mock gently
+thud: Dull thump | Heavy fall sound
+treetop: Canopy | Crown of a tree
+tubing: Pipework | River floating
+tyrant: Despot | Dictator
+urgency: Haste | Pressure
+utters: Says | Voices
+verge: Edge | Grass strip by a road | Brink
+visitor: Guest | Caller
+warfare: Combat | Hostilities
+whetstone: Sharpening stone | Knife grinder
+yesterday: The day before | Beatles ballad
