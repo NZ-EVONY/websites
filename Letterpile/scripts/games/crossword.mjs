@@ -169,7 +169,7 @@ export function fillPattern(ctx, n) {
   const r = rng(`${keyFor("crossword", date)}:${n}`);
   const pattern = makePattern(r);
   if (!pattern) return { grid: null, note: "no pattern" };
-  const score = w => (book.has(w) ? 4 : auto.has(w) ? 2 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
+  const score = w => (book.has(w) ? 10 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
   const g = fillAC(pattern, bigIx, { score, maxSteps: 400, weight: 3 });
   if (!g) return { grid: null, note: "no first fill" };
   return repairGrid(ctx, g, r);
@@ -177,7 +177,7 @@ export function fillPattern(ctx, n) {
 // Clears the squares of every entry that isn't a good word and refills them from good words.
 export function repairGrid(ctx, g, r = rng(`${keyFor("crossword", ctx.date)}:repair`)) {
   const { fill, book, auto, uses, goodIx, goodSet } = ctx;
-  const score = w => (book.has(w) ? 4 : auto.has(w) ? 2 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
+  const score = w => (book.has(w) ? 10 : 0) + (LEVEL_BONUS[fill.get(w)] ?? -12) - 6 * (uses.get(w) || 0) + r() * 2;
   const pattern = g.replace(/[a-z]/g, ".");
   const S = slots(pattern);
   const bad = grid => S.filter(s => !goodSet.has(s.cells.map(i => grid[i]).join("")));

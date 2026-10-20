@@ -3494,3 +3494,118 @@ write: Pen | Compose
 writers: Authors | Novelists
 zests: Peels | Enthusiasms
 zoos: Animal parks | Menageries
+mere: Nothing more than | Just a
+peeve: Pet hate | Irritate
+abacus: Bead counter | Early calculator
+abattoirs: Slaughterhouses | Meatworks
+absentee: No-show | One away from work
+acclaims: Praises | Hails
+alibi: Excuse for the accused | "I was elsewhere" claim
+allege: Claim | Assert without proof
+amend: Revise | Correct
+aneurysms: Artery bulges | Blood vessel swellings
+arouse: Stir | Awaken
+ateliers: Artists' studios | Workshops
+attend: Go to | Be present at
+awakens: Wakes up | Stirs
+babel: Din | Tower of ___
+baited: Lured | Taunted
+baud: Data rate unit | Modem speed measure
+beasts: Animals | Brutes
+bicycle: Two-wheeler | Pedal-powered ride
+binomials: Two-term expressions | Algebra sums like x + y
+bland: Flavourless | Dull
+calcine: Heat to a powder | Roast, as ore
+calculi: Stones, medically | Branches of maths
+cancel: Call off | Scrap
+carts: Shopping trolleys | Wagons
+census: Population count | Head count
+cloak: Cape | Disguise
+cocksure: Overconfident | Brash
+conserve: Save | Jam
+construe: Interpret | Read into
+coral: Reef builder | Pinkish orange
+count: Tally | Dracula, for one
+crane: Building site lifter | Wading bird
+cyst: Fluid sac | Lump under the skin
+dacha: Russian country house | Holiday cottage near Moscow
+deal: Bargain | Hand out cards
+duo: Pair | Twosome
+earth: Soil | Our planet
+elevation: Height | Altitude
+ennui: Boredom | Listlessness
+error: Mistake | Slip
+essay: School composition | Attempt
+geneses: Origins | Beginnings
+gritty: Sandy | Determined
+hedges: Shrubby fences | Avoids committing
+hole: Gap | Golf target
+honestly: Truthfully | "Really!"
+inactive: Idle | Dormant
+insole: Shoe lining | Foot cushion
+instincts: Gut feelings | Inborn urges
+interests: Hobbies | Bank earnings
+kelp: Seaweed | Brown algae
+laths: Thin strips of wood | Plaster supports
+leery: Wary | Suspicious
+lose: Misplace | Be beaten
+manikin: Little model figure | Dressmaker's dummy
+mapped: Charted | Planned (out)
+maroon: Dark red | Strand on an island
+mohair: Angora goat wool | Fluffy yarn
+mouse: Computer pointer | Cheese lover in cartoons
+naive: Green | Gullible
+nay: No vote | Opposite of yea
+nerds: Geeks | Tech buffs
+neuron: Nerve cell | Brain cell
+north: Compass point | Up on a map
+nourish: Feed | Nurture
+odious: Hateful | Repugnant
+overeat: Pig out | Stuff oneself
+overeaten: Had too much | Gorged
+pewter: Tin alloy | Grey metal for tankards
+pierce: Puncture | Go through
+plenary: Full, as a session | Attended by all
+potable: Drinkable | Safe to drink
+poured: Rained heavily | Served
+pout: Sulk | Pucker
+prudence: Caution | Good sense
+realism: Practicality | Lifelike art style
+rebuilds: Restores | Reconstructs
+remake: New version of a film | Redo
+reset: Restart | Put back to zero
+result: Outcome | Score
+room: Space | Chamber
+roosted: Perched for the night | Settled on a branch
+route: Way | Path
+salients: Bulges in a front line | Prominent points
+seethes: Fumes | Boils with rage
+serener: Calmer | More peaceful
+shiniest: Most polished | Glossiest
+shorter: Less tall | Briefer
+shots: Photos | Attempts
+sired: Fathered | Bred
+skid: Slide out of control | Slip on ice
+slides: Playground chutes | Slips
+sprain: Twisted ankle | Wrench a joint
+stall: Market booth | Stop running, as an engine
+strata: Rock layers | Social levels
+swank: Showy | Classy
+swaps: Trades | Exchanges
+sweetmeat: Confection | Candy
+takeout: Food to go | Takeaway, in the US
+tamed: Domesticated | Brought under control
+tempters: Lurers | Enticers
+termed: Called | Named
+tethered: Tied up | Hooked to a phone, as a laptop
+theater: Playhouse, in America | Stage drama
+toilet: Loo | Bathroom fixture
+tooted: Honked | Blew a horn
+torte: Rich layered cake | Sachertorte, e.g.
+trout: Freshwater game fish | Rainbow ___
+typos: Keyboard slips | Misprints
+unsnarl: Untangle | Straighten out
+veer: Swerve | Change course
+weed: Garden intruder | Pull up unwanted plants
+winsome: Charming | Appealing
+years: Ages | Decades' parts
