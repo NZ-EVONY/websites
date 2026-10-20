@@ -3927,5 +3927,5 @@ talons: Eagle's claws | Raptor's grips
 tawdrier: Cheaper-looking | Tackier
 teems: Swarms | Pours with rain
 tide: Ebb or flow | Sea's rise and fall | Trend
-trams: Streetcars | Wellington cable cars' cousins
+trams: Streetcars | Melbourne's rail cars
 tweet: Bird's chirp | Short social post
