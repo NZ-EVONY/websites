@@ -3717,3 +3717,4 @@ scare: Fright | Spook
 sedates: Calms with drugs | Tranquillises
 shatter: Smash | Break into pieces
 using: Employing | Applying
+psst: "Over here!" in a whisper | Sound to get someone's attention
