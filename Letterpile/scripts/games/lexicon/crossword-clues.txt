@@ -3609,3 +3609,36 @@ veer: Swerve | Change course
 weed: Garden intruder | Pull up unwanted plants
 winsome: Charming | Appealing
 years: Ages | Decades' parts
+arcane: Mysterious | Known only to a few
+aromas: Kitchen smells | Fragrances
+avow: Declare openly | Swear
+awkward: Clumsy | Embarrassing
+choir: Church singers | Chorus
+dinosaur: T. rex, for one | Old-fashioned person
+drowsily: Sleepily | With heavy eyelids
+elect: Vote in | Choose
+eventuate: Result | Come about
+firewater: Strong liquor, jokingly | Rotgut
+fitter: Healthier | Gas ___ (tradesperson)
+genera: Groups of species | Biological categories
+glen: Narrow valley | Scottish dale
+hearts: Card suit | Valentine shapes
+humane: Kind | Compassionate
+known: Familiar | Recognised
+laminates: Coats in plastic | Layered materials
+lavishest: Most extravagant | Most sumptuous
+measures: Steps | Gauges
+overrates: Thinks too highly of | Hypes
+overtone: Hint | Musical harmonic
+owner: Proprietor | Possessor
+rained: Poured | Came down, as drops
+sarcasms: Cutting remarks | Snide comments
+shares: Stocks | Splits
+staleness: Lack of freshness | Mustiness
+stance: Position | Posture
+teens: Adolescents | Ages 13 to 19
+tense: Edgy | Past or present, in grammar
+tortoise: Hare's rival in a fable | Slow reptile
+wastrel: Spendthrift | Good-for-nothing
+wow: "Amazing!" | Impress
+nebula: Hazy patch in the night sky | Crab or Orion, for one
