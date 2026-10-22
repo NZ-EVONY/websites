@@ -125,7 +125,7 @@ test("sitemap index: its sitemaps list exactly the indexable canonical URLs, eac
   const index = readPublic("sitemap.xml");
   assert.match(index, /<sitemapindex /);
   const files = [...index.matchAll(/<loc>https:\/\/letterpile\.app\/([^<]+)<\/loc>/g)].map(m => m[1]);
-  assert.deepEqual(files, ["sitemap-pages.xml"]); // word pages are noindex, so no word sitemap
+  assert.deepEqual(files, ["sitemap-pages.xml", "sitemap-words.xml"]); // only word pages with notes are indexed
   const xml = files.map(readPublic).join("\n");
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
   assert.deepEqual(locs.slice().sort(), indexable.map(p => site.siteUrl + p.url).sort());

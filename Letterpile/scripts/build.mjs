@@ -287,7 +287,7 @@ pages.push(...generated);
 
 // Word pages (/word/{word}) for the most common words; see scripts/wordpages.mjs.
 ctx.pages = pages;
-ctx.wordsUpdated = lastChanged(["data/enable1.txt", "scripts/wordpages.mjs", "scripts/lexicon/cmudict-enable.txt"]);
+ctx.wordsUpdated = lastChanged(["data/enable1.txt", "scripts/wordpages.mjs", "scripts/words/word-notes.txt", "scripts/lexicon/cmudict-enable.txt"]);
 ctx.wordPageWords = wordPageWords(data);
 pages.push(...wordPages(ctx, data, ctx.wordPageWords));
 
@@ -299,7 +299,7 @@ pages.push(...wordPages(ctx, data, ctx.wordPageWords));
 const INDEX_PREFIXES = new Set(["un", "re", "pre"]);
 const INDEX_SUFFIXES = new Set(["ing", "ed", "er", "ly", "tion", "ness", "able"]);
 const searchNoindex = p => {
-  if (p.type === "word") return true;
+  if (p.type === "word") return !p.hasNote; // indexed once it has a complete hand-written note
   let m;
   if (/^\/words-by-length\/\d+-letter-words\/[^/]+$/.test(p.path)) return true;
   if ((m = p.path.match(/^\/words-starting-with\/([^/]+)$/))) return !(p.type === "affix" && INDEX_PREFIXES.has(m[1]));

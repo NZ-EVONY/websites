@@ -3,6 +3,7 @@
 // the engine's letter values and the CMU pronunciations in the same build. Other words are served
 // by the lookup page /word?w= (content/pages/word.mjs), which computes the same facts in the browser.
 import { fillList } from "./games/crossword.mjs";
+import { publishedNotes } from "./words/notes.mjs";
 
 const VOWELS = new Set("aeiou");
 const num = n => ["no", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"][n] ?? n.toLocaleString("en-US");
@@ -45,8 +46,10 @@ export function wordPages(ctx, data, words) {
   const startsPages = new Set(ctx.pages.filter(p => p.path.startsWith("/words-starting-with/")).map(p => p.path));
   const endsPages = new Set(ctx.pages.filter(p => p.path.startsWith("/words-ending-in/")).map(p => p.path));
 
+  const notes = publishedNotes();
   return words.map(w => {
     const W = w.toUpperCase();
+    const note = notes.get(w);
     const pts = Engine.score(w, "scrabble"), wwf = Engine.score(w, "wwf");
     const values = Engine.SCHEMES.scrabble.values;
     const top = [...new Set(w)].sort((a, b) => values[b] - values[a])[0];
@@ -66,6 +69,7 @@ export function wordPages(ctx, data, words) {
     const rev = [...w].reverse().join("");
 
     const sections = [];
+    if (note) sections.push(`<h2>Meaning of ${W}</h2><p><i>${esc(note.pos)}</i>. ${esc(note.meaning)}</p><blockquote><p>${esc(note.example)}</p></blockquote><h2>About the word</h2><p>${esc(note.note)}</p>`);
     sections.push(`<p><b>${W}</b> is ${n === 8 ? "an" : "a"} ${n}-letter word in the ENABLE word list, and one of the most common words in English. It has ${plural(vowels, "vowel")} and ${plural(n - vowels, "consonant")}${repeats.length ? `, with ${repeats.join(" and ")}` : ""}${syl ? `, and ${plural(syl, "syllable")} when spoken` : ""}. It starts with ${w[0].toUpperCase()} and ends with ${w.at(-1).toUpperCase()}; spelled backward it reads <code>${rev.toUpperCase()}</code>${rev !== w && ok(rev) ? ", which is also a word" : ""}.</p>`);
     sections.push(`<table><tr><th>Letters</th><td>${n}</td></tr><tr><th>Points, common tile values</th><td>${pts}</td></tr><tr><th>Points, alternate tile values</th><td>${wwf}</td></tr><tr><th>Anagrams</th><td>${anagrams.length}</td></tr><tr><th>Shorter words inside it</th><td>${inside.length}</td></tr><tr><th>Longer words containing it</th><td>${longer.length}</td></tr><tr><th>Hooks (front / back)</th><td>${front.length} / ${back.length}</td></tr>${syl ? `<tr><th>Syllables</th><td>${syl}</td></tr>` : ""}</table>`);
     sections.push(`<h2>Points</h2><p>${W} scores ${pts} with common tile values (${top.toUpperCase()} is worth ${values[top]}) and ${wwf} with an alternate set of values (as used by some word apps), or ${pts * 2} and ${wwf * 2} on a double word square.</p>`);
@@ -74,7 +78,7 @@ export function wordPages(ctx, data, words) {
     sections.push(`<h2>Longer words containing ${W}</h2>${longer.length ? `<p>${cap(plural(longer.length, "longer word"))} contain${longer.length === 1 ? "s" : ""} ${W} as an unbroken run of letters${longer.length > 80 ? "; here are the 80 shortest, everyday words first within each length" : ""}.</p>${list(longer.slice(0, 80))}` : `<p>No longer word in the list contains ${W} as an unbroken run of letters.</p>`}`);
     sections.push(`<h2>Hooks</h2>${front.length || back.length ? `<p>${W} takes ${plural(front.length, "front hook")}${front.length ? ` (${front.map(x => x[0].toUpperCase()).join(" ")})` : ""} and ${plural(back.length, "back hook")}${back.length ? ` (${back.map(x => x.at(-1).toUpperCase()).join(" ")})` : ""}:</p>${list([...front, ...back])}` : `<p>No single letter added to either end of ${W} makes another word.</p>`}`);
     if (p) sections.push(`<h2>Rhymes</h2>${rhymes.length ? `<p>${cap(plural(rhymes.length, "word"))} in the list rhyme${rhymes.length === 1 ? "s" : ""} with ${W} in American English${rhymes.length > 40 ? "; these are 40 of them, the most common first" : ""}.</p>${list(rhymes.slice(0, 40))}` : `<p>No word in our pronunciation list is a perfect rhyme for ${W}; the <a href="/rhyming-words">Rhyming Words Finder</a> shows near rhymes.</p>`}`);
-    sections.push(`<h2>Definition</h2><p><button type="button" class="word plain" data-word="${w}">Look up ${W}</button></p>`);
+    sections.push(`<h2>${note ? "More definitions" : "Definition"}</h2><p><button type="button" class="word plain" data-word="${w}">Look up ${W}</button></p>`);
 
     const first = `/words-starting-with/${w[0]}`, last = `/words-ending-in/${w.at(-1)}`;
     const related = [
@@ -85,11 +89,12 @@ export function wordPages(ctx, data, words) {
       ...(endsPages.has(last) ? [{ href: last, label: `Words ending in ${w.at(-1).toUpperCase()}` }] : []),
       { href: `/words-by-length/${n}-letter-words`, label: `${n}-letter words` },
     ];
-    let description = `${W}: ${pts} points, ${anagrams.length} anagram${anagrams.length === 1 ? "" : "s"}, ${front.length + back.length} hook${front.length + back.length === 1 ? "" : "s"} and ${inside.length} shorter word${inside.length === 1 ? "" : "s"} inside it, plus longer words that contain it${p ? " and rhymes" : ""}.`;
+    let description = note ? `${W} (${note.pos}): ${note.meaning.replace(/"/g, "")}` : `${W}: ${pts} points, ${anagrams.length} anagram${anagrams.length === 1 ? "" : "s"}, ${front.length + back.length} hook${front.length + back.length === 1 ? "" : "s"} and ${inside.length} shorter word${inside.length === 1 ? "" : "s"} inside it, plus longer words that contain it${p ? " and rhymes" : ""}.`;
     if (description.length > 155) description = description.slice(0, 152).replace(/\s+\S*$/, "") + "…";
     return {
       key: `word-${w}`, path: `/word/${w}`, file: `word/${w}.html`, type: "word", source: "scripts/wordpages.mjs",
-      title: `${W}: Points, Anagrams, Hooks and More | Letterpile`,
+      title: note ? `${W}: Meaning, Example, Anagrams and Points | Letterpile` : `${W}: Points, Anagrams, Hooks and More | Letterpile`,
+      hasNote: !!note,
       description,
       h1: W,
       crumbs: [{ name: "Home", path: "/" }, { name: "Word pages", path: "/word" }, { name: W, path: `/word/${w}` }],

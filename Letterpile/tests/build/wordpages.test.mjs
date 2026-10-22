@@ -12,16 +12,19 @@ const visible = enableWords().filter(w => !hidden.has(w));
 const set = new Set(visible);
 const key = w => [...w].sort().join("");
 
-test("word pages: about 3,000 common words, none hidden, noindex and out of the sitemap", () => {
+test("word pages: about 3,000 common words, none hidden; only pages with notes are indexed", () => {
   assert.ok(wordPages.length >= 2900 && wordPages.length <= 3200, `${wordPages.length} word pages`);
   for (const p of wordPages) {
     const w = p.path.slice("/word/".length);
     assert.ok(set.has(w), `${w} is visible`);
     assert.ok(w.length >= 3 && w.length <= 8);
   }
-  assert.ok(!publicFiles().includes("sitemap-words.xml"), "no word sitemap");
   assert.doesNotMatch(readPublic("sitemap-pages.xml"), /letterpile\.app\/word\//);
   assert.match(readPublic("word/planet.html"), /<meta name="robots" content="noindex, follow">/);
+  const words = readPublic("sitemap-words.xml");
+  const indexed = wordPages.filter(p => !p.noindex);
+  assert.equal((words.match(/<loc>/g) || []).length, indexed.length);
+  for (const p of indexed) assert.ok(words.includes(`/word/${p.path.slice(6)}</loc>`), p.path);
   assert.ok(m.pages.length <= 5000);
 });
 
