@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24490 words.
+# first) or ban the word in crossword-banned.txt. 24453 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -945,9 +945,8 @@ ardors: Zeals
 arduous: Grueling | Laborious | Punishing | Straining
 arguable: Capable of being supported by argument | Debatable | Moot | Open to argument or debate
 arguably: As can be shown by argument
-argue: Reason | Contend
-argued: Reasoned | Contended
-argues: Reasons | Contends
+argued: Reasoned | Contended | Quarrelled | Debated
+argues: Reasons | Contends | Quarrels | Debates
 arguing: Controversy | Contention | Tilt | Contentious speech act
 argument: Statement | Fact or assertion offered as evidence | Controversy | Contention
 arguments: Statements | Controversies | Contentions | Tilts
@@ -1475,7 +1474,6 @@ bared: Having the head uncovered
 barefaced: Bald | With no effort to conceal | Audacious | Brazen
 barefoot: Without shoes | Without shoes on
 barefooted: Without shoes | Without shoes on
-bareheaded: Having the head uncovered
 barely: Hardly | Scarcely | Scarce | Only a very short time before
 barge: Thrust ahead | Push forward | Push one's way
 baring: Stripping | Uncovering | Husking | Removal of covering
@@ -1544,7 +1542,6 @@ bathrooms: Toilets | Lavatories | Privies
 bathtub: Tub | Relatively large open container
 bathtubs: Tubs
 batik: Dyed fabric | Dye with wax
-baton: Thin tapered rod
 batsman: Batter
 battalion: Army unit | Large number | Multitude | Plurality
 battalions: Multitudes | Pluralities | Packs
@@ -1728,7 +1725,6 @@ belongings: Property | Holding | Something owned
 beloved: Dear | Dearest | Honey | Darling
 beloveds: Dears | Honeys
 below: Beneath | In or to a place | At a later place
-belts: Regions
 beltway: Bypass | Ring road
 beltways: Bypasses
 bemoan: Deplore | Lament | Regret strongly
@@ -2844,7 +2840,6 @@ cannon: Large artillery gun | Heavy gun fired from a tank
 cannonade: Intense and continuous artillery fire
 cannonball: Round shot | Solid projectile
 canny: Cagey | Clever
-canoe: Small and light boat
 canon: Rule or
 canonize: Saint | Declare to be a saint | Treat as a sacred person
 canonized: Glorified
@@ -3288,7 +3283,6 @@ cheerless: Depressing
 cheerlessly: In an unhappy manner
 cheers: Heartens
 cheery: Sunny | Bright and pleasant
-cheese: Used in the imperative
 cheesecloth: Coarse loosely woven cotton gauze
 cheesy: Crummy | Punk | Sleazy | Tinny
 chemical: Material produced by or
@@ -3711,12 +3705,10 @@ coauthor: Joint author
 coax: Wheedle | Cajole | Influence or urge by gentle urging
 coaxes: Wheedles | Cajoles
 coaxing: Soft soap | Sweet talk | Flattery designed to gain favor
-cob: Stocky short-legged harness horse
 cobble: Rectangular paving stone with curved top | Repair or mend
 cobbler: Person who makes or repairs shoes
 cobblestone: Rectangular paving stone with curved top
 cobbling: Shoe repairing
-cobweb: Gossamer | Filaments from a web
 cobwebs: Gossamers
 cockade: Ornament usually worn on the hat
 cockamamie: Informal term for ridiculous and implausible
@@ -4714,13 +4706,11 @@ creaked: Squeaked | Screeched | Groaned | Grated
 creaking: Squeaking sound
 creaks: Squeaks | Screeches | Groans | Grates
 creaky: Decrepit | Derelict | Having a rasping or grating sound
-cream: Lick
 creamed: Licked
 creaming: Licking
 creams: Licks
 crease: Fold | Wrinkle | Furrow | Crinkle
 creased: Wrinkled | Crinkled | Crisped | Furrowed
-creases: Folds | Wrinkles | Furrows | Crinkles
 creasing: Wrinkling | Crinkling | Crisping | Furrowing
 created: Invented
 creating: Making | Inventing
@@ -4734,7 +4724,6 @@ credible: Believable | Capable of being believed | Credulous
 credibly: Plausibly | Probably
 credit: Approval | Ascribe an achievement to
 creditably: Respectably | To a tolerably worthy extent
-credo: Creed | Any system of principles or beliefs
 credulity: Tendency to believe readily
 credulous: Disposed to believe on little evidence
 creeds: Faiths
@@ -5181,8 +5170,8 @@ debits: Charges
 debonair: Suave | Chipper | Jaunty
 debriefing: Report of a mission or task
 debris: Dust | Junk | Rubble | Remains of something
-debt: State of owing something
 debtor: Person who owes a creditor
+debts: Obligations
 debunk: Expose while ridiculing
 debut: First appearance | Launching | Unveiling | Entry
 debuts: Entries
@@ -5529,7 +5518,7 @@ denominator: Divisor of a fraction
 denotation: Indication
 denotations: Indications
 denote: Be a sign or indication of | Have as a meaning
-dens: Lairs | Hideaways
+dens: Lairs | Hideaways | Studies | Burrows
 densely: In a stupid manner | Thickly
 denseness: Spatial property of being crowded together
 density: Amount per unit size | Spatial property of being crowded together
@@ -5556,7 +5545,6 @@ depiction: Word picture | Graphic or vivid verbal description | Portraying
 depicts: Pictures | Describes | Portrays | Shows
 deplane: Get off an airplane
 deplete: Exhaust | Run through | Wipe out | Use up
-depleted: No longer sufficient
 depletes: Exhausts
 depleting: Exhausting
 depletion: Act of decreasing something markedly
@@ -6892,7 +6880,6 @@ electing: Choosing
 election: Act of selecting someone or something
 electives: Chosens | Voluntaries
 elector: Voter
-electoral: Of or relating to elections
 electorates: Voterses | Constituencies
 electors: Voters
 electrify: Excite suddenly and intensely
@@ -7485,7 +7472,6 @@ evades: Hedges | Fudges | Skirts | Sidesteps
 evading: Hedging | Fudging | Skirting | Sidestepping
 evaluate: Assess | Appraise | Pass judgment | Judge
 evaluated: Assessed | Appraised | Judged
-evaluates: Assesses | Appraises | Judges
 evaluating: Assessing | Appraising | Judging
 evaluations: Ratings | Assessments | Appraisals
 evanescent: Tending to vanish like vapor
@@ -7546,6 +7532,7 @@ examines: Analyzes | Studies
 examining: Analyzing | Studying
 example: Instance | Item of information
 examples: Instances
+exams: Tests
 exasperated: Cheesed off | Browned off | Greatly annoyed
 excavate: Unearth | Recover through digging | Find by digging in the ground
 excavated: Unearthed
@@ -7626,7 +7613,6 @@ execrates: Abhors | Loathes
 execrating: Abhorring | Loathing
 executable: Feasible | Practicable | Viable | Workable
 execute: Murder in a planned fashion
-executed: Put to death as punishment
 executing: Capital punishment | Death penalty | Putting a condemned person to death
 executive: Persons who administer the law
 exemplar: Good example | Something to be imitated
@@ -7635,7 +7621,6 @@ exemplified: Illustrated | Instanced
 exemplifies: Illustrates | Instances
 exemplify: Illustrate | Instance | Clarify by giving an example of
 exempt: Excuse | Let off | Not subject to taxation
-exempted: Excused
 exempting: Excusing
 exemption: Freedom | Immunity from an obligation or duty
 exemptions: Freedoms
@@ -8138,7 +8123,6 @@ fen: Marsh | Low-lying wet land with grassy vegetation
 fence: Dealer in stolen property | Receive stolen goods
 fend: Try to manage without help | Withstand the force of something
 fens: Marshes
-feral: Savage | Wild and menacing
 ferment: Agitation | Unrest | Work up into agitation or excitement
 ferments: Agitations | Unrests
 ferocious: Fierce | Furious | Marked by extreme and violent energy
@@ -9378,7 +9362,6 @@ girdles: Sashes | Deadens
 girdling: Deadening
 girl: Miss | Young lady | Young woman | Young female
 girlfriend: Any female friend | Lady friend
-girls: Misses
 girth: Distance around a person's body | Cinch | Tie a cinch around
 girths: Cinches
 gist: Substance | Essence
@@ -9506,8 +9489,7 @@ gnats: Midges
 gnawed: Eroded | Chewed
 gnawing: Eroding | Chewing
 gnaws: Erodes | Chews
-gnome: Dwarf
-gnomes: Dwarfs
+gnomes: Dwarfs | Goblins
 gnomish: Used of small deformed creatures
 gnus: Wildebeests
 goaded: Driven | Compelled forcibly by an outside agency
@@ -10248,10 +10230,9 @@ heinous: Extremely wicked, deeply criminal
 heinously: In a terribly evil manner
 heinousness: Atrocity
 heirloom: Any property
-heist: Act of stealing | Armed robbery | Holdup | Burgle
 heisted: Burgled
 heisting: Burgling
-heists: Holdups | Burgles
+heists: Holdups | Burgles | Robberies
 held: Occupied or in the control of
 helical: Coiling | Spiral | Spiraling | In the shape of a coil
 helicopter: Aircraft without wings
@@ -10763,6 +10744,7 @@ idealistic: Exalted | Elevated | Lofty
 idealists: Dreamers
 ideas: Thoughts | Notions | Plans | Concepts
 identical: Exactly alike | Very | Being the exact same one
+identities: Selfhoods
 ideogram: Graphic character
 ideograph: Graphic character
 ideological: Concerned with or suggestive of ideas
@@ -10888,7 +10870,9 @@ impairing: Marring
 impairment: Damage | Harm | Symptom of reduced quality or strength
 impairments: Damages | Harms
 impairs: Mars
-impale: Spike
+impaled: Skewered | Speared
+impales: Skewers | Spears
+impaling: Skewering | Spearing
 impalpable: Intangible
 impanel: Panel | Select from a list
 impanels: Panels
@@ -12672,7 +12656,6 @@ loafs: Lolls | Loiters | Lounges | Tarries
 loan: Temporary provision of money | Word borrowed from another language | Lend | Give temporarily
 loaning: Lending
 loanword: Word borrowed from another language
-loath: Reluctant | Averse | Indisposed | Strongly opposed
 loathe: Abhor | Find repugnant
 loathed: Abhorred
 loathes: Abhors
@@ -12723,7 +12706,6 @@ logic: Branch of philosophy that analyzes inference | Reasoned and reasonable ju
 logical: Legitimate
 logistics: Handling an operation
 logo: Company emblem or device
-logos: Divine word of God
 logotype: Company emblem or device
 loiter: Lounge | Loaf | Hang around | Mess about
 loitered: Lounged | Loafed | Tarried | Lingered
@@ -12812,7 +12794,6 @@ loyalists: Stalwarts
 loyalty: Feelings of allegiance
 lozenges: Pills
 lubricated: Greased
-lucid: Crystal clear | Having a clear mind
 lucidity: Clarity | Clearness
 lucidness: Clarity | Clearness
 lucked: Fortuned | Chanced
@@ -12965,7 +12946,6 @@ makeshift: Stopgap | Improvised
 makeshifts: Stopgaps
 making: Devising | Fashioning
 maladies: Illnesses | Sicknesses
-maladroit: Not adroit
 malady: Illness | Sickness
 malarkey: Idle words | Jazz | Nothingness
 malcontent: Rebellious
@@ -13148,7 +13128,6 @@ mashes: Squashes | Crushes | Squeezes | Flirts
 mashing: Squashing | Crushing | Squeezing | Flirting
 mask: Activity that tries to conceal something | Cloak | Hide under a false appearance
 masked: Cloaked | Disguised
-masks: Cloaks
 masons: Stoneworkers | Bricklayers
 masquerade: Fancy dress | Pretend to be someone or something
 massage: Rub down | Knead | Manually manipulate 
@@ -13342,7 +13321,6 @@ mentions: References | Cites | Quotations | Refers
 mentored: Guided | Coached
 mentoring: Guiding | Coaching
 mentors: Advisers | Guides | Coaches
-meow: Mew | Sound made by a cat | Cry like a cat
 meowed: Mewed
 meowing: Mewing
 meows: Mews
@@ -13403,7 +13381,6 @@ methanol: Wood alcohol | Wood spirit | Light volatile flammable poisonous liquid
 methodology: Branch of philosophy
 methods: Ways | Systems | Processes
 meticulous: Marked by precise accordance with details
-metric: Measured | Rhythmic arrangement of syllables
 metrical: Measured | Rhythmic arrangement of syllables
 metrically: With regard to meter
 metropolis: City | Urban center | Large and densely populated urban area
@@ -13810,7 +13787,6 @@ moorings: Berths
 moorland: Open land
 moors: Berths | Heaths
 moos: Lows
-moose: Elk
 moot: Debate | Deliberate | Think about carefully | Arguable
 mooted: Debated | Deliberated
 mooting: Debating | Deliberating
@@ -13928,12 +13904,11 @@ moussed: Gelled
 mousses: Gels
 moussing: Gelling
 mousy: Quiet and timid and ineffectual | Infested with mice
-mouth: Oral cavity | Oral fissure | Opening through | Talk
 mouthed: Talked
 mouthful: Small amount eaten or drunk
 mouthing: Talking | Speaking
 mouthpiece: Acoustic device
-mouths: Talks | Speaks
+mouths: Talks | Speaks | Kissers
 mouthwash: Gargle | Medicated solution
 mouthwashes: Gargles
 movable: Personal as opposed to real property
@@ -14067,7 +14042,6 @@ nags: Scolds | Pesters | Badgers
 nailed: Collared | Apprehended | Arrested | Nabbed
 nailing: Collaring | Apprehending | Arresting | Nabbing
 name: Language unit by | Person's reputation | Call | Identify
-nameless: Unknown | Unnamed
 namely: As follows
 names: Verbal abuse
 naming: Appointment | Designation
@@ -14155,7 +14129,6 @@ needing: Necessitating | Requiring | Demanding | Wanting
 needle: Leaf of a conifer
 needlepoint: Point lace
 needless: Unnecessary and unwarranted
-needy: Destitute
 nefarious: Villainous | Extremely wicked
 negate: Contradict | Belie | Contravene | Deny the truth of
 negated: Contradicted | Contravened
@@ -15309,7 +15282,7 @@ patrician: Person of refined upbringing and manners | Aristocrat | Blue blood | 
 patricians: Aristocrats
 patricide: Person who murders their father | Murder of your father
 patrimonial: Ancestral | Hereditary
-patrimony: Church endowment | Inheritance coming by right of birth
+patrimonies: Inheritances | Heritages
 patriot: Nationalist
 patriotic: Loyal | Inspired by love for your country
 patriotism: Nationalism
@@ -17230,7 +17203,6 @@ ransomed: Redeemed
 rant: Harangue | Claptrap | Pompous or pretentious talk or writing | Mouth off
 ranted: Jabbered | Spouted | Raved
 ranting: Harangue
-rants: Harangues | Claptraps | Jabbers | Spouts
 rapacious: Predatory | Living by preying on other animals | Voracious | Excessively greedy and grasping
 rapacity: Extreme gluttony | Avarice | Greed
 rapidly: Quickly | With speed
@@ -17773,7 +17745,10 @@ relegated: Demoted
 relegates: Demotes
 relegating: Delegating | Delegation
 relegation: Delegating | Delegation
+relented: Softened
+relenting: Softening
 relentless: Grim | Inexorable | Stern | Unrelenting
+relents: Softens
 reliable: Dependable | Worthy of being depended on
 reliably: Faithfully | In a faithful manner
 reliance: Trust | Certainty based on past experience | State of relying on something
@@ -17873,12 +17848,11 @@ renegaded: Rebelled
 renegades: Deserters | Rebels
 renegading: Rebelling
 reneges: Revokes
-renew: Regenerate | Reincarnate
 renewal: Reclamation
 renewals: Reclamations
 renewed: Restored to a new condition
 renewing: Reviving
-renews: Regenerates | Reincarnates
+renews: Regenerates | Reincarnates | Extends | Revives
 renounce: Abdicate | Give up | Vacate | Resign
 renounced: Abdicated | Vacated | Resigned
 renounces: Abdicates | Vacates | Resigns
@@ -18128,10 +18102,9 @@ responds: Reacts | Answers | Replies
 response: Result
 responsible: Being the agent or cause
 rest: Remainder | Residual | Residue | Repose
-restart: Start an engine again, for example | Resume | Take up or begin anew
-restarted: Resumed
-restarting: Resuming
-restarts: Resumes
+restarted: Resumed | Rebooted
+restarting: Resuming | Rebooting
+restarts: Resumes | Reboots
 restate: Repeat | Reiterate | Iterate | To say, state, or perform again
 restated: Repeated | Reiterated | Iterated
 restatement: Revised statement
@@ -18646,7 +18619,6 @@ ruminations: Reflections | Musings
 rummage: Ransacking | Thorough search for something
 rummer: Large drinking glass for drinking toasts
 rummy: Chronic drinker | Curious | Funny | Peculiar
-rumor: Hearsay
 rumors: Hearsays
 rumple: Disturb the smoothness of | Pucker
 rumpled: Tousled | In disarray
@@ -18720,8 +18692,7 @@ saints: Angels | Enshrines
 salaciously: In a lascivious manner
 salamander: Any of various typically terrestrial amphibians
 salaried: Compensated | Remunerated
-salaries: Wages | Pays
-salary: Wage | Pay | Earnings | Something that remunerates
+salaries: Wages | Pays | Wageses
 sales: Gross revenue
 salesclerk: Shop clerk | Clerk | Shop assistant | Salesperson in a store
 salesclerks: Clerks
@@ -18958,7 +18929,7 @@ schooner: Large beer glass | Sailing vessel used in former times
 science: Skill
 sciences: Skills
 scientific: Conforming with the principles or methods
-scimitar: Curved oriental saber
+scimitars: Sabres
 scintilla: Shred | Iota | Smidgen | Tiny or scarcely detectable amount
 scintillas: Shreds | Iotas | Smidgens
 scintillate: Give off | Sparkle | Reflect brightly
@@ -19311,7 +19282,6 @@ serviette: Napkin | Table napkin | Small piece of table linen
 serviettes: Napkins
 serving: Helping
 servings: Helpings
-session: School term | Academic term
 setback: Reversal | Unfortunate happening that hinders or impedes
 setbacks: Reversals
 settee: Long wooden bench with a back | Small sofa
@@ -19324,7 +19294,6 @@ settling: Subsiding | Gradual sinking to a lower level
 setup: Apparatus | Way something is organized or arranged
 setups: Apparatuses
 seventeen: Cardinal number | Being one more than sixteen
-sever: Set or keep apart | Lop | Cut off from a whole
 severally: Apart from others | Separately | Singly
 severance: Rupture | Falling out | Personal or social separation
 severances: Ruptures
@@ -19352,7 +19321,6 @@ shacks: Hovels | Huts | Hutches | Shanties
 shadowing: Tailing | Act of following someone secretly
 shadows: Darknesses | Silhouettes
 shadowy: Dim | Faint | Wispy
-shady: Quiet, dark, or concealed | Fishy | Suspect | Suspicious
 shaggy: Bushy | Used of hair
 shake: Shingle
 shaker: Person who wields power and influence
@@ -19787,9 +19755,8 @@ slammer: Person who closes things violently | Jail | Clink | Poky
 slammers: Jails | Clinks | Pokies | Pokeys
 slamming: Banging | Criticising
 slams: Bangs | Criticises
-slander: Words falsely spoken | Aspersion | Defamation | Defame
-slandered: Defamed | Denigrated
-slandering: Defaming | Denigrating
+slandered: Defamed | Denigrated | Smeared
+slandering: Defaming | Denigrating | Smearing
 slanderous: Defamatory | Libelous | Harmful and often untrue
 slanders: Aspersions | Defamations | Defames | Denigrates
 slant: Angle | Rake | Weight | Present with a bias
@@ -19954,10 +19921,11 @@ smidgens: Shreds | Iotas
 smiled: Grinned | Beamed
 smiles: Grins | Beams
 smiling: Grin | Grinning
-smite: Inflict a heavy blow on | Affect suddenly with deep feeling
+smites: Afflicts
 smith: United States sculptor
 smithies: Forges
 smithy: Forge
+smiting: Afflicting
 smitten: Stricken | Struck | Taken with
 smock: Dust coat
 smoke: Fume | Emit a cloud of fine particles
@@ -20723,7 +20691,6 @@ stillborn: Failing to accomplish an intended result
 stilled: Calmed | Quieted | Tranquilized | Hushed
 stilling: Calming | Quieting | Tranquilizing | Hushing
 stillness: Hush | Tranquil silence | Calmness without winds
-stills: Hushes | Calms | Quiets | Tranquilizes
 stilt: Piling
 stilted: Artificial | Contrived
 stilts: Pilings
@@ -21161,7 +21128,6 @@ suntanned: Bronzed | Tanned
 suntans: Tans | Sunburns | Burns
 sunup: Dawn | Dawning | First light | Daybreak
 super: Caretaker for an apartment house | Ace | Crack | Tops
-superb: Brilliant | Of surpassing excellence
 superbly: Wonderfully | Wondrous | Extremely well
 supercharge: Increase or raise
 superego: That part of the unconscious mind
@@ -21192,7 +21158,6 @@ suppers: Dinners
 supplant: Replace | Supersede
 supplanted: Replaced | Superseded
 supplants: Replaces | Supersedes
-supple: Make pliant and flexible | Lithe | Limber | Readily adaptable
 supplement: Addendum | Postscript | Textual matter | Quantity added
 supplements: Postscripts
 suppleness: Property of being pliant and flexible
@@ -21554,6 +21519,7 @@ taprooms: Bars | Saloons
 tardily: Slowly | Slow | Easy | Without speed
 tardy: Belated | Late | After the expected or usual time
 tariff: Government tax on imports or exports
+tarmacs: Runways
 tarnish: Defile | Make dirty or spotty
 tarnished: Defiled
 tarnishes: Defiles
@@ -21626,6 +21592,7 @@ tears: Crying | Weeping
 teased: Feeling mild pleasurable excitement
 teaspoons: Stirrers
 technical: Proficient
+technicians: Engineers
 technique: Proficiency
 techniques: Proficiencies
 technocracy: Form of government
@@ -21811,7 +21778,6 @@ thickset: Compact | Stocky | Planted or growing close together
 thieve: Snitch | Cop | Take by theft
 thievery: Larceny | Theft | Stealing
 thieving: Larceny | Theft | Stealing
-thigh: Second joint
 thing: Special situation | Action
 thingamajig: Gimmick
 things: Any movable possession
@@ -22529,7 +22495,6 @@ tussocks: Tufts
 tutelage: Tuition
 tutor: Coach | Private instructor | Person who gives private instruction | Act as a guardian to someone
 tutors: Coaches
-tutu: Ballet skirt | Very short skirt worn by ballerinas
 tuxedo: Dinner jacket | Black tie
 twaddle: Baloney | Drool | Humbug | Pretentious or silly talk or writing
 twaddled: Prattled | Blabbed | Gibbered | Tattled
@@ -23980,7 +23945,6 @@ weltering: Wallowing
 welters: Clutters | Jumbles | Muddles | Smothers
 welting: Flogging | Whipping | Lathering | Lashing
 welts: Flogs | Whips | Lathers | Lashes
-wend: Direct one's course or way
 westbound: Westerly | Westward
 westerly: Of wind | Westward
 western: Horse opera
@@ -24426,7 +24390,6 @@ yearned: Hankered | Longed | Ached | Yenned
 yearning: Longing
 yearnings: Longings
 yearns: Hankers | Longs | Aches | Yens
-yell: Cry | Outcry | Shout | Loud utterance
 yelled: Shouted | In a vehement outcry
 yelling: Shouting
 yellow: Chicken | Easily frightened
