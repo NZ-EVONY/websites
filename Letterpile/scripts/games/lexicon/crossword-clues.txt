@@ -4055,3 +4055,243 @@ paler: Whiter | More pallid
 listen: Lend an ear | Eavesdrop
 arias: Puccini pieces | Solo songs
 apse: Altar alcove | Cathedral end
+
+# Added for 8-14 Nov 2026
+theses: Dissertations for higher degrees
+aphid: Sap-sucking garden pest
+artery: Main road, or a vessel from the heart
+dyed: Changed the colour of, as hair
+egos: Senses of self-importance
+obsess: Fill the mind of constantly
+agenda: List of items for a meeting
+alarm: Wake-up bell
+alto: Voice below soprano
+ashy: Pale grey, like a dead fire
+baser: More lowly or ignoble
+emote: Act with exaggerated feeling
+goose: Bird that honks
+idled: Ran a motor without moving
+isles: Small islands, poetically
+menu: List of dishes in a restaurant
+mini: Very short skirt
+paves: Covers with flat stones
+peer: Look closely, or an equal
+pelts: Animal skins, or pours with rain
+ripest: Most ready to eat, as fruit
+salon: Hairdresser's premises
+seers: Prophets
+slot: Opening for a coin
+smear: Spread greasily, or slander
+spore: Fern's reproductive cell
+strong: Powerful, like a gale
+theta: Greek letter after eta
+abreast: Side by side, or up to date
+absurd: Ridiculous
+accost: Approach boldly and speak to
+ached: Hurt dully
+aches: Dull, lasting pains
+adapter: Plug for an overseas socket
+agave: Spiky plant used to make tequila
+aloha: Hawaiian greeting
+anglers: People who fish with a rod
+aprons: Cooks' protective garments
+ardor: Passion, in US spelling
+arrest: Detain by police
+ascensions: Climbs to higher places
+asserting: Stating firmly
+averse: Strongly disinclined
+banner: Flag carried in a parade
+barn: Farm building for hay
+beige: Pale sandy colour
+bests: Beats in a contest
+bets: Wagers
+blender: Smoothie-making appliance
+canasta: Card game played with two packs
+cereal: Breakfast food in a bowl
+chalets: Swiss-style wooden houses
+chalice: Large goblet for wine
+clear: Transparent
+corns: Hard patches on the feet
+counsel: Advice, or a barrister
+crinoline: Stiff petticoat of old
+crocodile: Large reptile, or a line of schoolchildren
+crone: Old woman in folk tales
+cruise: Holiday on a ship
+dandy: Man fussy about his clothes
+depose: Remove from a throne
+deserts: Arid regions
+despot: Tyrant
+destine: Set apart for a fate
+detained: Held back, as after school
+digs: Rented rooms, informally
+dish: Plate, or an attractive person
+disposal: Getting rid of something
+ecologist: Scientist who studies ecosystems
+eleven: Number in a cricket team
+eligible: Qualified, or worth marrying
+emirs: Gulf rulers
+emoting: Showing feeling theatrically
+encumber: Weigh down or hamper
+endearing: Inspiring affection
+enervates: Saps the strength of
+engrave: Cut letters into metal
+enrapture: Delight intensely
+enshrined: Preserved as sacred
+entitle: Give a right to
+entrap: Catch by trickery
+entreat: Beg earnestly
+evaluation: Assessment
+fated: Doomed or destined
+five: Fingers on one hand
+flanneled: Wrapped in soft cloth, US style
+forest: Large area of trees
+gauge: Measuring instrument
+gear: Equipment, or a car's cog setting
+gigs: Live music bookings
+halts: Stops
+hangdog: Guilty and ashamed-looking
+heliports: Landing places for choppers
+helix: Spiral shape
+hello: Common greeting
+homers: Pigeons that return to their lofts
+horsey: Keen on riding, or looking like a mare
+hosed: Watered with a garden pipe
+idyll: Blissfully peaceful scene
+impotence: Powerlessness
+impounded: Seized and held, as a car
+incur: Bring on oneself, as costs
+ingrain: Fix deeply in the mind
+inner: Inside
+jab: Quick punch, or a vaccination
+juices: Fruit drinks
+lames: Makes unable to walk properly
+larva: Grub or caterpillar
+lasts: Endures
+lateral: Sideways
+latitudes: Lines parallel to the equator
+lavatory: Toilet
+league: Sports competition, or old measure of distance
+leave: Holiday from work
+leech: Bloodsucking worm
+lilt: Pleasant rise and fall in a voice
+lingering: Staying on, reluctant to go
+looses: Sets free
+lover: Romantic partner
+mail: Post
+mange: Skin disease of dogs
+marsh: Wet, boggy land
+megatons: Units of explosive force
+mirages: Desert illusions
+misdeeds: Wrongdoings
+molded: Shaped, in US spelling
+muse: Inspiration for an artist
+natal: Relating to birth
+neuralgia: Sharp nerve pain
+nincompoop: Fool
+octal: Base-eight, in maths
+orangeades: Fizzy citrus drinks
+oratorios: Choral works such as Messiah
+oriented: Positioned or aimed
+outline: Rough sketch of a plan
+overran: Went past the end time
+overuses: Uses too much
+owlet: Young night bird
+pacifist: Opponent of all war
+pardonable: Forgivable
+pegs: Clothes line clips
+perhaps: Maybe
+persists: Keeps going regardless
+phase: Stage of the moon
+piglet: Young pig
+place: Spot or location
+plaintive: Sad and mournful
+pliable: Easily bent
+polyp: Tiny coral animal
+pralines: Nutty sweets
+prank: Practical joke
+prefab: Ready-made building
+pretend: Make believe
+pretense: Show or sham, in US spelling
+prod: Poke
+pronto: Right away, informally
+racer: Competitor in a sprint
+radars: Systems that track aircraft
+rafted: Travelled down a river on logs
+raid: Surprise attack
+ready: Prepared
+reappeared: Came back into view
+rearrange: Put in a new order
+recentest: Newest, in a rare form
+redness: Flush on the skin
+regalia: Crown, robes and sceptre
+regard: Esteem, or look at
+registry: Office of records
+reissue: Publish again
+religion: Faith
+remit: Area of responsibility
+rentals: Leased properties
+replaces: Takes the place of
+ridicules: Mocks
+roadways: Parts of streets for traffic
+rodents: Rats and mice
+ruble: Russian currency, in US spelling
+sanity: Soundness of mind
+sarcasm: Mocking irony
+scenario: Imagined sequence of events
+scent: Perfume
+scholars: Learned people
+seminar: Small teaching class
+several: More than two but not many
+shod: Wearing shoes
+slants: Slopes
+slaw: Cabbage salad
+sleeve: Arm of a shirt
+snit: Fit of bad temper
+sofas: Couches
+softest: Most gentle
+soloist: Performer on their own
+sonnets: Fourteen-line poems
+sorrel: Sour-leaved herb
+spasms: Sudden muscle contractions
+spitfire: Hot-tempered person
+splash: Water thrown up by a dive
+splat: Sound of something soft hitting a wall
+splay: Spread out, as fingers
+spots: Pimples
+spunkiest: Most plucky
+stardom: Fame
+stinted: Was sparing with
+stooge: Comic's sidekick
+stresses: Emphasises
+stutter: Speak haltingly
+stymied: Blocked, thwarted
+swears: Uses bad language
+tamers: Lion handlers in a circus
+tamp: Pack down firmly
+tarantula: Big hairy spider
+teal: Blue-green duck
+tempo: Speed of a piece of music
+tenser: More on edge
+terser: More curt
+testers: Free samples of perfume
+threatened: Under danger
+tinseled: Decorated with sparkly strands, US style
+tired: Weary
+title: Name of a book
+topples: Falls over
+track: Path, or a song on an album
+trained: Taught
+trawl: Fish with a dragged net
+trial: Court hearing
+trigger: Gun lever
+tunas: Large ocean fish
+urethrae: Ducts for urine
+utter: Complete, or speak
+video: Recording to watch
+wails: Cries loudly
+weaseled: Wriggled out, US style
+winners: Champions
+wise: Sensible and learned
+wonderment: Awe
+wrens: Small songbirds
+yap: Shrill bark
