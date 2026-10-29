@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24665 words.
+# first) or ban the word in crossword-banned.txt. 24639 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -181,6 +181,7 @@ accursed: Under a curse
 accusative: Objective case | Objective
 accuse: Incriminate | Charge | Blame for
 accused: Defendant in a criminal proceeding
+accusers: Plaintiffs
 accuses: Incriminates | Charges
 accustomed: Customary | Habitual | Commonly used or practiced
 acerbic: Astringent | Sour or bitter in taste | Acid | Acrid
@@ -501,7 +502,6 @@ airline: Commercial enterprise
 airliner: Commercial airplane that carries passengers
 airmail: Letters and packages | System of conveying mail by aircraft
 airplanes: Planes
-airs: Pose | Affected manners intended to impress others
 airships: Blimps | Zeppelins
 airsick: Seasick
 airspace: Atmosphere above a nation
@@ -551,6 +551,9 @@ alleviates: Relieves | Facilitates
 alleviating: Relieving | Facilitating
 alleviation: Relief | Easing | Act of reducing something unpleasant
 alleyway: Back street
+allocated: Assigned | Earmarked
+allocates: Assigns | Earmarks
+allocating: Assigning | Earmarking
 allocation: Allotment | Parceling
 allocations: Allotments
 allot: Assign | Portion | Give out | Accord
@@ -613,7 +616,6 @@ amazement: Feeling that accompanies something extremely surprising
 amazes: Astonishes | Astounds | Perplexes | Puzzles
 amazing: Astonishing | Surprising greatly | Awesome | Awing
 ambassador: Diplomat of the highest rank
-amber: Gold | Deep yellow color
 ambiance: Atmosphere | Particular environment or surrounding influence | Atmosphere of an environment
 ambient: Completely enveloping
 ambiguous: Equivocal | Having more than one possible meaning
@@ -833,7 +835,6 @@ apologized: Rationalized
 apologizes: Rationalizes
 apologizing: Rationalizing
 apostate: Deserter | Renegade
-apostates: Deserters | Renegades
 apostolic: Papal
 apotheosis: Ideal | Paragon | Elevation of a person
 appall: Shock | Scandalize | Outrage | Strike with disgust or revulsion
@@ -852,7 +853,6 @@ appealing: Likable
 appeals: Entreaties | Charms
 appearance: Visual aspect | Event of coming into sight
 appears: Looks | Seems
-appease: Pacify | Conciliate | Mollify | Placate
 appeased: Pacified | Conciliated | Mollified | Placated
 appeasement: Calming
 appeases: Pacifies | Conciliates | Mollifies | Placates
@@ -987,7 +987,6 @@ arrangers: Organizers | Adapters
 array: Impressive display | Lay out | Set out
 arrested: Collared | Nailed | Apprehended | Nabbed
 arresting: Sensational | Stunning | Commanding attention
-arrests: Halts | Hitches | Stays | Stoppages
 arrival: Reaching
 arrive: Come | Reach a destination | Succeed in a big way
 arrives: Comes
@@ -1044,7 +1043,6 @@ ashcan: Trash can | Garbage can | Dustbin | Trash barrel
 ashcans: Dustbins
 ashen: Blanched | Livid | Anemic looking from illness or emotion
 aside: Digression | Parenthesis | On or to one side | Out of the way
-asides: Digressions
 asinine: Fatuous | Inane | Extremely silly or stupid
 askance: Squint | Sidelong | With suspicion or disapproval | With a side or oblique glance
 askew: Awry | Cockeyed | Lopsided | Turned or twisted toward one side
@@ -1270,7 +1268,6 @@ auxiliaries: Aides
 auxiliary: Aide | Someone who acts as assistant | Subsidiary | Functioning in a supporting capacity
 available: Not busy
 avalanche: Roll down
-avarice: Greed | Extreme greed for material wealth
 avaricious: Covetous | Grasping | Greedy
 avatars: Embodiments | Incarnations
 avenged: For which vengeance has been taken
@@ -2128,10 +2125,7 @@ blurb: Endorsement
 blurbs: Endorsements
 blurred: Bleary | Foggy | Fuzzy | Hazy
 blurry: Bleary | Foggy | Fuzzy | Hazy
-blurt: Blunder out | Ejaculate | Utter impulsively
-blurted: Ejaculated
-blurting: Ejaculating
-blurts: Ejaculates
+blurt: Blunder out | Utter impulsively
 blush: Flush | Sudden reddening of the face | Crimson | Redden
 blushed: Crimsoned | Flushed | Reddened
 blushers: Rouges
@@ -2343,7 +2337,6 @@ brandishes: Waves
 brandishing: Waving
 brands: Makes | Denounces
 brashness: Loudness | Trait of being rash and hasty
-brat: Very troublesome child | Small pork sausage
 bravado: Bluster | Swaggering show of courage
 brave: Weather | Endure | Face and withstand with courage | Courageous
 braved: Weathered | Endured
@@ -2983,7 +2976,6 @@ carouser: Someone who enjoys riotous drinking
 carouses: Benders | Toots | Riots
 carped: Complained
 carpentry: Woodwork
-carpet: Rug | Natural object
 carpeting: Rug
 carpets: Rugs
 carping: Persistent petty and unjustified criticism
@@ -5622,7 +5614,6 @@ depositing: Lodging | Wedging | Sticking
 depository: Repository
 deposits: Sediments | Lodges | Wedges | Sticks
 depot: Terminal | Storehouse | Storage
-depots: Terminals | Storehouses | Storages
 deprave: Corrupt | Subvert | Demoralize | Debase
 depraves: Corrupts | Subverts | Demoralizes | Debases
 depraving: Corrupting | Subverting | Demoralizing | Debasing
@@ -5798,7 +5789,7 @@ deterrents: Hindrances | Impediments | Balks
 deterring: Discouraging | Dissuading
 detestation: Abhorrence | Abomination | Loathing | Hate coupled with disgust
 detested: Despised | Hated | Scorned | Treated with dislike or contempt
-detesting: Hating | Loathing
+detesting: Hating | Loathing | Abhorring
 dethrone: Remove a monarch from the throne
 detonate: Explode
 detonated: Exploded
@@ -5838,8 +5829,7 @@ devoid: Destitute | Completely wanting or lacking
 devolution: Delegation of authority
 devolve: Pass on or delegate to another | Be inherited by
 devote: Dedicate | Consecrate | Commit | Give entirely to a specific person
-devotee: Buff | Lover | Ardent follower and admirer
-devotees: Buffs | Lovers
+devotees: Buffs | Lovers | Fans | Enthusiasts
 devotes: Dedicates | Consecrates | Commits
 devoting: Dedicating | Consecrating | Committing
 devotion: Feelings of ardent love | Commitment to some purpose
@@ -6945,6 +6935,7 @@ election: Act of selecting someone or something
 electives: Chosens | Voluntaries
 elector: Voter
 electoral: Of or relating to elections
+electorates: Voterses | Constituencies
 electors: Voters
 electrify: Excite suddenly and intensely
 electrolyte: Solution that conducts electricity
@@ -7456,7 +7447,7 @@ erosion: Eroding | Eating away | Wearing | Wearing away
 erosive: Wearing away by friction | Caustic | Corrosive | Vitriolic
 errand: Short trip
 erratum: Misprint | Literal error | Literal
-erred: Strayed | Drifted | Goofed
+erred: Strayed | Drifted | Goofed | Blundered
 erroneously: Mistakenly
 erstwhile: Former | Sometime | Belonging to some prior time | Formerly
 erudite: Learned | Having or showing profound knowledge
@@ -8844,7 +8835,6 @@ fortitude: Strength of mind
 fortnight: Two weeks | Period of fourteen consecutive days
 fortnightly: Occurring every two weeks | Every two weeks
 fortress: Fortified defensive structure
-forts: Garrisons
 fortuitous: Having no cause or apparent cause | Occurring by happy chance
 fortunate: Supremely favored
 fortunately: Luckily
@@ -10877,7 +10867,6 @@ illiteracy: Ignorance resulting from not reading | Inability to read
 illiterate: Person unable to read | Not able to read or write | Ignorant
 illnesses: Maladies | Sicknesses | Diseases
 illogical: Lacking in correct logical relation | Confused | Disjointed | Disordered
-ills: Ailments | Complaints | Sicks | Unwells
 illuminate: Light | Make lighter or brighter | Crystallize | Sort out
 illuminated: Lighted | Lit | Provided with artificial light
 illuminates: Lights | Crystallizes | Elucidates
@@ -11817,7 +11806,6 @@ inward: Toward the center or interior | To or toward the inside of
 inwardly: With respect to private feelings
 inwards: To or toward the inside of | Toward the center or interior
 ionization: Condition of being dissociated into ions
-irascible: Hotheaded | Quickly aroused to anger
 iridescent: Shot
 irises: Flowers
 irked: Galled | Annoyed | Bothered | Vexed
@@ -13391,7 +13379,6 @@ melodious: Tuneful | Having a musical sound
 melodrama: Extravagant comedy
 melody: Tune | Tonal pattern
 melting: Thaw | Thawing | Becoming liquid
-melts: Thaws | Softens
 membrane: Thin pliable sheet of material | Tissue layer | Pliable sheet of tissue
 mementos: Souvenirs | Keepsakes | Reminders
 memoir: Account of the author's personal experiences
@@ -14230,7 +14217,6 @@ nearby: Close at hand | Not far away in relative terms
 neared: Approached | Closed
 nearing: Approaching | Closing
 nearly: Almost | Nigh | Virtually | Intimately
-nears: Approaches | Closes
 nearsighted: Myopic | Unable to see distant objects clearly
 nebular: Resembling a cloud
 nebulous: Cloudy | Lacking definite form or limits
@@ -14671,7 +14657,6 @@ occurrences: Happenings
 ocean: Sea
 oceangoing: Seafaring | Used on the high seas
 oceans: Seas
-ocelot: Panther cat
 octagon: Eight-sided polygon
 octave: Musical interval of eight tones
 ocular: Optic | Optical | Visual | Relating to or using sight
@@ -14965,7 +14950,6 @@ outstrips: Surpasses | Outdistances | Distances
 outvote: Defeat by a majority of votes
 outward: Outbound | Toward the outside
 outwardly: Externally | With respect to the outside
-outweigh: Be heavier than | Weigh more heavily
 outwit: Outsmart | Circumvent | Beat through cleverness and wit
 outwits: Outsmarts | Circumvents
 outwitted: Outsmarted | Circumvented
@@ -15385,6 +15369,7 @@ pastiches: Medleys
 pastimes: Hobbies | Recreations
 pasting: Gluing | Spreading
 pastorals: Rurals | Rustics | Countrylikes
+pastorates: Ministries
 pastors: Ministers | Parsons | Rectors | Vicars
 pastrami: Highly seasoned cut of smoked beef
 pasturage: Forage
@@ -15742,7 +15727,6 @@ pesky: Annoying | Bothersome | Galling | Irritating
 pessimist: Person who expects the worst
 pessimistic: Expecting the worst possible outcome
 pester: Tease | Badger | Bug
-pestered: Annoyed | Harassed | Harried | Vexed
 pesters: Teases | Badgers | Bugs
 pestilences: Plagues | Epidemics
 pestilent: Pernicious | Exceedingly harmful
@@ -16260,6 +16244,7 @@ populates: Lives | Inhabits
 populating: Living | Inhabiting
 populism: Political doctrine
 populous: Thickly settled
+porches: Verandas
 porcine: Relating to or suggesting swine
 porcupine: Hedgehog
 pored: Concentrated | Focussed | Centered | Rivetted
@@ -16315,7 +16300,6 @@ possible: Something that can be done | Applicant who might be suitable | Capable
 possibly: Perchance | Perhaps | Maybe | By chance
 possum: Opossum
 possums: Opossums
-post: Publicize with
 postbox: Mailbox | Letter box | Public box for deposit of mail
 postdate: Follow | Be later in time
 postdated: Followed
@@ -17304,7 +17288,6 @@ raises: Ascents | Climbs | Upgrades | Lifts
 raisin: Dried grape
 raising: Elevation | Rearing | Nurture | Increasing in quantity or value
 rake: Rip | Dissolute man in fashionable society | Slant
-rakes: Rips | Slants
 rakish: Dapper | Dashing | Jaunty | Natty
 rakishness: Quality of a rake
 rallied: Mobilized
@@ -17381,7 +17364,6 @@ ratified: Sanctioned
 ratifies: Signs
 ratify: Sign
 ratifying: Signing
-ratings: Evaluations | Scores | Grades | Rankings
 ration: Food allowance for one day | Fixed portion that is allotted
 rational: Integer or a fraction
 rationale: Explanation of the fundamental reasons
@@ -18516,7 +18498,6 @@ rights: Redresses | Corrects
 rigid: Incapable of or resistant to bending | Incapable of compromise or flexibility
 rigidly: Stiffly | Bolt
 rigmarole: Set of confused and meaningless statements | Long and complicated and confusing procedure
-rigor: Hardship | Severity | Something hard to endure | Cogency
 rigorous: Strict | Rigidly accurate | Stringent
 rigors: Hardships | Severities | Cogencies | Validities
 rigs: Trucks | Equipments | Fixes
@@ -18556,7 +18537,6 @@ riskiness: Peril
 risking: Gambling | Chancing | Adventuring
 risks: Hazards | Jeopardies | Perils | Dangers
 risky: Hazardous | Speculative | Not financially safe or secure
-rites: Rituals | Ceremonies | Observances
 ritual: Rite | Any customary observance or practice | Prescribed procedure for conducting religious ceremonies
 ritually: In a ceremonial manner
 rituals: Rites
@@ -18844,7 +18824,6 @@ sails: Cruises | Sweeps
 saint: Holy man | Holy person | Angel | Person of exceptional holiness
 saintly: Angelic
 saints: Angels | Enshrines
-sake: Interest | Reason for wanting something done | Rice beer
 salaciously: In a lascivious manner
 salamander: Any of various typically terrestrial amphibians
 salaried: Compensated | Remunerated
@@ -19149,6 +19128,7 @@ scrambler: Rapid mover | Trail bike | Dirt bike
 scrambles: Scampers | Scurries | Clambers | Shins
 scrambling: Clambering | Shinning | Skinning
 scrapbook: Album into
+scraped: Grazed
 scraping: Scratching
 scrapped: Trashed | Junked | Quarrelled | Disputed
 scrapping: Trashing | Junking | Quarrelling | Disputing
@@ -19351,7 +19331,6 @@ self: Ego | Person considered as a unique individual
 selfless: Altruistic
 selflessly: In an altruistic manner
 selfsame: Identical | Very | Being the exact same one
-seller: Vendor
 selling: Marketing
 sellout: Someone who has sold out
 seltzer: Soda water | Club soda | Sparkling water
@@ -19423,7 +19402,6 @@ seraglios: Harems
 seraphic: Sweet
 serenity: Tranquility | Disposition free from stress or emotion | Repose | Absence of mental stress or anxiety
 serials: Sequentials
-serious: Of great consequence
 seriously: Earnestly | Badly | Severely | Gravely
 seriousness: Earnestness | Sincerity | Earnest and sincere feeling | Quality of arousing fear or distress
 sermon: Discourse | Preaching | Address of a religious nature
@@ -19548,7 +19526,6 @@ sheepdog: Shepherd dog | Any of various
 sheepish: Showing a sense of shame
 sheepskin: Fleece | Parchment
 sheepskins: Fleeces | Parchments
-sheer: Swerve | Curve | Trend | Veer
 sheered: Swerved | Curved | Trended | Veered
 sheering: Swerving | Curving | Trending | Veering
 sheers: Swerves | Curves | Trends | Veers
@@ -20445,7 +20422,6 @@ speckle: Patch | Fleck | Small contrasting part of something | Mark with small s
 speckled: Dotted | Flecked | Having a pattern of dots
 speckles: Patches | Flecks
 specks: Pinpoints | Atoms | Molecules | Particles
-specs: Glasses | Optical instrument consisting of a frame
 spectacle: Something or someone seen
 spectacles: Glasses | Optical instrument consisting of a frame
 spectacular: Dramatic | Striking
@@ -20489,7 +20465,8 @@ sphincter: Ring of muscle
 spider: Wanderer | Computer program
 spiders: Wanderers
 spied: Spotted | Snooped
-spiel: Patter | Plausible glib talk | Replay | Speak at great length
+spieled: Pitched
+spieling: Pitching
 spiffy: Dapper | Dashing | Jaunty | Natty
 spigot: Faucet
 spigots: Faucets
@@ -21524,7 +21501,6 @@ swellings: Lumps | Bulges | Bumps | Humps
 swelter: Suffer from intense heat
 swerve: Veering | Act of turning aside suddenly | Erratic deflection from an intended course | Sheer
 swerved: Sheered | Curved | Trended | Veered
-swerves: Sheers | Curves | Trends | Veers
 swerving: Veering | Act of turning aside suddenly
 swift: Fleet | Moving very fast
 swiftness: Speed | Rate at which something happens
@@ -22479,8 +22455,7 @@ tremble: Shiver
 trembles: Milk sickness | Disease of livestock and
 trembling: Shaking | Quiver | Quivering | Vibration
 tremendous: Enormous | Fantastic | Howling | Marvelous
-tremor: Shudder | Involuntary vibration | Small earthquake | Quake
-tremors: Shudders | Quakes
+tremors: Shudders | Quakes | Shivers
 tremulous: Quavering | Quivering as from weakness or fear
 trench: Deep | Oceanic abyss | Impinge | Encroach
 trenchant: Searching
@@ -22706,7 +22681,6 @@ twaddles: Baloneys | Drools | Humbugs | Prattles
 twaddling: Prattling | Blabbing | Gibbering | Tattling
 twang: Sharp vibrating sound
 tweak: Squeeze with the fingers | Pinch or squeeze sharply | Pluck | Pull off
-tweaked: Plucked
 tweaking: Plucking
 tweaks: Plucks
 twee: Mincing | Prim
