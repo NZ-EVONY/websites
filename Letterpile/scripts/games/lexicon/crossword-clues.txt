@@ -277,7 +277,7 @@ see: Look | Understand | Watch | Witness
 seen: Spotted | Noticed | Observed
 set: Put | Collection | Firm up | Tennis unit
 sew: Stitch | Mend | Hem
-she: That woman | Her pronoun | Female pronoun
+she: That woman | Her pronoun | Female pronoun | Ship pronoun | ___ who must be obeyed
 shy: Bashful | Timid | Short of
 sin: Wrongdoing | Transgression | Misdeed
 sip: Small drink | Taste | Drink slowly
@@ -440,7 +440,7 @@ edgy: Nervous | Tense | Cutting-edge
 ego: Self-image | Self-esteem | Pride
 eke: Barely manage, with "out" | Stretch, with "out"
 ekes: Squeezes out | Stretches, with "out"
-else: Otherwise | Besides | Other
+else: Otherwise | Besides | Other | Or ___ (threat)
 emcee: Host | Master of ceremonies | Announce acts
 emerge: Come out | Surface | Appear
 emir: Arab ruler | Middle Eastern leader | Kuwaiti ruler
@@ -2365,7 +2365,6 @@ ohms: Resistance units
 oils: Painting medium | Lubricates
 ooze: Seep | Slime
 opal: October birthstone | Milky gem
-ores: Mined rocks
 ouch: "That hurt!"
 oxen: Plough pullers | Yoked pair
 palm: Tropical tree | Hand's underside
@@ -2910,7 +2909,7 @@ musk: Ox with a strong scent
 nays: Votes against
 oaks: Mighty trees
 ohms: Electrical resistance measures
-ores: Metal sources
+ores: Metal sources | Mined rocks | Lodes in a seam
 ouch: "Ow!"
 pear: Bosc or Bartlett
 pews: Church seats
@@ -3853,7 +3852,7 @@ warfare: Combat | Hostilities
 whetstone: Sharpening stone | Knife grinder
 yesterday: The day before | Beatles ballad
 # Clues for drafted dates 5-6 Nov 2026
-ablest: Most capable | Most skilled
+ablest: Most capable | Most skilled | Top of the class, in ability
 aging: Getting older, in the US | Maturing, as cheese
 airstrip: Small runway | Landing field
 alloy: Metal blend | Bronze, e.g.
@@ -3969,7 +3968,6 @@ sate: Quench, as thirst | Gratify completely
 pet: Stroke, as a cat | Teacher's favourite
 rag: Duster
 doe: Bambi's mother | Female rabbit
-she: Ship pronoun
 red: Ruby colour | Cabernet, e.g.
 yet: However
 err: Go astray
@@ -4839,3 +4837,96 @@ ana: Collection of anecdotes | Literary miscellany
 ern: Sea eagle | White-tailed eagle
 ope: Unclose, poetically | Lay bare, in verse
 asea: Out on the ocean | Afloat, sailing
+poises: Balances | Holds ready
+acetate: Film base material | Silky synthetic fabric
+formula: Recipe in chemistry | Baby's milk powder
+coronet: Small crown | Noble's circlet
+anapest: Metrical foot, da-da-DUM, US spelling | Limerick rhythm unit
+abdicate: Give up the throne | Renounce, as duty
+minuend: Number subtracted from | First term in a subtraction
+finagler: Wangler | Crafty schemer
+yeast: Bread riser | Brewer's fungus
+gardenia: Fragrant white flower | Corsage bloom
+leers: Lewd looks | Sly sneers
+gluiest: Most sticky | Tackiest
+vat: Large tub | Tax on goods, in the UK
+cuisine: Style of cooking | Fare
+aspirin: Headache pill | Painkiller
+ordered: Neat and tidy | Commanded
+economical: Thrifty | Fuel-efficient
+periwinkle: Lavender-blue | Edible sea snail
+detainee: Person held in custody | Internee
+ponies: Small horses | Shetlands, for example
+oracle: Delphi's prophet | Fount of wisdom
+fad: Craze | Passing trend
+bedraggle: Make wet and messy | Soak and dishevel
+transverse: Lying across | Crosswise
+sanitarium: Health retreat, US spelling | Convalescent home
+salutary: Beneficial, if unwelcome | Wholesome
+erased: Wiped out | Deleted
+scenes: Parts of an act | Tantrums
+his: Belonging to him | Towel partner of hers
+cog: Gear tooth | Small part in a big machine
+brassy: Loud and showy | Bold and brash
+drip: Leak slowly | Wimp
+decelerate: Slow down | Brake
+serviceman: Soldier | One in uniform
+lug: Carry with effort | Ear, informally
+restrains: Holds back | Curbs
+torn: Ripped | Undecided
+turret: Small tower | Gun tower on a tank
+broaden: Widen | Expand
+finesse: Delicate skill | Bridge play
+lapses: Slips | Expires
+antitrust: Against monopolies | Of competition law
+helm: Ship's wheel | Steer
+ship: Vessel | Send by post
+oleaginous: Oily | Unctuous
+dissonance: Discord | Clash of notes
+praise: Commend | Acclaim
+rivets: Metal fasteners | Engrosses
+operettas: Light comic operas | Gilbert and Sullivan works
+blind: Window shade | Unseeing
+samplers: Embroidered panels | Tasting boxes
+statures: Heights | Standings
+deter: Discourage | Put off
+mares: Female horses | Stud farm females
+timid: Shy | Fearful
+redresses: Puts right | Remedies
+raviolis: Stuffed pasta squares | Pasta parcels
+openness: Candour | Frankness
+uphill: Climbing | Arduous
+slinky: Sinuous | Clingy, as a dress
+types: Sorts | Keys in
+thins: Dilutes | Prunes
+much: A lot | Greatly
+avowal: Open declaration | Frank admission
+draftee: Conscript, in America | Called-up recruit
+salami: Spicy sausage | Pizza topping slices
+dissing: Insulting, informally | Badmouthing
+lube: Oil, briefly | Grease for a bike chain
+capacities: Volumes held | Roles or functions
+microfiche: Library film sheet | Tiny filmed document
+shed: Garden hut | Moult
+erratic: Unpredictable | Wayward
+endure: Bear | Last
+reagent: Chemical tester | Lab substance for reactions
+masters: Experts | Golf tournament, with The
+ovaries: Egg producers | Female reproductive organs
+swats: Smacks, as flies | Slaps
+stimuli: Spurs to action | Things that provoke a response
+tenable: Defensible | Holdable
+literati: Bookish intellectuals | The well-read
+weep: Cry | Shed tears
+lop: Chop off | Trim, as branches
+pacify: Calm down | Soothe
+sterns: Back ends of ships | Poops
+scheme: Plot | Plan
+athletes: Sportspeople | Runners and jumpers
+mailer: Promotional letter | Padded envelope
+ignores: Disregards | Snubs
+central: Middle | Key
+cell: Mobile phone, in the US | Prison room
+humored: Indulged, in US spelling | Went along with, American style
+enamels: Glossy paints | Tooth coatings
+mine: Belonging to me | Colliery
