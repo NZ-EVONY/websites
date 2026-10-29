@@ -389,7 +389,7 @@ binds: Ties | Tight spots | Fastens
 blare: Loud noise | Trumpet sound | Honk loudly
 boss: Manager | Supervisor | Head honcho
 boy: Lad | Young man | Son
-bra: Undergarment | Support garment | Brassiere | Lingerie item
+bra: Undergarment | Support garment | Brassiere | Lingerie item | Front-end car cover | Garment with adjustable straps
 cad: Rogue | Scoundrel | Ungentlemanly sort
 cage: Bird home | Enclosure | Pen
 camera: Photo taker | Film device | Phone feature
@@ -663,7 +663,7 @@ toned: Firmed up | Fit | Muscular
 tones: Shades | Pitches | Sounds
 toys: Playthings | Games | Fiddles
 trade: Swap | Exchange | Occupation
-trap: Snare | Pitfall | Catch
+trap: Snare | Pitfall | Catch | Lure into danger | Ensnare
 trays: Platters | Serving pieces | Inboxes
 tree: Oak or elm | Family ___ | Tall plant
 trend: Fad | Fashion | Direction
@@ -2267,9 +2267,8 @@ dams: River barriers | Mother horses
 darn: Mend a sock | "Drat!"
 dean: College head | Faculty leader
 deer: Stag or doe | Forest grazer | Bambi, for one
-dike: Flood wall | Levee
 dill: Pickle herb | Fish herb
-dime: Ten-cent coin | US coin
+dime: Ten-cent coin | US coin | Small change, Stateside | Coin worth a tenth of a dollar
 dues: Membership fees | Payments owed
 dyes: Colours, as hair | Tints
 earl: British noble | Count's equivalent | Peer below a marquess | Grey tea namesake | Noble rank
@@ -3967,7 +3966,7 @@ sate: Quench, as thirst | Gratify completely
 pet: Stroke, as a cat | Teacher's favourite
 rag: Duster
 doe: Bambi's mother | Female rabbit
-red: Ruby colour | Cabernet, e.g.
+red: Ruby colour | Cabernet, e.g. | Colour of a ripe tomato | Colour of a fire engine
 yet: However
 err: Go astray | Be mistaken | Blunder | Trip up | Misjudge
 ale: Brewery output | Bitter, e.g.
@@ -4835,7 +4834,7 @@ tho: However, in texts | Albeit, casually
 ana: Collection of anecdotes | Literary miscellany | Anthology of sayings | Miscellany | Gossipy collection
 ern: Sea eagle | White-tailed eagle | Coastal raptor | Osprey cousin | Big fish-eating bird
 ope: Unclose, poetically | Lay bare, in verse | Unseal, in poetry | Unbar, archaically | Unlock, poetically
-asea: Out on the ocean | Afloat, sailing
+asea: Out on the ocean | Afloat, sailing | Afloat on the waves | On a voyage
 poises: Balances | Holds ready
 acetate: Film base material | Silky synthetic fabric
 formula: Recipe in chemistry | Baby's milk powder
@@ -4928,7 +4927,7 @@ central: Middle | Key
 cell: Mobile phone, in the US | Prison room
 humored: Indulged, in US spelling | Went along with, American style
 enamels: Glossy paints | Tooth coatings
-mine: Belonging to me | Colliery
+mine: Belonging to me | Colliery | Dig for ore | Explosive buried underground
 proffer: Hold out, as a gift | Tender
 repulse: Drive back | Disgust
 stages: Phases | Theatre platforms
@@ -6653,3 +6652,46 @@ snifter: Brandy glass | Small drink
 harrow: Distress | Farm implement
 soaped: Lathered | Washed up
 slope: Incline | Gradient
+management: Bosses collectively | Running of a business
+abettor: Accomplice | Partner in crime
+lineament: Distinctive facial feature | Characteristic contour
+majorette: Baton twirler | Parade leader with a baton
+baselines: Starting points for comparison | Rear boundaries of a tennis court
+analogs: Comparable things | Counterparts
+given: Granted | Presented as a gift
+envisages: Pictures in the mind | Foresees
+traders: Market dealers | Merchants
+renewal: Fresh start | Extension of a subscription
+avast: Sailor's "stop!" | Nautical halt command
+semicolons: Punctuation marks between clauses | List separators in prose
+palette: Painter's colour board | Range of hues
+erosion: Wearing away | Gradual decline
+boatmen: Ferry operators | River rowers for hire
+anesthesia: Numbing before surgery | Loss of sensation
+omelets: Folded egg dishes | Breakfast dishes with fillings
+savages: Attacks fiercely | Mauls
+dilutes: Waters down | Weakens with liquid
+sourest: Most acidic | Most vinegary
+curve: Bend | Arc
+chugs: Gulps down | Moves along with a steady engine noise
+hens: Laying birds | Farmyard layers
+pepperoni: Spicy pizza topping | Cured salami slices
+piloted: Steered an aircraft | Guided
+timeless: Eternal | Never going out of style
+tied: Knotted | Level on points
+slathers: Spreads thickly | Coats generously
+lactose: Milk sugar | Dairy carbohydrate
+amorality: Absence of ethical standards | Indifference to right and wrong
+tolerates: Puts up with | Endures
+herds: Groups of cattle | Drives livestock
+sensation: Feeling | Big hit
+optimized: Made as efficient as possible | Fine-tuned
+rereads: Goes over again | Reviews, as a text
+dispirit: Make gloomy | Sap the morale of
+pellet: Small ball of shot | Compressed feed nugget
+frostbite: Cold-weather tissue injury | Winter hazard for climbers
+restarted: Began anew | Got going after a pause
+appears: Comes into view | Seems
+chores: Household tasks | Daily jobs on a farm
+slosh: Splash about | Wade noisily through puddles
+lays: Sets down | Produces, as eggs

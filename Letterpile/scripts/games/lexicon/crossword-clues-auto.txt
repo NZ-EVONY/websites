@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24051 words.
+# first) or ban the word in crossword-banned.txt. 24030 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -28,6 +28,7 @@ abdomens: Bellies
 abducting: Especially of muscles
 aberrant: Deviant | Deviate | Markedly different from an accepted norm
 aberration: Disorder in one's mental state
+abettors: Accomplices
 abeyance: Temporary cessation or suspension
 abhorred: Loathed | Detested
 abhorrence: Abomination | Loathing | Hate coupled with disgust
@@ -648,7 +649,6 @@ amulets: Talismans
 amusement: Feeling of delight at being entertained
 amuses: Entertains | Tickles
 anachronism: Artifact that belongs to another time
-analogs: Parallels
 analogue: Parallel
 analogues: Parallels
 analyses: Studies | Examines
@@ -825,7 +825,6 @@ appeal: Entreaty | Earnest or urgent request | Charm | Request earnestly
 appealing: Likable
 appeals: Entreaties | Charms
 appearance: Visual aspect | Event of coming into sight
-appears: Looks | Seems
 appeased: Pacified | Conciliated | Mollified | Placated
 appeasement: Calming
 appeases: Pacifies | Conciliates | Mollifies | Placates
@@ -1476,7 +1475,6 @@ barters: Swaps
 basalt: Commonest type of solidified lava
 baseboard: Skirting board
 baseless: Groundless | Idle | Unfounded | Unwarranted
-baselines: Benchmarks
 basement: Cellar
 basements: Cellars
 bashed: Socked | Bopped | Partied
@@ -3329,7 +3327,6 @@ choppy: Jerky | Marked by abrupt transitions | Rough with small waves
 choral: Stately Protestant hymn tune
 chorale: Stately Protestant hymn tune
 choreograph: Compose a sequence of dance steps
-chores: Jobs | Tasks | Errands
 choristers: Choirboys
 chortle: Chuckle | Soft partly suppressed laugh | Laugh softly | Laugh quietly or with restraint
 chortled: Chuckled
@@ -4888,7 +4885,6 @@ curtains: Drapes | Draperies
 curtsied: Bowed | Bobbed
 curtsies: Bows | Bobs
 curtsying: Bowing | Bobbing
-curve: Swerve | Sheer | Trend | Veer
 curves: Swerves | Sheers | Trends | Veers
 cushion: Mechanical damper | Layer of air | Buffer | Protect from impact
 cushioned: Padded
@@ -6071,7 +6067,6 @@ dispersed: Spread
 disperses: Sprinkles | Dots | Dissipates | Scatters
 dispersing: Sprinkling | Dotting | Dissipating | Dispelling
 dispersion: Spreading widely or driving off
-dispirit: Depress | Deject | Cast down | Dismay
 dispirited: Listless | Marked by low spirits | Gloomy | Downcast
 dispiriting: Destructive of morale and self-reliance
 dispirits: Depresses | Dejects | Dismays | Demoralizes
@@ -7188,7 +7183,6 @@ enviousness: Envy
 environment: Totality of surrounding conditions | Surround
 environs: Surround | Outer adjacent area of any place
 envisaged: Imagined
-envisages: Imagines | Foresees
 envisaging: Imagining | Foreseeing
 envision: Visualize | Fancy | Picture | Image
 envisioned: Pictured | Visualized
@@ -7259,7 +7253,6 @@ erasing: Deleting | Obliterating | Expunging
 erectly: In a straight-backed manner
 erectness: Property of being upright in posture
 eroding: Erosion | Eating away | Wearing | Wearing away
-erosion: Eroding | Eating away | Wearing | Wearing away
 erosive: Wearing away by friction | Caustic | Corrosive | Vitriolic
 errand: Short trip
 erratum: Misprint | Literal error | Literal
@@ -9223,8 +9216,7 @@ girlfriend: Any female friend | Lady friend
 girth: Distance around a person's body | Cinch | Tie a cinch around
 girths: Cinches
 gist: Substance | Essence
-given: Presumption | Assumption that is taken for granted | Granted | Apt
-givens: Presumptions
+givens: Presumptions | Granteds
 giving: Bountiful | Handsome
 gizmo: Gimmick | Appliance | Contraption | Gadget
 gizmos: Gimmicks | Appliances | Contraptions | Gadgets
@@ -10116,7 +10108,6 @@ herbivorous: Feeding only on plants
 herculean: Displaying superhuman strength or power | Extremely difficult
 herded: Crowded
 herding: Crowding
-herds: Crowds
 hereabout: In this general vicinity
 hereabouts: In this general vicinity
 hereafters: Futures | Afterlifes
@@ -12020,7 +12011,6 @@ lactate: Suckle | Give suck to
 lactated: Suckled
 lactates: Suckles
 lactating: Producing or secreting milk
-lactose: Milk sugar
 laddie: Cub | Male child
 laddies: Cubs | Lads
 laded: Ladled | Loaded | Shipped
@@ -12183,7 +12173,6 @@ layover: Stopover
 layovers: Stopovers
 layperson: Layman | Secular
 laypersons: Seculars
-lays: Ballads | Puts | Sets | Places
 laze: Idle | Slug | Be idle
 lazily: In a slow and lazy manner | Idly | In an idle manner
 laziness: Indolence | Relaxed and easy activity
@@ -12397,7 +12386,6 @@ linchpins: Anchors | Mainstays | Keystones | Backbones
 linden: Lime tree
 lineage: Pedigree | Ancestry | Descendants of one individual
 lineages: Pedigrees | Ancestries
-lineament: Character | Feature
 lineaments: Characters | Features
 lined: Seamed
 liners: Linings
@@ -15181,7 +15169,6 @@ peevishness: Irritable petulant feeling
 pegged: Hooked | Pinned
 pejorative: Expressing disapproval
 pelagic: Oceanic
-pellet: Small sphere | Shot | Solid missile discharged from a firearm
 pellets: Shots
 pellucid: Crystal clear | Transparent | Lucid
 pelt: Fur | Dressed hairy coat of a mammal | Hide | Body covering of a living animal
@@ -15221,7 +15208,6 @@ penultimate: Second last
 penurious: Penniless | Excessively unwilling to spend
 peppered: Pelted
 peppering: Pelting
-pepperoni: Pork and beef sausage
 peppers: Pelts
 peppy: Bouncing | Spirited | Marked by lively action
 perambulate: Walk about | Walk around | Walk with no particular goal
@@ -15515,7 +15501,6 @@ pillars: Towers
 pillbox: Turban | Small round woman's hat
 pillboxes: Turbans
 pillory: Expose to ridicule or public scorn
-piloted: Navigated
 pilothouse: Enclosed compartment from
 piloting: Navigation
 pilots: Navigates | Fliers | Aviators
@@ -17588,7 +17573,6 @@ renegades: Deserters | Rebels
 renegading: Rebelling
 reneges: Revokes | Defaults
 reneging: Defaulting
-renewal: Reclamation
 renewals: Reclamations
 renewed: Restored to a new condition
 renewing: Reviving
@@ -17834,7 +17818,6 @@ responds: Reacts | Answers | Replies
 response: Result
 responsible: Being the agent or cause
 rest: Remainder | Residual | Residue | Repose
-restarted: Resumed | Rebooted
 restarting: Resuming | Rebooting
 restarts: Resumes | Reboots
 restate: Repeat | Reiterate | Iterate | To say, state, or perform again
@@ -18518,7 +18501,6 @@ savage: Barbarian | Beast | Brute | Wildcat
 savagely: Viciously | Brutally | In a vicious manner | Wildly
 savageries: Brutalities
 savagery: Brutality | Trait of extreme cruelty
-savages: Barbarians | Beasts | Brutes | Wildcats
 savant: Initiate | Learned person | Pundit
 savants: Initiates | Pundits
 saved: Rescued | Protected | Guarded from injury or destruction
@@ -18911,7 +18893,6 @@ senile: Mentally or physically infirm with age
 senility: Second childhood
 seniority: Higher status | Higher rank | Higher rank than | Longevity
 seniors: Elders | Olders
-sensation: Adept | Virtuoso | Star | Superstar
 sensational: Causing intense interest, curiosity, or emotion | Arresting | Stunning | Commanding attention
 sensations: Adepts | Virtuosos | Stars | Superstars
 sensed: Perceived
@@ -19540,7 +19521,6 @@ slopped: Smashed | Soaked | Very drunk
 slopping: Spilling | Splattering | Splashing | Sloshing
 sloppy: Lacking neatness or order
 slops: Swill | Cheap clothing
-slosh: Slush | Make a splashing sound | Splash | Slop
 sloshes: Slushes | Splashes | Slops
 sloshing: Slushing | Splashing | Slopping
 slothful: Indolent | Lazy
@@ -21548,7 +21528,6 @@ tidily: In a tidy manner
 tidiness: Habit of being tidy | Neatness | Trait of being neat and orderly
 tiding: Trending
 tidings: News | Information about recent and important events
-tied: Bound or secured closely
 tiers: Grades | Levels | Layers | Rows
 tiffed: Spatted
 tiffing: Spatting
