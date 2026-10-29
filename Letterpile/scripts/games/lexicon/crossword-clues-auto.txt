@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 25045 words.
+# first) or ban the word in crossword-banned.txt. 25041 words.
 aardvark: Ant bear
 aback: By surprise
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
@@ -6679,7 +6679,6 @@ dragoon: Sandbag | Railroad | Subjugate by imposing troops
 dragooned: Sandbagged | Railroaded
 dragooning: Sandbagging | Railroading
 dragoons: Sandbags | Railroads
-drained: Emptied or exhausted of | Very tired
 draining: Exhausting
 drainpipe: Waste pipe
 drains: Empties
@@ -18908,7 +18907,6 @@ romanced: Wooed | Courted | Solicited
 romances: Woos | Courts | Solicits
 romancing: Wooing | Courting | Soliciting
 romanticize: Glamorize
-romp: Runaway | Blowout | Easy victory | Tomboy
 romped: Larked | Sported | Cavorted | Frisked
 romping: Larking | Sporting | Cavorting | Frisking
 romps: Runaways | Blowouts | Tomboys | Frolics
@@ -19419,7 +19417,6 @@ scotches: Thwarts | Queers | Foils | Frustrates
 scotching: Thwarting | Queering | Foiling | Frustrating
 scoundrel: Villain | Wicked or evil person
 scoundrels: Villains
-scour: Scrub | Clean with hard rubbing
 scoured: Eroded
 scourge: Whip used to inflict punishment | Something causing misery or death | Punish severely | Whip
 scouring: Scrub | Scrubbing
@@ -19904,7 +19901,6 @@ shirker: Slacker
 shirkers: Slackers
 shirking: Slacking | Soldiering | Goofing off | Evasion of work or duty
 shirks: Fiddles
-shirts: Tees | Tops | Blouses
 shirtwaist: Blouse with buttons down the front
 shiver: Tremble | Chill | Quiver | Shudder
 shivered: Shuddered
