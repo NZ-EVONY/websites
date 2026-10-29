@@ -2266,7 +2266,7 @@ curb: Restrain | Kerb, in the US
 dams: River barriers | Mother horses
 darn: Mend a sock | "Drat!"
 dean: College head | Faculty leader
-deer: Stag or doe | Forest grazer
+deer: Stag or doe | Forest grazer | Bambi, for one
 dike: Flood wall | Levee
 dill: Pickle herb | Fish herb
 dime: Ten-cent coin | US coin
@@ -4535,3 +4535,112 @@ conch: Spiral seashell | Shell blown like a horn
 roadhouse: Inn on a highway | Wayside pub
 imprinted: Stamped | Fixed in the memory
 scour: Scrub hard | Search thoroughly
+# Added for 8 Nov 2026: common short fill
+aha: Cry of sudden understanding | Eureka!
+sty: Pigpen | Eyelid swelling
+ops: Military operations, briefly | Surgical procedures, informally
+ere: Before, in poetry | Before, to the bard
+rho: Greek letter after pi | Greek R
+rep: Sales agent, briefly | One lift in a gym set
+lei: Hawaiian flower garland | Necklace given on arrival in Honolulu
+ism: Doctrine or ideology | Belief system, briefly
+gen: Information, informally | Generation, for short
+eta: Greek letter before theta | Expected arrival time, briefly
+ell: Old measure of cloth | L-shaped wing of a building
+cee: Third letter of the alphabet | Letter after bee
+axe: Woodcutter's tool | Cut, as jobs
+ave: Hail, in Latin | Road, on a map, briefly
+asp: Cleopatra's snake | Small venomous viper
+ala: In the style of, from French | ___ carte
+aga: Ottoman commander | Range cooker brand
+tsar: Russian emperor | Policy supremo, informally
+yea: Vote in favour | Aye
+verso: Left-hand page | Back of a sheet
+ursa: Bear, in star names | Constellation word meaning bear
+tsk: Sound of disapproval | Tut
+tis: It is, poetically | It is, old style
+torc: Celtic neck ring | Ancient twisted collar
+torahs: Scrolls of Jewish law | Synagogue scrolls
+tubule: Tiny tube in the body | Small duct
+obi: Kimono sash | Japanese belt
+ess: Letter after ar | S-shaped curve
+sri: ___ Lanka | Indian title of respect
+olla: Earthenware pot | Spanish cooking jar
+emu: Big flightless Aussie bird | Ostrich's cousin
+oda: Harem room | Room in a seraglio
+ort: Scrap of food | Leftover morsel
+foals: Young horses | Newborns in a stable
+education: Schooling | Learning and teaching
+dethroned: Toppled from power | Removed from the crown
+seedless: Like some grapes | Pipless, as fruit
+satires: Works that mock folly | Spoofs
+estuary: Tidal river mouth | Where a river meets the sea
+lambskins: Soft hides from young sheep | Leathers for fine gloves
+spur: Rider's heel prod | Encourage
+abbot: Head of a monastery | Monks' superior
+slob: Untidy layabout | Couch potato
+lousiness: Poor quality | Awfulness
+scented: Perfumed | Fragrant
+enlists: Joins up | Signs on for the army
+affluent: Wealthy | Well off
+siliceous: Containing silica | Flinty
+precedent: Earlier example to follow | Legal model case
+grate: Fireplace frame | Shred, as cheese
+mute: Silent | Turn off the sound
+hardly: Barely | Scarcely
+atoll: Ring-shaped coral island | Lagoon-circling reef
+sparest: Thinnest and leanest | Most surplus
+cheer: Applaud loudly | Good spirits
+arable: Fit for crops | Like ploughland
+tomboy: Girl who likes rough play | Boyish lass
+union: Trade organisation for workers | Marriage
+astute: Shrewd | Sharp-witted
+spiels: Sales patters | Glib speeches
+outset: Beginning | Start
+wrests: Wrenches away | Seizes by force
+bob: Short haircut | Bounce up and down
+sidling: Edging along furtively | Creeping sideways
+creed: Statement of belief | Faith
+flick: Light quick stroke | Film, informally
+fire: Blaze | Sack from a job
+tuna: Fish in a sandwich | Big ocean fish
+shaft: Mine entrance | Lift well
+skedaddles: Runs off in a hurry | Scarpers
+trek: Long hard walk | Tramp in the hills
+ciphers: Secret codes | Nobodies
+hone: Sharpen | Refine, as skills
+chaste: Pure | Virtuous and modest
+scepter: Royal rod, US spelling | Monarch's staff, in America
+eraser: Rubber for pencil marks | Whiteboard wiper
+neuters: Desexes, as a pet | Takes the sting out of
+staider: More sedate | Stuffier
+feed: Give a meal to | Fodder
+tube: London Underground | Toothpaste holder
+diminished: Lessened | Reduced
+owns: Possesses | Holds title to
+bookstore: Shop for novels | Place to buy paperbacks
+indecency: Lewdness | Impropriety
+fill: Top up | Plug, as a gap
+telecaster: Classic electric guitar | Broadcasting firm
+earths: Fox burrows | Connects to the ground, electrically
+soaks: Drenches | Long baths
+dame: Pantomime role played by a man | Title for a knighted woman
+sisters: Siblings who are girls | Nuns
+accrued: Built up, as interest | Accumulated
+theatrical: Dramatic | Over the top
+lapse: Slip | Expire
+apprehend: Arrest | Grasp mentally
+launderer: One who washes clothes | Money-cleaning crook
+tulle: Fine net for veils | Tutu fabric
+fists: Clenched hands | Punchers
+mole: Spy inside | Burrowing mammal
+nerd: Geek | Swot
+dewy: Moist with morning drops | Fresh and youthful
+deals: Bargains | Hands out cards
+hoop: Basketball ring | Croquet arch
+beast: Animal | Brute
+keepers: Goalies | Zoo staff
+melted: Thawed | Softened, as a heart
+cookeries: Kitchens of old | Cooking arts
+towelings: Absorbent fabrics | Bathrobe materials
+maple: Tree on Canada's flag | Syrup tree
