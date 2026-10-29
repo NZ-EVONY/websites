@@ -20,7 +20,7 @@ amass: Pile up | Accumulate | Gather in quantity
 and: Plus | Also | Word joining two things | Ampersand | Furthermore | In addition to
 ant: Picnic pest | Colony insect | Tiny worker in a hill | Industrious insect
 ants: Picnic pests | Colony insects | They live in hills
-any: Even one | Whichever | At all
+any: Even one | Whichever | At all | Some | No matter which | Every
 ape: Mimic | Gorilla or chimp | Copy
 apt: Fitting | Likely | Quick to learn
 arc: Curve | Part of a circle | Rainbow shape | Story line | Spark gap glow | Bow shape | Trajectory
@@ -236,7 +236,7 @@ pen: Writing tool | Pig enclosure | Write
 pep: Energy | Vigor | Get-up-and-go | Zip | Vim | Liveliness
 per: For each | A head | By way of
 pet: Dog or cat | Favorite | Stroke
-pie: Dessert with a crust | Apple ___ | Pizza
+pie: Dessert with a crust | Apple ___ | Pizza | Mince ___ | Pastry dish | Mutton ___
 pig: Hog | Swine | Farm animal
 pin: Brooch | Bowling target | Fasten | Safety ___
 pit: Fruit stone | Hole | Race car stop
@@ -675,7 +675,7 @@ undo: Reverse | Untie | Cancel
 unit: Single thing | Measurement | Apartment
 united: Joined | Combined | Allied
 usage: Use | Way of using | Wear
-user: Customer | Operator | Consumer
+user: Customer | Operator | Consumer | Account holder | Addict | Patron
 uses: Utilizes | Purposes | Employs
 vie: Compete | Contend | Struggle
 vine: Grape plant | Climbing plant | Creeper
@@ -2334,7 +2334,7 @@ laps: Circuits | Seat on knees | Drinks like a cat
 lard: Pork fat | Baking fat
 lath: Thin strip of wood
 lava: Volcano flow | Molten rock
-liar: Fibber | Untruthful one
+liar: Fibber | Untruthful one | Perjurer | Storyteller | Deceiver
 lice: Nit makers | Head pests
 lick: Taste with the tongue | Thrash
 lily: Easter flower | Water ___
@@ -4068,7 +4068,7 @@ baser: More lowly or ignoble | Less noble
 emote: Act with exaggerated feeling | Ham it up
 goose: Bird that honks | Gander's mate
 idled: Ran a motor without moving | Lazed about
-isles: Small islands, poetically | Islands in verse
+isles: Small islands, poetically | Islands in verse | Atolls | Cays | Archipelago members
 menu: List of dishes in a restaurant | On-screen list of options
 mini: Very short skirt | Small car of the sixties
 paves: Covers with flat stones | Prepares, as the way
@@ -4561,7 +4561,7 @@ torc: Celtic neck ring | Ancient twisted collar
 torahs: Scrolls of Jewish law | Synagogue scrolls
 tubule: Tiny tube in the body | Small duct
 obi: Kimono sash | Japanese belt | Judo belt | Wide sash | Silk wrap for a kimono
-ess: Letter after ar | S-shaped curve | Hiss sound | Curvy letter
+ess: Letter after ar | S-shaped curve | Hiss sound | Curvy letter | Sibilant letter | Snake shape | Sinuous bend | Plural maker
 sri: ___ Lanka | Indian title of respect | Colombo's country, ___ Lanka | Honorific in India
 olla: Earthenware pot | Spanish cooking jar
 emu: Big flightless Aussie bird | Ostrich's cousin
@@ -4709,7 +4709,7 @@ maw: Gaping mouth | Animal's jaws
 mid: Central | Halfway
 nib: Pen point | Cocoa fragment
 nix: Veto | Nothing
-nth: To the ___ degree | Umpteenth
+nth: To the ___ degree | Umpteenth | Utmost degree | Last in a long series | Highest, to the ___
 nub: Crux | Gist
 oft: Many a time, in verse | Frequently, of old
 oho: Cry of surprise | Gotcha!
@@ -4810,7 +4810,7 @@ etas: Greek letters | Arrival times, briefly
 esses: S-bends | Snaky curves
 efs: Letters after ees | F's, spelt out
 ems: Printers' measures | Widths of the letter M | Printer's spaces | Wide dashes, briefly | Ms
-ids: Identity cards, briefly | Psyches' primitive parts
+ids: Identity cards, briefly | Psyches' primitive parts | Passports, e.g. | Freudian drives | Photo cards
 sim: Phone chip card | Card in a mobile
 sis: Female sibling, informally | Sibling, for short
 sot: Drunkard | Tippler | Boozer | Lush | Soak
@@ -6162,3 +6162,62 @@ cosmonaut: Soviet spacefarer | Russian space traveller
 casuistry: Sophistry | Specious reasoning
 scrapers: Ice-clearing tools | Paint removers
 hobos: Drifters | Tramps
+prattle: Babble | Chatter
+retrain: Teach new skills | Reskill
+enticed: Lured | Coaxed
+stirrer: Troublemaker | Coffee spoon substitute
+scattered: Strewn | Dispersed
+late: Tardy | Deceased
+shrewd: Astute | Canny
+earliness: Promptness | Being ahead of time
+dashes: Sprints | Morse longs
+elitist: Snobbish | Exclusive
+amusing: Funny | Diverting
+emerges: Comes out | Surfaces
+rented: Leased | Hired
+insane: Mad | Absurd
+ditty: Little song | Jingle
+narrate: Tell a story | Recount
+herders: Drovers | Shepherds
+candidate: Applicant | Contender
+rays: Skates' cousins | Beams
+reeling: Staggering | Spinning
+spading: Digging | Turning over soil
+wedges: Doorstops | Golf clubs for bunkers
+basil: Pesto herb | Sweet herb
+gauze: Thin bandage fabric | Mesh
+riser: Step's upright | Early bird
+digests: Summaries | Breaks down food
+flinch: Wince | Recoil
+unusual: Rare | Odd
+seafood: Prawns and mussels | Fish course
+onetime: Former | Erstwhile
+dropouts: Quitters | Signal losses
+sated: Full | Satisfied
+retch: Gag | Heave
+bloc: Alliance | Voting group
+rodeo: Bronco-riding show | Bull-riding contest
+breeds: Strains | Rears
+unitary: Single | Undivided
+pike: Toothy freshwater fish | Medieval spear
+phrase: Expression | Word group
+shatters: Smashes | Splinters
+epitaph: Gravestone words | Tomb inscription
+toadied: Fawned | Grovelled
+reverie: Daydream | Musing
+sledded: Tobogganed | Coasted downhill on snow
+enforce: Impose | Uphold
+duos: Pairs | Twosomes
+guest: Visitor | Invitee
+estates: Properties | Bequests
+suites: Hotel apartments | Musical sets
+duckbill: Platypus | Monotreme
+thirtieth: Pearl anniversary | Ordinal after 29th
+deadbeat: Loafer | Defaulter
+spatted: Bickered | Squabbled
+speeder: Fast driver | Lawbreaker on the motorway
+chapel: Small church | Prayer room
+arrive: Get there | Turn up
+peers: Equals | Lords
+shard: Fragment | Splinter
+start: Begin | Jump
