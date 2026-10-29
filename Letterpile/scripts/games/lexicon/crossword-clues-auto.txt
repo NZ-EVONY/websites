@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24373 words.
+# first) or ban the word in crossword-banned.txt. 24359 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -3638,7 +3638,6 @@ clout: Target used in archery | Special advantage or influence | Strike hard, es
 cloven: Split, divided
 clowning: Prank | Comedy | Comic incident or series of incidents
 clownish: Zany
-club: Nine | Society | Guild | Gild
 clubs: Nines | Societies | Guilds | Gilds
 cluck: Sound made by a hen | Clack
 clucked: Clacked
@@ -3999,7 +3998,6 @@ computers: Calculators
 computes: Calculates | Ciphers
 computing: Branch of engineering science | Calculation | Procedure of calculating
 comrade: Companion | Fellow | Familiar | Associate
-comrades: Companions | Fellows | Familiars | Associates
 comradeship: Camaraderie
 concave: Curving inward
 concavity: Shape that curves or bends inward
@@ -4526,7 +4524,6 @@ cosmos: Universe | Existence | World | Everything that exists anywhere
 cosmoses: Universes | Existences | Worlds
 cosponsor: Sponsor together with another sponsor
 costed: Priced | Expensed
-costly: Entailing great loss or sacrifice | Having a high price
 coterie: Clique | Inner circle
 coteries: Cliques
 cotillion: Ball at
@@ -5075,7 +5072,6 @@ dawdler: Laggard | Trailer | Poke
 dawdlers: Laggards | Trailers | Pokes
 dawdles: Dallies
 dawdling: Trifling
-dawn: First light | Daybreak | Sunrise | Sunup
 dawning: First light | Daybreak | Sunrise | Sunup
 daybed: Long chair
 daybreak: Dawn | Dawning | First light | Sunrise
@@ -10713,7 +10709,7 @@ idiom: Manner of speaking | Dialect | Usage or vocabulary
 idioms: Dialects
 idleness: Idling | Loafing | Having no employment | Quality of lacking substance or value
 idlers: Loafers | Slackers | Lazyboneses
-idles: Slugs | Inactives | Lazies
+idles: Slugs | Inactives | Lazies | Unemployeds
 idling: Loafing | Having no employment
 idly: In an idle manner
 idolatrous: Blindly or excessively devoted or adoring
@@ -13536,9 +13532,8 @@ mislaid: Misplaced | Lost temporarily
 mislay: Misplace
 mislaying: Misplacing
 mislays: Misplaces
-mislead: Misdirect | Misguide | Lead astray | Misinform
 misleading: Deceptive
-misleads: Misdirects | Misguides | Misinforms
+misleads: Misdirects | Misguides | Misinforms | Deceives
 mismanage: Misconduct
 mismanaged: Misconducted
 mismanages: Misconducts
@@ -13605,7 +13600,6 @@ mnemonic: Device used to aid recall
 moan: Groan | Utterance expressing pain or disapproval | Indicate pain, discomfort, or displeasure
 moaning: Groaning
 moans: Groans
-mobbed: Thronged | Piled | Jammed | Crowded
 mobbing: Thronging | Piling | Jamming | Crowding
 mobile: Nomadic | Wandering | Migratory | Moving or capable of moving readily
 mobility: Quality of moving freely
@@ -14391,7 +14385,6 @@ oaring: Paddling
 oarsman: Someone who rows a boat
 oasis: Fertile tract in a desert | Haven
 oatmeal: Porridge made of rolled oats
-obdurate: Obstinate | Flint | Stony | Showing unfeeling resistance to tender feelings
 obedience: Act of obeying | Trait of being willing to obey
 obeisance: Bowing | Obedience | Act of obeying
 obeisances: Bowings | Obediences
@@ -15538,7 +15531,6 @@ pertaining: Referring | Relating | Concerning
 pertains: Refers | Relates | Concerns
 pertinacity: Persistence | Tenacity
 pertinent: Apposite
-pertness: Quality of being lively and confident
 perturb: Disquiet | Distract | Disorder
 perturbed: Flustered | Rattled
 perturbing: Distressing | Disturbing | Troubling | Worrisome
@@ -17630,7 +17622,6 @@ regulation: Ordinance | Rule
 regulations: Ordinances | Rules
 regulatory: Restricting according to rules or principles
 regurgitate: Pour or rush back
-rehash: Old material | Present or use over | Hash over | Go back over
 rehearsal: Dry run | Form of practice
 reheat: Heat again
 reign: Period during | Have sovereign power | Predominate | Dominate
@@ -18314,7 +18305,6 @@ rigorous: Strict | Rigidly accurate | Stringent
 rigors: Hardships | Severities | Cogencies | Validities
 rigs: Trucks | Equipments | Fixes
 rile: Annoy | Rag | Bother | Irritate
-riles: Annoys | Rags | Bothers | Irritates
 riling: Annoying | Ragging | Bothering | Irritating
 rind: Natural outer covering of food
 ring: Halo | Doughnut | Peal | Resound
@@ -18813,7 +18803,6 @@ scarce: Barely | Hardly | Only a very short time before | Almost not
 scarcely: Barely | Hardly | Only a very short time before | Almost not
 scarceness: Small and inadequate amount
 scarcity: Small and inadequate amount
-scared: Frightened | Made afraid
 scares: Panics | Frightens | Frights | Daunts
 scarify: Scratch the surface of
 scaring: Frightening | Frighting | Daunting | Palling
@@ -19138,7 +19127,6 @@ seltzer: Soda water | Club soda | Sparkling water
 semantics: Study of language meaning | Meaning of a word
 semblance: Outward or token appearance or form | Illusion
 semblances: Illusions
-semi: Trailer truck | Tractor trailer | Trucking rig | Rig
 semiannual: Occurring or payable twice each year
 semimonthly: Occurring twice a month | Twice a month
 seminal: Containing seeds of later development
@@ -19845,7 +19833,6 @@ smartly: Cleverly | In a clever manner | Vigorously | With vigor
 smartness: Kind of pain such as | Brightness | Cleverness
 smarts: Hurts
 smashed: Slopped | Soaked | Very drunk
-smashing: Shattering | Bully | Corking | Cracking
 smattering: Handful | Small number or amount
 smatterings: Handfuls
 smeared: Smudged
@@ -22041,7 +22028,6 @@ towels: Dryers | Wipes
 tower: Structure taller than its diameter | Pillar | Loom | Predominate
 towered: Loomed | Predominated | Hulked
 towering: Eminent | Lofty | Soaring | Of imposing height
-towers: Pillars | Looms | Predominates | Hulks
 towhead: Person with light blond hair
 towheaded: Of hair color
 townsfolk: Townspeople

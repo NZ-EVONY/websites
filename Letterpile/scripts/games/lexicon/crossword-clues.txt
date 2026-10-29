@@ -1018,7 +1018,7 @@ grip: Hold | Grasp | Clutch
 hint: Clue | Suggestion | Trace
 hock: Pawn | Ham joint | Leg joint of a horse
 huh: "What?" | "Pardon?" | Puzzled sound
-idle: Inactive | Lazy | Not working
+idle: Inactive | Lazy | Not working | Unemployed | Tick over | Fritter away
 immodest: Boastful | Vain | Not humble
 inhale: Breathe in | Gulp down | Suck in
 ion: Charged particle | Atom with a charge
@@ -1322,7 +1322,7 @@ flu: Influenza | Bug | Fever
 fullest: Most complete | Largest
 gaiety: Cheer | Merriment | Joy
 galls: Irks | Bothers | Nerve
-gee: "Wow!" | Golly | Turn right, to a horse
+gee: "Wow!" | Golly | Turn right, to a horse | Gosh | Horse, to a toddler | Command to go right
 genesis: Origin | Beginning | First book
 genre: Category | Style | Kind
 genres: Categories | Styles | Kinds
@@ -2968,7 +2968,7 @@ auks: Puffin relatives
 awls: Leather punches
 bunt: Tap the ball in baseball
 cams: Camera feeds, for short
-emus: Aussie flightless birds
+emus: Aussie flightless birds | Big Aussie runners | Ratites down under | Ostrich relatives
 faun: Woodland creature in Narnia
 feta: Salad cheese
 fief: Domain
@@ -4521,7 +4521,7 @@ violas: Instruments a bit bigger than fiddles | Larger cousins of violins
 vitals: Heart rate, temperature and so on | Vital organs
 weekended: Spent Saturday and Sunday away | Spent a short break away
 wolf: Pack animal | Gobble
-won: Came first | Korean currency
+won: Came first | Korean currency | Triumphed | Prevailed | Seoul cash
 words: Lyrics | Talk
 worsted: Fine wool fabric | Defeated
 yaks: Shaggy Himalayan oxen | Chatters
@@ -4835,7 +4835,7 @@ mil: Thousandth of an inch | Military, briefly
 tho: However, in texts | Albeit, casually
 ana: Collection of anecdotes | Literary miscellany | Anthology of sayings | Miscellany | Gossipy collection
 ern: Sea eagle | White-tailed eagle
-ope: Unclose, poetically | Lay bare, in verse
+ope: Unclose, poetically | Lay bare, in verse | Unseal, in poetry | Unbar, archaically | Unlock, poetically
 asea: Out on the ocean | Afloat, sailing
 poises: Balances | Holds ready
 acetate: Film base material | Silky synthetic fabric
@@ -5017,7 +5017,7 @@ hellebore: Christmas rose | Winter-flowering plant
 organisms: Living things | Life forms
 hack: Cough harshly | Journalist, scornfully
 phones: Mobiles | Rings
-cop: Police officer | Constable, informally
+cop: Police officer | Constable, informally | Nab | Take, as the blame | Bobby
 redraft: Rewrite | Revise
 valuable: Precious | Worth a lot
 unlike: Different from | Dissimilar
@@ -5237,7 +5237,7 @@ matron: Senior nurse | Dignified married woman
 sanest: Most rational | Least crazy
 catty: Spiteful | Bitchy
 obey: Comply | Follow orders
-atlas: Book of maps | Titan holding up the sky
+atlas: Book of maps | Titan holding up the sky | Top vertebra | Collection of charts | Mythical sky-bearer
 oyster: Pearl maker | Shellfish from Bluff
 provably: Demonstrably | In a way that can be shown true
 retake: Second attempt at an exam | Recapture
@@ -6024,3 +6024,28 @@ scoots: Dashes off | Hurries along
 intuit: Sense | Know by instinct
 today: This day | Nowadays
 tax: GST, e.g. | Strain
+semi: Big rig | Half-detached house
+snaked: Wound | Twisted along
+scalene: Like a triangle with unequal sides | Uneven, as a triangle
+slummer: Visitor to poor quarters for kicks | Upper-class tourist in squalor
+rehash: Rework old material | Regurgitate, as ideas
+dawn: Daybreak | Sunrise
+comedic: Funny | Light-hearted
+towers: Spires | Looms over
+mobbed: Swarmed | Crowded round
+inanest: Silliest | Most vacuous
+mislead: Deceive | Hoodwink
+ushers: Shows to a seat | Cinema guides
+menthol: Cooling oil in lozenges | Peppermint extract
+club: Society | Golf stick
+comrades: Mates | Fellow soldiers
+openwork: Lacy pattern | Fretted design
+pertness: Sauciness | Cheek
+nacho: Topped tortilla chip | Cheesy snack
+pheromone: Insect's chemical signal | Attractant scent
+scared: Afraid | Frightened
+smashing: Terrific | Breaking to bits
+obdurate: Stubborn | Unyielding
+reprise: Repeat performance | Musical recap
+costly: Dear | Pricey
+riles: Annoys | Irks
