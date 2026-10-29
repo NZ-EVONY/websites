@@ -49,7 +49,7 @@ bid: Auction offer | Attempt | Offer
 big: Large | Major | Grown-up
 bin: Storage box | Trash container | Recycling ___
 bit: Small piece | Smidgen | Bridle part | Comedy routine
-boa: Feathery scarf | Large snake | Squeezing serpent
+boa: Feathery scarf | Large snake | Squeezing serpent | Python relative | Constrictor | Fluffy stole
 bow: Archer's weapon | Gift topper | Ship's front | Take a curtain call
 box: Carton | Spar | Package
 bun: Burger holder | Hairdo | Sweet roll
@@ -2019,7 +2019,7 @@ bite: Small mouthful | Nip | Snack
 bits: Small pieces | Binary digits | Scraps | Drill parts | Morsels
 blue: Colour of a clear sky | Feeling down | Navy or royal
 busy: Fully occupied | Hard at work | Like a phone line in use
-byte: Eight bits | Computer memory unit
+byte: Eight bits | Computer memory unit | Data unit | Kilo- prefix's target | Storage chunk
 came: Arrived | Showed up
 card: Birthday greeting | Playing ___ | Comedian, informally
 cold: Chilly | Common sniffly illness | Unfriendly
@@ -4791,7 +4791,7 @@ chub: Freshwater fish | Plump river fish
 psi: Greek letter before omega | Pressure unit, briefly
 tao: The way, in Chinese philosophy | Laozi's path
 stye: Eyelid swelling | Inflamed eyelash gland
-stet: Let it stand, to an editor | Proofreader's undo
+stet: Let it stand, to an editor | Proofreader's undo | Leave as is | Keep, in proofing | Restore a cut
 stele: Carved stone slab | Ancient upright marker
 rec: Leisure, briefly | ___ room
 rah: Cheer at a game | Hooray, in short
@@ -4804,8 +4804,8 @@ lanai: Hawaiian veranda | Porch in Honolulu
 edenic: Paradisal | Idyllic
 darner: Sock mender | Large dragonfly
 res: Resolution, in screen terms | Things, in Latin | Matter, in law | Image sharpness, briefly
-seta: Bristle | Stiff hair on a worm
-etas: Greek letters | Arrival times, briefly
+seta: Bristle | Stiff hair on a worm | Insect hair | Bristly appendage | Plant spine
+etas: Greek letters | Arrival times, briefly | Arrival estimates | Greek H's | Seventh Greek letters
 esses: S-bends | Snaky curves
 efs: Letters after ees | F's, spelt out | Sixth letters | Fs in full | Letter pair after dees
 ems: Printers' measures | Widths of the letter M | Printer's spaces | Wide dashes, briefly | Ms
@@ -6575,3 +6575,55 @@ watersides: Riverbanks | Shorelines
 silver: Argent | Second place
 bandy: Bow-legged | Toss about, as words
 sail: Canvas on a mast | Cruise
+electrons: Negative particles | Orbiting particles in an atom
+merriest: Jolliest | Most cheerful
+insets: Small maps in a corner | Panels let in
+shale: Layered rock | Fissile stone
+trapeze: Circus swing | Acrobat's bar
+cruder: More basic | Coarser
+hair: Mane | Locks
+raring: Keen | Eager to go
+vaporous: Misty | Hazy
+debatable: Arguable | Moot
+team: Squad | Side
+ahem: Throat-clearing sound | Attention-getting cough
+secret: Hidden | Confidential
+prose: Ordinary writing | Non-verse
+filterable: Sievable | Able to be strained
+undeterred: Undaunted | Unflinching
+tissue: Paper hanky | Body cells
+tenth: Decimal part | Ordinal after ninth
+penetrable: Permeable | Able to be pierced
+interurban: Between cities | Linking towns
+whiz: Expert | Speed by
+dads: Fathers | Pops
+ladies: Women | Gentlewomen
+errant: Wayward | Wandering
+oboe: Double-reed instrument | Woodwind
+barbecue: Grill | Outdoor cook-up
+urbanest: Most citified | Most metropolitan
+ferret: Rummage | Polecat's cousin
+festive: Jolly | Celebratory
+spire: Steeple | Tapering point
+emits: Gives off | Discharges
+thrice: Three times | Triply
+stiletto: Narrow dagger | Spiky heel
+seethe: Fume | Boil with rage
+killdeer: Noisy plover | American shorebird
+abutted: Bordered | Adjoined
+garrote: Strangling wire | Throttle with a cord
+orbital: Circling | Of an eye socket
+bends: Curves | Diver's ailment, with "the"
+safes: Strongboxes | Vaults
+tortuously: Windingly | In a convoluted way
+devise: Invent | Contrive
+remoter: More isolated | Further off
+similarity: Likeness | Resemblance
+swathe: Wrap | Broad strip
+papered: Hung with lining | Covered with sheets
+audited: Inspected the books | Sat in on, as a class
+blotter: Ink absorber | Desk pad
+sensory: Perceptual | Relating to touch and taste
+pits: Stones | Mines
+steed: Horse | Charger
+tells: Relates | Poker giveaways

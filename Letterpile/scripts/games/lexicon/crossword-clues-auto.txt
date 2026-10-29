@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24086 words.
+# first) or ban the word in crossword-banned.txt. 24062 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -469,7 +469,6 @@ agrees: Concurs
 agriculture: Factory farm | Large-scale farming enterprise | Farming
 agronomy: Scientific agriculture
 ahead: Before | At or in the front | Toward the future
-ahem: Hem
 aiding: Helping | Assisting
 ailed: Pained | Troubled | Afflicted
 ailing: Indisposed | Peaked | Poorly | Sickly
@@ -1182,7 +1181,6 @@ audacity: Fearless daring
 audible: Heard or perceptible by the ear
 audiovisual: Involving both hearing and seeing
 audit: Scrutinize | Attend academic courses without getting credit
-audited: Scrutinized
 auditing: Scrutinizing
 audition: Ability to hear | Tryout
 auditor: Listener | Someone who listens attentively
@@ -1434,8 +1432,8 @@ barbarisms: Brutalities
 barbarities: Atrocities | Brutalities
 barbarity: Atrocity | Brutality
 barbarous: Brutal | Cruel | Fell | Savage
-barbecue: Cook out
 barbecued: Grilled | Cooked over an outdoor grill
+barbecues: Grills
 barbed: Biting | Nipping | Pungent | Capable of wounding
 barber: United States composer
 barbs: Shafts | Digs | Jibes | Gibes
@@ -2030,7 +2028,6 @@ blossoming: Flowering
 blossoms: Flowers | Blooms | Primes | Peaks
 blot: Smudge | Daub | Blemish made by dirt | Fleck
 blotted: Flecked | Blobbed
-blotter: Absorbent paper used to dry ink | Day book | Rap sheet | Charge sheet
 blotting: Flecking | Blobbing
 blouse: Top worn by women
 blower: Electric fan | Fan run by an electric motor
@@ -4939,7 +4936,6 @@ dabs: Pats | Splatters | Swabs | Daubs
 dachshund: Badger dog
 daddies: Dads | Papas | Pops
 daddy: Papa | Pop | Informal term for a father
-dads: Papas | Pops | Fathers | Pas
 daemon: Fiend
 daemons: Fiends
 dagger: Short knife with a pointed blade | Obelisk
@@ -5075,7 +5071,6 @@ debasement: Being mixed with extraneous material | Degradation | Changing to a l
 debasements: Degradations
 debases: Corrupts | Subverts | Demoralizes | Profanes
 debasing: Degrading | Used of conduct
-debatable: Problematic | Arguable | Moot
 debate: Argue with one another | Moot | Deliberate | Think about carefully
 debated: Mooted | Deliberated
 debates: Moots | Deliberates
@@ -5688,7 +5683,6 @@ deviations: Divergences | Departures | Differences
 devices: Inclination or desire
 devious: Oblique | Shifty
 deviousness: Quality of being deceitful and underhanded
-devise: Will disposing of real property | Gift of real property by will | Invent | Contrive
 devised: Invented | Contrived | Formulated
 devises: Invents | Contrives | Formulates
 devising: Fashioning | Making
@@ -6886,7 +6880,6 @@ eminent: Lofty | Soaring | Towering | Of imposing height
 emissaries: Envoys
 emissary: Envoy
 emissions: Releases
-emits: Releases
 emitting: Releasing
 emollient: Ointment | Salving | Softening | Having a softening or soothing effect
 emollients: Ointments
@@ -8003,6 +7996,9 @@ ferments: Agitations | Unrests
 ferocious: Fierce | Furious | Marked by extreme and violent energy
 ferociously: Fiercely | In a physically fierce manner
 ferocity: Fierceness | Wildness | Property of being wild or turbulent
+ferreted: Rummaged
+ferreting: Rummaging
+ferrets: Rummages
 ferried: Transported
 ferries: Transports
 ferrying: Transport by boat or aircraft
@@ -8015,7 +8011,6 @@ fervidly: Fervently
 fervor: Feelings of great warmth and intensity | Excitement
 fester: Ripen and generate pus
 festivals: Celebrations | Fetes
-festive: Merry | Offering fun and gaiety
 festivities: Celebrations
 festivity: Celebration | Any joyous diversion
 festoon: Decorate with strings of flowers
@@ -9066,7 +9061,6 @@ garret: Loft | Attic
 garrets: Lofts | Attics
 garrison: Fort
 garrisons: Forts
-garrote: Iron collar | Strangle with an iron collar
 garrulity: Quality of being wordy and talkative
 garrulous: Chatty | Talkative
 gash: Slash | Wound made by cutting | Trench resembling a furrow | Cut open
@@ -9772,7 +9766,6 @@ hail: Acclaim | Herald | Be a native of
 hailing: Acclaiming | Heralding
 hails: Acclaims | Heralds
 hailstone: Small pellet of ice
-hair: Whisker | Very small distance or space
 hairdos: Coiffures
 hairline: Very thin line
 hairnet: Small net
@@ -12036,7 +12029,6 @@ laddie: Cub | Male child
 laddies: Cubs | Lads
 laded: Ladled | Loaded | Shipped
 laden: Ladle | Load | Fill or place a load on | Loaded
-ladies: Dames | Madams
 lading: Cargo | Freight | Payload | Shipment
 ladle: Spoon-shaped vessel with a long handle | Lade | Laden
 ladled: Laded | Ladened
@@ -14275,7 +14267,6 @@ oblivion: Limbo | State of being disregarded or forgotten
 oblivious: Lacking conscious awareness of | Failing to keep in mind
 oblong: Plane figure
 obloquy: Defamation | Hatchet job
-oboe: Slender double-reed instrument
 obscure: Haze over | Fog | Cloud | Mist
 obscured: Fogged | Clouded | Misted
 obscures: Fogs | Clouds | Mists
@@ -14468,6 +14459,7 @@ opulent: Deluxe | Luxurious | Sumptuous
 oracles: Prophets
 oratory: Addressing an audience formally
 orbit: Sphere | Domain | Arena | Particular environment or walk of life
+orbitals: Circlings
 orbited: Revolved
 orbiting: Revolving
 orchard: Grove
@@ -14908,7 +14900,6 @@ papas: Dads | Daddies | Pops
 papaya: Melon tree
 paperback: Having a flexible binding
 paperboy: Boy who sells or delivers newspapers
-papered: Wallpapered | Essayed
 papering: Application of wallpaper
 paprika: Sweet pepper | Bell pepper | Plant bearing large mild thick-walled
 papyrus: Paper rush | Paper plant
@@ -15610,7 +15601,6 @@ pities: Pathoses
 pitiful: Pathetic | Inspiring mixed contempt and pity | Deplorable | Distressing
 pitiless: Remorseless | Ruthless | Without mercy or pity | Unkind
 pitilessly: Mercilessly | Without pity
-pits: Cavities | Scars | Holes
 pittance: Inadequate payment
 pitted: Honeycombed
 pitting: Indentation
@@ -16982,7 +16972,6 @@ raptures: Ecstasies | Exaltations
 rapturous: Ecstatic
 rarefied: Having low density | Exalted | Elevated | Lofty
 rareness: Rarity | Noteworthy scarcity
-raring: Impatient | Full of eagerness
 rarity: Noteworthy scarcity | Low density
 rascal: Rogue | Deceitful and unreliable scoundrel | Imp | Monkey
 rascally: Roguish | Lacking principles or scruples
@@ -18858,7 +18847,6 @@ seconded: Endorsed
 secondhand: Previously used or owned by another | By indirect means
 seconding: Endorsing
 secrecy: Privacy | Concealment | Condition of being concealed or hidden
-secret: Not open or public | Clandestine | Undercover | Underground
 secrete: Place out of sight
 secretly: Not openly
 sect: Religious order | Subdivision of a larger religious group | Faction | Dissenting clique
@@ -18893,8 +18881,7 @@ seeping: Oozing | Leaking out slowly
 seersucker: Light puckered fabric
 seesaw: Teeter | Tilting board | Ride on a plank
 seesaws: Teeters
-seethe: Hum | Be noisy with activity | Be in an agitated emotional state
-seethed: Hummed
+seethed: Hummed | Fumed
 seething: In constant agitation
 segmenting: Sectioning | Portioning
 segments: Sections | Portions
@@ -20030,7 +20017,6 @@ spinster: Old maid | Elderly unmarried woman | Thread maker
 spiny: Barbed | Bristled | Burred | Prickly
 spiral: Gyrate | Coil | Coiling | In the shape of a coil
 spirals: Gyrates | Coils
-spire: Steeple | Tall tower
 spires: Steeples
 spirit: Feel | Flavor
 spiritless: Lacking ardor or vigor or energy
@@ -20332,7 +20318,6 @@ steamer: Cooking utensil
 steaming: Piping | Extremely
 steamroll: Proceed with great force
 steamroller: Juggernaut | Massive inexorable force | Road roller | Proceed with great force
-steed: Spirited horse for state of war
 steeled: Nerved | Metalled | Braced | Fortified
 steeling: Nerving | Metalling | Bracing | Fortifying
 steep: Immerse | Engulf | Engross | Devote fully to
@@ -20379,7 +20364,6 @@ stigmas: Disgraces
 stigmatize: Brand | Denounce
 stigmatized: Branded | Denounced
 stigmatizes: Brands | Denounces
-stiletto: Small dagger with a tapered blade
 stillbirth: Miscarriage
 stillbirths: Miscarriages
 stillborn: Failing to accomplish an intended result
@@ -20979,8 +20963,8 @@ swarming: Teeming | Pouring
 swarms: Droves | Teems | Pours
 swarthy: Dusky
 swatch: Sample piece of cloth
-swathe: Wrapping | Enveloping bandage
-swathes: Wrappings
+swathed: Wrapped
+swathes: Wrappings | Wraps
 swatted: Slapped | Swiped
 swatting: Hitting | Slapping | Swiping
 sway: Controlling influence | Pitching dangerously to one side | Rock | Move back and forth or sideways
@@ -21258,10 +21242,10 @@ teaches: Instructs
 teaching: Pedagogy | Commandment | Doctrine that is taught
 teachings: Pedagogies | Commandments
 teaks: Hardwoods
-team: Squad | Cooperative unit | Two or more draft animals
+teamed: Squadded | Sided
 teammate: Mate
 teammates: Mates
-teams: Squads
+teams: Squads | Sides
 teamster: Truck driver
 teared: Ruptured | Snapped | Ripped
 tearful: Weeping | Showing sorrow
@@ -21301,7 +21285,6 @@ telescope: Crush together or collapse | Make smaller or shorter
 telescopic: Capable of discerning distant objects
 tellers: Narrators
 telling: Recounting | Act of narration | Informing by words | Revealing
-tells: States | Says | Relates | Informs
 telltale: Revealing
 temblor: Earthquake | Quake
 temblors: Earthquakes | Quakes
@@ -21503,7 +21486,6 @@ threshed: Thrashed | Flailed
 thresher: Fox shark
 threshes: Thrashes | Flails
 threshold: Smallest detectable sensation
-thrice: Three times
 thrift: Extreme care in spending money
 thrill: Kick | Shiver | Chill | Quiver
 thrilled: Feeling intense pleasurable excitement
@@ -21641,7 +21623,6 @@ tiredness: Fatigue | Weariness
 tireless: Industrious | Untiring
 tiresomely: Boringly | Tediously | In a tedious manner
 tiring: Exhausting | Wearing | Wearying | Producing exhaustion
-tissue: Soft thin paper | Weave
 tissues: Weaves
 titan: Giant | Person of exceptional importance and reputation
 titanic: Of great force or power
@@ -21730,7 +21711,6 @@ torrents: Downpours | Cloudbursts | Deluges
 torrid: Ardent | Fervent | Fiery | Impassioned
 torsion: Contortion | Tortuous and twisted shape or position | Torque | Twisting force
 tortuous: Convoluted | Tangled | Twisting | Winding
-tortuously: With twists and turns
 torturing: Agonizing | Harrowing | Extremely painful
 tosses: Skies | Pitches | Flips | Throws
 tossing: Skying | Pitching | Flipping | Throwing
@@ -21884,7 +21864,6 @@ transports: Carries
 transpose: Change the order or arrangement of
 transposed: Converse | Reversed | Turned about in order or relation
 transverses: Crosswises
-trapeze: Swing used by circus acrobats
 trapped: Cornered | Treed
 trappings: Furnishing | Accessory wearing apparel
 trash: Rubbish | Scrap | Worthless material | Scum
@@ -22430,7 +22409,6 @@ undeserved: Not deserved or earned
 undeserving: Unworthy | Not deserving
 undesirable: Unwanted | Not wanted | Not worthy of being chosen
 undetected: Not perceived or discerned
-undeterred: Not deterred
 undeveloped: Not developed, mature, or fully formulated | Not developed, improved, exploited or used
 undies: Women's underwear
 undignified: Lacking dignity
@@ -22975,7 +22953,6 @@ vapidity: Tameness
 vapidness: Tameness
 vapor: Evaporation
 vaporize: Turn into gas
-vaporous: Filmy | Gossamer | Transparent | So thin as to transmit light
 vapors: Blues | State of depression
 variability: Quality of being subject to variation
 variable: Something that is likely to vary | Liable to or capable of change | Varying | Marked by diversity or difference
@@ -23672,7 +23649,6 @@ whittle: Pare
 whittled: Pared
 whittles: Pares
 whittling: Paring
-whiz: Adept | Sensation | Virtuoso | Star
 whizzed: Whirred | Purred | Zoomed
 whizzes: Adepts | Sensations | Virtuosos | Stars
 whizzing: Whirring | Purring | Zooming
