@@ -2428,7 +2428,7 @@ teas: Afternoon brews | Green and black
 toed: Pointed, like shoes
 toga: Roman robe
 toil: Work hard | Labour
-tong: Lift with tongs
+tong: Chinese secret society
 tout: Promote | Ticket seller
 tows: Pulls a car | Hauls
 trod: Walked on
@@ -4682,7 +4682,7 @@ baa: Sheep's cry | Lamb's bleat
 fax: Send a document by phone line | Old office machine
 lib: Women's ___ | Liberation, briefly
 oat: Porridge grain | Grain for a horse
-ref: Referee, briefly | Whistle blower at a game
+ref: Match whistler, briefly | Whistle blower at a game
 sax: Jazz horn | Reed instrument, briefly
 tad: Smidgen | Little bit
 tic: Nervous twitch | Involuntary spasm
@@ -4708,12 +4708,12 @@ hob: Cooktop | Stovetop ring
 jib: Triangular sail | Crane arm
 lea: Meadow, poetically | Grassland
 maw: Gaping mouth | Animal's jaws
-mid: Middle of | Halfway
+mid: Central | Halfway
 nib: Pen point | Cocoa fragment
 nix: Veto | Nothing
 nth: To the ___ degree | Umpteenth
 nub: Crux | Gist
-oft: Often, in verse | Frequently, of old
+oft: Many a time, in verse | Frequently, of old
 oho: Cry of surprise | Gotcha!
 orc: Tolkien monster | Fantasy brute
 pip: Fruit seed | Beat narrowly
@@ -4724,10 +4724,10 @@ tam: Scottish beret | Woolly bonnet
 tat: Tasteless junk | Tit for ___
 tom: Male cat | Tabby, perhaps
 tor: Craggy hill | Rocky peak on a moor
-ump: Baseball judge, briefly | Cricket umpire, informally
+ump: Baseball judge, briefly | Line judge, informally
 vim: Vigour | Pep
 yaw: Swerve off course | Deviate, as a ship
-yon: Over there, poetically | Yonder
+yon: Over there, poetically | That, far off, in old verse
 zed: Last letter | Z, in Britain
 aah: Sigh of pleasure | Relaxed exhalation
 bap: Soft bread roll | Breakfast roll
@@ -4747,7 +4747,7 @@ filo: Thin pastry | Pastry for baklava
 gaga: Doting foolishly | Infatuated
 gawp: Stare stupidly | Gape
 ghee: Clarified butter | Indian cooking fat
-gran: Grandma | Nana
+gran: Nana | Grandmother, informally
 hmm: Sound of doubt | Let me think
 hols: School breaks, informally | Vacations, in Britain
 idem: The same, in footnotes | Ditto
@@ -4791,3 +4791,51 @@ baht: Thai currency | Money in Bangkok
 capo: Guitar clamp | Mafia boss
 cay: Low coral islet | Small sandy island
 chub: Freshwater fish | Plump river fish
+psi: Greek letter before omega | Pressure unit, briefly
+tao: The way, in Chinese philosophy | Laozi's path
+stye: Eyelid swelling | Inflamed eyelash gland
+stet: Let it stand, to an editor | Proofreader's undo
+stele: Carved stone slab | Ancient upright marker
+rec: Leisure, briefly | ___ room
+rah: Cheer at a game | Hooray, in short
+poi: Hawaiian taro paste | Maori ball on a cord
+med: Holiday sea, informally | Doctor's training, informally
+nan: Grandmother | Granny
+bio: Life story, briefly | Author blurb
+genoa: Italian port | Large foresail
+lanai: Hawaiian veranda | Porch in Honolulu
+edenic: Paradisal | Idyllic
+darner: Sock mender | Large dragonfly
+res: Resolution, in screen terms | Things, in Latin
+seta: Bristle | Stiff hair on a worm
+etas: Greek letters | Arrival times, briefly
+esses: S-bends | Snaky curves
+efs: Letters after ees | F's, spelt out
+ems: Printers' measures | Widths of the letter M
+ids: Identity cards, briefly | Psyches' primitive parts
+sim: Phone chip card | Card in a mobile
+sis: Female sibling, informally | Sibling, for short
+sot: Drunkard | Tippler
+tun: Large cask | Brewer's barrel
+wen: Cyst | Sebaceous lump
+yip: Puppy's yelp | High bark
+yup: Yes, informally | Uh-huh
+pol: Campaigner, informally | Vote seeker, briefly
+pox: Plague | Chickenpox, for short
+lam: On the ___ (fleeing) | Hit hard, informally
+lox: Smoked salmon | Bagel topping
+jag: Sharp point | Spree, as of crying
+hod: Bricklayer's trough | Coal scuttle
+hie: Hasten | Hurry, of old
+haw: Hawthorn berry | Hem and ___
+fie: For shame! | Old-fashioned tut
+erg: Unit of work | Rowing machine
+deb: Debutante, briefly | Society newcomer
+bur: Prickly seed case | Clinging seed pod
+alb: Priest's white robe | Long linen vestment
+mil: Thousandth of an inch | Military, briefly
+tho: However, in texts | Albeit, casually
+ana: Collection of anecdotes | Literary miscellany
+ern: Sea eagle | White-tailed eagle
+ope: Unclose, poetically | Lay bare, in verse
+asea: Out on the ocean | Afloat, sailing
