@@ -262,7 +262,7 @@ rob: Steal from | Hold up | Burgle
 rod: Fishing pole | Bar | Stick
 rot: Decay | Spoil | Nonsense
 row: Line | Paddle | Tier of seats
-rub: Massage | Polish | Snag
+rub: Massage | Polish | Snag | Catch | Knead | Hitch
 rue: Regret | Feel sorry about | Bitter herb
 rug: Floor covering | Mat | Carpet
 run: Jog | Dash | Operate | Sprint
@@ -1033,7 +1033,7 @@ lore: Folk knowledge | Tradition | Legends
 lotto: Lottery game | Numbers game | Jackpot draw
 lozenge: Cough drop | Diamond shape | Throat soother
 made: Created | Built | Earned
-mar: Spoil | Damage | Scratch
+mar: Spoil | Damage | Scratch | Blemish | Deface | Disfigure
 memo: Office note | Reminder | Short message
 metro: Subway | City train | Urban
 mimes: Silent performers | Acts out | Imitates
@@ -2076,7 +2076,7 @@ mean: Unkind | Average | Signify
 more: Extra | Additional | "Please, sir, I want some ___"
 neck: Scarf spot | Giraffe's long feature | Guitar part
 none: Not one | Zero
-odds: Betting chances | Probability
+odds: Betting chances | Probability | Chances | Likelihood | Bookies' figures
 owed: Was in debt | Had to repay
 pair: Two of a kind | Couple | Twosome
 port: Harbour | Ship's left side | Sweet wine
@@ -2479,7 +2479,7 @@ zaps: Blasts | Microwaves
 abut: Border | Touch
 adze: Wood-shaping tool
 agog: Eager | All excited
-aloe: Soothing plant | ___ vera
+aloe: Soothing plant | ___ vera | Succulent for sunburn | Gel plant | Burn-soothing succulent
 apse: Church recess
 asps: Small snakes
 auks: Arctic seabirds
@@ -2527,7 +2527,7 @@ yule: Christmas season
 zebu: Humped cattle
 abuse: Misuse | Mistreat
 acted: Performed | Took steps
-added: Totted up | Put in extra
+added: Totted up | Put in extra | Summed | Included | Tacked on
 aimed: Pointed | Targeted
 apple: Orchard fruit | Big ___ (New York)
 apply: Put on, as cream | Submit a form
@@ -3267,7 +3267,7 @@ arced: Curved | Formed a bow shape
 arenas: Stadiums | Spheres of activity
 assure: Guarantee | Promise
 atones: Makes amends | Pays for a wrong
-atop: On the summit of | Perched on
+atop: On the summit of | Perched on | Upon | Crowning | Resting on
 attest: Bear witness | Vouch | Certify | Confirm | Testify
 attires: Dresses up | Kits out
 avail: Use or benefit | To no ___
@@ -3635,7 +3635,7 @@ shares: Stocks | Splits
 staleness: Lack of freshness | Mustiness
 stance: Position | Posture
 teens: Adolescents | Ages 13 to 19 | Young people | Adolescent years
-tense: Edgy | Past or present, in grammar
+tense: Edgy | Past or present, in grammar | Taut | Strained | Nervy
 tortoise: Hare's rival in a fable | Slow reptile
 wastrel: Spendthrift | Good-for-nothing
 wow: "Amazing!" | Impress
@@ -4813,7 +4813,7 @@ ems: Printers' measures | Widths of the letter M | Printer's spaces | Wide dashe
 ids: Identity cards, briefly | Psyches' primitive parts
 sim: Phone chip card | Card in a mobile
 sis: Female sibling, informally | Sibling, for short
-sot: Drunkard | Tippler
+sot: Drunkard | Tippler | Boozer | Lush | Soak
 tun: Large cask | Brewer's barrel
 wen: Cyst | Sebaceous lump
 yip: Puppy's yelp | High bark
@@ -4834,7 +4834,7 @@ alb: Priest's white robe | Long linen vestment
 mil: Thousandth of an inch | Military, briefly
 tho: However, in texts | Albeit, casually
 ana: Collection of anecdotes | Literary miscellany | Anthology of sayings | Miscellany | Gossipy collection
-ern: Sea eagle | White-tailed eagle
+ern: Sea eagle | White-tailed eagle | Coastal raptor | Osprey cousin | Big fish-eating bird
 ope: Unclose, poetically | Lay bare, in verse | Unseal, in poetry | Unbar, archaically | Unlock, poetically
 asea: Out on the ocean | Afloat, sailing
 poises: Balances | Holds ready
@@ -6049,3 +6049,47 @@ obdurate: Stubborn | Unyielding
 reprise: Repeat performance | Musical recap
 costly: Dear | Pricey
 riles: Annoys | Irks
+imitating: Copying | Mimicking
+regret: Remorse | Rue
+frieze: Decorative band on a wall | Sculpted border
+gondola: Venetian boat | Cable car cabin
+dissolves: Melts away | Disbands
+tilde: Mark over an n | Squiggle accent
+swooned: Fainted | Went weak at the knees
+rips: Tears | Strong currents
+esteeming: Valuing | Revering
+genii: Guardian spirits | Djinn
+retaliate: Hit back | Get even
+upend: Overturn | Tip over
+serf: Feudal labourer | Villein
+merge: Combine | Amalgamate
+shining: Gleaming | Radiant
+diary: Journal | Daily log
+lineman: Rail worker | Pole climber for the power company
+ingrate: Thankless person | Unappreciative sort
+zanies: Clowns | Buffoons
+taster: Sampler | Wine judge
+imposes: Inflicts | Levies
+layette: Newborn's outfit set | Baby clothes kit
+drainer: Dish rack | Colander, e.g.
+upping: Raising | Increasing
+beside: Next to | Alongside
+crepe: Thin pancake | Crinkly fabric
+self: Ego | Identity
+dormant: Inactive, as a volcano | Asleep
+distorter: One who twists the facts | Warping device
+limits: Bounds | Caps
+eliminate: Remove | Knock out
+taxis: Cabs | Ubers' rivals
+medalists: Podium finishers | Olympic winners
+ovens: Kilns | Roasting chambers
+sesame: Seed on a bun | "Open ___"
+aground: Beached | Stranded on a reef
+flaps: Panics | Wing parts
+reams: Paper bundles | Loads and loads
+anthem: National song | Rousing hymn
+doweled: Pegged, as joinery | Joined with wooden pins
+dioxide: Carbon ___ | CO2 component
+detoxes: Cleanses | Goes on a cleanse
+begins: Starts | Commences
+stave: Musical staff | Barrel slat

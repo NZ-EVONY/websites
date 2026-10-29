@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24359 words.
+# first) or ban the word in crossword-banned.txt. 24342 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -772,7 +772,6 @@ antennas: Aerials
 anterior: Front tooth | Prior | Earlier in time
 anteroom: Entrance hall | Hall | Foyer | Lobby
 anterooms: Halls | Foyers | Lobbies | Vestibules
-anthem: Song of devotion or loyalty | Hymn | Song of praise
 anthems: Hymns
 anthology: Collection of selected literary passages
 anthracite: Hard coal | Hard natural coal
@@ -1654,7 +1653,6 @@ beginner: Novice | Initiate | Founder | Founding father
 beginners: Novices | Initiates | Founders
 beginning: Outset | Start | Kickoff | Starting time
 beginnings: Outsets | Starts | Kickoffs | Offsets
-begins: Starts | Commences
 begrudge: Envy | Be envious of | Resent
 begrudged: Envied | Resented
 begrudges: Envies | Resents
@@ -3320,7 +3318,6 @@ chimes: Gongs
 chimney: Vertical flue
 chin: Protruding part of the lower jaw
 china: Communist nation
-chinked: Having narrow opening filled
 chintz: Brightly printed and glazed cotton fabric
 chintzy: Crummy | Punk | Sleazy | Tinny
 chip: Bit | Fleck | Scrap | Break away
@@ -3571,7 +3568,7 @@ clinched: Clenched | Closed or squeezed together tightly
 clincher: Determining factor | Argument that is conclusive | Decisive factor | Point or fact or remark
 clinches: Clenches
 clink: Click | Short light metallic sound | Jail | Poky
-clinked: Tinkled | Chinked
+clinked: Tinkled
 clinker: Cinder
 clinkers: Cinders
 clinks: Clicks | Jails | Pokies | Pokeys
@@ -4715,7 +4712,6 @@ creeping: Crawling
 creeps: Feeling of fear and revulsion
 creepy: Annoying and unpleasant
 cremate: Reduce to ashes
-crepe: Paper with a crinkled texture | Small very thin pancake
 crescendo: Gradual increase in loudness | Grow louder | Gradually increasing in volume
 crescent: Resembling the new moon in shape
 crested: Having a
@@ -5793,7 +5789,6 @@ diaphragm: Mechanical device in a camera | Midriff
 diaphragms: Midriffs
 diaries: Journals
 diarist: Journalist
-diary: Journal | Personal journal
 diatribes: Tirades | Rants
 dices: Dies | Cubes | Cubeses
 dicey: Of uncertain outcome
@@ -6425,7 +6420,6 @@ doorway: Room access | Entrance through
 dopey: Foolish | Having or revealing stupidity
 dorm: Residence hall | Student residence
 dormancy: State of quiet inaction | Sleeping
-dormant: Hibernating | Not erupting and not extinct
 dormitory: Residence hall | Student residence | Large sleeping room containing several beds
 dormouse: Small furry-tailed squirrel-like Old World rodent
 dosage: Dose
@@ -6872,7 +6866,9 @@ elfin: Small and delicate
 elicited: Evoked
 eliciting: Arousing | Evoking | Provoking
 elicits: Arouses | Evokes | Provokes
-eliminate: Terminate, end, or take out | Do away with
+eliminated: Removed
+eliminates: Removes
+eliminating: Removing
 elimination: Riddance | Excreting | Voiding | Bodily process of discharging waste matter
 elision: Exception | Deliberate act of omission
 elisions: Exceptions
@@ -7401,7 +7397,6 @@ establish: Found | Launch | Set up or found | Institute
 established: Constituted | Effected
 establishes: Founds | Launches | Institutes
 estates: Properties | Lands | Inheritances
-esteeming: Respecting | Reputing | Regarding
 esteems: Respects | Admirations | Reputes | Regards
 estimable: Deserving of respect or high regard | Respectable | Deserving of esteem and respect
 estimate: Gauge | Approximate | Calculate | Reckon
@@ -10770,7 +10765,6 @@ imbue: Permeate | Pervade | Diffuse | Spread or diffuse through
 imbuing: Permeating | Pervading | Diffusing
 imitated: Copied | Simulated | Impersonated
 imitates: Copies | Simulates | Mimics | Impersonates
-imitating: Copying | Simulating | Impersonating
 imitation: Fake | Simulated | Not genuine or real
 imitator: Emulator | Ape
 imitators: Emulators | Apes
@@ -10921,7 +10915,6 @@ importuned: Insisted
 importunes: Insists
 importuning: Insisting
 impose: Enforce | Constrain | Inflict
-imposes: Enforces | Constrains | Inflicts
 imposing: Noble | Stately | Impressive in appearance
 imposingly: In an impressive manner
 impossible: Something that cannot be done | Totally unlikely
@@ -11276,7 +11269,6 @@ inglorious: Disgraceful | Shameful | Deserving or bringing disgrace or shame | N
 ingrained: Implanted | Planted | Deeply rooted
 ingraining: Instilling
 ingrains: Grains
-ingrate: Thankless wretch | Ungrateful person | Person who shows no gratitude
 ingratitude: Lack of gratitude
 ingredient: Component of a mixture or compound | Component | Element | Factor
 ingredients: Components | Elements | Factors
@@ -12512,7 +12504,6 @@ limitations: Restrictions
 limited: Express | Small in range or scope
 limiting: Qualifying | Grammatical relation | Confining | Restricting
 limitless: Unlimited
-limits: Confines | Throttles
 limo: Large luxurious car
 limp: Hobble | Uneven manner of walking | Hitch | Proceed slowly or with difficulty
 limped: Hobbled | Hitched
@@ -13290,7 +13281,6 @@ mercurial: Erratic | Fickle
 mercy: Clemency | Disposition to be kind and forgiving
 merely: Simply | Just | Only | But
 merganser: Fish duck
-merge: Unify | Unite | Become one | Mix
 merged: Incorporate | Integrated | Unified | Formed or united into a whole
 merger: Uniting | Fusion | Unification
 merging: Coming together | Act of joining together as one | Flowing together
@@ -17600,7 +17590,6 @@ regressing: Reverting
 regression: Arrested development | Fixation | Infantile fixation | Abnormal state
 regressions: Fixations
 regressive: Adjusted so | Opposing progress
-regret: Sorrow | Repent | Rue | Feel remorse for
 regretful: Sorry
 regrets: Polite refusal of an invitation
 regrettable: Too bad
@@ -18090,7 +18079,6 @@ retainer: Servant
 retainers: Servants
 retakes: Recaptures
 retaking: Recapture | Act of taking something back
-retaliate: Revenge | Avenge | Take revenge for a perceived wrong | Strike back
 retaliated: Revenged | Avenged
 retaliating: Revenging | Avenging
 retaliation: Revenge
@@ -18328,7 +18316,6 @@ riposting: Retorting | Rejoining
 ripping: Rending | Splitting | Excellent | Splendid
 rippled: Crinkled | Wavy | Ruffled
 ripples: Ruffles | Burbles | Bubbles | Gurgles
-rips: Rakes | Rents | Tears | Rends
 risen: Above the horizon
 riser: Vertical pipe in a building
 rising: Ascent | Ascension | Movement upward | Rebellion
@@ -19117,7 +19104,6 @@ selected: Chosen in preference to another
 selecting: Choosing | Picking
 selection: Choice | Assortment of things from
 selections: Choices
-self: Ego | Person considered as a unique individual
 selfless: Altruistic
 selflessly: In an altruistic manner
 selfsame: Identical | Very | Being the exact same one
@@ -19343,7 +19329,6 @@ shiner: Black eye | Mouse
 shingle: Shake
 shingles: Eruptions along a nerve path
 shininess: Sheen | Luster | Visual property of something
-shining: Polishing | Marked by exceptional merit | Burnished | Lustrous
 shinned: Clambered | Scrambled | Skinned
 shinnied: Clambered | Scrambled | Skinned
 shinnies: Clambers | Scrambles | Skins
@@ -20540,7 +20525,6 @@ staunch: Stanch | Stop the flow of a liquid | Steadfast | Firm and dependable es
 staunched: Stanched
 staunches: Stanches
 staunching: Stanching
-stave: System of five horizontal lines on | Burst or force into something
 stay: Arrest | Halt | Hitch | Stoppage
 stayed: Remained | Sticked
 staying: Remaining | Sticking
@@ -21286,7 +21270,6 @@ swivel: Pivot | Turn on a pivot
 swivels: Pivots
 swollen: Conceited | Vain
 swoon: Faint | Pass out | Pass out from weakness
-swooned: Fainted
 swooped: Pounced
 swooping: Pouncing
 swoops: Pounces
@@ -21459,7 +21442,6 @@ task: Undertaking | Project | Any piece of work | Job
 tasks: Undertakings | Projects | Jobs | Chores
 tasted: Savored | Flavored
 tasteless: Lacking flavor
-taster: Sampler
 tasters: Samplers
 tastes: Preferences | Penchants | Savors | Flavors
 tasting: Small amount | Kind of sensing
@@ -21593,8 +21575,9 @@ tenets: Dogmas
 tenpin: One of the bottle-shaped pins
 tens: Decades
 tenseness: Stress
-tenses: Edgies
+tenses: Edgies | Tauts | Straineds | Nervies
 tensile: Malleable | Pliable | Pliant
+tensing: Tauting
 tension: Stress
 tensions: Stresses
 tent: Collapsible shelter | Portable shelter | Camp | Camp out
@@ -21866,9 +21849,9 @@ tinker: Putter | Mess around | Potter | Monkey
 tinkered: Puttered | Pottered | Monkeyed
 tinkering: Puttering | Pottering | Monkeying
 tinkers: Putters | Potters | Monkeys
-tinkle: Clink | Chink | Make or emit a high sound
-tinkled: Clinked | Chinked
-tinkles: Clinks | Chinks
+tinkle: Clink | Make or emit a high sound
+tinkled: Clinked
+tinkles: Clinks
 tinned: Canned | Sealed in a can or jar
 tinny: Crummy | Punk | Sleazy | Of very poor quality
 tint: Shade | Quality of a given color | Hair dye | Hair coloring
@@ -23088,9 +23071,9 @@ upchucks: Sicks | Cats | Retches
 upcoming: Approaching | Coming | Forthcoming | Of the relatively near future
 update: Modernize or bring up to date | Bring up to date
 updraft: Strong upward air current
-upend: Become turned or set on end | Set, turn, or stand on end
 upended: Turned up on end
 upending: Turning upside down
+upends: Overturns
 upfront: Frank and honest
 upgrade: Ascent | Raise | Climb | Upward slope or grade
 upgrades: Ascents | Raises | Climbs
