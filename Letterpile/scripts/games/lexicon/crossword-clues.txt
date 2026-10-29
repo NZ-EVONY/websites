@@ -1011,7 +1011,7 @@ exerts: Applies | Uses | Wields
 exigency: Urgent need | Emergency | Demand
 fled: Ran away | Escaped | Bolted
 forage: Search for food | Fodder | Rummage
-fro: To and ___ | Back
+fro: To and ___ | Back | Away, in a phrase
 gate: Entrance | Airport boarding spot | Garden entry
 got: Received | Understood | Obtained
 grip: Hold | Grasp | Clutch
@@ -1748,7 +1748,7 @@ reread: Read again | Go over again
 purism: Strict adherence to rules | Insistence on tradition
 gag: Joke | Choke | Silence
 outlet: Socket | Store | Release
-opera: Musical drama | Aida, for one
+opera: Musical drama | Aida, for one | Night out at Covent Garden
 colon: Punctuation mark | Large intestine
 hairs: Strands | Whiskers | Tresses
 allots: Assigns | Distributes | Doles out
@@ -2221,7 +2221,7 @@ tail: Dog's wagger | Follow | Coin side
 tame: Domesticated | Gentle | Mild
 thee: You, in old prayers
 tire: Weary | Get sleepy
-toes: Feet digits | Tiptoes
+toes: Feet digits | Tiptoes | Little piggies, in a rhyme
 tore: Ripped | Rushed
 tray: Serving board | Inbox ___
 twin: Double | One of two | Matching
@@ -3669,12 +3669,12 @@ seems: Appears | Looks
 shapeless: Formless | Baggy
 snappiest: Smartest-dressed | Quickest, as comebacks
 spry: Sprightly | Nimble for one's age
-stile: Fence steps | Farm crossing
+stile: Fence steps | Farm crossing | Way over a hedge on a country walk
 tiger: Striped big cat | Bengal ___
 tinier: Smaller | More minute
 unbearable: Intolerable | Too much to take
 very: Extremely | The ___ same
-weeds: Garden pests | Hoes, in a way
+weeds: Garden pests | Hoes, in a way | Dandelions, to a gardener
 aerated: Fizzy | Full of air bubbles
 aerie: Eagle's nest | Lofty perch
 aim: Goal | Point at a target
@@ -4528,3 +4528,10 @@ words: Lyrics | Talk
 worsted: Fine wool fabric | Defeated
 yaks: Shaggy Himalayan oxen | Chatters
 yeshivas: Jewish religious schools | Talmudic academies
+romp: Easy win | Frolic boisterously
+drained: Exhausted | Emptied of water
+shirts: Tops with collars | Rugby jerseys
+conch: Spiral seashell | Shell blown like a horn
+roadhouse: Inn on a highway | Wayside pub
+imprinted: Stamped | Fixed in the memory
+scour: Scrub hard | Search thoroughly
