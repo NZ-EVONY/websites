@@ -1998,7 +1998,7 @@ ark: Noah's vessel | Flood boat of Genesis | Sacred chest
 aye: Yes vote | Sailor's yes | "___, captain!"
 dam: Beaver's barrier | River wall | Hoover ___
 ewe: Female sheep | Lamb's mother
-fir: Christmas tree evergreen | Douglas ___
+fir: Christmas tree evergreen | Douglas ___ | Pine relative
 goo: Sticky stuff | Gunk
 hub: Wheel centre | Centre of activity | Airline's base airport
 ivy: Climbing wall plant | Poison ___
@@ -4644,3 +4644,150 @@ melted: Thawed | Softened, as a heart
 cookeries: Kitchens of old | Cooking arts
 towelings: Absorbent fabrics | Bathrobe materials
 maple: Tree on Canada's flag | Syrup tree
+schemed: Plotted | Connived
+thematic: Relating to a subject | Organised around a motif
+coaled: Refuelled, as a steamship | Took on fuel for the boiler
+airplane: Jet, in America | Aircraft, US style
+unload: Empty, as a lorry | Offload
+dossiers: Files on suspects | Sets of papers on a person
+dapple: Mottle | Spotted horse
+tempers: Moods | Tantrums
+oafs: Clumsy louts | Clods
+outlay: Expenditure | Spending
+such: Of that kind | So great
+sighted: Spotted | Able to see
+cleanups: Tidying sessions | Spring cleans
+raster: Grid of pixels | Scanned screen image
+treatise: Formal written study | Learned work
+impede: Hinder | Obstruct
+ailments: Illnesses | Complaints
+pledges: Promises | Vows
+chief: Leader | Main
+hermitages: Recluses' retreats | Secluded dwellings
+empire: Realm of an emperor | Business conglomerate
+malt: Barley for brewing | Whisky type
+salient: Most noticeable | Jutting out
+cedars: Lebanon trees | Fragrant timbers
+onslaught: Fierce attack | Barrage
+defy: Disobey | Resist
+moistened: Dampened | Wetted
+gladdening: Cheering | Heartening
+ajar: Slightly open | Not quite shut
+hugs: Embraces | Cuddles
+rebates: Partial refunds | Money back
+siesta: Afternoon nap | Spanish snooze
+crib: Baby's cot | Copy dishonestly
+fame: Renown | Celebrity
+baa: Sheep's cry | Lamb's bleat
+fax: Send a document by phone line | Old office machine
+lib: Women's ___ | Liberation, briefly
+oat: Porridge grain | Grain for a horse
+ref: Referee, briefly | Whistle blower at a game
+sax: Jazz horn | Reed instrument, briefly
+tad: Smidgen | Little bit
+tic: Nervous twitch | Involuntary spasm
+tog: Unit of duvet warmth | Dress, with up
+tux: Dinner jacket, informally | Black-tie wear
+yep: Uh-huh | Informal yes
+yum: Tasty! | Delicious, in a word
+zap: Destroy with a ray | Change channels fast
+aft: Towards the stern | Rear, on a ship
+auk: Puffin's relative | Diving seabird
+awl: Leather-punching tool | Cobbler's spike
+bah: Humbug! | Scrooge's scoff
+brr: It's freezing! | Shiver sound
+cud: Chewed by a cow | Regurgitated grass
+doc: GP, informally | What's up, ___?
+dun: Dull greyish brown | Demand payment
+fey: Whimsical and otherworldly | Elfin
+fob: Watch chain | Put off with excuses
+fop: Dandy | Vain dresser
+gad: Wander about | Gallivant
+hex: Curse | Six-sided, as a bolt
+hob: Cooktop | Stovetop ring
+jib: Triangular sail | Crane arm
+lea: Meadow, poetically | Grassland
+maw: Gaping mouth | Animal's jaws
+mid: Middle of | Halfway
+nib: Pen point | Cocoa fragment
+nix: Veto | Nothing
+nth: To the ___ degree | Umpteenth
+nub: Crux | Gist
+oft: Often, in verse | Frequently, of old
+oho: Cry of surprise | Gotcha!
+orc: Tolkien monster | Fantasy brute
+pip: Fruit seed | Beat narrowly
+pug: Flat-faced dog | Snub-nosed breed
+sol: Fifth note of the scale | Sun, in Spanish
+soy: Bean used for tofu | Sauce at a sushi bar
+tam: Scottish beret | Woolly bonnet
+tat: Tasteless junk | Tit for ___
+tom: Male cat | Tabby, perhaps
+tor: Craggy hill | Rocky peak on a moor
+ump: Baseball judge, briefly | Cricket umpire, informally
+vim: Vigour | Pep
+yaw: Swerve off course | Deviate, as a ship
+yon: Over there, poetically | Yonder
+zed: Last letter | Z, in Britain
+aah: Sigh of pleasure | Relaxed exhalation
+bap: Soft bread roll | Breakfast roll
+biz: Show ___ | Business, informally
+brae: Scottish hillside | Hill, in Burns
+brie: Soft French cheese | Creamy cheese
+busk: Play music in the street | Perform for coins
+byre: Cowshed | Barn for cattle
+ciao: Italian goodbye | Bye, in Rome
+coir: Coconut fibre | Doormat material
+cyan: Blue-green | Printer ink colour
+dhow: Arab sailing boat | Lateen-rigged vessel
+dozy: Sleepy | Dim-witted, informally
+drat: Bother! | Mild curse
+fave: Favourite, informally | Top pick
+filo: Thin pastry | Pastry for baklava
+gaga: Doting foolishly | Infatuated
+gawp: Stare stupidly | Gape
+ghee: Clarified butter | Indian cooking fat
+gran: Grandma | Nana
+hmm: Sound of doubt | Let me think
+hols: School breaks, informally | Vacations, in Britain
+idem: The same, in footnotes | Ditto
+joey: Baby kangaroo | Young marsupial
+kart: Small racing car | Track buggy at a fun park
+kip: Nap | Sleep, informally
+kohl: Eyeliner powder | Dark eye makeup
+lido: Open-air pool | Public bathing place
+lino: Floor covering | Kitchen flooring, briefly
+loo: Toilet | Lavatory, informally
+luge: Toboggan race | Winter Olympics sled
+mac: Raincoat | Waterproof coat
+naan: Indian flatbread | Bread with curry
+nah: No, casually | Nope
+nowt: Nothing, in Yorkshire | Nil, up north
+ooh: Cry of delight | Wow!
+ouzo: Greek aniseed spirit | Drink in Athens
+phew: That was close! | Relief!
+pleb: Commoner | Ordinary person, scornfully
+puce: Purplish brown | Flea-coloured
+rota: Duty roster | Schedule of turns
+roux: Butter and flour base | Sauce thickener
+ruck: Rugby scrum on the ground | Crease
+shh: Quiet! | Hush!
+ska: Jamaican music genre | Reggae forerunner
+skua: Predatory seabird | Gull-like pirate bird
+swot: Study hard | Bookworm
+tarn: Mountain lake | Small upland lake
+tosh: Nonsense | Rubbish
+trug: Shallow garden basket | Wooden flower basket
+tut: Sound of disapproval | Click the tongue
+veg: Greens, informally | Laze in front of the TV
+vino: Wine, informally | Plonk
+woad: Blue dye plant | Ancient Britons' body paint
+wonk: Policy geek | Expert nerd
+yin: Partner of yang | Dark principle in Taoism
+yuan: Chinese currency | Money in Beijing
+alp: High mountain | Swiss peak
+arum: Lily-like plant | Cuckoo pint
+baht: Thai currency | Money in Bangkok
+capo: Guitar clamp | Mafia boss
+cay: Low coral islet | Small sandy island
+chub: Freshwater fish | Plump river fish

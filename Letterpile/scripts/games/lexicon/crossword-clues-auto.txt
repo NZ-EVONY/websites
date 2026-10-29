@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 25003 words.
+# first) or ban the word in crossword-banned.txt. 24978 words.
 aardvark: Ant bear
 aback: By surprise
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
@@ -493,7 +493,6 @@ aiding: Helping | Assisting
 ailed: Pained | Troubled
 ailing: Indisposed | Peaked | Poorly | Sickly
 ailment: Complaint | Ill | Often persistent bodily disorder or disease
-ailments: Complaints | Ills
 ails: Garlics | Pains | Troubles
 aiming: Purposing | Purporting | Goaling | Targeting
 aimless: Adrift | Afloat | Drifting | Floating
@@ -510,7 +509,6 @@ airless: Stuffy
 airline: Commercial enterprise
 airliner: Commercial airplane that carries passengers
 airmail: Letters and packages | System of conveying mail by aircraft
-airplane: Plane
 airplanes: Planes
 airs: Pose | Affected manners intended to impress others
 airsick: Seasick
@@ -518,7 +516,6 @@ airspace: Atmosphere above a nation
 airtight: Having no weak points
 airway: Duct that provides ventilation | Flight path
 airworthy: Fit to fly
-ajar: Slightly open
 akin: Kindred | Similar in quality or character | Kin | Related by blood
 alabaster: Compact fine-textured
 alacrity: Liveliness and eagerness
@@ -3409,9 +3406,8 @@ chide: Rebuke | Lecture | Reprimand | Dress down
 chided: Rebuked | Lectured | Reprimanded | Scolded
 chides: Rebukes | Lectures | Reprimands | Scolds
 chiding: Scolding | Rebuking a person harshly
-chief: Top dog | Person who is in charge | Foreman | Boss
 chiefly: Principally | Primarily | Mainly | For the most part
-chiefs: Bosses
+chiefs: Bosses | Leaders | Mains
 chieftain: Leader of a group of people | Head of a tribe or clan
 chiffon: Sheer fabric of silk or rayon
 chigger: Small tropical flea | Harvest mite
@@ -3782,7 +3778,6 @@ coagulates: Clots
 coagulating: Clotting
 coagulation: Curdling | Clotting
 coal: Ember | Char | Burn to charcoal
-coaled: Charred
 coalesce: Mix | Fuse | Merge | Mix together different elements
 coalesced: Amalgamate | Amalgamated | Fused | Joined together into a whole
 coalesces: Mixes | Fuses | Merges
@@ -4855,7 +4850,6 @@ crevice: Fissure | Chap | Long narrow depression in a surface | Crack
 crevices: Fissures | Chaps | Cracks | Clefts
 crew: Work party | Organized group of workmen
 crewman: Sailor
-crib: Cot | Literal translation
 cribbage: Card game
 cribs: Cots
 cricket: Leaping insect
@@ -5172,9 +5166,9 @@ dangers: Risks
 dangle: Hang freely
 dangling: Act of suspending something
 dank: Clammy
-dapple: Patch | Fleck | Small contrasting part of something
 dappled: Having spots or patches of color
-dapples: Patches | Flecks
+dapples: Patches | Flecks | Mottles
+dappling: Mottling
 daredevil: Madcap | Hothead | Lunatic
 daredevils: Madcaps | Hotheads | Lunatics
 daring: Dare | Boldness | Disposed to venture or take risks | Radically new or original
@@ -5450,8 +5444,8 @@ deficiency: Lack | Want | State of needing something | Inadequacy
 deficient: Lacking | Wanting | Inadequate in amount or degree
 deficit: Shortage | Shortfall | Property of being an amount by
 deficits: Shortages | Shortfalls
-defied: Resisted
-defies: Withstands | Resists
+defied: Resisted | Disobeyed
+defies: Withstands | Resists | Disobeys
 defiled: Morally blemished
 defilement: Pollution | State of being polluted
 defiles: Gorges | Taints | Tarnishes | Desecrates
@@ -5493,8 +5487,7 @@ deftly: With dexterity
 deftness: Facility | Skillful performance or ability without difficulty
 defunct: No longer in force or use | Having ceased to exist or live
 defuse: Remove the triggering device from
-defy: Withstand | Resist or confront with resistance | Resist | Elude, especially in a baffling way
-defying: Withstanding | Resisting
+defying: Withstanding | Resisting | Disobeying
 degeneracy: Decadence | Depravity | Moral perversion
 degradation: Debasement | Changing to a lower state | Low or downcast state
 degrade: Reduce the level of land | Take down | Disgrace | Demean
@@ -8113,7 +8106,6 @@ falter: Waver | Be unsure or weak
 faltered: Wavered
 faltering: Waver
 falters: Wavers
-fame: Celebrity | Renown | Favorable public reputation
 famed: Celebrated | Famous | Illustrious | Notable
 familial: Genetic | Hereditary | Inherited | Transmitted
 familiar: Companion | Comrade | Fellow | Associate
@@ -9571,7 +9563,6 @@ glacier: Slowly moving mass of ice
 glad: Sword lily | Showing or causing joy and pleasure
 gladden: Joy
 gladdened: Exhilarated | Made joyful
-gladdening: Joying
 gladdens: Joys
 glade: Clearing
 glades: Clearings
@@ -10521,7 +10512,7 @@ heterodoxy: Heresy | Quality of being unorthodox
 hew: Strike with an axe
 hexagon: Six-sided polygon
 hexed: Jinxed | Causing or accompanied by misfortune
-hexes: Jinxes | Glamours | Witches
+hexes: Jinxes | Glamours | Witches | Curses
 heyday: Prime | Peak | Blossom | Flush
 heydays: Primes | Peaks | Blossoms | Flushes
 hiatus: Reprieve | Missing piece
@@ -10832,7 +10823,6 @@ huffing: Puffing | Snorting
 huffy: Touchy | Quick to take offense | Mad | Roused to anger
 hugely: Enormously | Extremely
 hugged: Embraced | Squeezed | Cuddled
-hugs: Embraces | Squeezes | Cuddles
 hulk: Whale | Very large person | Loom | Tower
 hulking: Of great size and bulk
 hulks: Whales | Looms | Towers | Predominates
@@ -11123,7 +11113,6 @@ impeccable: Faultless | Without fault or error | Not capable of sin
 impeccably: Flawlessly
 impecunious: Penniless
 impedance: Electric resistance | Electrical resistance
-impede: Hinder | Be a hindrance or obstacle to | Obstruct | Block passage through
 impeded: Made difficult or slow
 impedes: Hinders | Obstructs
 impediment: Hindrance | Deterrent | Balk | Something immaterial
@@ -13243,7 +13232,6 @@ malleable: Easily influenced | Pliable | Pliant
 mallet: Light drumstick with a rounded head
 malls: Promenades | Plazas
 malodorous: Having an unpleasant smell
-malt: Lager of high alcohol content
 malted: Of grain
 maltreat: Abuse | Treat badly
 maltreated: Subjected to cruel treatment
@@ -13989,7 +13977,6 @@ module: Faculty | Mental faculty | Detachable compartment of a spacecraft
 modules: Faculties
 modulus: Absolute value of a complex number
 mogul: Bump on a ski slope
-moistened: Dampened | Drizzled | Wetted | Watered
 moistening: Dampening | Act of making something slightly wet
 moistens: Dampens | Drizzles | Wets | Waters
 moistly: In a damp manner
@@ -14744,7 +14731,6 @@ nuzzling: Cuddling | Snuggling | Nestling
 nylon: Synthetic fabric
 nymph: Minor nature goddess
 oafish: Boorish
-oafs: Clods | Goons | Gawks | Louts
 oared: Paddled
 oaring: Paddling
 oarsman: Someone who rows a boat
@@ -15111,8 +15097,7 @@ outlasts: Outlives
 outlaw: Criminal | Felon | Crook | Declare illegal
 outlawed: Illicit | Contrary to or forbidden by law
 outlaws: Criminals | Felons | Crooks
-outlay: Spending | Act of spending or disbursing money | Expenditure
-outlays: Expenditures
+outlays: Expenditures | Spendings
 outlets: Sockets | Stores | Releases
 outlined: Defined
 outlines: Abstracts | Sketches | Drafts | Silhouettes
@@ -16300,7 +16285,6 @@ pleating: Act of folding in parallel folds
 pleats: Folds | Creases | Tucks
 plectrum: Small thin device
 pledged: Sworn
-pledges: Plights | Promises | Vows | Oaths
 pledging: Plighting | Promising | Vowing
 plenitude: Full supply
 plenitudes: Plenties
@@ -17613,7 +17597,6 @@ rasp: Uttering in an irritated tone | Wood file | Coarse file with sharp pointed
 raspberry: Red or black edible aggregate berries
 rasping: Uttering in an irritated tone | Grating
 raspy: Grating
-raster: Rectangular formation of parallel scanning lines
 rates: Local tax on property
 rather: Instead | On the contrary | To some extent
 rathskeller: Tavern below street level featuring beer
@@ -19108,7 +19091,6 @@ salesclerk: Shop clerk | Clerk | Shop assistant | Salesperson in a store
 salesclerks: Clerks
 salesgirl: Saleswoman | Woman salesperson
 saleswoman: Woman salesperson
-salient: Part of the line of battle | Outstanding | Prominent | Striking
 saline: Containing salt
 saliva: Spit | Spittle
 salivate: Drool | Be envious
@@ -19317,7 +19299,6 @@ schedules: Agendas
 scheduling: Programming
 schematic: Represented in simplified or symbolic form
 scheme: Strategy | Elaborate and systematic plan of action | Dodging | Intrigue
-schemed: Intrigued
 schemer: Plotter
 schemers: Plotters
 schemes: Strategies | Intrigues
@@ -20027,7 +20008,6 @@ sidings: Sidetracks
 sidle: Move sideways
 sieges: Blockades | Encirclements | Assaults
 sierra: Range of mountains
-siesta: Nap in the early afternoon
 sieved: Sorted
 sieves: Sorts | Strainers | Sifters | Colanders
 sieving: Sorting
@@ -20036,7 +20016,6 @@ sifter: Household sieve
 sifting: Act of separating grain from chaff
 sigh: Utterance made by exhaling audibly
 sight: Instance of visual perception | Anything that is seen
-sighted: Able to see
 sighting: Act of observing
 signal: Any incitement to action | Indicate | Notably out of the ordinary
 signalizing: Signalling
@@ -21517,7 +21496,6 @@ succinctly: With concise and precise brevity
 succor: Assistance in time of difficulty | Help in a difficult situation
 succulent: Tender and full of juice
 succumb: Knuckle under | Buckle under | Consent reluctantly | Be fatally overwhelmed
-such: To so extreme a degree
 suchlike: Of the same kind
 suddenly: Abruptly | Short | Dead | Quickly and without warning
 sudsy: Resembling lather or covered with lather
@@ -22137,7 +22115,6 @@ temperance: Trait of avoiding excesses | Abstaining from excess
 temperate: Free from extremes | Not extreme in behavior
 tempered: Hardened | Toughened | Made hard or flexible or resilient
 tempering: Hardening something by heat treatment
-tempers: Piques | Irritations | Moods
 tempest: Storm | Violent commotion or disturbance | Violent wind
 tempests: Storms
 tempestuous: Stormy | Angry | As if showing violent anger
@@ -22782,7 +22759,6 @@ treasures: Gems | Prizes | Values | Cherishes
 treasuring: Prizing | Valuing | Cherishing
 treaties: Pacts
 treating: Handling | Processing
-treatise: Formal exposition
 treatment: Care provided to improve a situation | Management of someone or something
 treaty: Pact
 treble: Triple | Soprano | Having or denoting a high range | Three times as great or many
@@ -23479,7 +23455,6 @@ unlike: Not equal in amount
 unlikely: Improbable
 unlimited: Limitless | Outright | Without reservation or exception
 unlisted: Not on a list
-unload: Remove from and leave | Offload | Remove the load from
 unloads: Offloads
 unlock: Open the lock of | Set free or release
 unlocked: Not firmly fastened or secured
