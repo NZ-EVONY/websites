@@ -1794,6 +1794,88 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **52.** Health resort — SPA
 - **53.** Edge — HEM
 
+## 2026-11-08 (#24)
+
+**Across**
+
+- **1.** Japanese belt — OBI
+- **4.** Mine entrance — SHAFT
+- **9.** Defeats — BEATS
+- **14.** Came first — WON
+- **15.** Creepy — EERIE
+- **16.** Wireless — RADIO
+- **17.** Agree silently — NOD
+- **18.** Practice — DRILL
+- **19.** Smell — AROMA
+- **20.** Runs off in a hurry — SKEDADDLES
+- **23.** Tramp in the hills — TREK
+- **24.** Medical image — SCAN
+- **25.** Secret codes — CIPHERS
+- **27.** Stalk — STEM
+- **28.** Map books — ATLASES
+- **31.** Sharpen — HONE
+- **32.** Virtuous and modest — CHASTE
+- **33.** In the style of, from French — ALA
+- **36.** Story line — ARC
+- **37.** Monarch's staff, in America — SCEPTER
+- **38.** Cushion — PAD
+- **39.** Informal hello — HEY
+- **40.** Whiteboard wiper — ERASER
+- **41.** Potato — SPUD
+- **42.** Desexes, as a pet — NEUTERS
+- **43.** Large vases — URNS
+- **44.** More sedate — STAIDER
+- **47.** Fodder — FEED
+- **48.** Toothpaste holder — TUBE
+- **49.** Lessened — DIMINISHED
+- **54.** Choose — ELECT
+- **56.** Rules — CODES
+- **57.** Before, in poetry — ERE
+- **58.** Modify — ALTER
+- **59.** On guard — ALERT
+- **60.** Recent — NEW
+- **61.** Sloppy — MESSY
+- **62.** Dog leashes — LEADS
+- **63.** Not wet — DRY
+
+**Down**
+
+- **1.** Possesses — OWNS
+- **2.** Place to buy paperbacks — BOOKSTORE
+- **3.** Impropriety — INDECENCY
+- **4.** Family car — SEDAN
+- **5.** Group of cattle — HERD
+- **6.** Parched — ARID
+- **7.** Top up — FILL
+- **8.** Classic electric guitar — TELECASTER
+- **9.** Support garment — BRA
+- **10.** Fox burrows — EARTHS
+- **11.** Worship — ADORE
+- **12.** Clock — TIMER
+- **13.** Long baths — SOAKS
+- **21.** Title for a knighted woman — DAME
+- **22.** Nuns — SISTERS
+- **26.** Look closely, or an equal — PEER
+- **27.** Former Iranian ruler — SHAH
+- **28.** Built up, as interest — ACCRUED
+- **29.** Dramatic — THEATRICAL
+- **30.** Slip — LAPSE
+- **33.** Arrest — APPREHEND
+- **34.** One who washes clothes — LAUNDERER
+- **35.** Totals — ADDS
+- **37.** Plant starter — SEED
+- **41.** Takes to court — SUES
+- **42.** Nephews' sisters — NIECES
+- **44.** Water vapour — STEAM
+- **45.** Tutu fabric — TULLE
+- **46.** Supports — ABETS
+- **47.** Clenched hands — FISTS
+- **50.** Burrowing mammal — MOLE
+- **51.** Plan — IDEA
+- **52.** Swot — NERD
+- **53.** Moist with morning drops — DEWY
+- **55.** Taste — TRY
+
 ## 2026-11-09 (#25)
 
 **Across**
@@ -1859,7 +1941,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **32.** Sound of something soft hitting a wall — SPLAT
 - **33.** Hooped skirt — CRINOLINE
 - **34.** Landing places for choppers — HELIPORTS
-- **37.** Back — FRO
+- **37.** Away, in a phrase — FRO
 - **39.** Bog material — PEAT
 - **40.** Ruler — EMPRESS
 - **44.** Blot or stain — SMEAR
@@ -1892,27 +1974,27 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **23.** Headline across a page — BANNER
 - **24.** Hair product — GEL
 - **25.** Smoothie-making appliance — BLENDER
-- **27.** Test — TRIAL
-- **30.** Cries loudly — WAILS
+- **27.** Counting in eights — OCTAL
+- **30.** Bargains — DEALS
 - **31.** Eyelid — LID
-- **33.** Frolic boisterously — ROMP
-- **34.** Troubled — BESET
+- **33.** Croquet arch — HOOP
+- **34.** Animal — BEAST
 - **35.** List of dishes in a restaurant — MENU
-- **36.** Chatter — YAP
-- **37.** Leads — WIRES
+- **36.** Hay stack — MOW
+- **37.** Watchful — ALERT
 - **38.** Golf club — WEDGE
-- **39.** Exhausted — DRAINED
+- **39.** Goalies — KEEPERS
 - **41.** Bridle part — BIT
-- **42.** Rugby jerseys — SHIRTS
+- **42.** Softened, as a heart — MELTED
 - **43.** Cozy room — DEN
 - **44.** Veteran — VET
-- **47.** Spiral seashell — CONCH
+- **47.** Puccini pieces — ARIAS
 - **48.** Sad and mournful — PLAINTIVE
-- **51.** Away — OUT
+- **51.** Fasten — PIN
 - **52.** Tangy soft drinks — ORANGEADES
-- **53.** Utility — USE
+- **53.** Stage of a trip — LEG
 - **54.** Awe — WONDERMENT
-- **55.** Ruby colour — RED
+- **55.** S-shaped curve — ESS
 - **56.** Current against the flow — EDDY
 - **57.** Sees — SPOTS
 
@@ -1935,20 +2017,20 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **20.** Plus — AND
 - **23.** Waist strap — BELT
 - **24.** Hole — GAP
-- **25.** Founded (on) — BASED
-- **26.** Fibs — LIES
-- **27.** Rugby score — TRY
-- **28.** Inn on a highway — ROADHOUSE
-- **29.** Fixed in the memory — IMPRINTED
-- **30.** "If I ___ you..." — WERE
+- **25.** Grizzlies — BEARS
+- **26.** Endure — LAST
+- **27.** Resistance unit — OHM
+- **28.** Kitchens of old — COOKERIES
+- **29.** Bathrobe materials — TOWELINGS
+- **30.** Bambi, for one — DEER
 - **32.** Expected — DUE
-- **34.** Storage boxes — BINS
+- **34.** Lost blood — BLED
 - **35.** Satisfied, as a need — MET
-- **37.** "Come ___ me" — WITH
+- **37.** Gorillas and chimps — APES
 - **38.** Victors — WINNERS
-- **40.** Story line — ARC
+- **40.** Expected arrival time, briefly — ETA
 - **41.** Pale sandy colour — BEIGE
-- **42.** Scrub hard — SCOUR
+- **42.** Tree on Canada's flag — MAPLE
 - **43.** Fop — DANDY
 - **44.** Recording to watch — VIDEO
 - **45.** Occasion — EVENT
@@ -2070,7 +2152,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **49.** Pace — TEMPO
 - **53.** Cowshed — BARN
 - **54.** Animal skins, or pours with rain — PELTS
-- **56.** Was economical with the truth — LIED
+- **56.** Fibbed — LIED
 - **57.** Father of a foal — SIRE
 - **58.** Lovable — ENDEARING
 - **60.** Big game fish — TUNAS
@@ -2100,7 +2182,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **22.** Snow runner — SKI
 - **25.** Assignment — ESSAY
 - **27.** Rub out — ERASE
-- **30.** Bother — IRK
+- **30.** Annoy — IRK
 - **31.** Heavy measure — TON
 - **32.** Cost — FEE
 - **34.** Socket converter — ADAPTER
@@ -2154,7 +2236,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **49.** Prepared — READY
 - **50.** Wrongdoings — MISDEEDS
 - **53.** Delight intensely — ENRAPTURE
-- **55.** Spotless — CLEAN
+- **55.** Tidy up — CLEAN
 - **57.** Forest grazer — DEER
 - **58.** Consumer — USER
 - **59.** Telephone opener — HELLO
@@ -2164,7 +2246,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 
 **Down**
 
-- **1.** Away, in a phrase — FRO
+- **1.** Back — FRO
 - **2.** Skate park feature — RAMP
 - **3.** Above — OVER
 - **4.** Units of explosive force — MEGATONS
@@ -2299,7 +2381,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **22.** Simpering — SMIRKING
 - **24.** Shared a flat — FLATTED
 - **27.** Thou — YOU
-- **28.** Apple ___ — PIE
+- **28.** Pizza — PIE
 - **29.** Talmudic academies — YESHIVAS
 - **31.** More lowly or ignoble — BASER
 - **33.** Upper crust — ELITES
@@ -2339,7 +2421,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **11.** Canadian dollar coins — LOONIES
 - **12.** Account books — LEDGERS
 - **14.** Spread thickly — SLATHERED
-- **21.** Farm crossing — STILE
+- **21.** Way over a hedge on a country walk — STILE
 - **23.** Massage — RUB
 - **25.** Wicked — EVIL
 - **26.** Calendar days — DATES
@@ -2405,7 +2487,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 
 - **1.** Leaping antelope — IMPALA
 - **2.** Adapt — TAILOR
-- **3.** Tidy up — CLEAN
+- **3.** Spotless — CLEAN
 - **4.** Latin American ranches — HACIENDAS
 - **5.** Rainbow goddess — IRIS
 - **6.** Baseball team size — NINE
@@ -2468,8 +2550,8 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **37.** Storm center — EYE
 - **38.** Anger — IRE
 - **39.** Edges of cliffs — BRINKS
-- **41.** Way over a hedge on a country walk — STILE
-- **43.** Tattoo — INK
+- **41.** Farm crossing — STILE
+- **43.** Octopus defense — INK
 - **44.** Youngster — CHILD
 - **49.** Trail — LAG
 - **50.** Lees — DREGS
@@ -2520,7 +2602,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **54.** Seethe with anger — FUME
 - **57.** Short of — SHY
 - **58.** Cuppa — TEA
-- **59.** Annoy — IRK
+- **59.** Bother — IRK
 
 ## 2026-11-18 (#34)
 
@@ -2733,7 +2815,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 **Down**
 
 - **1.** Deflated, as a tyre — FLAT
-- **2.** Repeat — REDO
+- **2.** Do over — REDO
 - **3.** Female gamete — OVUM
 - **4.** Jelly base, American style — GELATIN
 - **5.** Table places, or scenes — SETTINGS
@@ -2746,7 +2828,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **12.** Standard for comparison — TOUCHSTONE
 - **13.** Fizzy drinks — SODAS
 - **21.** Natural — ORGANIC
-- **23.** Fibbed — LIED
+- **23.** Was economical with the truth — LIED
 - **26.** Encounter — MEET
 - **27.** Obscure in meaning — ELLIPTICAL
 - **28.** Silly behaviour — TOMFOOLERY
@@ -2789,7 +2871,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **32.** Waltz or tango — DANCE
 - **33.** Squeezing serpent — BOA
 - **34.** Passes into law — ENACTS
-- **36.** Press — IRON
+- **36.** Metal — IRON
 - **37.** Bait — LURE
 - **39.** Crow — GLOAT
 - **40.** Drinks like a cat — LAPS
@@ -2847,7 +2929,7 @@ draft in `scripts/games/crossword-drafts/`), then run `npm run games:generate --
 - **54.** Medication — DRUG
 - **55.** Currency of many countries — EURO
 - **56.** Torn — RENT
-- **57.** What person — WHO
+- **57.** Whoever — WHO
 - **58.** Ate — HAD
 - **59.** Finish — END
 - **60.** Ship pronoun — SHE
