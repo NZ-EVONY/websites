@@ -60,7 +60,7 @@ cab: Taxi | Truck front | Hailed ride
 can: Tin | Is able to | Container for soup
 cap: Baseball hat | Bottle top | Upper limit
 car: Vehicle | Train section | Automobile
-cat: Purring pet | Feline | Kitty
+cat: Purring pet | Feline | Kitty | Tabby | Jazz fan, in old slang | Moggy
 cats: Purring pets | Felines | Kittens, grown up
 cod: Fish and chips fish | Cape ___ | Atlantic food fish | Fish in batter | Hoax, in slang | Grey-white fish
 cot: Camp bed | Folding bed | Small bed
@@ -284,7 +284,7 @@ sip: Small drink | Taste | Drink slowly
 sit: Take a seat | Pose | Be seated
 six: Half a dozen | Number of sides on a cube | Insect leg count
 ski: Snow runner | Glide on snow | Slope gear | Hit the slopes | Mount Hutt activity | Plank for powder
-sky: Blue above | Heavens | Firmament
+sky: Blue above | Heavens | Firmament | Welkin | Azure | Loft, as a ball
 sly: Cunning | Crafty | Foxlike
 sob: Cry | Weep | Wail
 sod: Turf | Lawn starter | Grass layer
@@ -353,7 +353,7 @@ ago: In the past | Before now | Back then
 agree: Concur | See eye to eye | Say yes
 ahoy: Sailor's greeting | "Ship ___!" | Call from the crow's nest
 aided: Helped | Assisted | Lent a hand
-aids: Helps | Assistants | Hearing ___
+aids: Helps | Assistants | Hearing ___ | Assists | Backs up | Teaching ___
 aims: Goals | Points | Intends
 alert: Watchful | Warning | On guard
 algebra: Math with x and y | High school math | Equation-solving subject
@@ -2885,7 +2885,7 @@ zones: Areas
 whom: "To ___ it may concern"
 mans: Crews, as a ship
 thee: "My country, 'tis of ___"
-unto: "Do ___ others..."
+unto: "Do ___ others..." | Towards, archaically | Until, in old verse
 caws: Rook calls
 feds: Government agents, for short
 fist: Boxer's weapon
@@ -4020,7 +4020,7 @@ amp: Speaker booster | Electrical unit
 men: Gents | Fellows | Blokes | Crew members
 for: In favour of
 the: "___ End"
-cot: Baby's bed
+cot: Baby's bed | Crib | Hospital bed, maybe | Trig function, briefly
 old: Former
 hem: Skirt edge | Stitch the edge
 dot: Point | Full stop
@@ -4565,8 +4565,8 @@ ess: Letter after ar | S-shaped curve | Hiss sound | Curvy letter
 sri: ___ Lanka | Indian title of respect | Colombo's country, ___ Lanka | Honorific in India
 olla: Earthenware pot | Spanish cooking jar
 emu: Big flightless Aussie bird | Ostrich's cousin
-oda: Harem room | Room in a seraglio
-ort: Scrap of food | Leftover morsel
+oda: Harem room | Room in a seraglio | Chamber in a harem | Sultan's room | Harem quarters
+ort: Scrap of food | Leftover morsel | Table scrap | Crumb from a meal | Leftover bit
 foals: Young horses | Newborns in a stable
 education: Schooling | Learning and teaching
 dethroned: Toppled from power | Removed from the crown
@@ -4833,7 +4833,7 @@ bur: Prickly seed case | Clinging seed pod
 alb: Priest's white robe | Long linen vestment
 mil: Thousandth of an inch | Military, briefly
 tho: However, in texts | Albeit, casually
-ana: Collection of anecdotes | Literary miscellany
+ana: Collection of anecdotes | Literary miscellany | Anthology of sayings | Miscellany | Gossipy collection
 ern: Sea eagle | White-tailed eagle
 ope: Unclose, poetically | Lay bare, in verse
 asea: Out on the ocean | Afloat, sailing
@@ -5488,7 +5488,7 @@ asides: Stage whispers | Digressions
 greenery: Foliage | Plants
 avarice: Greed | Covetousness
 depots: Bus garages | Storehouses
-ocelot: Spotted wild cat | South American cat
+ocelot: Spotted wild cat | South American cat | Leopard-like cat | Jungle feline | Dappled hunter
 porch: Covered entrance | Veranda
 ills: Troubles | Ailments
 cots: Camp beds | Baby beds
@@ -5951,3 +5951,48 @@ roisterers: Revellers | Rowdy partygoers
 demises: Deaths | Collapses
 mansion: Stately home | Large house
 subtle: Understated | Delicate
+ideas: Notions | Brainwaves
+ninth: Like Beethoven's last symphony | Last inning, often
+carefree: Happy-go-lucky | Untroubled
+altruism: Selflessness | Concern for others
+blurt: Say without thinking | Let slip
+cafeteria: Self-service canteen | School dining hall
+overloads: Swamps | Strains beyond capacity
+terseness: Brevity | Curtness
+minuter: Tinier | Smaller still
+censorious: Severely critical | Faultfinding
+resort: Holiday spot | Last ___
+tempts: Lures | Entices
+fulled: Thickened, as wool | Shrank and beat, as cloth
+bristle: Stiff hair | Show anger
+dove: Bird of peace | Plunged headfirst
+honey: Sweetheart | Bees' product
+awesomely: Brilliantly | Superbly
+sweeps: Brooms floors | Wins every game of
+careen: Lurch | Swerve wildly
+overlap: Coincide partly | Shared area
+andiron: Firedog | Hearth support
+care: Concern | Look after
+cull: Thin out | Selective slaughter
+selects: Picks | Chooses
+respite: Breather | Lull
+bleed: Run, as dye | Lose blood
+museum: Gallery | Te Papa, e.g.
+runes: Old Norse letters | Mystic symbols
+antic: Caper | Clownish
+polemical: Combative in argument | Controversial
+steak: Sirloin | T-bone
+almanac: Yearly reference book | Calendar of tides
+chewed: Gnawed | Masticated
+homesick: Longing for family | Pining while away
+retell: Recount | Narrate anew
+peruse: Read closely | Scan
+raisin: Dried grape | Sultana's cousin
+nested: Fitted one inside another | Built a home in a tree
+plebeian: Common | Lowbrow
+leanest: Thinnest | Most meagre
+clucks: Hen noises | Tuts
+drone: Male bee | Monotonous hum
+mast: Ship's pole | Sail support
+stew: Casserole | Fret
+ulna: Forearm bone | Elbow bone
