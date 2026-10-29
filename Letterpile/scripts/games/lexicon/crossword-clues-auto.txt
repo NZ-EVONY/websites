@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24381 words.
+# first) or ban the word in crossword-banned.txt. 24373 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -988,7 +988,7 @@ arsenals: Armories
 arsenic: Very poisonous metallic element
 arson: Malicious burning to destroy property
 arsonists: Incendiaries | Torches
-article: Bind by a contract
+articles: Items
 articulate: Joint | Provide with a joint | Give voice | Word
 articulates: Joints | Words | Phrases
 artifact: Man-made object taken as a whole
@@ -3233,7 +3233,6 @@ chastised: Castigated | Chastened
 chastises: Castigates
 chastising: Castigating | Chastening
 chat: Gossip | Jaw
-chats: Gossips | Jaws
 chatted: Gossipped | Jawed
 chattel: Movable | Personal as opposed to real property
 chattels: Movables
@@ -6438,7 +6437,6 @@ dosages: Doses
 dosed: Treated with some kind of application
 dote: Shower with love
 doting: Adoring | Fond
-dots: Studs | Sprinkles | Disperses | Periods
 dotted: Flecked | Specked | Having a pattern of dots | Dashed
 dotting: Studding | Sprinkling | Dispersing | Specking
 doubled: Twice as great or many
@@ -6845,7 +6843,6 @@ elaboration: Refinement | Result of improving something
 elapsed: Having passed or slipped by
 elapsing: Passing
 elastic: Rubber band
-elate: Uplift | Intoxicate | Fill with high spirits
 elated: Joyful | Jubilant | Full of high-spirited delight
 elating: Making lively and joyful
 elation: High spirits | Lightness | Feeling of joy and pride
@@ -7947,7 +7944,7 @@ fantasizing: Fantasying
 fantastic: Antic | Grotesque | Ludicrously odd | Howling
 farces: Travesties | Comedies | Mockeries
 farcical: Ludicrous
-fare: Agenda of things to do | Get along | Proceed or get along | Eat well
+fares: Foods
 farewell: Parting | Act of departing politely
 farewells: Partings
 farinaceous: Resembling starch | Granular | Gritty | Mealy
@@ -8879,11 +8876,10 @@ freshly: Newly | New | Very recently | In an impudent or impertinent manner
 freshman: Newcomer | Fledgling | Neophyte | Entrant
 freshness: Novelty
 freshwater: Water that is not salty
-fret: Stew | Sweat | Lather | Agitation resulting from active worry
 fretful: Fidgety | Itchy | Nervous and unable to relax | Habitually complaining
 fretfulness: Irritable petulant feeling
 frets: Stews | Sweats | Lathers | Fusses
-fretting: Fussing
+fretting: Fussing | Worrying
 friable: Crumbly
 friar: Male member of a religious order
 friction: Clash | State of conflict between persons | Rubbing
@@ -9332,7 +9328,6 @@ girdle: Sash | Band of material around the waist | Deaden
 girdled: Deadened
 girdles: Sashes | Deadens
 girdling: Deadening
-girl: Miss | Young lady | Young woman | Young female
 girlfriend: Any female friend | Lady friend
 girth: Distance around a person's body | Cinch | Tie a cinch around
 girths: Cinches
@@ -9878,7 +9873,6 @@ haggled: Bargained | Bartered
 haggler: Intense bargainer
 haggling: Wrangle | Wrangling | Instance of intense argument
 hail: Acclaim | Herald | Be a native of
-hailed: Acclaimed | Heralded
 hailing: Acclaiming | Heralding
 hails: Acclaims | Heralds
 hailstone: Small pellet of ice
@@ -10630,8 +10624,9 @@ hunting: Search
 hurdle: Light movable barrier
 hurled: Lunged | Hurtled | Pitched
 hurls: Lunges | Hurtles | Flings | Throws
-hurrah: Hooray | Victory cheer
-hurrahs: Hoorays
+hurrahed: Cheered
+hurrahing: Cheering
+hurrahs: Hoorays | Cheers
 hurricane: Severe tropical cyclone
 hurriedly: Hastily
 hurries: Hastes | Zips | Hastens
@@ -11613,8 +11608,11 @@ intruding: Projecting inward
 intrusion: Invasion
 intrusions: Invasions
 intrusive: Of rock material
+intuited: Sensed
+intuiting: Sensing
 intuition: Instinctive knowing | Hunch | Suspicion
 intuitions: Hunches | Suspicions
+intuits: Senses
 inundate: Deluge | Flood | Swamp | Fill quickly beyond capacity
 inundated: Flooded | Overflowing | Covered with water
 inundates: Deluges | Floods | Swamps
@@ -14064,7 +14062,6 @@ navigation: Piloting | Ship traffic
 navigator: Sailing master
 navy: Naval forces | Dark blue | Dark shade of blue
 nearby: Close at hand | Not far away in relative terms
-neared: Approached | Closed
 nearing: Approaching | Closing
 nearly: Almost | Nigh | Virtually | Intimately
 nearsighted: Myopic | Unable to see distant objects clearly
@@ -14226,7 +14223,6 @@ nominally: In name only
 nominate: Put forward
 nomination: Act of officially naming a candidate
 nominative: Subject case | Named
-nominee: Campaigner | Candidate
 nominees: Campaigners | Candidates
 nonaligned: Not affiliated with any faction
 nonbeliever: Someone who refuses to believe
@@ -14652,7 +14648,7 @@ organizes: Forms
 organizing: Forming
 organs: Variety meat
 orients: Points | Easts | Aligns
-orifice: Aperture or hole
+orifices: Openings | Vents
 originate: Arise | Come into existence | Initiate | Bring into being
 originated: Initiated
 originates: Arises | Initiates
@@ -17586,7 +17582,6 @@ regains: Recovers | Retrieves
 regarded: Considered | Viewed | Respected
 regarding: Considering | Viewing | Respecting
 regardless: In spite of everything
-regards: Respects | Heeds | Considers | Views
 regatta: Meeting for boat races
 regency: Period of time during
 regenerate: Renew | Reformed spiritually or morally
@@ -18897,7 +18892,6 @@ scoot: Dart | Dash
 scooted: Darted | Dashed
 scooter: Child's two-wheeled vehicle operated by foot
 scooting: Darting | Dashing
-scoots: Darts | Dashes
 scorched: Baked | Parched
 scorcher: Extremely hot day | Very hard hit ball
 scorching: Capable of causing burns
@@ -19348,7 +19342,7 @@ sheriff: Principal law-enforcement officer in a county
 shibboleth: Motto | Slogan | Manner of speaking
 shibboleths: Mottos | Slogans
 shield: Protective covering or structure
-shies: Bashfuls | Timids
+shies: Bashfuls | Timids | Reserveds | Flings
 shift: Qualitative change | Change over | Dislodge | Change place or direction
 shifted: Dislodged
 shiftiness: Quality of being a slippery rascal | Quality of being changeable in direction
@@ -19505,6 +19499,7 @@ shutterbug: Photography enthusiast
 shutting: Closing | Act of closing something
 shuttle: Public transport
 shuttlecock: Send or toss to and fro
+shying: Flinging
 shyly: Timidly
 sibling: Person's brother or sister
 sibyl: Woman who tells fortunes
@@ -20096,7 +20091,6 @@ sordid: Squalid | Morally degraded | Shoddy | Unethical or dishonest
 sordidness: Squalor
 sorehead: Someone who is peevish or disgruntled
 sorely: To a great degree | Painfully | In or as if in pain
-sores: Achings | Painfuls | Upsets
 sorrels: Docks
 sorrow: Regret | Grieve | Feel grief
 sorrowed: Grieved
@@ -21505,8 +21499,8 @@ tautology: Statement that is necessarily true | Useless repetition
 tavern: Tap house | Building with a bar
 tawdriness: Loudness
 tawdry: Brassy | Cheap | Flash | Flashy
-tax: Revenue enhancement | Set or determine the amount of
 taxation: Revenue enhancement | Revenue
+taxed: Strained
 taxiing: Cabbing | Riding
 taxing: Burdensome | Onerous | Not easily borne
 taxonomic: Systematic
@@ -21537,7 +21531,6 @@ technique: Proficiency
 techniques: Proficiencies
 technocracy: Form of government
 technology: Engineering | Engineering science | Applied science
-tedious: Boring | Deadening | Tiresome | Wearisome
 tediously: Boringly
 tediousness: Dullness owing to length or slowness
 tedium: Boredom | Dullness owing to length or slowness
@@ -21931,7 +21924,6 @@ toadies: Fawns | Kowtows
 toads: Frogs
 toasted: Browned over by exposure to heat
 toboggan: Long narrow sled without runners
-today: Present time or age | Day that includes the present moment | Nowadays | Now
 toddle: Totter | Waddle
 toddled: Tottered | Waddled
 toddler: Yearling | Tot | Young child

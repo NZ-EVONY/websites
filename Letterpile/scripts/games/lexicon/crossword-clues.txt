@@ -278,7 +278,7 @@ seen: Spotted | Noticed | Observed
 set: Put | Collection | Firm up | Tennis unit | Television, for short | Ready, ___, go | Harden, like jelly
 sew: Stitch | Mend | Hem | Run up, as a dress | Tack together | Do needlework
 she: That woman | Her pronoun | Female pronoun | Ship pronoun | ___ who must be obeyed | Lady in question
-shy: Bashful | Timid | Short of
+shy: Bashful | Timid | Short of | Reserved | Fling | Lacking, as of a target
 sin: Wrongdoing | Transgression | Misdeed | Vice | Trespass | Offend morally
 sip: Small drink | Taste | Drink slowly
 sit: Take a seat | Pose | Be seated
@@ -297,7 +297,7 @@ tag: Label | Game of chase | Price ticket
 tan: Bronze | Sunburned color | Beige | Leather colour | Beat, as a hide | Sunbathe
 tap: Faucet | Light knock | Dance style
 tar: Road goo | Sailor | Asphalt | Seaman, informally | Pitch | Black road coating
-tea: Brew | Afternoon drink | Cuppa | Evening meal, in the north
+tea: Brew | Afternoon drink | Cuppa | Evening meal, in the north | Chai | Darjeeling, e.g. | Builder's brew
 tee: Golf peg | Shirt | Start of a hole
 ten: Perfect score | Number of digits | Decade
 the: Definite article | Article | Common word
@@ -605,7 +605,7 @@ sense: Feeling | Meaning | Sight or hearing
 shall: Will | Must | Ought to
 shame: Disgrace | Embarrass | Pity
 shirt: Tee | Top | Blouse
-sic: Thus, in a quote | Attack, to a dog
+sic: Thus, in a quote | Attack, to a dog | Set upon | Copied as written | Urge to attack
 sieve: Strainer | Sifter | Colander
 simple: Easy | Plain | Basic
 sir: Knight's title | Mister | Respectful address
@@ -2312,7 +2312,7 @@ hues: Colours | Shades
 huff: Fit of pique | Puff
 hump: Camel's feature | Bump
 hunk: Big piece | Chunk
-iced: Like a cake with frosting | Chilled
+iced: Like a cake with frosting | Chilled | Frosted | On the rocks | Topped with sugar
 inks: Pen fillers | Signs
 ions: Charged particles
 jade: Green gem | Weary
@@ -3992,7 +3992,7 @@ spy: Catch sight of
 eel: Slippery swimmer | Conger | Elver, when grown | Smoked fish delicacy | Wriggly swimmer
 woe: Misery
 ice: Drink cooler | Glaze a cake | Hockey surface | Diamonds, in slang
-wed: Tie the knot
+wed: Tie the knot | Get hitched | Espouse | Bond
 dye: Hair colour
 were: "If I ___ you..."
 her: That woman's
@@ -5996,3 +5996,31 @@ drone: Male bee | Monotonous hum
 mast: Ship's pole | Sail support
 stew: Casserole | Fret
 ulna: Forearm bone | Elbow bone
+chats: Natters | Online conversations
+hurried: Rushed | Hasty
+orifice: Opening | Vent
+article: Item | "The", grammatically
+nominee: Candidate | Award hopeful
+fret: Worry | Guitar ridge
+fare: Ticket price | Food
+elate: Thrill | Delight
+hailed: Flagged down, as a taxi | Acclaimed
+sores: Ulcers | Tender spots
+genes: DNA units | Hereditary factors
+starry: Twinkling, as a night | Glittering
+dots: Specks | Morse shorts
+regards: Best wishes | Considers
+tedious: Boring | Monotonous
+asexual: Neuter | Like some reproduction
+busts: Sculpted heads | Raids
+hurrah: Cheer | Last ___
+minerals: Ores | Quartz and feldspar
+neared: Approached | Closed in on
+honeydew: Green-fleshed melon | Aphid secretion
+secrets: Confidences | Hidden things
+diocese: Bishop's see | Church district
+girl: Lass | Daughter
+scoots: Dashes off | Hurries along
+intuit: Sense | Know by instinct
+today: This day | Nowadays
+tax: GST, e.g. | Strain
