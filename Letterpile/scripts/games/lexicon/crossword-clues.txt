@@ -4827,7 +4827,7 @@ hie: Hasten | Hurry, of old
 haw: Hawthorn berry | Hem and ___
 fie: For shame! | Old-fashioned tut
 erg: Unit of work | Rowing machine | Sand sea | Tiny energy unit
-deb: Debutante, briefly | Society newcomer | Ball newcomer | Young socialite | Society belle
+deb: Young lady at a cotillion | Society newcomer | Ball newcomer | Young socialite | Society belle
 bur: Prickly seed case | Clinging seed pod
 alb: Priest's white robe | Long linen vestment
 mil: Thousandth of an inch | Military, briefly
