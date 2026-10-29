@@ -156,7 +156,7 @@ inch: Small step | Twelfth of a foot | Move slowly
 ink: Pen filler | Octopus defense | Tattoo
 inn: Small hotel | Country lodging | Wayside rest stop | Pub with rooms | Tavern | Hostelry
 isle: Island | Small island | Islet
-its: Belonging to it | Possessive pronoun | Not his or hers
+its: Belonging to it | Possessive pronoun | Not his or hers | Of that thing | Possessive form | Belonging to the cat, say
 jam: Fruit spread | Traffic tie-up | Tight spot | Music session
 jar: Glass container | Jolt | Pickle holder
 jet: Airliner | Spurt | Black gem
@@ -924,7 +924,7 @@ variegated: Multicolored | Mottled | Varied
 veers: Swerves | Turns | Shifts
 wartime: Period of conflict | Battle years
 wasted: Squandered | Thrown away | Frittered
-weaned: Taken off milk | Gradually stopped
+weaned: Taken off milk | Gradually stopped | Broken of a habit | Moved to solids | Off the bottle
 weasel: Sneaky person | Ferret relative | Sly mammal
 weds: Marries | Unites | Joins
 wrestlers: Grapplers | Mat athletes | Sumo competitors
@@ -1671,7 +1671,7 @@ correct: Right | Fix | Accurate
 adores: Loves | Worships | Cherishes
 tropism: Growth toward light | Plant's turning response
 twice: Two times | Doubly
-aped: Imitated | Mimicked | Copied
+aped: Imitated | Mimicked | Copied | Parroted | Echoed | Did a send-up of
 overseen: Supervised | Managed
 swiped: Stole | Grabbed | Wiped across
 disburse: Pay out | Distribute | Spend
@@ -3146,7 +3146,7 @@ slows: Decelerates
 snail: Shelled mollusc
 spies: Secret agents
 spill: Splash
-steam: Water vapour | Full ___ ahead
+steam: Water vapour | Full ___ ahead | Fog on the mirror | Kettle output | Rage, in slang
 suing: Litigating
 swims: Bathes
 swore: Promised
@@ -3946,7 +3946,7 @@ fiche: Micro ___ (film card) | Library film sheet
 foreclosed: Repossessed, as a home | Shut out
 hastiness: Rashness | Hurry
 homes: Houses | Dwellings
-inept: Clumsy | Incompetent
+inept: Clumsy | Incompetent | Bungling | Hamfisted | Unskilled
 inhibited: Shy | Restrained
 internist: Physician of internal medicine | Doctor for adults
 lyres: Ancient harps | Stringed instruments of Greece
@@ -4494,7 +4494,7 @@ sold: Went under the hammer | Persuaded
 soled: Gave new bottoms to shoes | Resoled
 soreness: Ache | Tenderness
 springs: Coils in a mattress | Leaps
-spud: Potato | Tater
+spud: Potato | Tater | Kumara's cousin | Chip source | Garden digging tool
 stepchild: Son or daughter by marriage | Partner's offspring
 stiff: Rigid | Formal
 stingray: Flat sea creature with a barb | Barbed ray
@@ -4721,7 +4721,7 @@ soy: Bean used for tofu | Sauce at a sushi bar
 tam: Scottish beret | Woolly bonnet
 tat: Tasteless junk | Tit for ___
 tom: Male cat | Tabby, perhaps
-tor: Craggy hill | Rocky peak on a moor
+tor: Craggy hill | Rocky peak on a moor | Dartmoor peak | Rocky outcrop | Granite hilltop
 ump: Baseball judge, briefly | Line judge, informally | Baseball ref | Cricket adjudicator, briefly
 vim: Vigour | Pep
 yaw: Swerve off course | Deviate, as a ship
@@ -5231,7 +5231,7 @@ amok: Run ___ (go wild) | In a frenzy
 euthanasia: Mercy killing | Assisted dying
 struggling: Battling | In difficulty
 thyme: Herb in stuffing | Garden herb
-mete: Hand out, with out | Allot
+mete: Hand out, with out | Allot | Dole | Apportion | Distribute
 latrines: Camp toilets | Army loos
 matron: Senior nurse | Dignified married woman
 sanest: Most rational | Least crazy
@@ -5774,7 +5774,7 @@ elopement: Secret wedding | Running off to marry
 snores: Nasal rumbles | Saws logs
 makings: Ingredients | Potential
 scanners: Copying devices | Barcode readers
-sever: Cut off | Split
+sever: Cut off | Split | Detach | Break off | Dissolve, as ties
 teargas: Riot control spray | Crowd dispersal agent
 moose: Large deer | Elk, in America
 metric: Measure | Decimal system
@@ -6093,3 +6093,43 @@ dioxide: Carbon ___ | CO2 component
 detoxes: Cleanses | Goes on a cleanse
 begins: Starts | Commences
 stave: Musical staff | Barrel slat
+tomahawk: Throwing axe | Small war axe
+menagerie: Collection of wild creatures | Private zoo
+inspiring: Uplifting | Motivating
+champ: Title holder | Chew noisily
+overrule: Veto | Set aside, as an objection
+stewards: Flight attendants | Racecourse judges
+richest: Wealthiest | Most opulent
+modal: Like "could" or "would" | Kind of verb
+consumers: Buyers | Shoppers
+underacts: Plays too subtly | Gives a muted performance
+tenet: Principle | Belief
+onset: Beginning | Start
+agility: Nimbleness | Quickness
+herons: Long-legged wading birds | Fish-stalking birds
+author: Writer | Novelist
+enameling: Glazing, in American spelling | Coating with glaze
+damp: Moist | Clammy
+wits: Comedians | Intelligence
+emotional: Tearful | Moving
+appendage: Limb | Attachment
+picture: Photo | Imagine
+sorts: Kinds | Arranges
+miss: Lass | Fail to hit
+proceeds: Takings | Goes forward
+want: Desire | Lack
+midst: Middle | Heart
+gimmicks: Ploys | Marketing tricks
+toads: Warty amphibians | Creeps
+respect: Esteem | Regard
+longitude: Meridian measure | East-west position
+antelopes: Gazelles and kin | Springbok and impala
+pioneered: Trailblazed | Was first to develop
+underdogs: Outsiders | Long shots
+frog: Croaker | Pond hopper
+auditions: Tryouts | Screen tests
+inamorata: Beloved woman | Sweetheart
+width: Breadth | Span
+missile: Projectile | Rocket
+master: Expert | Learn thoroughly
+erupt: Explode | Burst forth

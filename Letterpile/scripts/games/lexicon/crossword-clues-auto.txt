@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24342 words.
+# first) or ban the word in crossword-banned.txt. 24320 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -845,8 +845,7 @@ appeases: Pacifies | Conciliates | Mollifies | Placates
 appeasing: Placating
 appellation: Designation | Identifying word or words by
 append: Affix | Add to the very end | Fix to
-appendage: Extremity | External body part
-appendages: Extremities
+appendages: Extremities | Limbs | Attachments
 appended: Affixed
 appending: Affixing
 appends: Affixes
@@ -1206,7 +1205,6 @@ audit: Scrutinize | Attend academic courses without getting credit
 audited: Scrutinized
 auditing: Scrutinizing
 audition: Ability to hear | Tryout
-auditions: Tryouts
 auditor: Listener | Someone who listens attentively
 auditors: Listeners
 audits: Scrutinizes
@@ -1221,12 +1219,11 @@ aunts: Relatives
 austere: Stark | Severely simple | Stern
 austerity: Trait of great self-denial
 authentic: Veritable | Not counterfeit or copied
-author: Writer
 authorities: Government | Regime
 authority: Potency | Persons who exercise control over others
 authorizes: Empowers
 authorizing: Empowering
-authors: Writers
+authors: Writers | Novelists
 authorship: Writing | Penning | Act of creating written works
 autism: Abnormal absorption with the self
 autocrat: Tyrant | Despot | Cruel and oppressive dictator
@@ -3157,7 +3154,6 @@ challenges: Disputes
 challenging: Ambitious | Stimulating interest or thought
 chamber: Natural or artificial enclosed space | Enclosed volume in the body
 chamberlain: Treasurer of a municipal corporation
-champ: Chafe at the bit, like horses | Chew noisily
 champagne: Bubbly
 champagnes: Bubblies
 champion: Someone who fights for a cause | Holding first place in a contest
@@ -5013,7 +5009,6 @@ damages: Amends | Restitution | Redress
 damaging: Detrimental | Prejudicial | Causing harm or injury | Designed or tending to discredit
 damask: Having a woven pattern
 dames: Dolls | Chicks | Madams | Ladies
-damp: Muffle | Mute | Tone down | Deaden , especially by wrapping
 damped: Muffled | Muted
 dampen: Stifle | Moisten | Make moist
 dampened: Stifled | Moistened
@@ -7358,7 +7353,9 @@ erroneously: Mistakenly
 erstwhile: Former | Sometime | Belonging to some prior time | Formerly
 erudite: Learned | Having or showing profound knowledge
 erudition: Learning | Scholarship | Profound scholarly knowledge
-erupt: Break out | Start abruptly
+erupted: Exploded
+erupting: Exploding
+erupts: Explodes
 erythrocyte: Mature blood cell
 escalate: Intensify | Increase in extent or intensity
 escalated: Intensified
@@ -8916,7 +8913,6 @@ frizzles: Kinks
 frizzling: Kinking
 frizzy: Nappy | In small tight curls
 frock: Long, loose outer garment | Habit worn by clerics
-frog: Toad | Person of French descent
 frogman: Diver | Underwater diver | Someone who works underwater
 frolic: Lark | Sport | Cavort | Frisk
 frolics: Larks | Sports | Cavorts | Frisks
@@ -9307,7 +9303,6 @@ gilts: Gildings
 gimcrack: Nonsense | Ornamental objects of no great value | Brassy | Cheap
 gimcracks: Nonsenses
 gimmick: Catch | Drawback or difficulty
-gimmicks: Catches
 ginger: Having a bright orange-brown color
 gingerly: With extreme care or delicacy
 gingham: Clothing fabric in a plaid weave
@@ -10976,6 +10971,7 @@ inadequacy: Deficiency | Lack of competence
 inadequate: Unequal
 inadvertent: Accidental
 inadvisable: Not prudent or wise | Not advisable
+inamoratas: Sweethearts
 inanimate: Not endowed with life
 inanity: Total lack of meaning or ideas
 inattention: Lack of attention
@@ -11419,7 +11415,6 @@ inspector: High ranking police officer | Examiner
 inspectors: Examiners
 inspire: Animate | Invigorate | Enliven | Heighten or intensify
 inspires: Animates | Invigorates | Enlivens
-inspiring: Stimulating or exalting to the spirit
 instability: Unstable order
 install: Set up for use
 installment: Payment of part of a debt | Part of a broadcast serial
@@ -13085,7 +13080,6 @@ massed: Bulked | Weighted | Lumped
 masses: Common people generally
 massing: Bulking | Weighting | Lumping
 massive: Monolithic | Being the same substance throughout
-master: Artist of consummate skill | Lord | Overcome | Surmount
 mastered: Down pat | Understood perfectly
 masterful: Consummate | Virtuoso
 masterly: Consummate | Virtuoso
@@ -13245,7 +13239,6 @@ memos: Reminders
 menace: Threat | Threat or the act of threatening | Endanger | Jeopardize
 menaces: Threats | Endangers | Jeopardizes | Threatens
 menacing: Forbidding | Ominous | Sinister | Threatening
-menagerie: Zoo | Zoological garden
 menageries: Zoos
 mend: Darn | Repair | Fixing | Fix
 mendacious: Given to lying
@@ -13355,7 +13348,6 @@ midland: Interior part of a country
 midmost: Being in the exact middle | Middle or central part or point
 midriff: Middle area of the human torso | Diaphragm
 midriffs: Diaphragms
-midst: Thick
 midstream: Middle of a stream
 midterm: Middle of the gestation period
 midway: Naval battle of World War II | Center | Halfway | Middle
@@ -13541,11 +13533,9 @@ misprints: Literals
 misquote: Incorrect quotation | Quote incorrectly
 misread: Read or interpret wrongly | Interpret wrongly
 misrule: Government that is inefficient or dishonest
-miss: Girl | Young lady | Young woman | Young female
-misses: Girls
+misses: Girls | Lasses
 misshapen: Deformed | Distorted | Malformed
-missile: Projectile
-missiles: Projectiles
+missiles: Projectiles | Rockets
 missing: Not able to be found | Lacking | Absent | Wanting
 missive: Letter
 misspell: Spell incorrectly
@@ -13605,7 +13595,6 @@ mock: Treat with contempt
 mockeries: Jeers | Scoffs | Parodies | Lampoons
 mockery: Jeer | Jeering | Scoff | Scoffing
 mocking: Jeering | Taunting | Teasing | Quizzical
-modal: Auxiliary verb
 model: Theoretical account | Framework | Type of product | Pattern
 modeled: Sculptured | Resembling sculpture
 modeling: Clay sculpture | Sculpture produced by molding
@@ -14865,9 +14854,9 @@ overreact: Show an exaggerated response to something
 override: Act of nullifying | Overthrow | Rule against
 overrides: Overrules | Overthrows
 overriding: Paramount | Predominant | Predominate | Having superior power and influence
-overrule: Overthrow | Rule against
-overrules: Overrides | Overthrows
-overruling: Overriding | Overthrowing
+overruled: Vetoed
+overrules: Overrides | Overthrows | Vetos
+overruling: Overriding | Overthrowing | Vetoing
 overrun: Infest | Invade in great numbers
 overrunning: Infesting
 overruns: Infests
@@ -15627,7 +15616,6 @@ picky: Finicky | Exacting especially about details
 picnic: Outing | Cinch | Breeze | Duck soup
 picnics: Outings | Cinches | Breezes | Pushovers
 pictorial: Periodical containing many pictures | Pertaining to or consisting of pictures | Lifelike | Vivid
-picture: Icon | Painting | Visualize | Fancy
 pictured: Visualized | Depicted | Portrayed
 pictures: Icons | Paintings | Visualizes | Fancies
 picturing: Visual imagery
@@ -15717,7 +15705,6 @@ pins: Immobilizes | Brooches | Fastens
 pinstripe: Fabric with very thin stripes
 pinstriped: Having very thin stripes
 pioneer: Initiate | Take the lead or initiative in
-pioneered: Initiated
 pioneering: Initiating
 pioneers: Initiates
 piously: Devoutly
@@ -16458,7 +16445,6 @@ procedures: Processes
 proceed: Continue | Continue talking | Move ahead
 proceeded: Continued
 proceedings: Minutes
-proceeds: Take | Yield
 process: Cognitive operation | Performance of some composite cognitive activity | Treat | Deal with in a routine way
 processed: Refined
 processes: Procedures | Treats
@@ -18005,11 +17991,10 @@ resounded: Echoed | Ringed | Reverberated | Noised
 resounding: Resonant
 resounds: Echos | Rings | Reverberates | Noises
 resource: Available source of wealth | Source of aid or support
-respect: Regard | Detail or point | Esteem | Condition of being honored
 respectably: To a tolerably worthy extent
 respected: Receiving deferential regard
 respectful: Venerating | Feeling or manifesting veneration
-respecting: Esteeming | Honoring
+respecting: Esteeming | Honoring | Regarding
 respective: Several | Various
 respects: Formal expression of esteem
 respirator: Gas helmet | Protective mask with a filter
@@ -20073,7 +20058,6 @@ sorry: Regretful | Deplorable | Distressing | Lamentable
 sorted: Arranged according to size | Grouped | Arranged into groups
 sortie: Sally | Military action | Operational flight by a single aircraft
 sorties: Sallies
-sorts: Kinds | Forms | Sieves | Classifies
 sought: That is looked for | Being searched for
 soulful: Full of or expressing deep emotion
 soulfulness: Deep feeling or emotion
@@ -21570,8 +21554,7 @@ tenders: Attendants | Bids
 tending: Care | Attention | Apt | Disposed
 tendon: Sinew
 tendons: Sinews
-tenet: Dogma | Religious doctrine
-tenets: Dogmas
+tenets: Dogmas | Principles | Beliefs
 tenpin: One of the bottle-shaped pins
 tens: Decades
 tenseness: Stress
@@ -21891,7 +21874,6 @@ tizzies: Dithers | Fusses | Flaps
 tizzy: Dither | Fuss | Flap | Excited state of agitation
 toadied: Fawned | Kowtowed
 toadies: Fawns | Kowtows
-toads: Frogs
 toasted: Browned over by exposure to heat
 toboggan: Long narrow sled without runners
 toddle: Totter | Waddle
@@ -21914,7 +21896,6 @@ toilsome: Arduous | Grueling | Laborious | Punishing
 token: Nominal
 tolerable: Capable of being borne or endured | Passable | About average
 tolerably: Acceptably | In an acceptable manner
-tomahawk: Hatchet | Weapon consisting of a fighting ax
 tomahawks: Hatchets
 tomb: Grave
 tomboys: Romps
@@ -23654,7 +23635,6 @@ wanderlust: Itchy feet
 wane: Ebb | Ebbing | Gradual decline | Grow smaller
 wanes: Ebbs
 waning: Gradual decrease in magnitude or extent | Pertaining to the period during
-want: Privation | Deprivation | State of extreme poverty | Lack
 wanted: Desired or wished for or sought | Cherished | Precious | Treasured
 wanting: Lacking | Absent | Missing | Deficient
 wantonness: Abandon | Trait of lacking restraint or control | Quality of being lewd and lascivious
@@ -23955,8 +23935,7 @@ wideness: Greatness | Immensity | Vastness
 widening: Increase in width | Turnout | Part of a road
 widow: Woman whose husband is dead | Cause to be without a spouse
 widower: Man whose wife is dead
-width: Breadth
-widths: Breadths
+widths: Breadths | Spans
 wield: Exert | Have and exercise | Handle effectively
 wielded: Exerted
 wielding: Exerting
@@ -24075,7 +24054,6 @@ withstands: Defies | Resists
 witless: To the utmost degree
 witness: Informant | Spectator | Viewer | Close observer
 witnesses: Informants | Spectators | Viewers
-wits: Marbles
 witticism: Humor
 witticisms: Wits | Humors
 wittiness: Humor | Witticism
