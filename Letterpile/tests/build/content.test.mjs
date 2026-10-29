@@ -52,7 +52,7 @@ test("guides: Article schema, visible last-updated date, related links", () => {
     assert.match(p.html, /<p class="updated">Last updated: <time datetime="\d{4}-\d{2}-\d{2}">/, p.path);
     assert.match(p.html, /<section class="related"[\s\S]*?<a href="\//, p.path);
   }
-  assert.equal(pages.filter(p => p.type === "guide").length, 13);
+  assert.equal(pages.filter(p => p.type === "guide").length, 16);
 });
 
 test("tool pages: FAQ of 5-8 questions with FAQPage schema, related links", () => {

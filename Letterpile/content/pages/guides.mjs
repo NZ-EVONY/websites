@@ -4,9 +4,13 @@ const GROUPS = [
   ["How the tools work", ["/guides/how-word-unscramblers-work", "/guides/anagram-basics", "/guides/word-lists-explained"]],
   ["Tile games", ["/guides/letter-values-and-tile-counts", "/guides/rack-balance", "/guides/high-value-letters-j-q-x-z", "/guides/hooks-prefixes-and-suffixes"]],
   ["Word lists to learn", ["/guides/two-letter-words", "/guides/words-with-q-without-u", "/guides/words-without-vowels"]],
-  ["Daily word puzzles", ["/guides/wordle-strategy", "/guides/solve-daily-word-puzzles", "/guides/letterpile"]],
+  ["Crosswords", ["/guides/how-to-solve-crosswords", "/guides/how-to-solve-cryptic-crosswords"]],
+  ["Daily word puzzles", ["/guides/build-vocabulary-with-word-games", "/guides/wordle-strategy", "/guides/solve-daily-word-puzzles", "/guides/letterpile"]],
 ];
 const BLURB = {
+  "/guides/how-to-solve-crosswords": "Where to start, how to read clue wording, using crossing letters, common short answers and getting faster.",
+  "/guides/how-to-solve-cryptic-crosswords": "Definition plus wordplay: the eight clue types with original examples, signal words and a routine for your first grid.",
+  "/guides/build-vocabulary-with-word-games": "A ten-minute daily routine with crosswords and a word of the day, and why retrieval and spacing make words stick.",
   "/guides/how-word-unscramblers-work": "Letter counts, blank tiles and sorted-letter signatures: the simple ideas that make an unscrambler fast.",
   "/guides/anagram-basics": "Perfect and partial anagrams, phrase anagrams, how common they are in the word list, and tricks for spotting them.",
   "/guides/word-lists-explained": "What a game word list is, why Letterpile uses the public-domain ENABLE list, and how to check a word for your own game.",
