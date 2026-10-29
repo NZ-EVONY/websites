@@ -4728,7 +4728,7 @@ yaw: Swerve off course | Deviate, as a ship
 yon: Over there, poetically | That, far off, in old verse
 zed: Last letter | Z, in Britain
 aah: Sigh of pleasure | Relaxed exhalation
-bap: Soft bread roll | Breakfast roll
+bap: Soft bread roll | Breakfast roll | Floury bun | Burger bun, in Britain | Bread cob
 biz: Show ___ | Business, informally
 brae: Scottish hillside | Hill, in Burns
 brie: Soft French cheese | Creamy cheese
@@ -6133,3 +6133,32 @@ width: Breadth | Span
 missile: Projectile | Rocket
 master: Expert | Learn thoroughly
 erupt: Explode | Burst forth
+hallow: Make holy | Sanctify
+bereave: Deprive by death | Leave grieving
+quinine: Malaria remedy | Tonic water flavouring
+oarsmen: Rowers | Crew in a boat race
+unfolds: Opens out | Develops, as a story
+stater: Ancient Greek coin | Old silver piece
+miseries: Woes | Hardships
+croons: Sings softly | Hums tenderly
+accounts: Ledgers | Reports
+hoarse: Croaky | Gravelly-voiced
+lacrosse: Stick-and-net sport | Field game with netted sticks
+barren: Infertile | Desolate
+installs: Sets up | Puts in place
+pagoda: Tiered temple | Asian tower
+natural: Innate | Unaffected
+belabor: Overdo, in American spelling | Harp on
+turbine: Wind farm machine | Jet engine part
+orators: Public speakers | Declaimers
+heath: Moor | Scrubland
+array: Display | Range
+equips: Kits out | Furnishes
+silicates: Common minerals | Rock-forming compounds
+underpins: Supports | Props up
+cored: Pitted, as an apple | Hollowed out
+boron: Element B | Element 5
+cosmonaut: Soviet spacefarer | Russian space traveller
+casuistry: Sophistry | Specious reasoning
+scrapers: Ice-clearing tools | Paint removers
+hobos: Drifters | Tramps

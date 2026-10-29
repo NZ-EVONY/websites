@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24320 words.
+# first) or ban the word in crossword-banned.txt. 24306 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -164,7 +164,6 @@ account: History | Chronicle | News report
 accountant: Controller
 accountants: Controllers
 accounting: Convincing explanation that reveals basic causes
-accounts: Histories | Chronicles
 accredited: Licensed | Given official approval to act
 accrediting: Certifying | Authorising
 accredits: Certifies | Authorises
@@ -968,7 +967,7 @@ arranged: Ordered | Planned in advance
 arrangement: Orderly grouping considered as a unit
 arranger: Organizer | Adapter
 arrangers: Organizers | Adapters
-array: Impressive display | Lay out | Set out
+arraying: Displaying | Ranging
 arrested: Collared | Nailed | Apprehended | Nabbed
 arresting: Sensational | Stunning | Commanding attention
 arrival: Reaching
@@ -1485,8 +1484,7 @@ barrage: Shelling
 barred: Blockaded | Marked with stripes or bands
 barrel: Tube through | Cask | Cylindrical container that holds liquids
 barreled: Tapered toward both ends
-barren: Wasteland | Bleak | Desolate | Providing no shelter or sustenance
-barrens: Wastelands
+barrens: Wastelands | Infertiles | Desolates
 barricade: Roadblock | Block | Blockade | Block off
 barricaded: Blockaded
 barricades: Roadblocks | Blocks | Blockades | Bars
@@ -1674,7 +1672,6 @@ beholding: Visual perception | Seeing | Perception by means of the eyes
 behoove: Be appropriate or necessary
 being: Existence | State or fact of existing | Organism | Living thing
 beings: Existences | Organisms
-belabor: Attack verbally with harsh criticism
 belated: Late | Tardy | After the expected or usual time
 belatedly: Late | Later than usual or than expected
 belch: Burp | Burping | Expel gas from the stomach
@@ -1751,7 +1748,6 @@ berate: Rebuke | Lecture | Reprimand | Dress down
 berated: Rebuked | Lectured | Reprimanded | Scolded
 berates: Rebukes | Lectures | Reprimands | Scolds
 berating: Severe rebuke
-bereave: Deprive through death
 bereaved: Grieving | Mourning | Sorrowing | Sorrowful through loss or deprivation
 bereavement: Mourning
 bereft: Unhappy in love | Grieving | Mourning | Sorrowing
@@ -4511,7 +4507,6 @@ cosignatory: Signing jointly with others
 cosmetic: Decorative | Ornamental
 cosmogonies: Cosmologies
 cosmogony: Cosmology
-cosmonaut: Astronaut
 cosmonauts: Astronauts
 cosmos: Universe | Existence | World | Everything that exists anywhere
 cosmoses: Universes | Existences | Worlds
@@ -7328,7 +7323,6 @@ equipage: Carriage
 equipages: Carriages
 equipped: Furnished
 equipping: Arming | Armament
-equips: Outfits
 equitable: Just
 equivalence: Equality | Equation | Par
 equivalent: Combining weight | Atomic weight of an element | Tantamount | Being essentially equal to something
@@ -9879,7 +9873,6 @@ haling: Coercing | Pressuring | Forcing | Hauling
 hall: Interior passage or corridor onto | Foyer | Lobby | Vestibule
 hallmark: Trademark | Earmark
 hallmarks: Trademarks | Earmarks
-hallow: Sanctify
 hallowed: Worthy of religious veneration
 hallowing: Sanctifying
 hallows: Sanctifies
@@ -10143,7 +10136,6 @@ heartthrob: Object of infatuation
 hearty: Satisfying | Providing abundant nourishment
 heater: Warmer | Pitch thrown with maximum velocity
 heaters: Warmers
-heath: Tract of level wasteland
 heathen: Pagan | Gentile | Infidel | Ethnic
 heathenish: Pagan | Ethnic
 heathens: Pagans | Gentiles | Infidels
@@ -10345,7 +10337,6 @@ hoarding: Billboard
 hoards: Caches | Collects | Accumulates | Amasses
 hoarfrost: Frost | Ice crystals forming a white deposit
 hoariness: Silvery-white color | Great age
-hoarse: Gruff | Husky
 hoarsely: Huskily
 hoarseness: Huskiness
 hoary: Gray | Grizzly | Ancient
@@ -10359,7 +10350,6 @@ hobgoblin: Goblin
 hobgoblins: Goblins
 hobnail: Short nail with a thick head
 hobnob: Rub elbows with
-hobos: Tramps | Drifters
 hocked: Pawned
 hocking: Pawning
 hocks: Pawns
@@ -14010,12 +14000,11 @@ natives: Aborigines | Aboriginals
 nativities: Births
 nativity: Birth | Event of being born | Theological doctrine
 natty: Dapper | Dashing | Jaunty | Spruce
-natural: Someone regarded as certain to succeed | Cancel
 naturalist: Advocate of the doctrine
 naturalize: Make into a citizen
 naturally: Course | As might be expected
 naturalness: Innocence
-naturals: Cancels
+naturals: Cancels | Innates | Unaffecteds
 naught: Nothing | Nil | Null | Goose egg
 naughtiness: Attribute of mischievous children
 naughts: Nothings | Nils | Nulls | Zeros
@@ -14590,7 +14579,6 @@ options: Alternatives | Choices | Selections
 opulence: Wealth as evidenced by sumptuous living
 opulent: Deluxe | Luxurious | Sumptuous
 oracles: Prophets
-orators: Speechmakers
 oratory: Addressing an audience formally
 orbit: Sphere | Domain | Arena | Particular environment or walk of life
 orbited: Revolved
@@ -22332,7 +22320,6 @@ tuning: Calibrating something to a standard frequency
 tunnel: Burrow | Hole made by an animal | Force a way through
 tunnels: Burrows
 turban: Small round woman's hat
-turbine: Rotary engine
 turbojet: Jet engine
 turboprop: Airplane with an external propeller
 turbulence: Instability in the atmosphere
@@ -22725,7 +22712,6 @@ unflinching: Not shrinking from danger
 unfold: Blossom | Blossom out | Blossom forth | Open to the view
 unfolded: Blossomed
 unfolding: Flowering
-unfolds: Blossoms
 unforeseen: Not anticipated
 unforgiving: Grim | Inexorable | Relentless | Stern
 unformed: Not having form or shape | Not formed or organized
