@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24062 words.
+# first) or ban the word in crossword-banned.txt. 24051 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -118,10 +118,9 @@ abysmally: Terribly | Atrociously | In a terrible manner
 abyss: Bottomless gulf or pit
 academic: Faculty member
 academy: Secondary school | Honorary society
-accede: Bow | Defer | Yield to another's wish or opinion | Take on duties or office
-acceded: Bowed | Deferred
-accedes: Bows | Defers
-acceding: Bowing | Deferring
+acceded: Bowed | Deferred | Agreed | Consented
+accedes: Bows | Defers | Agrees | Consents
+acceding: Bowing | Deferring | Agreeing | Consenting
 accelerate: Speed | Quicken | Move faster | Cause to move faster
 accelerates: Speeds | Quickens
 accelerator: Gas pedal | Throttle | Pedal that controls the throttle valve | Throttle valve
@@ -2719,7 +2718,7 @@ calculating: Scheming | Shrewd | Acting with a specific goal
 calculation: Computation | Computing | Figuring | Reckoning
 calculator: Computer | Small machine
 calculators: Computers
-calendar: List or register of events
+calendars: Diaries | Datebooks
 calf: Young of domestic cattle
 caliber: Quality
 calibers: Qualities
@@ -3298,7 +3297,6 @@ chiseler: Swindler
 chiselers: Swindlers
 chisels: Carves
 chit: Tab | Bill in a restaurant
-chitchat: Small talk | Gab | Gossip | Chin wag
 chitchats: Gabs | Gossips | Chats | Jaws
 chitchatted: Chatted | Gossipped | Jawed
 chivalry: Gallantry | Courtesy towards women
@@ -6922,8 +6920,8 @@ enamel: Colored glassy compound
 encampment: Camping site | Camping ground | Camping area | Camp
 encampments: Camps
 encapsulate: Capsule
-encases: Cases | Encloses
-encasing: Casing | Enclosing
+encases: Cases | Encloses | Sheathes | Surrounds
+encasing: Casing | Enclosing | Sheathing | Surrounding
 enchant: Enthrall | Ravish | Hold spellbound | Capture
 enchanter: Sorcerer or magician
 enchanting: Bewitching | Captivating | Enthralling | Entrancing
@@ -9911,10 +9909,9 @@ harnessing: Tackling
 harridan: Scolding old woman
 harried: Annoyed | Harassed | Pestered | Vexed
 harries: Harasses | Hassles | Besets | Plagues
-harrow: Disk
-harrowed: Disked
+harrowed: Disked | Distressed
 harrowing: Agonizing | Torturing | Extremely painful
-harrows: Disks
+harrows: Disks | Distresses
 harry: Harass | Hassle | Beset | Plague
 harrying: Harassing | Hassling | Besetting | Plaguing
 harshness: Roughness
@@ -10508,7 +10505,7 @@ hurls: Lunges | Hurtles | Flings | Throws
 hurrahed: Cheered
 hurrahing: Cheering
 hurrahs: Hoorays | Cheers
-hurricane: Severe tropical cyclone
+hurricanes: Cyclones | Typhoons
 hurriedly: Hastily
 hurries: Hastes | Zips | Hastens
 hurry: Haste | Overly eager speed | Travel rapidly | Zip
@@ -10735,7 +10732,6 @@ impeccably: Flawlessly
 impecunious: Penniless
 impedance: Electric resistance | Electrical resistance
 impeded: Made difficult or slow
-impedes: Hinders | Obstructs
 impediment: Hindrance | Deterrent | Balk | Something immaterial
 impedimenta: Obstruction | Any structure that makes progress difficult
 impediments: Hindrances | Deterrents | Balks | Obstructions
@@ -12457,8 +12453,8 @@ litigating: Suing
 litigation: Judicial proceeding | Legal proceeding in a court
 litigious: Of or relating to litigation | Contentious
 litmus: Coloring material
-litter: Rubbish carelessly dropped or left about | Strew
 littered: Cluttered
+litters: Rubbishes
 little: Small amount or duration | Small | Slight | Small in quantity or degree
 littler: Smaller
 littoral: Sands
@@ -12537,7 +12533,6 @@ logistics: Handling an operation
 logo: Company emblem or device
 logotype: Company emblem or device
 loiter: Lounge | Loaf | Hang around | Mess about
-loitered: Lounged | Loafed | Tarried | Lingered
 loitering: Lounging | Loafing | Tarrying | Lingering
 loll: Droop | Loaf | Lounge around | Lounge about
 lolling: Drooping | Loafing
@@ -13202,8 +13197,8 @@ metrical: Measured | Rhythmic arrangement of syllables
 metrically: With regard to meter
 metropolis: City | Urban center | Large and densely populated urban area
 metros: Undergrounds | Subways | Urbans
-mewed: Meowed
-mewing: Meowing
+mewed: Meowed | Miaowed
+mewing: Meowing | Miaowing
 mezzanine: First balcony | First or lowest balcony
 microbe: Minute life form
 microchip: Silicon chip
@@ -14233,7 +14228,6 @@ oaring: Paddling
 oarsman: Someone who rows a boat
 oasis: Fertile tract in a desert | Haven
 oatmeal: Porridge made of rolled oats
-obedience: Act of obeying | Trait of being willing to obey
 obeisance: Bowing | Obedience | Act of obeying
 obeisances: Bowings | Obediences
 obelisk: Dagger
@@ -14472,8 +14466,7 @@ ordains: Enacts | Consecrates
 ordeals: Trials | Nightmares
 orderliness: Condition of regular or proper arrangement
 orderly: Hospital attendant | Devoid of violence or disruption | Neat | Clean or organized
-ordinance: Regulation | Statute enacted by a city government
-ordinances: Regulations
+ordinances: Regulations | Decrees
 ordinarily: Normally | Usually | Commonly | Under normal conditions
 ordinary: Expected or commonplace condition or situation | Not exceptional in any way | Average | Lacking special distinction, rank, or status
 ordination: Ordering
@@ -16101,7 +16094,9 @@ preempt: High bid | Displace
 preempted: Displaced
 preempting: Displacing
 preempts: Displaces
-preen: Clean with one's bill
+preened: Groomed | Primped
+preening: Grooming | Primping
+preens: Grooms | Primps
 preexisting: Existing previously or before something
 preface: Foreword | Premise
 prefaced: Premised
@@ -17641,7 +17636,6 @@ repeats: Reiterates | Iterates | Duplicates
 repelled: Repulsed | Disgusted
 repent: Atone | Regret | Rue | Feel remorse for
 repentance: Penitence | Penance | Remorse for your past conduct
-repentant: Penitent | Feeling or expressing remorse for misdeeds
 repented: Atoned | Regretted | Rued
 repenting: Atoning | Regretting | Ruing
 repents: Atones | Regrets | Rues
@@ -18112,7 +18106,6 @@ ringleader: Person who leads
 ringlet: Coil | Curl | Scroll | Lock
 ringlets: Coils | Curls | Scrolls | Locks
 ringside: First row of seating
-rinsed: Washed
 rinses: Washes
 rioting: State of disorder involving group violence
 riotous: Lush | Profuse | Produced or growing in extreme abundance | Disruptive
@@ -18152,7 +18145,6 @@ roam: Wander | Swan | Stray | Ramble
 roamed: Wandered | Swanned | Strayed | Rambled
 roaming: Wandering | Swanning | Straying | Rambling
 roams: Wanders | Swans | Strays | Rambles
-roar: Boom | Thunder | Deep prolonged loud noise | Bellow
 roaring: Boom | Thunder | Deep prolonged loud noise | Bellow
 roast: Knock | Negative criticism | Cook with dry heat | Ridicule
 roaster: Harsh or humorous critic
@@ -18810,7 +18802,6 @@ seafarer: Mariner | Seaman | Tar | Old salt
 seafarers: Mariners | Tars
 seafaring: Sailing | Work of a sailor | Water travel | Travel by water
 seagoing: Seafaring | Used on the high seas
-sealed: Established irrevocably
 seals: Closes | Stamps
 seamanship: Skill in sailing
 seaming: Jointing
@@ -19542,7 +19533,6 @@ slogans: Mottos
 slogged: Plodded | Trudged | Padded | Tramped
 slogging: Plodding | Trudging | Padding | Tramping
 slogs: Plods | Trudges | Pads | Tramps
-slope: Incline | Elevated geological formation | Gradient | Be at an angle
 sloped: Diagonal | Slanted | Slanting | Having an oblique or slanted direction
 slopes: Inclines | Gradients
 sloping: Diagonal | Slanted | Slanting | Having an oblique or slanted direction
@@ -19683,7 +19673,6 @@ sniffled: Blubbered
 sniffles: Blubbers
 sniffling: Blubbering
 sniffs: Whiffs
-snifter: Brandy glass | Globular glass with a small top
 snip: Small piece of anything | Nip off | Clip | Lop
 snipped: Clipped | Lopped | Pruned
 snippet: Small piece of anything

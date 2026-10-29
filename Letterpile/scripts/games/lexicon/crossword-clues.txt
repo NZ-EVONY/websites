@@ -181,7 +181,7 @@ lie: Fib | Recline | Untruth | Position of a golf ball | Lay of the land | Porky
 lip: Mouth edge | Rim | Back talk
 lit: Turned on | Ignited | Bright
 log: Firewood piece | Ship's record | Write down | Diary
-lot: Plenty | Parcel of land | Parking area | Fate
+lot: Plenty | Parcel of land | Parking area | Fate | Batch | Destiny | Auction item | Heaps
 low: Not high | Moo | Sad | Inexpensive
 mad: Angry | Crazy | Upset
 man: Adult male | Staff | Chess piece
@@ -935,7 +935,7 @@ adore: Love | Worship | Be crazy about
 affected: Influenced | Put-on | Moved
 airy: Breezy | Light | Spacious
 allows: Lets | Permits | Grants
-also: Too | As well | In addition
+also: Too | As well | In addition | Besides | Likewise | Further
 amiss: Wrong | Awry | Out of order
 analytical: Logical | Methodical | Reasoning carefully
 anemone: Sea creature | Windflower | Clownfish's home
@@ -4681,7 +4681,7 @@ lib: Women's ___ | Liberation, briefly
 oat: Porridge grain | Grain for a horse | Horse feed | Grain for muesli
 ref: Match whistler, briefly | Whistle blower at a game
 sax: Jazz horn | Reed instrument, briefly
-tad: Smidgen | Little bit
+tad: Smidgen | Little bit | Bit | Touch | Jot
 tic: Nervous twitch | Involuntary spasm
 tog: Unit of duvet warmth | Dress, with up
 tux: Dinner jacket, informally | Black-tie wear
@@ -4768,7 +4768,7 @@ puce: Purplish brown | Flea-coloured
 rota: Duty roster | Schedule of turns
 roux: Butter and flour base | Sauce thickener
 ruck: Rugby scrum on the ground | Crease
-shh: Quiet! | Hush!
+shh: Quiet! | Hush! | Be quiet! | Pipe down! | Hush up!
 ska: Jamaican music genre | Reggae forerunner | Upbeat Kingston music | Two-tone genre | Offbeat dance music
 skua: Predatory seabird | Gull-like pirate bird
 swot: Study hard | Bookworm
@@ -4827,7 +4827,7 @@ hie: Hasten | Hurry, of old
 haw: Hawthorn berry | Hem and ___
 fie: For shame! | Old-fashioned tut
 erg: Unit of work | Rowing machine | Sand sea | Tiny energy unit
-deb: Debutante, briefly | Society newcomer
+deb: Debutante, briefly | Society newcomer | Ball newcomer | Young socialite | Society belle
 bur: Prickly seed case | Clinging seed pod
 alb: Priest's white robe | Long linen vestment
 mil: Thousandth of an inch | Military, briefly
@@ -5296,7 +5296,7 @@ helped: Aided | Assisted
 inland: Away from the coast | Interior
 radon: Radioactive gas | Noble gas
 disco: Dance club | Boogie music
-mew: Kitten's cry | Gull's cry
+mew: Kitten's cry | Gull's cry | Feline whimper | Seagull call | Miaow
 bellow: Roar | Bull's deep cry
 afloat: Not sinking | Solvent
 relieve: Ease | Take over from on duty
@@ -5442,7 +5442,7 @@ spiel: Sales patter | Pitch
 performed: Acted on stage | Carried out
 irascible: Hot-tempered | Grumpy
 electorate: Voters | Constituency
-seller: Vendor | Hot item
+seller: Vendor | Hot item | Retailer | Merchant | Trader
 tramp: Long walk in the bush | Vagrant
 ivies: Climbing plants | Clinging vines
 melts: Thaws | Toasted sandwiches
@@ -5567,7 +5567,7 @@ larges: Big sizes, on labels | Outsize items
 nightly: Every evening | After dark
 secreted: Hid | Oozed
 slam: Bang shut | Criticise
-encase: Enclose | Box in
+encase: Enclose | Box in | Wrap up | Sheathe | Surround
 authorize: Permit, US style | Sanction, in America
 gents: Men's toilet | Chaps
 finest: Best | Top quality
@@ -6627,3 +6627,29 @@ sensory: Perceptual | Relating to touch and taste
 pits: Stones | Mines
 steed: Horse | Charger
 tells: Relates | Poker giveaways
+hurricane: Cyclone | Typhoon
+ordinance: Decree | By-law
+litter: Rubbish | Brood of puppies
+accede: Agree | Consent
+rinsed: Washed out | Sluiced
+sealskin: Pinniped hide | Fur from a pup on the ice
+paltrier: Measlier | More trifling
+amoebic: Of single-celled organisms | Like some dysentery
+pestle: Mortar's partner | Grinding tool
+roar: Bellow | Lion's call
+repentant: Contrite | Remorseful
+obedience: Compliance | Dutifulness
+preen: Groom | Primp
+chitchat: Small talk | Gossip
+impedes: Hinders | Obstructs
+manors: Estates | Country houses
+weeded: Hoed | Cleared of unwanted plants
+calendar: Diary | Datebook
+lichen: Rock-hugging growth | Fungus-alga partnership
+loitered: Lingered | Hung about
+littlest: Smallest | Tiniest
+sealed: Closed tight | Settled
+snifter: Brandy glass | Small drink
+harrow: Distress | Farm implement
+soaped: Lathered | Washed up
+slope: Incline | Gradient
