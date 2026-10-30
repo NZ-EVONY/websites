@@ -12,7 +12,7 @@ aide: Assistant | Right-hand person | Helper on a staff
 ail: Be unwell | Trouble | Feel poorly | Afflict | Be sick
 air: What we breathe | Broadcast | Melody | Let out, as grievances
 aisle: Church walkway | Supermarket lane | Seat choice on a plane
-ale: Pub pour | Brewed drink | Pint in a pub
+ale: Pub pour | Brewed drink | Pint in a pub | Craft-beer style | Hoppy brew
 all: Every bit | Everyone | The whole lot | Entirely
 alley: Narrow back street | Bowling lane | Passage between buildings
 alum: Graduate, for short | Former student, informally
@@ -185,7 +185,7 @@ lot: Plenty | Parcel of land | Parking area | Fate | Batch | Destiny | Auction i
 low: Not high | Moo | Sad | Inexpensive
 mad: Angry | Crazy | Upset
 man: Adult male | Staff | Chess piece
-map: Atlas page | Chart | Plan the route
+map: Atlas page | Chart | Plan the route | Street guide | Lay out, as a plan
 mat: Doormat | Yoga ___ | Wrestling surface
 may: Month after April | Might | Is allowed to
 men: Adult males | Chess pieces | Guys
@@ -314,7 +314,7 @@ tub: Bath | Container | Basin
 tug: Pull | Yank | Boat that tows
 two: Pair | Couple | Duo
 urn: Vase | Tea dispenser | Big container | Ash holder | Samovar | Funerary jar
-use: Employ | Utilize | Purpose
+use: Employ | Utilise | Purpose | Put to work
 van: Moving vehicle | Delivery truck | Forefront
 vet: Animal doctor | Check | Veteran
 via: By way of | Through | Using | Through the route of | Passing through | Over
@@ -2238,7 +2238,7 @@ aced: Nailed, as a test | Served a winner | Breezed through | Got full marks | S
 afar: Far away | From ___ (at a distance)
 ales: Pub pints | Bitters and stouts | Beers | Pints | Bitters
 alga: Pond scum single | Seaweed, for one
-amps: Guitar boosters | Current units
+amps: Guitar boosters | Current units | Stage speaker stacks | Electrical current measures
 arks: Noah's boats | Torah cabinets
 axed: Cancelled | Chopped
 bats: Cricket gear | Cave flyers
@@ -2455,7 +2455,7 @@ yolk: Egg's yellow
 yuck: "Gross!"
 zany: Wacky | Madcap
 zeta: Greek letter after epsilon
-cola: Fizzy drink
+cola: Fizzy drink | Caffeinated soda | Fizzy brown pop
 exec: Business boss
 flub: Botch
 gels: Sets, as jelly | Hair products
@@ -3551,7 +3551,7 @@ maroon: Dark red | Strand on an island
 mohair: Angora goat wool | Fluffy yarn
 mouse: Computer pointer | Cheese lover in cartoons
 naive: Green | Gullible
-nay: No vote | Opposite of yea
+nay: No vote | Opposite of yea | Negative vote | "No," in old parliaments
 nerds: Geeks | Tech buffs
 neuron: Nerve cell | Brain cell
 north: Compass point | Up on a map
@@ -3616,7 +3616,7 @@ elect: Vote in | Choose | Choose by vote | Chosen
 eventuate: Result | Come about
 firewater: Strong liquor, jokingly | Rotgut
 fitter: Healthier | Gas ___ (tradesperson)
-genera: Groups of species | Biological categories
+genera: Groups of species | Biological categories | Classifications above species | Taxonomic groups
 glen: Narrow valley | Scottish dale
 hearts: Card suit | Valentine shapes
 humane: Kind | Compassionate
@@ -4742,7 +4742,7 @@ filo: Thin pastry | Pastry for baklava
 gaga: Doting foolishly | Infatuated
 gawp: Stare stupidly | Gape
 ghee: Clarified butter | Indian cooking fat
-gran: Nana | Grandmother, informally
+gran: Nana | Mum's mum
 hmm: Sound of doubt | Let me think
 hols: School breaks, informally | Vacations, in Britain
 idem: The same, in footnotes | Ditto
@@ -4809,7 +4809,7 @@ efs: Letters after ees | F's, spelt out | Sixth letters | Fs in full | Letter pa
 ems: Printers' measures | Widths of the letter M | Printer's spaces | Wide dashes, briefly | Ms
 ids: Identity cards, briefly | Psyches' primitive parts | Passports, e.g. | Freudian drives | Photo cards
 sim: Phone chip card | Card in a mobile
-sis: Female sibling, informally | Sibling, for short
+sis: Female sibling, informally | Sibling, for short | Brother's girl sibling, casually | Mum's daughter, to her brother
 sot: Drunkard | Tippler | Boozer | Lush | Soak
 tun: Large cask | Brewer's barrel
 wen: Cyst | Sebaceous lump
@@ -5046,7 +5046,7 @@ shores: Coasts | Props up
 eaglet: Young raptor | Eyrie chick
 serial: Episodic drama | Sequential
 gruff: Brusque | Hoarse
-sierra: Mountain range | Jagged range
+sierra: Mountain range | Jagged range | Saw-toothed peaks | Phonetic S
 tendril: Climbing shoot | Curl of hair
 sacred: Holy | Hallowed
 ovals: Egg shapes | Cricket grounds
@@ -5586,7 +5586,6 @@ rescue: Save | Bail out
 retrospect: Hindsight | Looking back
 shrews: Small insectivores | Nags
 glue: Adhesive | Stick together
-foursomes: Golf groups | Quartets
 notice: Sign | Spot
 missives: Letters | Messages
 wedged: Jammed | Stuck fast
@@ -5850,7 +5849,7 @@ assertive: Forthright | Confident
 needy: Poor | Clingy
 retreated: Withdrew | Fell back
 stills: Freeze-frames | Moonshine makers
-rants: Tirades | Raves
+rants: Tirades | Raves | Angry outbursts | Sounds off
 lucid: Clear | Coherent
 peels: Skins | Strips off
 creases: Folds | Wrinkles
@@ -6745,7 +6744,7 @@ pinker: Rosier | More flushed
 submit: Hand in | Yield
 thatch: Straw roofing | Mop of hair
 calyx: Ring of sepals | Flower's outer whorl
-tripe: Nonsense | Stomach lining as food
+tripe: Nonsense | Stomach lining as food | Rubbish talk | Offal dish
 gaits: Walking styles | Ways of moving
 vaccines: Jabs at the clinic | Flu shots, e.g.
 inhalants: Breathed-in medicines | Asthma remedies, some
@@ -6967,3 +6966,113 @@ sopped: Soaked up | Wiped up, as gravy
 troll: Online provocateur | Fairy-tale bridge dweller
 skies: Heavens | Weather overhead
 setup: Arrangement | Frame-up
+byes: Free passes to the next round | Runs not off the bat
+maraca: Rattle shaker | Latin percussion gourd
+gangrene: Tissue death | Rot in a wound
+entrance: Way in | Doorway
+scants: Skimps on | Stints
+soviet: Old Moscow council | Cold War-era Russian
+gent: Chap | Well-mannered fellow
+animal: Creature | Beast
+overload: Too much to handle | Swamp with demands
+pimiento: Sweet red pepper | Olive stuffing
+drones: Male bees | Flying camera craft
+scum: Pond film | Frothy surface layer
+ageism: Bias against the elderly | Discrimination by years
+handcart: Pushed barrow | Wheeled trolley for goods
+anteater: Tamandua, e.g. | Long-snouted bug hunter
+cattle: Cows and bulls | Herd on a dairy farm
+swinish: Piggish | Boorish
+heavens: Skies | "Good ___!"
+selectmen: New England town councillors | Township board members
+echelons: Ranks | Levels of command
+tailgate: Drive too close behind | Rear door of a ute
+opener: First game | Tin key
+bonito: Striped tuna | Fish flakes in Japanese stock
+scoops: Exclusive stories | Ice-cream servings
+pelvic: Hip-bone related | Of the lower torso
+postman: Mail carrier | Letter deliverer
+overage: Surplus | Excess amount
+insides: Innards | Interiors
+pirates: Buccaneers | Copyright thieves
+respell: Write again with new letters | Change how a word is written
+demented: Crazed | Deranged
+stems: Flower stalks | Stops, as a flow
+strips: Thin pieces | Comic panels in a row
+reposes: Rests | Lies at ease
+worst: Least good | Defeat, archaically
+impounds: Seizes, as a vehicle | Confiscates
+realign: Straighten again | Reposition
+unearth: Dig up | Discover
+tadpole: Baby frog | Pond wriggler
+sleeper: Overnight train | Railway tie
+oviduct: Egg tube | Hen's laying passage
+mates: Friends | Chess wins
+agent: Spy | Representative
+birdseed: Feeder mix | Budgie food
+derive: Get from a source | Deduce
+gumdrop: Chewy sweet | Jelly lolly
+inputs: Contributions | Data entered
+snubs: Cold-shoulders | Ignores pointedly
+eyelet: Lace hole | Small grommet
+toasting: Browning bread | Raising a glass to
+leafiest: Most shaded by foliage | Greenest, as a suburb
+chevron: V-shaped stripe | Road-bend arrow sign
+ermine: Stoat in winter white | Royal robe fur
+mousetrap: Snap-shut rodent catcher | Cheese-baited device
+aunts: Mum's sisters | Relatives on the family tree
+lesions: Skin sores | Wounds
+ordeals: Trials | Harrowing experiences
+mustang: Wild horse | Feral American steed
+tenants: Renters | Occupants
+inhering: Being intrinsic | Existing as a quality within
+belles: Beauties of the ball | Southern charmers
+patinas: Green films on bronze | Aged sheens
+eagles: Big birds of prey | Golf scores of two under
+startles: Frightens | Makes jump
+forests: Woods | Bush-clad areas
+pioneer: Trailblazer | Settler
+organism: Living thing | Life form
+turgid: Swollen | Pompous, as prose
+altered: Changed | Adjusted, as a hem
+slaved: Toiled | Worked like a drudge
+taming: Domesticating | Breaking in
+ingest: Swallow | Take in
+snoop: Pry | Nosy parker
+avowals: Open declarations | Solemn statements
+astray: Off course | Lost, as a letter
+menorahs: Hanukkah candelabra | Seven-branched lamps
+rehire: Take on again | Re-employ
+insomnia: Sleeplessness | Night-time wakefulness
+target: Bullseye | Goal
+camisole: Sleeveless top | Strappy undershirt
+overturn: Reverse, as a ruling | Capsize
+shoes: Footwear | Sneakers and sandals
+demesne: Estate land | Domain of a manor
+emceed: Hosted, as a show | Introduced the acts
+toreador: Bullfighter | Matador on horseback
+musses: Rumples | Tousles
+lectern: Reading stand | Speaker's desk
+lank: Limp and straight, as hair | Thin and drooping
+shied: Recoiled, as a horse | Threw, as at a coconut
+throats: Gullets | Necks' fronts
+rigmarole: Tedious fuss | Long-winded procedure
+pecan: Pie nut | Nut from the hickory family
+pilots: Aviators | Trial episodes
+strung: Hung in a line | Threaded, as beads
+mnemonics: Recall aids | Remembering tricks
+rebuses: Picture puzzles | Word-and-image riddles
+spool: Reel | Thread holder
+abode: Dwelling | Home
+sure: Certain | Confident
+unsalted: Plain, as butter | Without seasoning
+retreat: Withdraw | Quiet getaway
+uterus: Womb | Organ where a baby grows
+seascape: Ocean painting | Marine view
+satiated: Full | Glutted
+hatred: Loathing | Animosity
+kernels: Corn grains | Cores of an idea
+pestilent: Plague-ridden | Deadly, as a disease
+getup: Outfit | Costume
+armorer: Weapons keeper, US-style | Gunsmith, in American spelling
+foursomes: Golf groups | Quartets
