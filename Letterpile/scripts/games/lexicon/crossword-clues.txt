@@ -178,7 +178,7 @@ leg: Limb | Stage of a trip | Table support | Stage of a race | Shank | On side,
 let: Allow | Permit | Rent out | Hire out | Net call in tennis | Lease
 lid: Cover | Jar top | Eyelid
 lie: Fib | Recline | Untruth | Position of a golf ball | Lay of the land | Porky, in slang
-lip: Mouth edge | Rim | Back talk
+lip: Mouth edge | Rim | Back talk | Jug spout edge | Cheek, as in rudeness
 lit: Turned on | Ignited | Bright
 log: Firewood piece | Ship's record | Write down | Diary
 lot: Plenty | Parcel of land | Parking area | Fate | Batch | Destiny | Auction item | Heaps
@@ -200,7 +200,7 @@ nap: Short sleep | Snooze | Doze
 net: Mesh | Catch | Profit after costs
 new: Fresh | Recent | Unused | Brand ___ | Novel
 nil: Zero | Nothing | Score of nothing
-nip: Bite | Pinch | Chill in the air
+nip: Bite | Pinch | Chill in the air | Small sip of spirits | Quick trip, as to the shops
 nod: Head motion | Agree silently | Doze off
 nor: And not | Neither's partner | Or not
 not: In no way | Negative word | By no means | Nay | Hardly | Never
@@ -2480,7 +2480,7 @@ adze: Wood-shaping tool
 agog: Eager | All excited
 aloe: Soothing plant | ___ vera | Succulent for sunburn | Gel plant | Burn-soothing succulent
 apse: Church recess
-asps: Small snakes
+asps: Small snakes | Venomous Nile snakes | Desert vipers
 auks: Arctic seabirds
 awls: Hole-punching tools
 bunt: Soft hit in baseball
@@ -2962,7 +2962,7 @@ tics: Nervous habits
 tyke: Little one
 adze: Axe-like tool
 apse: Domed church end
-asps: Cleopatra's snakes | Egyptian snakes | Cleopatra's killers | Small vipers
+asps: Egyptian snakes | Small vipers
 auks: Puffin relatives
 awls: Leather punches
 bunt: Tap the ball in baseball
@@ -3253,7 +3253,7 @@ acme: Peak | High point
 activity: Pastime | Bustle
 adapt: Adjust | Rework for the screen
 alike: Similar | In the same way
-alive: Living | Full of energy
+alive: Full of energy | Breathing
 aloes: Succulent plants | Soothing gel sources
 alongside: Next to | Side by side with
 ameliorate: Make better | Improve
@@ -3736,7 +3736,7 @@ ballads: Love songs | Story songs
 beeline: Straight route | Direct path
 bell: Ringer | Doorbell | Church sound
 beseech: Implore | Beg
-boar: Wild pig | Male hog
+boar: Wild pig | Tusked forest beast | Bristly wild swine
 brine: Salt water | Pickling liquid
 bug: Insect | Glitch | Annoy
 cant: Jargon | Hypocritical talk
@@ -4546,7 +4546,7 @@ ell: Old measure of cloth | L-shaped wing of a building | Old cloth measure | Bu
 cee: Third letter of the alphabet | Letter after bee | Middling grade | Curved letter | Average mark | Roman hundred | Grade below B | Crescent-shaped letter
 axe: Woodcutter's tool | Cut, as jobs
 ave: Hail, in Latin | Road, on a map, briefly | Hail Mary opening | Prayer to Mary | Welcome, in Latin
-asp: Cleopatra's snake | Small venomous viper | Egyptian cobra | Venomous serpent | Viper of the Nile
+asp: Small venomous viper | Egyptian cobra | Venomous serpent | Viper of the Nile | Nile viper
 ala: In the style of, from French | ___ carte | Wing, in anatomy | In the manner of | Winglike part
 aga: Ottoman commander | Range cooker brand | Turkish title | Turkish chief | Old Ottoman officer | Cast-iron stove make
 tsar: Russian emperor | Policy supremo, informally
@@ -5252,7 +5252,7 @@ relieves: Eases | Takes over from
 ranges: Mountain chains | Stoves
 kestrels: Small falcons | Hovering birds of prey
 angers: Infuriates | Riles
-sassy: Cheeky | Lippy
+sassy: Cheeky | Lippy | Full of attitude | Brash and bold
 saltines: Crackers | Salted biscuits
 yelps: Short cries | Puppy squeals
 stains: Marks | Wood finishes
@@ -6748,3 +6748,32 @@ thatch: Straw roofing | Mop of hair
 calyx: Ring of sepals | Flower's outer whorl
 tripe: Nonsense | Stomach lining as food
 gaits: Walking styles | Ways of moving
+vaccines: Jabs at the clinic | Flu shots, e.g.
+inhalants: Breathed-in medicines | Asthma remedies, some
+stillborn: Failed from the start, as a scheme | Doomed at birth, as a plan
+tatty: Shabby | Worn and frayed
+term: School period | Word for a concept
+tester: Trial sample | Quality checker
+readouts: Instrument displays | Dial figures
+unmanly: Lacking bravado, old-style | Not macho
+arrives: Turns up | Gets there
+blenders: Smoothie makers | Kitchen mixers
+thresh: Beat grain from husks | Separate wheat from chaff
+hazes: Mists | Murky air layers
+retaining: Keeping | Holding back
+remnants: Leftovers | Fabric offcuts
+chirp: Cheep | Cricket's sound
+calms: Soothes | Settles down
+enormity: Sheer scale | Great wickedness
+strains: Pulls a muscle | Pours through a sieve
+attentive: Alert | Heedful
+retriever: Gun dog | Labrador, e.g.
+earns: Makes, as wages | Deserves
+rusts: Corrodes | Goes orange with age, as iron
+enchilada: Tortilla bake | Rolled Mexican dish
+amortizes: Pays off in instalments | Writes down, as a debt
+alienate: Estrange | Turn against
+browner: More tanned | Darker, as toast
+rosin: Sticky stuff for a cellist's bow | Pine gum for strings
+taint: Pollute | Spoil
+nab: Snatch | Collar, as a thief

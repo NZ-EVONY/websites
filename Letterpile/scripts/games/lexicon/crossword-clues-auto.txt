@@ -503,7 +503,6 @@ alderman: Member of a municipal legislative body
 alerting: State of readiness to respond
 alfresco: In the open air | Outside | Outdoors | Outside a building
 alien: Foreigner | Stranger | Unknown | Transfer property or ownership
-alienate: Transfer property or ownership
 alienation: Separation resulting from hostility
 aliens: Foreigners | Strangers | Unknowns
 alight: Perch | To come to rest, settle | Climb down | Come down
@@ -951,7 +950,6 @@ arrangers: Organizers | Adapters | Orchestrators | Organisers
 arraying: Displaying | Ranging
 arresting: Sensational | Stunning | Commanding attention
 arrival: Reaching
-arrives: Comes
 arriving: Coming
 arrogance: Haughtiness
 arrogate: Claim | Lay claim | Make undue claims to having
@@ -1144,7 +1142,6 @@ attender: Listener | Auditor | Tender
 attending: Attention | Act of being present
 attention: Attending | Care | Tending
 attentions: Cares
-attentive: Taking heed
 attenuate: Weaken the consistency of | Faded | Reduced in strength
 attenuated: Of an electrical signal | Faded | Reduced in strength
 attenuation: Fading | Weakening in force or intensity | Property of something
@@ -2732,7 +2729,6 @@ calmed: Quieted | Tranquilized | Stilled | Steadied
 calming: Appeasement | Act of appeasing
 calmly: With self-possession | In a sedate manner
 calmness: Composure | Equanimity | Absence of strong winds or rain
-calms: Composures | Equanimities | Quiets | Tranquilizes
 caloric: Thermal | Relating to or associated with heat
 calorific: Heat-generating
 calumniate: Defame | Slander | Denigrate | Charge falsely or with malicious intent
@@ -3276,7 +3272,6 @@ chipper: Debonair | Jaunty
 chipping: Splintering
 chips: French fries | Fries
 chiropodist: Foot doctor | Specialist in care for the feet
-chirp: Cheep | Make high-pitched sounds | Sing in modulation
 chirped: Cheeped
 chirping: Cheeping
 chirps: Cheeps
@@ -7055,7 +7050,6 @@ ennobled: Dignified | Gentled
 ennoblement: State of being noble
 ennobles: Dignifies | Gentles
 ennobling: Dignifying | Investing with dignity or honor | Exalting | Tending to exalt
-enormity: Quality of being outrageous | Vastness of size or extent
 enormous: Tremendous
 enormously: Hugely | Extremely
 enough: Adequate quantity | Adequate | Sufficient for the purpose | Plenty
@@ -9952,7 +9946,6 @@ hazards: Jeopardies | Perils | Risks | Lucks
 haze: Atmospheric moisture or dust or smoke | Daze | Become hazy, dull, or cloudy
 hazelnut: Cob
 hazelnuts: Cobs
-hazes: Dazes
 hazily: Through a haze | In an indistinct way
 hazy: Misty | Bleary | Blurred | Foggy
 header: Horizontal beam
@@ -13803,7 +13796,6 @@ mystifying: Cryptic | Inscrutable | Mysterious | Of an obscure nature
 myth: Traditional story accepted as history
 mythic: Fabulous
 mythical: Fabulous
-nab: Collar | Nail | Apprehend | Arrest
 nabbing: Collaring | Nailing | Apprehending | Arresting
 nadir: Extreme state of adversity | Point below the observer
 nagged: Pestered | Badgered
@@ -17887,7 +17879,6 @@ retrial: New trial
 retribution: Justly deserved penalty | Act of correcting for your wrongdoing
 retrieve: Recover | Regain | Get or find back | Go for and bring back
 retrieved: Recovered | Regained
-retriever: Dog with heavy water-resistant coat
 retrieves: Recovers | Regains
 retrieving: Recovering | Regaining
 retroactive: Affecting things past
@@ -18175,7 +18166,6 @@ rosary: Prayer beads
 rosebud: Pretty young girl
 rosemary: Extremely pungent leaves
 roses: Flowers | Increaseds
-rosin: Resin
 rosiness: Blush | Flush
 roster: Roll | List of names
 rosters: Rolls
@@ -18319,7 +18309,6 @@ rustic: Hick | Awkwardly simple and provincial
 rustle: Whisper | Whispering | Light noise | Make a dry crackling sound
 rustler: Cattle thief | Someone who steals livestock
 rustling: Stealing of cattle | Whisper | Whispering | Light noise
-rusts: Corrodes
 rutabaga: Yellow turnip | Turnip cabbage
 ruthless: Pitiless | Remorseless | Without mercy or pity
 rutted: Full of ruts
@@ -20307,7 +20296,6 @@ stigmatized: Branded | Denounced
 stigmatizes: Brands | Denounces
 stillbirth: Miscarriage
 stillbirths: Miscarriages
-stillborn: Failing to accomplish an intended result
 stilled: Calmed | Quieted | Tranquilized | Hushed
 stilling: Calming | Quieting | Tranquilizing | Hushing
 stillness: Hush | Tranquil silence | Calmness without winds
@@ -20401,7 +20389,6 @@ straggly: Sprawling | Rambling
 strain: Strive | To exert much effort or energy | Test the limits of
 strained: Labored | Lacking natural ease
 straining: Intense or violent exertion | Twisting | Arduous | Strenuous
-strains: Strives
 strait: Narrow
 straiten: Distress | Squeeze together
 straitened: Distressed
@@ -21055,7 +21042,6 @@ tailored: Severely simple in line or design | Custom-made
 tailors: Adapts
 tails: Dress suit | Full dress | White tie
 tailspin: Loss of emotional control
-taint: Defile | Infect
 tainted: Touched by rot or decay
 tainting: Defiling | Infecting
 taints: Defiles | Infects
@@ -21155,7 +21141,6 @@ tattletales: Telltales | Snitches
 tattooed: Inked
 tattooing: Inking
 tattoos: Inks
-tatty: Ratty | Shabby | Showing signs of wear and tear | Brassy
 taunt: Tease | Cod | Tantalize | Bait
 taunted: Teased | Codded | Tantalized | Baited
 taunting: Jeering | Mocking
@@ -21279,7 +21264,6 @@ tenting: Camping
 tenuous: Having thin consistency | Very thin in gauge or diameter
 tenure: Right to hold property | Give life-time employment to
 tepid: Lukewarm | Moderately warm
-term: Word or expression | Limited period of time
 termagant: Shrew | Scolding nagging bad-tempered woman
 termagants: Shrews
 terminal: Depot | Contact on an electrical device at
@@ -21306,7 +21290,6 @@ tersely: In a short and concise manner
 tertiary: Third
 testament: Profession of belief
 testate: Person who makes a will
-tester: Examiner | Flat canopy
 testified: Evidenced
 testifies: Evidences
 testify: Bear witness | Evidence | Provide evidence for
@@ -21417,7 +21400,6 @@ threefold: Treble | Triple | Double | Dual
 threescore: Sixty | Being ten more than fifty
 threnodies: Dirges | Laments | Requiems
 threnody: Dirge | Lament | Requiem
-thresh: Thrash | Thrash about | Move or stir about violently | Flail
 threshed: Thrashed | Flailed
 thresher: Fox shark
 threshes: Thrashes | Flails
@@ -22515,7 +22497,6 @@ unloved: Not loved
 unluckily: Regrettably | Alas | By bad luck
 unlucky: Having or bringing misfortune | Marked by or promising bad fortune
 unmaking: Undoing
-unmanly: Not possessing qualities befitting a man
 unmanned: Lacking a crew
 unmannerly: Rude | Socially incorrect in behavior
 unmarked: Not having an identifying mark | Overlooked | Not taken into account
