@@ -5,7 +5,7 @@
 # data.adj ca1033bf627eb95f6cbb2864f8990be8e6a01a3c182e7d7c7094ccf8ead242cc
 # data.adv aea301f39ac1b24be9a880dbc6cc6331bc5391f58c7525a1b298a13c922f2ed3
 # Do not edit by hand: put a better clue in crossword-clues.txt (hand-written clues are used
-# first) or ban the word in crossword-banned.txt. 24030 words.
+# first) or ban the word in crossword-banned.txt. 24014 words.
 aardvark: Ant bear
 abandon: Trait of lacking restraint or control | Wildness | Feeling of extreme emotional intensity | Forsake, leave behind
 abandoned: Derelict | Deserted | Forsaken by owner or inhabitants
@@ -148,7 +148,6 @@ acclimate: Get used to a certain climate
 acclimation: Adaptation to a new climate
 acclimatize: Get used to a certain climate
 accolade: Award | Honor | Laurels | Tangible symbol signifying approval or distinction
-accolades: Awards | Honors
 accommodate: Suit | Fit | Be agreeable or acceptable to | Adapt
 accompanied: Having companions or an escort | Attended
 accompany: Come with | Go or travel along with
@@ -223,7 +222,6 @@ acrobatic: Athletic | Vigorously active
 acrobatics: Tumbling | Stunting | Stunt flying
 acrobats: Tumblers
 acrostic: Word square
-acting: Performing | Serving temporarily especially as a substitute
 actions: Sues | Accomplishes | Fulfills | Deeds
 activate: Trigger | Set off | Spark off | Spark
 activated: Made reactive or more reactive
@@ -296,7 +294,6 @@ admission: Admittance | Act of admitting someone to enter
 admissions: Admittances
 admits: Acknowledges | Confesses
 admittance: Access | Right to enter | Admission
-admitted: Acknowledged | Confessed
 admittedly: True
 admitting: Acknowledging | Confessing
 admixture: Alloy | Additional ingredient
@@ -983,7 +980,6 @@ artists: Painters | Performers
 artless: Simple and natural
 artlessness: Innocence | Naturalness
 artwork: Graphics
-ascend: Travel up
 ascendancy: Dominance
 ascendant: Ancestor | Someone from whom you are descended | Tending or directed upward | Dominating
 ascendants: Ancestors
@@ -1002,7 +998,6 @@ ascribing: Attributing
 ascription: Attribution | Assigning to a cause or source
 ashamedly: With a feeling of shame
 ashcan: Trash can | Garbage can | Dustbin | Trash barrel
-ashcans: Dustbins
 ashen: Blanched | Livid | Anemic looking from illness or emotion
 asinine: Fatuous | Inane | Extremely silly or stupid
 askance: Squint | Sidelong | With suspicion or disapproval | With a side or oblique glance
@@ -1158,7 +1153,6 @@ attesting: Certifying | Manifesting | Evidencing | Vouching
 attests: Certifies | Manifests | Evidences | Vouches
 attic: Loft | Garret
 attics: Lofts | Garrets
-attired: Appareled | Dressed | Garbed | Robed
 attiring: Garbing
 attitude: Posture
 attitudes: Postures
@@ -1885,7 +1879,6 @@ bisection: Dividing into two equal parts
 bishopric: Diocese
 bishoprics: Dioceses
 bisque: Thick cream soup made from shellfish
-bistro: Small informal restaurant
 biting: Barbed | Nipping | Pungent | Capable of wounding
 bitingly: Bitter | Extremely and sharply
 bitter: Acrimonious | Marked by strong resentment or cynicism | Very difficult to accept or bear | Extremely and sharply
@@ -3489,7 +3482,6 @@ clearness: Clarity
 cleat: Metal or leather projection | Fastener around
 cleave: Split | Separate or cut with a tool | Make by cutting into
 cleavers: Goose grass
-cleaves: Splits
 cleaving: Splitting
 cleft: Split or indentation in something | Crack | Crevice | Fissure
 clefts: Cracks | Crevices | Fissures
@@ -3620,7 +3612,6 @@ coagulates: Clots
 coagulating: Clotting
 coagulation: Curdling | Clotting
 coal: Ember | Char | Burn to charcoal
-coalesce: Mix | Fuse | Merge | Mix together different elements
 coalesced: Amalgamate | Amalgamated | Fused | Joined together into a whole
 coalesces: Mixes | Fuses | Merges
 coalescing: Growing together, fusing
@@ -4403,7 +4394,6 @@ corn: Maize | Preserve with salt
 cornbread: Bread made primarily of cornmeal
 corncob: Hard cylindrical core
 corned: Cured in brine
-corner: Gain control over | Tree
 cornered: Trapped | Treed
 cornering: Treeing
 corners: Trees
@@ -4421,7 +4411,6 @@ corporate: Embodied | Incarnate | Possessing or existing in bodily form
 corporeal: Bodily
 corpulence: Overweight
 corpulent: Excessively fat
-corpus: Principal sum | Collection of writings
 corpuscle: Atom | Molecule | Particle | Speck
 corpuscles: Atoms | Molecules | Particles | Specks
 corral: Cow pen | Cattle pen | Pen for cattle | Arrange wagons so
@@ -6243,7 +6232,6 @@ divides: Watersheds | Splits | Fractions
 dividing: Splitting | Fractioning
 divination: Prophecy
 divine: Cleric | Godly | Emanating from God
-divines: Clerics
 diving: Dive | Headlong plunge into water
 divinities: Deities | Immortals
 divinity: Deity | Immortal
@@ -7488,7 +7476,6 @@ exemption: Freedom | Immunity from an obligation or duty
 exemptions: Freedoms
 exempts: Excuses
 exercising: Physical exertion | Workout
-exert: Put to use | Wield
 exerted: Wielded
 exerting: Exercising | Wielding
 exertion: Effort | Elbow grease | Use of physical or mental energy
@@ -7824,7 +7811,6 @@ fanciful: Imaginary | Notional | Not based on fact
 fancy: Illusion | Imagination or fantasy | Visualize | Picture
 fancying: Visualizing | Picturing | Imaging
 fanfare: Ostentation | Gaudy outward display
-fanfares: Ostentations
 fang: Appendage of insects
 fans: Admirers | Supporters
 fantasize: Portray in the mind
@@ -8684,7 +8670,6 @@ fractions: Divides
 fractious: Cranky | Irritable | Peevish | Petulant
 fractiously: In a peevish manner
 fracture: Faulting | Geological fault | Violate or abuse | Interrupt, break, or destroy
-fragile: Easily broken or damaged or destroyed
 fragility: Lack of physical strength
 fragment: Broken piece of a brittle artifact
 fragmented: Split | Having been divided
@@ -8980,7 +8965,6 @@ gains: Increases | Profits | Derives | Wins
 gainsaying: Challenging | Disputing | Contradicting | Denying
 gainsays: Challenges | Disputes | Contradicts | Denies
 gait: Pace | Rate of moving | Horse's manner of moving
-gaits: Paces
 gala: Jamboree | Gay festivity
 galas: Jamborees
 gall: Saddle sore | Skin sore caused by chafing | Chafe | Irk
@@ -9047,7 +9031,6 @@ garner: Earn | Store grain
 garnered: Earned
 garnering: Earning
 garners: Earns
-garnish: Decorate 
 garret: Loft | Attic
 garrets: Lofts | Attics
 garrison: Fort
@@ -10091,7 +10074,6 @@ hemming: Edging | Bordering | Seaming
 hemorrhage: Bleeding | Shed blood | Bleed | Lose blood from one's body
 hemorrhages: Bleedings | Bleeds
 hemorrhoid: Piles
-hence: Therefore | Thus | From this place
 henceforth: From this time forth
 henchman: Confederate | Someone who assists in a plot
 henpecked: Dominated | Harassed by persistent nagging
@@ -10384,7 +10366,6 @@ hotheads: Daredevils | Madcaps | Lunatics
 hothouse: Indoor garden
 hotly: Heatedly | In a heated manner
 hotshot: Adept | Sensation | Virtuoso | Star
-hotshots: Adepts | Sensations | Virtuosos | Stars
 hound: Any of several breeds of dog | Cad | Hunt
 hounded: Hunted
 hounding: Hunting
@@ -10797,7 +10778,6 @@ impossible: Something that cannot be done | Totally unlikely
 impostor: Pretender | Fake | Fraud | Sham
 impostors: Pretenders | Fakes | Frauds | Shams
 imposture: Pretending to be another person
-impotently: Helplessly | In a helpless manner
 impoverish: Make poor | Take away
 impractical: Not practical | Airy | Visionary | Windy
 imprecation: Act of calling down a curse
@@ -14820,7 +14800,6 @@ paleness: Pallor
 pales: Blanches | Wans
 palimpsest: Manuscript on
 palindrome: Word or phrase
-paling: Picket fence | Fence made of upright pickets
 palisade: Wall
 palisades: Walls
 pall: Sudden numbing dread | Burial garment | Become less interesting or attractive | Daunt
@@ -15766,7 +15745,6 @@ podium: Dais | Pulpit | Rostrum
 podiums: Daises | Pulpits | Rostrums
 pods: Cods
 poem: Verse form
-poet: Writer of poems
 poetry: Verse
 poignancy: Pathos | Quality that arouses emotions
 poignant: Affecting | Touching | Arousing affect
@@ -15776,7 +15754,6 @@ pointer: Arrow | Indicator as on a dial
 pointers: Arrows
 pointing: Indicating | Orienting
 pointless: Superfluous | Wasted | Serving no useful purpose
-points: Indicates | Orients
 poise: Be motionless, in suspension | Brace | Prepare for something unpleasant or difficult
 poised: Collected | In full control of your faculties
 poising: Bracing
@@ -16026,7 +16003,6 @@ prearrange: Arrange beforehand
 precarious: Affording no ease or reassurance | Perilous | Fraught with danger
 precaution: Safeguard | Trait of practicing caution in advance
 precautions: Safeguards
-precede: Forego | Forgo | Be earlier in time | Come before
 precedence: Priority
 preceding: Existing or coming before | Past | Retiring
 precept: Rule of personal conduct | Teaching | Commandment | Doctrine that is taught
@@ -16298,7 +16274,6 @@ prodigal: Recklessly extravagant consumer | Extravagant | Spendthrift | Reckless
 prodigality: High life | Excessive spending
 prodigies: Omens | Portents | Wunderkinds | Marvels
 prodigious: Colossal | Stupendous
-prods: Goads | Spurs | Nudges | Pokes
 product: Merchandise | Commodities offered for sale
 products: Merchandises
 profanation: Desecration | Blasphemy | Sacrilege | Blasphemous behavior
@@ -17817,7 +17792,6 @@ responding: Reacting | Answering | Replying
 responds: Reacts | Answers | Replies
 response: Result
 responsible: Being the agent or cause
-rest: Remainder | Residual | Residue | Repose
 restarting: Resuming | Rebooting
 restarts: Resumes | Reboots
 restate: Repeat | Reiterate | Iterate | To say, state, or perform again
@@ -18116,7 +18090,6 @@ rivers: Streams | Waterways
 riveting: Absorbing | Engrossing | Fascinating | Gripping
 rivulet: Small stream
 roach: Cut the mane off
-roadblock: Barrier | Any condition | Barricade
 roadblocks: Barriers | Barricades
 roadkill: Dead body of an animal
 roads: Partly sheltered anchorage
@@ -19777,7 +19750,6 @@ solves: Cracks | Answers
 solving: Finding a solution to a problem
 somebodies: Persons | Individuals | Someones | Mortals
 somebody: Person | Individual | Mortal | Soul
-someone: Person | Individual | Mortal | Soul
 someplace: Somewhere
 somersault: Flip | Acrobatic feat
 somersaults: Flips
@@ -20606,7 +20578,6 @@ submersing: Submerging
 submersion: Submerging | Immersion | Sinking until covered completely with water | Ducking
 submission: Act of submitting
 submissive: Slavish
-submit: State | Put forward | Put before
 submits: States
 submitted: Stated
 submitting: Stating
@@ -20707,7 +20678,6 @@ suggests: Proposes | Hints
 suitability: Quality of having the properties
 suitable: Desirable | Worthy | Worthy of being chosen
 suitably: Duly
-suitcase: Traveling bag | Portable rectangular container for carrying clothes
 suitor: Man who courts a woman
 sulfurous: Acid | Acrid | Blistering | Caustic
 sulk: Pout
@@ -20919,7 +20889,6 @@ swamp: Drench | Deluge | Flood | Inundate
 swamped: Drenched | Deluged | Flooded | Inundated
 swamping: Drenching | Deluging | Flooding | Inundating
 swamps: Drenches | Deluges | Floods | Inundates
-swampy: Marshy | Muddy | Soggy | Waterlogged
 swanked: Flaunted
 swanking: Flaunting
 swans: Affirms | Asserts | Avows | Swears
@@ -21288,13 +21257,12 @@ tenants: Renters | Occupants
 tended: Inclined
 tendencies: Inclinations | Leanings | Propensities
 tendency: Inclination | Attitude of mind | Leaning | Propensity
-tender: Attendant | Offer or present for acceptance | Bid | Propose a payment
-tendered: Bided
-tendering: Bidding
+tendered: Bided | Gentled
+tendering: Bidding | Gentling
 tenderloin: Combat zone | Undercut
 tenderloins: Undercuts
 tenderness: Pain that is felt
-tenders: Attendants | Bids
+tenders: Attendants | Bids | Gentles
 tending: Care | Attention | Apt | Disposed
 tendon: Sinew
 tendons: Sinews
@@ -21360,7 +21328,6 @@ thallium: Soft grey malleable metallic element
 thankful: Grateful | Feeling or showing gratitude
 thankfully: Gratefully
 thankless: Ungrateful | Not feeling or showing gratitude | Not likely to be rewarded
-thatch: Plant stalks used as roofing material
 thaw: Melt | Melting | Warming | Warm weather following a freeze
 thawed: No longer frozen solid | No longer frozen
 thawing: Melt | Melting | Warming | Warm weather following a freeze
@@ -21943,7 +21910,6 @@ trimming: Act of adding decoration | Decoration or adornment on a garment
 trimmings: Accessories that normally accompany
 trimness: State of arrangement or appearance
 trims: Neats | Cuts | Decorates
-tripe: Rubbish | Nonsensical talk or writing
 tripled: Trebled
 triples: Trebles | Threefolds
 triplicate: One of three copies
