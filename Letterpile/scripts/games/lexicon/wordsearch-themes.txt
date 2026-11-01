@@ -63,7 +63,7 @@ heart lungs brain liver kidney stomach skeleton muscle skin intestine elbow knee
 ## What to Wear
 shirt jacket sweater trousers jeans skirt dress scarf mittens gloves beanie boots sandals sneakers socks pajamas raincoat hoodie vest belt blouse overalls cardigan shorts swimsuit slippers poncho bowtie tuxedo sunhat dungarees turtleneck
 
-## Colors
+## Colours
 orange yellow green blue indigo violet purple pink brown black white gray silver gold turquoise magenta crimson scarlet maroon navy teal lavender beige ivory amber olive emerald sapphire charcoal coral chartreuse aquamarine vermilion
 
 ## Sweet Treats

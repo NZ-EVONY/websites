@@ -68,7 +68,11 @@ function chooseWords(r, theme) {
   return [...long, ...rest].sort((a, b) => b.letters.length - a.letters.length);
 }
 
+// Seasonal themes only run in their New Zealand season (months 1-12).
+const SEASON = { "Snowy Winter": [6, 7, 8], "Autumn Days": [3, 4, 5], "Back to School": [2, 3, 4, 5, 6, 7, 8, 9, 10] };
+export const inSeason = (name, date) => !SEASON[name] || SEASON[name].includes(+date.slice(5, 7));
 export function pickTheme(date, history, all = themes()) {
+  all = all.filter(t => inSeason(t.name, date));
   const last = new Map(history.map(p => [p.theme, p.date]));
   const free = all.filter(t => !last.has(t.name) || daysBetween(last.get(t.name), date) >= THEME_GAP);
   if (!free.length) throw new Error(`Every word search theme was used in the last ${THEME_GAP} days; add themes to lexicon/wordsearch-themes.txt.`);
